@@ -37,9 +37,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+// these were the original settings from the Vial
 //#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 180
+//#define TAPPING_TERM 150
+
+// syncing up with Waka QMK Settings Tap-Hold configuration
+// additional details on these configurations:  https://docs.qmk.fm/#/config_options?id=behaviors-that-can-be-configured
+#define TAPPING_TERM 150
+#undef PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
+#undef TAPPING_FORCE_HOLD
+#undef RETRO_TAPPING
+#define TAP_CODE_DELAY 10
+#define TAP_HOLD_CAPS_DELAY 80
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING

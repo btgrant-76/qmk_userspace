@@ -47,16 +47,49 @@ enum {
     TD_F12,
 };
 
+// Layer Keys
+#define ESC_L1 LT(1,KC_ESC)
+#define G_NUM LT(1,KC_G)
+#define H_SYM LT(2,KC_H)
+
+// Mod Tap
+#define A_CTL LCTL_T(KC_A)
+#define S_ALT LALT_T(KC_S)
+#define D_GUI LGUI_T(KC_D)
+#define F_SFT LSFT_T(KC_F)
+#define J_SFT RSFT_T(KC_J)
+#define K_GUI RGUI_T(KC_K)
+#define L_CTL RALT_T(KC_L)
+#define SCLN_CTL RCTL_T(KC_SCLN)
+#define SPC_MEH MEH_T(KC_SPC)
+#define SLSH_ALL ALL_T(KC_SLSH)
+#define COLON LSFT(KC_SCLN)
+
+// Other shortcuts
+#define BACK LCMD(KC_LBRC)
+#define FWD LCMD(KC_RBRC)
+
+// Tap Dances
+#define GRAV_TD TD(TD_GRAV)
+#define RPRN_TD TD(TD_RPRN)
+#define RBRC_TD TD(TD_RBRC)
+#define RCBR_TD TD(TD_RCBR)
+#define F1_TD TD(TD_F1)
+#define F2_TD TD(TD_F2)
+#define F6_TD TD(TD_F6)
+#define F9_TD TD(TD_F9)
+#define F12_TD TD(TD_F12)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-LT(1,KC_ESC),LCTL_T(KC_A),LALT_T(KC_S),LGUI_T(KC_D),LSFT_T(KC_F),LT(1,KC_G),   LT(2,KC_H),RSFT_T(KC_J),RGUI_T(KC_K),RALT_T(KC_L),RCTL_T(KC_SCLN),ALL_T(KC_QUOT),
+       ESC_L1,   A_CTL,   S_ALT,   D_GUI,   F_SFT,   G_NUM,                        H_SYM,   J_SFT,   K_GUI,   L_CTL,SCLN_CTL, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT,SLSH_ALL,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    LCMD(KC_LBRC),   MO(2), KC_LSFT,MEH_T(KC_SPC), MO(3),LCMD(KC_RBRC)
+                                             BACK,   MO(2), KC_LSFT,    SPC_MEH,   MO(3),     FWD
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -65,7 +98,7 @@ LT(1,KC_ESC),LCTL_T(KC_A),LALT_T(KC_S),LGUI_T(KC_D),LSFT_T(KC_F),LT(1,KC_G),   L
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_VOLU, KC_MUTE, XXXXXXX,LSFT(KC_SCLN),KC_BRIU,                  KC_SLSH,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_PENT,
+      XXXXXXX, KC_VOLU, KC_MUTE, XXXXXXX,   COLON, KC_BRIU,                      KC_SLSH,    KC_4,    KC_5,    KC_6, KC_PMNS, KC_PENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_VOLD, XXXXXXX, KC_MPRV, KC_MNXT, KC_BRID,                      KC_PAST,    KC_1,    KC_2,    KC_3, KC_PPLS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -75,9 +108,9 @@ LT(1,KC_ESC),LCTL_T(KC_A),LALT_T(KC_S),LGUI_T(KC_D),LSFT_T(KC_F),LT(1,KC_G),   L
 
   [2] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-  TD(TD_GRAV), KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,TD(TD_RPRN),KC_DEL,
+      GRAV_TD, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, RPRN_TD,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_PIPE, KC_BSLS, KC_PLUS, KC_EQL , XXXXXXX,                       KC_EQL, KC_LBRC,TD(TD_RBRC),KC_LCBR,TD(TD_RCBR), KC_TILD,
+      KC_LCTL, KC_PIPE, KC_BSLS, KC_PLUS, KC_EQL , XXXXXXX,                       KC_EQL, KC_LBRC, RBRC_TD, KC_LCBR, RCBR_TD, KC_TILD,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, RGB_VAI, RGB_SAI, RGB_HUI, RGB_TOG,RGB_RMOD,                      KC_PLUS, KC_MINS, KC_UNDS, KC_PIPE, KC_BSLS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -87,7 +120,7 @@ LT(1,KC_ESC),LCTL_T(KC_A),LALT_T(KC_S),LGUI_T(KC_D),LSFT_T(KC_F),LT(1,KC_G),   L
 
   [3] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-    TD(TD_F1),TD(TD_F2),  KC_F3,   KC_F4,   KC_F5,TD(TD_F6),                       KC_F7,   KC_F8,TD(TD_F9), KC_F10,  KC_F11,TD(TD_F12),
+        F1_TD,   F2_TD,   KC_F3,   KC_F4,   KC_F5,   F6_TD,                        KC_F7,   KC_F8,   F9_TD,  KC_F10,  KC_F11,  F12_TD,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_CAPS, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, KC_PGUP,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
