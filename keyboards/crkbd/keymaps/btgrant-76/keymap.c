@@ -65,6 +65,7 @@ enum {
 #define H_SYM LT(2,KC_H)
 
 // Mod Tap
+/// Home Row Mods
 #define A_CTL LCTL_T(KC_A)
 #define S_ALT LALT_T(KC_S)
 #define D_GUI LGUI_T(KC_D)
@@ -73,8 +74,19 @@ enum {
 #define K_GUI RGUI_T(KC_K)
 #define L_CTL RALT_T(KC_L)
 #define SCLN_CTL RCTL_T(KC_SCLN)
+
+/// Others
+#define Z_CTL LCTL_T(KC_Z)
+#define X_ALT LALT_T(KC_X)
+#define DOT_ALT LALT_T(KC_DOT)
+#define SLSH_CTL LCTL_T(KC_SLSH)
+
+#define ENT_SFT RSFT_T(KC_ENT)
 #define SPC_MEH MEH_T(KC_SPC)
-#define SLSH_ALL ALL_T(KC_SLSH)
+#define QUOT_ALL ALL_T(KC_QUOT)
+
+
+// Shifted Keys
 #define COLON LSFT(KC_SCLN)
 
 // Other shortcuts
@@ -97,11 +109,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       KC_ESC,   A_CTL,   S_ALT,   D_GUI,   F_SFT,   G_NUM,                        H_SYM,   J_SFT,   K_GUI,   L_CTL,SCLN_CTL, KC_QUOT,
+       KC_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,QUOT_ALL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT,SLSH_ALL,  KC_ENT,
+      KC_LSFT,   Z_CTL,   X_ALT,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_RALT, DOT_ALT,SLSH_CTL, ENT_SFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                             BACK,   RAISE, LOWER,    SPC_MEH,   ADJUST,     FWD
+                                          KC_LGUI,   RAISE,   LOWER,    SPC_MEH,  ADJUST, KC_RGUI
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -114,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_VOLD, XXXXXXX, KC_MPRV, KC_MNXT, KC_BRID,                      KC_PAST,    KC_1,    KC_2,    KC_3, KC_PPLS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, KC_MPLY, _______,    _______,    KC_0,  KC_DOT
+                                          _______, KC_MPLY, _______,    _______,    KC_0,  KC_DOT
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -134,11 +146,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         F1_TD,   F2_TD,   KC_F3,   KC_F4,   KC_F5,   F6_TD,                        KC_F7,   KC_F8,   F9_TD,  KC_F10,  KC_F11,  F12_TD,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_CAPS, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, KC_PGUP,
+      KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, KC_PGUP,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, SCRN2FL,SCRN2CLP,  UP_DIR, KC_PGDN,
+      _______, KC_LCTL, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, SCRN2FL,SCRN2CLP,  UP_DIR, KC_PGDN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, _______,     Z_MUTE, XXXXXXX, XXXXXXX
+                                          KC_LGUI, XXXXXXX, _______,     Z_MUTE, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   )
 };
