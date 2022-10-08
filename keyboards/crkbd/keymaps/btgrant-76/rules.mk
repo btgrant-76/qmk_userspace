@@ -1,5 +1,6 @@
 RGBLIGHT_ENABLE = yes    # Enable WS2812 RGB underlight.
 VIA_ENABLE      = no    # 2278 bytes
+NKRO_ENABLE		= yes
 OLED_ENABLE     = yes
 OLED_DRIVER     = SSD1306
 LTO_ENABLE      = yes

@@ -20,7 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-// TODO port from Vial
 // from QMK squeezing...
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE
@@ -68,4 +67,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_VAL_STEP 17
 #endif
 
-#define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
+//#define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
+
+// from soundmonster
+
+#define USE_SERIAL_PD2
+
+#ifdef OLED_ENABLE
+#   define SPLIT_LAYER_STATE_ENABLE
+#   define SPLIT_LED_STATE_ENABLE
+#   define SPLIT_MODS_ENABLE
+#   define SPLIT_OLED_ENABLE
+#   define OLED_FONT_H "keyboards/crkbd/keymaps/soundmonster/glcdfont.c"
+#   define OLED_TIMEOUT 30000
+#endif
