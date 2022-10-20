@@ -31,16 +31,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define USE_MATRIX_I2C
 
 /* Select hand configuration */
-
 #define MASTER_LEFT
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+
+// syncing up with Waka QMK Settings Tap-Hold configuration
 // these were the original settings from the Vial
 //#define TAPPING_FORCE_HOLD
 //#define TAPPING_TERM 150
-
-// syncing up with Waka QMK Settings Tap-Hold configuration
 // additional details on these configurations:  https://docs.qmk.fm/#/config_options?id=behaviors-that-can-be-configured
 #define TAPPING_TERM 150
 #undef PERMISSIVE_HOLD
