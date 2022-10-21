@@ -38,12 +38,7 @@ enum custom_keycodes {
     GRV_INST,  // type a pair of backticks & move the cursor between them
     PRN_INST,  // type a pair of parens move the cursor between them
     QUO_INST,
-    UP_DIR,
-    QWERTY,
-    LOWER,
-    RAISE,
-    ADJUST,
-    FUNC
+    UP_DIR
 };
 
 // Tap Dance declarations
@@ -114,7 +109,7 @@ enum {
 #define F12_TD TD(TD_F12)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_split_3x6_3(  // QUERTY
+  [_QWERTY] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -122,12 +117,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,   Z_CTL,   X_ALT,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM, DOT_ALT,SLSH_CTL, ENT_SFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   RAISE,   LOWER,     KC_SPC,  ADJUST,    FUNC
+                                          KC_LGUI,   MO(1),   MO(2),     KC_SPC,   MO(3),    MO(4)
                                       //`--------------------------'  `--------------------------'
 
   ),
 
-  [1] = LAYOUT_split_3x6_3(  // RAISE
+  [_RAISE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, RGB_VAI, RGB_SAI, RGB_HUI, RGB_TOG,RGB_RMOD,                      KC_LBRC,    KC_7,    KC_8,    KC_9, RBRC_TD, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -139,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [2] = LAYOUT_split_3x6_3(  // LOWER
+  [_LOWER] = LAYOUT_split_3x6_3(  // LOWER
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       GRAV_TD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, RCBR_TD,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -151,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [3] = LAYOUT_split_3x6_3( // NAV
+  [_ADJUST] = LAYOUT_split_3x6_3( // NAV
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         REDO,   PASTE,    COPY,     CUT,    UNDO, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -163,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [4] = LAYOUT_split_3x6_3( // FUN
+  [_FUNC] = LAYOUT_split_3x6_3( // FUN
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX,   KC_F7,   KC_F8,   F9_TD,  F12_TD, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  // TODO move macros in here
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -305,7 +300,12 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 };
 
 #ifdef OLED_ENABLE
-oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_270; }
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+  if (!is_keyboard_master()) {
+    return OLED_ROTATION_270;
+  }
+  return rotation;
+};
 
 void render_space(void) {
     oled_write_P(PSTR("     "), false);
@@ -482,253 +482,100 @@ void render_layer_state(void) {
     }
 }
 
+void oled_render_layer_state(void) {
+    oled_write_P(PSTR("Layer: "), false);
+
+    if(layer_state_is(_ADJUST)) {
+        oled_write_ln_P(PSTR("Nav"), false);
+    } else if(layer_state_is(_LOWER)) {
+        oled_write_ln_P(PSTR("Number"), false);
+    } else if(layer_state_is(_RAISE)) {
+        oled_write_ln_P(PSTR("Symbol"), false);
+    } else if(layer_state_is(_FUNC)) {
+        oled_write_ln_P(PSTR("Function"), false);
+    } else {
+        oled_write_ln_P(PSTR("Default"), false);
+    }
+}
+
+char keylog_str[24] = {};
+
+const char code_to_name[60] = {
+    ' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
+    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+    'R', 'E', 'B', 'T', '_', '-', '=', '[', ']', '\\',
+    '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
+
+void set_keylog(uint16_t keycode, keyrecord_t *record) {
+  char name = ' ';
+    if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) ||
+        (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) { keycode = keycode & 0xFF; }
+  if (keycode < 60) {
+    name = code_to_name[keycode];
+  }
+
+  // update keylog
+  snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
+           record->event.key.row, record->event.key.col,
+           keycode, name);
+}
+
+
+void oled_render_keylog(void) {
+    oled_write(keylog_str, false);
+}
+
 bool oled_task_user(void) {
-    // Renders the current keyboard state (layers and mods)
-    render_logo();
-    render_space();
-    render_layer_state();
-    render_space();
-    render_mod_status_gui_alt(get_mods()); // |get_oneshot_mods());
-    render_mod_status_ctrl_shift(get_mods()); // |get_oneshot_mods());
+    if (is_keyboard_master()) {
+        oled_render_layer_state();
+        oled_render_keylog();
+
+    } else {
+        // Renders the current keyboard state (layers and mods)
+        render_logo();
+        render_space();
+        render_layer_state();
+        render_space();
+        render_mod_status_gui_alt(get_mods()); // |get_oneshot_mods());
+        render_mod_status_ctrl_shift(get_mods()); // |get_oneshot_mods());
+    }
     return false;
 }
 
-#endif
-
-//bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//  static uint16_t my_colon_timer;
-//
-//  switch (keycode) {
-//    case LOWER:
-//      if (record->event.pressed) {
-//        layer_on(_LOWER);
-//        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-//      } else {
-//        layer_off(_LOWER);
-//        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-//      }
-//      return false;
-//    case RAISE:
-//      if (record->event.pressed) {
-//        layer_on(_RAISE);
-//        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-//      } else {
-//        layer_off(_RAISE);
-//        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-//      }
-//      return false;
-//    case ADJUST:
-//        if (record->event.pressed) {
-//          layer_on(_ADJUST);
-//        } else {
-//          layer_off(_ADJUST);
-//        }
-//        return false;
-//    case KC_RACL:
-//        if (record->event.pressed) {
-//          my_colon_timer = timer_read();
-//          register_code(KC_RALT);
-//        } else {
-//          unregister_code(KC_RALT);
-//          if (timer_elapsed(my_colon_timer) < TAPPING_TERM) {
-//            SEND_STRING(":"); // Change the character(s) to be sent on tap here
-//          }
-//        }
-//        return false;
-//    case RGBRST:
-//      #ifdef RGBLIGHT_ENABLE
-//        if (record->event.pressed) {
-//          eeconfig_update_rgblight_default();
-//          rgblight_enable();
-//          RGB_current_mode = rgblight_config.mode;
-//        }
-//      #endif
-//      #ifdef RGB_MATRIX_ENABLE
-//        if (record->event.pressed) {
-//          eeconfig_update_rgb_matrix_default();
-//          rgb_matrix_enable();
-//        }
-//      #endif
-//      break;
-//  }
-//  return true;
-//}
-
-//#ifdef OLED_ENABLE
-//oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-//  if (!is_keyboard_master()) {
-//    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
-//  }
-//  return rotation;
-//}
-//
-//#define L_BASE 0
-//#define L_LOWER 2
-//#define L_RAISE 4
-//#define L_ADJUST 8
-
-//void oled_render_layer_state(void) {
-//    oled_write_P(PSTR("Layer: "), false);
-//    switch (layer_state) {
-//        case L_BASE:
-//            oled_write_ln_P(PSTR("Default"), false);
-//            break;
-//        case L_LOWER:
-//            oled_write_ln_P(PSTR("Number"), false);
-//            break;
-//        case L_RAISE:
-//            oled_write_ln_P(PSTR("Symbol"), false);
-//            break;
-//        case L_ADJUST:
-//        case L_ADJUST|L_LOWER:
-//        case L_ADJUST|L_RAISE:
-//        case L_ADJUST|L_LOWER|L_RAISE:
-//            oled_write_ln_P(PSTR("Function"), false);
-//            break;
-//    }
-//}
-//
-//char keylog_str[24] = {};
-//
-//const char code_to_name[60] = {
-//    ' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
-//    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-//    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-//    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-//    'R', 'E', 'B', 'T', '_', '-', '=', '[', ']', '\\',
-//    '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
-//
-//void set_keylog(uint16_t keycode, keyrecord_t *record) {
-//  char name = ' ';
-//    if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) ||
-//        (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) { keycode = keycode & 0xFF; }
-//  if (keycode < 60) {
-//    name = code_to_name[keycode];
-//  }
-//
-//  // update keylog
-//  snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
-//           record->event.key.row, record->event.key.col,
-//           keycode, name);
-//}
-//
-//void oled_render_keylog(void) {
-//    oled_write(keylog_str, false);
-//}
-//
-//void render_bootmagic_status(bool status) {
-//    /* Show Ctrl-Gui Swap options */
-//    static const char PROGMEM logo[][2][3] = {
-//        {{0x97, 0x98, 0}, {0xb7, 0xb8, 0}},
-//        {{0x95, 0x96, 0}, {0xb5, 0xb6, 0}},
-//    };
-//    if (status) {
-//        oled_write_ln_P(logo[0][0], false);
-//        oled_write_ln_P(logo[0][1], false);
-//    } else {
-//        oled_write_ln_P(logo[1][0], false);
-//    }
-//}
-//
-//void oled_render_logo(void) {
-//    static const char PROGMEM crkbd_logo[] = {
-//        0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94,
-//        0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb3, 0xb4,
-//        0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4,
-//        0};
-//    oled_write_P(crkbd_logo, false);
-//}
-//
-//bool oled_task_user(void) {
-//    if (is_keyboard_master()) {
-//        oled_render_layer_state();
-//        oled_render_keylog();
-//    } else {
-//        oled_render_logo();
-//    }
-//    return false;
-//}
-//#endif // OLED_ENABLE
-
-
-// Setting ADJUST layer RGB back to default
-void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
-  if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
-    layer_on(layer3);
-  } else {
-    layer_off(layer3);
-  }
+void render_bootmagic_status(bool status) {
+    /* Show Ctrl-Gui Swap options */
+    static const char PROGMEM logo[][2][3] = {
+        {{0x97, 0x98, 0}, {0xb7, 0xb8, 0}},
+        {{0x95, 0x96, 0}, {0xb5, 0xb6, 0}},
+    };
+    if (status) {
+        oled_write_ln_P(logo[0][0], false);
+        oled_write_ln_P(logo[0][1], false);
+    } else {
+        oled_write_ln_P(logo[1][0], false);
+    }
 }
+
+/*void oled_render_logo(void) {
+    static const char PROGMEM crkbd_logo[] = {
+        0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94,
+        0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9, 0xaa, 0xab, 0xac, 0xad, 0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb3, 0xb4,
+        0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4,
+        0};
+    oled_write_P(crkbd_logo, false);
+}*/
+
+#endif
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//  if (record->event.pressed) {
-//    set_keylog(keycode, record);
-//  }
-
-//  static uint16_t my_colon_timer;
+  if (record->event.pressed) {
+    set_keylog(keycode, record);
+  }
 
   switch (keycode) {
-    case LOWER:
-      if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-    case RAISE:
-      if (record->event.pressed) {
-        layer_on(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-    case ADJUST:
-        if (record->event.pressed) {
-          layer_on(_ADJUST);
-        } else {
-          layer_off(_ADJUST);
-        }
-        return false;
-    case FUNC:
-        if (record->event.pressed) {
-            layer_on(_FUNC);
-        } else {
-          layer_off(_FUNC);
-        }
-        return false;
-//    case KC_RACL:
-//        if (record->event.pressed) {
-//          my_colon_timer = timer_read();
-//          register_code(KC_RALT);
-//        } else {
-//          unregister_code(KC_RALT);
-//          if (timer_elapsed(my_colon_timer) < TAPPING_TERM) {
-//            SEND_STRING(":"); // Change the character(s) to be sent on tap here
-//          }
-//        }
-//        return false;
-//    case RGBRST:
-//      #ifdef RGBLIGHT_ENABLE
-//        if (record->event.pressed) {
-//          eeconfig_update_rgblight_default();
-//          rgblight_enable();
-//          RGB_current_mode = rgblight_config.mode;
-//        }
-//      #endif
-//      #ifdef RGB_MATRIX_ENABLE
-//        if (record->event.pressed) {
-//          eeconfig_update_rgb_matrix_default();
-//          rgb_matrix_enable();
-//        }
-//      #endif
-//      break;
-
-// btgrant-76 keycodes start here
     case SCRN2CLP:
         if (record->event.pressed) {
             register_code(KC_LGUI);
@@ -798,7 +645,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-//#endif // OLED_ENABLE
 
 #ifdef COMBO_ENABLE
 // Combo declarations
