@@ -265,16 +265,16 @@ void oled_write_layer_state(void) {
             oled_write_P(PSTR("Base "), false);
             break;
         case 1:
-            oled_write_P(PSTR("Sym"), false);
+            oled_write_P(PSTR("Sym  "), false);
             break;
         case 2:
-            oled_write_P(PSTR("Num"), false);
+            oled_write_P(PSTR("Num  "), false);
             break;
         case 3:
-            oled_write_P(PSTR("Nav"), false);
+            oled_write_P(PSTR("Nav  "), false);
             break;
         case 4:
-            oled_write_P(PSTR("Func"), false);
+            oled_write_P(PSTR("Func "), false);
             break;
         default:
             oled_write_P(PSTR("Undef"), false);

@@ -66,7 +66,7 @@ enum cocot_keycodes {
     SCRL_MO,
     SCRL_TO,
     SCRL_IN,
-
+    NEW_SAFE_RANGE
 };
 
 bool encoder_update_user(uint8_t index, bool clockwise);

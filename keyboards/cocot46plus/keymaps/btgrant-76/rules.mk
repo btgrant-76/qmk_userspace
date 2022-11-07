@@ -1,4 +1,4 @@
-VIA_ENABLE = yes # 2,356
+VIA_ENABLE = no # 2,356
 TAP_DANCE_ENABLE = yes # 1,044
 
 # space-saving
