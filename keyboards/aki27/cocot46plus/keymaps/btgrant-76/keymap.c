@@ -31,7 +31,7 @@ enum layer_number { // TODO use names that are more appropriate
 };
 
 enum custom_keycodes {
-    SCRN2CLP = NEW_SAFE_RANGE, // macOS take screenshot to the clip board
+    SCRN2CLP = NEW_COCOT_SAFE_RANGE, // macOS take screenshot to the clip board
     SCRN2FL,   // macOS take screenshot to a file
     Z_MUTE,    // toggle Zoom mute
     BRC_INST,  // type a pair of braces & move the cursor between them
