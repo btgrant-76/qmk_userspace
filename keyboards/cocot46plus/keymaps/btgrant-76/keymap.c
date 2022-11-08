@@ -22,20 +22,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // Defines names for use in layer keycodes and the keymap
-enum layer_number {
+enum layer_number { // TODO use names that are more appropriate
     _BASE = 0,
     _LOWER = 1,
     _RAISE = 2,
     _TRACKBALL = 3,
     _FUNCTION = 4
 };
-
-
-/* TODO remove when Corne port is complete */
-#define LW_MHEN LT(1,KC_MHEN)  // lower
-#define RS_HENK LT(2,KC_HENK)  // raise
-#define DEL_ALT ALT_T(KC_DEL)
-/* end remove */
 
 enum custom_keycodes {
     SCRN2CLP = NEW_SAFE_RANGE, // macOS take screenshot to the clip board
@@ -87,7 +80,7 @@ enum {
 #define L_CTL RALT_T(KC_L)
 #define SCLN_CTL RCTL_T(KC_SCLN)
 
-// Others
+/// Others
 #define Z_CTL LCTL_T(KC_Z)
 #define X_ALT LALT_T(KC_X)
 #define DOT_ALT LALT_T(KC_DOT)
@@ -162,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX,                                          KC_EQL,    KC_4,    KC_5,    KC_6, KC_SCLN, KC_PENT,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
-      _______, RGB_TOG,RGB_RMOD, RGB_HUI, RGB_SAI, RGB_VAI,                                         KC_BSLS,    KC_1,    KC_2,    KC_3,  KC_GRV, _______,
+      _______, RGB_TOG,RGB_RMOD, RGB_HUI, RGB_SAI, RGB_VAI,                                         KC_BSLS,    KC_1,    KC_2,    KC_3, GRAV_TD, _______,
   //|--------+--------+--------+--------+--------+--------+--------|                     |--------+--------+--------+--------+--------+--------+--------|
                                  XXXXXXX, KC_MUTE, KC_MPLY, KC_MSTP,  KC_BTN4, KC_BTN5,    KC_MINS,    KC_0,  KC_DOT, XXXXXXX,
                              //|-----------------------------------------+--------+------------------------------------------|
@@ -171,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
   [_TRACKBALL] = LAYOUT(
   //|-----------------------------------------------------|                                       |-----------------------------------------------------|
-     SCRN2CLP, SCRN2FL, XXXXXXX, XXXXXXX, XXXXXXX,  UP_DIR,                                            REDO,   PASTE,    COPY,     CUT,    UNDO, XXXXXXX,
+      XXXXXXX,SCRN2CLP, SCRN2FL, XXXXXXX, XXXXXXX,  UP_DIR,                                            REDO,   PASTE,    COPY,     CUT,    UNDO, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                                         KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_CAPS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
@@ -190,7 +183,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
       _______,  KC_F10,   F1_TD,   F2_TD,   KC_F3, XXXXXXX,                                         SCRL_IN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|                     |--------+--------+--------+--------+--------+--------+--------|
-                                 XXXXXXX, DEL_ALT,  KC_SPC,  KC_TAB,  KC_BTN1, KC_BTN2,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                 XXXXXXX, XXXXXXX,  KC_SPC,  KC_TAB,  KC_BTN1, KC_BTN2,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                              //|-----------------------------------------+--------+------------------------------------------|
                                                                   KC_PGUP, KC_BTN3, KC_PGDN,         XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
