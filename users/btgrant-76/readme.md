@@ -1,6 +1,4 @@
-/*
-Copyright 2021 Kyle McCreery
-Copyright 2022 Brian Grant <@btgrant-76>
+Copyright 2022 Brian Grant brian@skeletonjack.net @btgrant-76
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -14,13 +12,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-#pragma once
-
-#define AUDIO_PIN B5
-#define AUDIO_PWM_DRIVER PWMD1
-#define AUDIO_PWM_CHANNEL 1
-#define AUDIO_STATE_TIMER GPTD4
-
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
