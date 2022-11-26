@@ -197,26 +197,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //            unregister_code(KC_A);
 //        }
 //        return false;
-    case BRC_INST:
-        if (record->event.pressed) {
-            braces_insert();
-        }
-        return false;
-    case CBR_INST:
-        if (record->event.pressed) {
-            curly_braces_insert();
-        }
-        return false;
-    case PRN_INST:
-        if (record->event.pressed) {
-            parens_insert();
-        }
-        return false;
-    case GRV_INST:
-        if (record->event.pressed) {
-            grave_pair_cursor_insertion();
-        }
-        return false;
     case QUO_INST:
         if (record->event.pressed) {
             SEND_STRING("\"\"");

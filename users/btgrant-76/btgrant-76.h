@@ -28,23 +28,12 @@ enum layer_names {
     _FUN
 };
 
-/*
- * [x] some of these have been superseded by Tap Dances; search for usage in keymaps
- * - [x] waka
- * - [x] crkbd
- * - [x] cococt46plus
- */
 enum custom_keycodes {
     SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board (crkbd: y; waka: y; cocot46plus: y)
-    SCRN2FL,   // macOS take screenshot to a file (crkbd: y; waka: y; cocot46plus: y)
-    BRC_INST,  // type a pair of braces & move the cursor between them (crkbd: n; waka: n; cocot46plus: n)
-    CBR_INST,  // type a pair of curly braces & move the cursor between them (crkbd: n; waka: n; cocot46plus: n)
-    CODE_INST, // type a Markdown code fence & move the cursor inside (crkbd: n; waka: n; cocot46plus: n)
-    GRV_INST,  // type a pair of backticks & move the cursor between them (crkbd: n; waka: n; cocot46plus: n)
-    PRN_INST,  // type a pair of parens move the cursor between them (crkbd: n; waka: n; cocot46plus: n)
-    QUO_INST, // (crkbd: n; waka: n; cocot46plus: n)  // TODO set up a tap dance for this
-    UP_DIR, // (crkbd: y; waka: y; cocot46plus: y)
-    LOG_OUT, // (crkbd: y; waka: y; cocot46plus: y)
+    SCRN2FL, // macOS take screenshot to a file
+    QUO_INST, // TODO set up a tap dance for this
+    UP_DIR,
+    LOG_OUT,
     NEW_SAFE_RANGE
 };
 
@@ -63,7 +52,6 @@ enum {
 };
 
 // Layer Keys
-//#define ESC_L1 LT(1,KC_ESC)
 #define ESC_L1 LT(1, KC_ESC)
 #define G_NUM LT(_NUM, KC_G)
 #define H_SYM LT(_SYM, KC_H)
@@ -113,6 +101,8 @@ enum {
 // Other shortcuts
 #define BACK LCMD(KC_LBRC)
 #define FWD LCMD(KC_RBRC)
+#define TAB_LFT LSG(KC_LBRC)
+#define TAB_RGT LSG(KC_RBRC)
 #define Z_MUTE MEH_T(KC_SPC)
 
 #ifdef TAP_DANCE_ENABLE
