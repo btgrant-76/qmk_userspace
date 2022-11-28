@@ -7,7 +7,7 @@ LTO_ENABLE      = yes
 CAPS_WORD_ENABLE = yes
 
 # start space-savings
-AVR_USE_MINIMAL_PRINTF = yes
+# AVR_USE_MINIMAL_PRINTF = yes  # crkbd & cocot46plus need these features for OLED text formatting
 COMMAND_ENABLE = no
 CONSOLE_ENABLE = no
 GRAVE_ESC_ENABLE = no

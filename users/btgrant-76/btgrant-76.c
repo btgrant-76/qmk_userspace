@@ -159,6 +159,10 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 };
 #endif // TAP_DANCE_ENABLE
 
+__attribute__ ((weak))
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+  return true;
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -186,17 +190,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             unregister_code(KC_4);
         }
         return false;
-//    case Z_MUTE:
-//        if (record->event.pressed) {
-//            register_code(KC_LGUI);
-//            register_code(KC_LSHIFT);
-//            register_code(KC_A);
-//
-//            unregister_code(KC_LGUI);
-//            unregister_code(KC_LSHIFT);
-//            unregister_code(KC_A);
-//        }
-//        return false;
     case QUO_INST:
         if (record->event.pressed) {
             SEND_STRING("\"\"");
@@ -214,9 +207,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         return false;
   }
-  return true;
+  return process_record_keymap(keycode, record);
 }
-
 
 #ifdef COMBO_ENABLE
 // Combo declarations

@@ -307,7 +307,6 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
            keycode, name);
 }
 
-
 void oled_render_keylog(void) {
     oled_write(keylog_str, false);
 }
@@ -316,7 +315,6 @@ bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_keylog();
-
     } else {
         // Renders the current keyboard state (layers and mods)
         render_logo();
@@ -344,3 +342,11 @@ void render_bootmagic_status(bool status) {
 }
 
 #endif
+
+
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        set_keylog(keycode, record);
+    }
+    return true;
+}
