@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-----------------------------------------------------|                                       |-----------------------------------------------------|
       XXXXXXX, XXXXXXX,    BACK,     FWD, XXXXXXX, XXXXXXX,                                         KC_LBRC,    KC_7,    KC_8,    KC_9, RBRC_TD, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX,                                          KC_EQL,    KC_4,    KC_5,    KC_6, KC_SCLN, KC_PENT,
+      XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI,                                          KC_EQL,    KC_4,    KC_5,    KC_6, KC_SCLN, KC_PENT,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
-      _______, RGB_TOG,RGB_RMOD, RGB_HUI, RGB_SAI, RGB_VAI,                                         KC_BSLS,    KC_1,    KC_2,    KC_3, GRAV_TD, _______,
+      _______, RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,                                         KC_BSLS,    KC_1,    KC_2,    KC_3, GRAV_TD, _______,
   //|--------+--------+--------+--------+--------+--------+--------|                     |--------+--------+--------+--------+--------+--------+--------|
                                  XXXXXXX, KC_MUTE, KC_MPLY, KC_MSTP,  KC_BTN4, KC_BTN5,    KC_MINS,    KC_0,  KC_DOT, XXXXXXX,
                              //|-----------------------------------------+--------+------------------------------------------|
