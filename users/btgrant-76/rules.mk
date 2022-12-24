@@ -1,5 +1,6 @@
 SRC += btgrant-76.c
 
+DYNAMIC_TAPPING_TERM_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 NKRO_ENABLE		= yes
 LTO_ENABLE      = yes

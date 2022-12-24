@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-----------------------------------------------------|                                       |-----------------------------------------------------|
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
-       KC_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                            KC_H,    KC_J,    KC_K,    KC_L,SCLN_ALL,QUOT_MEH,
+      ESC_MEH,   A_CTL,   S_ALT,   D_GUI,   F_SFT,    KC_G,                                            KC_H,   J_SFT,   K_GUI,   L_ALT,SCLN_CTL,QUOT_ALL,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
       KC_LSFT,   Z_CTL,   X_ALT,    KC_C,    KC_V,    KC_B,                                            KC_N,    KC_M, KC_COMM, DOT_ALT,SLSH_CTL, ENT_SFT,
   //|--------+--------+--------+--------+--------+--------+--------|                     |--------+--------+--------+--------+--------+--------+--------|
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-----------------------------------------------------|                                       |-----------------------------------------------------|
       XXXXXXX,  F12_TD,   KC_F7,   KC_F8,   F9_TD, XXXXXXX,                                        SCRN2CLP, SCRN2FL,  UP_DIR, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
-      LOG_OUT,  KC_F11,   KC_F4,   KC_F5,   F6_TD, XXXXXXX,                                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SCRL_MO,
+      LOG_OUT,  KC_F11,   KC_F4,   KC_F5,   F6_TD, XXXXXXX,                                         XXXXXXX, XXXXXXX, DT_PRNT,   DT_UP, DT_DOWN, SCRL_MO,
   //|--------+--------+--------+--------+--------+--------|                                       |--------+--------+--------+--------+--------+--------|
       _______,  KC_F10,   F1_TD,   F2_TD,   KC_F3, XXXXXXX,                                         SCRL_TO,  CPI_SW, SCRL_SW, ROT_L15, ROT_R15, SCRL_IN,
   //|--------+--------+--------+--------+--------+--------+--------|                     |--------+--------+--------+--------+--------+--------+--------|

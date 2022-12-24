@@ -68,7 +68,7 @@ enum {
 #define F_SFT LSFT_T(KC_F)
 #define J_SFT RSFT_T(KC_J)
 #define K_GUI RGUI_T(KC_K)
-#define L_CTL RALT_T(KC_L)
+#define L_ALT RALT_T(KC_L)
 #define SCLN_CTL RCTL_T(KC_SCLN)
 
 /// Others
@@ -83,6 +83,7 @@ enum {
 #define QUOT_MEH MEH_T(KC_QUOT)
 #define QUOT_ALL ALL_T(KC_QUOT)
 #define SCLN_ALL ALL_T(KC_SCLN)
+#define ESC_MEH MEH_T(KC_ESC)
 
 #define CUT LGUI(KC_X)
 #define COPY LGUI(KC_C)
