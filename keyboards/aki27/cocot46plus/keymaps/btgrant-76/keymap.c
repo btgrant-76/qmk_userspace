@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+--------|                     |--------+--------+--------+--------+--------+--------+--------|
                                     BACK, DEL_GUI,  BS_SYM, ENT_NUM,   KC_BTN1, KC_BTN2,     MO(2), SPC_NAV, ESC_FUN,     FWD,
                              //|-----------------------------------------+--------+------------------------------------------|
-                                                                 KC_PGUP, KC_BTN3,  KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX
+                                                                 KC_PGUP, KC_BTN3,  KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
     ),
   [_SYM] = LAYOUT(
