@@ -52,13 +52,47 @@ enum {
 };
 
 // Layer Keys
+#define DEL_FUN LT(_FUN, XXXXXXX) // KC_DEL)
+#define ESC_SYM LT(_SYM, XXXXXXX) // KC_ESC)
+#define TAB_NUM LT(_NUM, XXXXXXX) // KC_TAB)
+#define ENT_MED LT(_NUM, KC_ENT)
+#define SPC_NAV LT(_NAV, KC_SPC)
+#define BS_MOUS LT(_FUN, XXXXXXX) // KC_BSPC)
+
 #define ESC_L1 LT(1, KC_ESC)
 #define G_NUM LT(_NUM, KC_G)
 #define H_SYM LT(_SYM, KC_H)
 #define BS_SYM LT(_SYM, KC_BSPC)
-#define ENT_NUM LT(_NUM, KC_ENT)
-#define SPC_NAV LT(_NAV, KC_SPC)
 #define ESC_FUN LT(_FUN, KC_ESC)
+#define ENT_NUM LT(_NUM, KC_ENT)
+
+
+// Outer columns
+#undef ENABLE_QAZ
+/// left
+#ifdef ENABLE_QAZ
+#define TAB XXXXXXX
+#define ESC XXXXXXX
+#define L_SFT XXXXXXX
+#else
+#define TAB KC_TAB
+#define ESC KC_ESC
+#define L_SFT KC_LSFT
+#endif
+
+/// right
+#ifdef ENABLE_QAZ
+#define BSPC XXXXXXX
+#define QUOT XXXXXXX
+#define ENT XXXXXXX
+#define ENT_SFT XXXXXXX
+#else
+#define BSPC KC_BSPC
+#define QUOT KC_QUOT
+#define ENT KC_ENT
+#define ENT_SFT RSFT_T(KC_ENT)
+#endif
+// Outer columns end
 
 // Mod Tap
 /// Home Row Mods
@@ -76,30 +110,33 @@ enum {
 #define X_ALT LALT_T(KC_X)
 #define DOT_ALT LALT_T(KC_DOT)
 #define SLSH_CTL LCTL_T(KC_SLSH)
-#define DEL_GUI LGUI_T(KC_DEL)
-
-#define ENT_SFT RSFT_T(KC_ENT)
-#define SPC_MEH MEH_T(KC_SPC)
 #define QUOT_MEH MEH_T(KC_QUOT)
 #define QUOT_ALL ALL_T(KC_QUOT)
 #define SCLN_ALL ALL_T(KC_SCLN)
+#define SLSH_ALL ALL_T(KC_SLSH)
 #define ESC_MEH MEH_T(KC_ESC)
+#define Z_MEH MEH_T(KC_Z)
 
+/// Thumb keys
+#define DEL_GUI LGUI_T(KC_DEL)
+#define SPC_MEH MEH_T(KC_SPC)
+
+// Shortcuts
 #define CUT LGUI(KC_X)
 #define COPY LGUI(KC_C)
 #define PASTE LGUI(KC_V)
 #define UNDO LGUI(KC_Z)
 #define REDO LSG(KC_Z)
 
-// macOS navigation
+/// macOS navigation
 #define MISS_CTL LCTL(KC_UP)
 #define LEFT_SPC LCTL(KC_LEFT)
 #define RGHT_SPC LCTL(KC_RIGHT)
 
-// Shifted Keys
+/// Shifted Keys
 #define COLON LSFT(KC_SCLN)
 
-// Other shortcuts
+/// Other shortcuts
 #define BACK LCMD(KC_LBRC)
 #define FWD LCMD(KC_RBRC)
 #define TAB_LFT LSG(KC_LBRC)
