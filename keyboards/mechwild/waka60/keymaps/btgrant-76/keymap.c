@@ -75,11 +75,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-----------------------------------------------------|        |-----------------------------------------------------|
       _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,  F12_TD,   KC_F7,   KC_F8,   F9_TD, XXXXXXX,         SCRN2CLP, SCRN2FL,  UP_DIR, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX,  UP_DIR,SCRN2CLP, SCRN2FL, XXXXXXX,          XXXXXXX,   KC_F7,   KC_F8,   F9_TD,  F12_TD, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      LOG_OUT,  KC_F11,   KC_F4,   KC_F5,   F6_TD, XXXXXXX,          XXXXXXX, XXXXXXX, DT_PRNT,   DT_UP, DT_DOWN, XXXXXXX,
+      LOG_OUT, XXXXXXX, DT_PRNT,   DT_UP, DT_DOWN, XXXXXXX,          XXXXXXX,   KC_F4,   KC_F5,   F6_TD,  KC_F11, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      _______,  KC_F10,   F1_TD,   F2_TD,   KC_F3, XXXXXXX, XXXXXXX, AU_TOG,  MU_TOG,  MU_MOD,  XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX,  AU_TOG,  MU_TOG,  MU_MOD, XXXXXXX, XXXXXXX, XXXXXXX,   F1_TD,   F2_TD,   KC_F3,  KC_F10, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_SPC,  KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
   //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
