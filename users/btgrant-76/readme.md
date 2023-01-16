@@ -1,4 +1,4 @@
-Copyright 2022 Brian Grant brian@skeletonjack.net @btgrant-76
+Copyright 2023 Brian Grant brian@skeletonjack.net @btgrant-76
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

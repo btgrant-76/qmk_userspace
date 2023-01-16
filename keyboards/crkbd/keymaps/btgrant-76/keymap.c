@@ -1,7 +1,7 @@
 /*
 Copyright 2019 @foostan
 Copyright 2020 Drashna Jaelre <@drashna>
-Copyright 2022 Brian Grant <@btgrant-76>
+Copyright 2023 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,64 +23,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-          TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,     BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          ESC,   A_CTL,   S_ALT,   D_GUI,   F_SFT,    KC_G,                         KC_H,   J_SFT,   K_GUI,   L_ALT,SCLN_CTL,    QUOT,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        L_SFT,   Z_MEH,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT,SLSH_ALL,     ENT,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          DEL_FUN, ESC_SYM, TAB_NUM,    ENT_MED, SPC_NAV,  BS_MOUS
-                                      //`--------------------------'  `--------------------------'
+  [_BASE] = LAYOUT_btgrant_3x6(
+    ___BASE_1_L___,         ___BASE_1_R___,
+    ___BASE_2_L___,         ___BASE_2_R___,
+    ___BASE_3_L___,         ___BASE_3_R___,
+    ___BASE_THUMB_L___, ___BASE_THUMB_R___
+  ),
+  [_NUM] = LAYOUT_btgrant_3x6(
+    ___NUM_1_L___,         ___NUM_1_R___,
+    ___NUM_2_L___,         ___NUM_2_R___,
+    ___NUM_3_L___,         ___NUM_3_R___,
+    ___NUM_THUMB_L___, ___NUM_THUMB_R___
   ),
 
-  [_NUM] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LBRC,    KC_7,    KC_8,    KC_9, RBRC_TD, KC_BSPC,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI,                       KC_EQL,    KC_4,    KC_5,    KC_6, KC_QUOT, KC_PENT,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI,                      KC_BSLS,    KC_1,    KC_2,    KC_3, GRAV_TD, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_MUTE, KC_MPLY, KC_MSTP,    KC_MINS,    KC_0,  KC_DOT
-                                      //`--------------------------'  `--------------------------'
+  [_SYM] = LAYOUT_btgrant_3x6(
+    ___SYM_1_L___,         ___SYM_1_R___,
+    ___SYM_2_L___,         ___SYM_2_R___,
+    ___SYM_3_L___,         ___SYM_3_R___,
+    ___SYM_THUMB_L___, ___SYM_THUMB_R___
   ),
 
-  [_SYM] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, RCBR_TD,  KC_DEL,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_CAPS, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_PLUS,  KC_DLR, KC_PERC, KC_CIRC,  KC_DQT, KC_TILD,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_LCTL, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PIPE, KC_EXLM,   KC_AT, KC_HASH, KC_TILD, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, XXXXXXX,    KC_UNDS, KC_LPRN, RPRN_TD
-                                      //`--------------------------'  `--------------------------'
+  [_NAV] = LAYOUT_btgrant_3x6(
+    ___NAV_1_L___,         ___NAV_1_R___,
+    ___NAV_2_L___,         ___NAV_2_R___,
+    ___NAV_3_L___,         ___NAV_3_R___,
+    ___NAV_THUMB_L___, ___NAV_THUMB_R___
   ),
 
-  [_NAV] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, TAB_LFT,    BACK,     FWD, TAB_RGT,  UP_DIR,                         REDO,   PASTE,    COPY,     CUT,    UNDO, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_CAPS, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_LCTL, KC_LALT, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END,  KC_INS, _______,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          DEL_GUI, KC_BSPC,  KC_ENT,    XXXXXXX, XXXXXXX, XXXXXXX
-                                      //`--------------------------'  `--------------------------'
-  ),
-
-  [_FUN] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX,  UP_DIR,SCRN2CLP, SCRN2FL, XXXXXXX,                      XXXXXXX,   KC_F7,   KC_F8,   F9_TD,  F12_TD, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      LOG_OUT, XXXXXXX, DT_PRNT,   DT_UP, DT_DOWN, XXXXXXX,                      XXXXXXX,   KC_F4,   KC_F5,   F6_TD,  KC_F11, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,   F1_TD,   F2_TD,   KC_F3,  KC_F10, XXXXXXX,
-  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX,  KC_SPC,  KC_TAB,    XXXXXXX, XXXXXXX, XXXXXXX
-                                      //`--------------------------'  `--------------------------'
+  [_FUN] = LAYOUT_btgrant_3x6(
+    ___FUN_1_L___,          ___FUN_1_R___,
+    ___FUN_2_L___, XXXXXXX, ___FUN_2_R___,
+    ___FUN_3_L___,          ___FUN_3_R___,
+    ___FUN_THUMB_L___,  ___FUN_THUMB_R___
   ),
 };
 
