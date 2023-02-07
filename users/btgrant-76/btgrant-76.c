@@ -49,33 +49,53 @@ void code_fence(void) {
 
 #ifdef TAP_DANCE_ENABLE
 void braces_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        tap_code(KC_RBRC);
-    } else {
+    if (state->pressed && !state->interrupted) {
+        #ifdef AUTO_SHIFT_ENABLE
+            SEND_STRING("}");
+        #else
+            SEND_STRING("]");
+        #endif
+    } else if (state->count == 2) {
         braces_insert();
+    } else {
+        SEND_STRING("]");
     }
 };
 
 void curly_brace_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        SEND_STRING("}");
-    } else {
+    if (state->count == 2) {
         curly_braces_insert();
+    } else {
+        SEND_STRING("}");
     }
 };
 
 void parens_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        SEND_STRING(")");
-    } else {
+    if (state->count == 2) {
         parens_insert();
+    } else {
+        SEND_STRING(")");
+    }
+};
+
+void l_paren_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 2) {
+        parens_insert();
+    } else {
+        SEND_STRING("(");
     }
 };
 
 void grave_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 2) {
+    if (state->pressed && !state->interrupted) {
+        #ifdef AUTO_SHIFT_ENABLE
+            SEND_STRING("~");
+        #else
+            SEND_STRING("`");
+        #endif
+    } else if (state->count == 2) {
         grave_pair_cursor_insertion();
-    } else if (state->count == 4){
+    } else if (state->count == 4) {
         code_fence();
     } else {
         SEND_STRING("`");
@@ -150,6 +170,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_RBRC] = ACTION_TAP_DANCE_FN(braces_tap_dance),
     [TD_RCBR] = ACTION_TAP_DANCE_FN(curly_brace_tap_dance),
     [TD_RPRN] = ACTION_TAP_DANCE_FN(parens_tap_dance),
+    [TD_LPRN] = ACTION_TAP_DANCE_FN(parens_tap_dance),
     [TD_GRAV] = ACTION_TAP_DANCE_FN(grave_tap_dance),
     [TD_F1] = ACTION_TAP_DANCE_FN(f1_tap_dance),
     [TD_F2] = ACTION_TAP_DANCE_FN(f2_tap_dance),

@@ -43,6 +43,7 @@ enum {
     TD_RBRC,
     TD_RCBR,
     TD_RPRN,
+    TD_LPRN,
     TD_GRAV,
     TD_F1,
     TD_F2,
@@ -55,7 +56,8 @@ enum {
 #define DEL_FUN LT(_FUN, KC_DEL)
 #define TAB_FUN LT(_FUN, KC_TAB)
 #define BS_SYM LT(_SYM, KC_BSPC)
-#define ESC_SYM LT(_SYM, XXXXXXX) // KC_ESC)
+#define BS_NUM LT(_NUM, KC_BSPC)
+#define ESC_SYM LT(_SYM,  KC_ESC)
 #define ESC_NUM LT(_NUM, KC_ESC)
 #define TAB_NUM LT(_NUM, XXXXXXX) // KC_TAB)
 #define ENT_MED LT(_NUM, KC_ENT)
@@ -152,6 +154,7 @@ enum {
 // Tap Dances
 #define GRAV_TD TD(TD_GRAV)
 #define RPRN_TD TD(TD_RPRN)
+#define LPRN_TD TD(TD_LPRN)
 #define RBRC_TD TD(TD_RBRC)
 #define RCBR_TD TD(TD_RCBR)
 #define F1_TD TD(TD_F1)
@@ -169,7 +172,7 @@ enum {
 #define ___BASE_1_L___     TAB,     KC_Q,   KC_W,   KC_E,    KC_R,   KC_T
 #define ___BASE_2_L___     ESC,     A_CTL,  S_ALT,  D_GUI,   F_SFT,  KC_G
 #define ___BASE_3_L___     L_SFT,   Z_MEH,  KC_X,   KC_C,    KC_V,   KC_B
-#define ___BASE_THUMB_L___                          TAB_FUN, BS_SYM, ESC_NUM
+#define ___BASE_THUMB_L___                          TAB_FUN, BS_NUM, ESC_SYM
 
 #define ___BASE_1_R___     KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,     BSPC
 #define ___BASE_2_R___     KC_H,    J_SFT,   K_GUI,   L_ALT,  SCLN_CTL, QUOT
@@ -182,8 +185,8 @@ enum {
 #define ___SYM_3_L___     _______, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 #define ___SYM_THUMB_L___                                XXXXXXX, XXXXXXX, XXXXXXX
 
-#define ___SYM_1_R___     KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, RCBR_TD, KC_DEL
-#define ___SYM_2_R___     KC_PLUS, KC_DLR,  KC_PERC, KC_CIRC, KC_QUOT, KC_TILD
+#define ___SYM_1_R___     KC_LCBR, KC_AMPR, KC_ASTR, LPRN_TD, RCBR_TD, KC_DEL
+#define ___SYM_2_R___     KC_PLUS, KC_DLR,  KC_PERC, KC_CIRC, KC_DQT,  KC_TILD  // KC_QUOT
 #define ___SYM_3_R___     KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD, XXXXXXX
 #define ___SYM_THUMB_R___ KC_UNDS, KC_LPRN, RPRN_TD
 
@@ -194,7 +197,7 @@ enum {
 #define ___NUM_THUMB_L___                            KC_MUTE, KC_MPLY, KC_MSTP
 
 #define ___NUM_1_R___     KC_LBRC, KC_7, KC_8,  KC_9, RBRC_TD, KC_BSPC
-#define ___NUM_2_R___     KC_EQL,  KC_4, KC_5,  KC_6, KC_DQT,  KC_PENT
+#define ___NUM_2_R___     KC_EQL,  KC_4, KC_5,  KC_6, KC_QUOT, KC_PENT // KC_DQT
 #define ___NUM_3_R___     KC_BSLS, KC_1, KC_2,  KC_3, GRAV_TD, _______
 #define ___NUM_THUMB_R___ KC_MINS, KC_0, KC_DOT
 
@@ -212,7 +215,7 @@ enum {
 // function
 #define ___FUN_1_L___     XXXXXXX, XXXXXXX, UP_DIR,  SCRN2CLP, SCRN2FL, XXXXXXX
 #define ___FUN_2_L___     LOG_OUT, XXXXXXX, DT_PRNT, DT_UP,    DT_DOWN
-#define ___FUN_3_L___     _______, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX
+#define ___FUN_3_L___     _______, XXXXXXX, AS_RPT,  AS_UP,    AS_DOWN, XXXXXXX
 #define ___FUN_THUMB_L___                            XXXXXXX,  KC_SPC,  KC_TAB
 
 #define ___FUN_1_R___     XXXXXXX, KC_F7,   KC_F8,   F9_TD, F12_TD, XXXXXXX
