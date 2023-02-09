@@ -1,4 +1,5 @@
 /* Copyright 2021 Danny Nguyen <danny@keeb.io>
+   Copyright 2023 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,20 +16,42 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+#include "btgrant-76.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT(
-    KC_MUTE, KC_ESC,  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,
-    KC_HOME,          KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,
-    KC_END,           KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,
-    KC_PGUP,          KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, MO(1),
-    KC_PGDN,          KC_LCTL, KC_LGUI, KC_LALT, MO(1),   KC_SPC,  KC_SPC,      KC_SPC,  KC_SPC,  KC_RALT, KC_RGUI, KC_MENU, KC_RCTL
+  [_BASE] = LAYOUT_btgrant(
+    KC_MUTE,  KC_ESC,  KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,       KC_7,    KC_8,    KC_9,    KC_0, KC_MINS, KC_EQL,  KC_BSPC,
+    KC_HOME,                                                ___BASE_1_L___,     ___5BASE_1_R___,                             KC_LBRC, KC_RBRC, KC_BSLS,
+    KC_END,                                                 ___BASE_2_L___,     ___BASE_2_R___,                                                KC_ENT,
+    KC_PGUP,                                                ___BASE_3_L___,     ___BASE_3_R___,                                       XXXXXXX,
+    KC_PGDN,          KC_LCTL, KC_LGUI, KC_LALT,        ___BASE_THUMB_L___,     ___BASE_THUMB_R___,        KC_RGUI, KC_MENU, KC_RCTL
   ),
-  [1] = LAYOUT(
-    KC_MUTE, QK_BOOT,   _______, RGB_HUD, RGB_HUI, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, KC_DEL,
-    BL_STEP,          _______, RGB_SAD, RGB_SAI, _______, _______, _______,     _______, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______,
-    RGB_MOD,          _______, RGB_VAD, RGB_VAI, _______, _______, _______,     _______, KC_4,    KC_5,    KC_6,    _______, _______,          _______,
-    KC_VOLU,          _______, _______, _______, _______, _______, _______,     _______, KC_1,    KC_2,    KC_3,    _______, _______, _______,
-    KC_VOLD,          _______, _______, _______, _______, _______, _______,     _______, KC_0,    _______, _______, _______, _______
+  [_NUM] = LAYOUT_btgrant(
+    KC_MUTE, QK_BOOT, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, KC_DEL,
+    BL_STEP,                                                 ___NUM_1_L___,     ___NUM_1_R___,                                        _______, _______,
+    RGB_MOD,                                                 ___NUM_2_L___,     ___NUM_2_R___,                                                 _______,
+    KC_VOLU,                                                 ___NUM_3_L___,     ___NUM_3_R___,                                        _______,
+    KC_VOLD,          _______, _______, _______,         ___NUM_THUMB_L___,     ___NUM_THUMB_R___,         _______, _______, _______
+  ),
+  [_SYM] = LAYOUT_btgrant(
+    _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+    _______,                                                 ___SYM_1_L___,     ___SYM_1_R___,                                        _______, _______,
+    _______,                                                 ___SYM_2_L___,     ___SYM_2_R___,                                                 _______,
+    _______,                                                 ___SYM_3_L___,     ___SYM_3_R___,                                        _______,
+    _______,          _______, _______, _______,         ___SYM_THUMB_L___,     ___SYM_THUMB_R___,         _______, _______, _______
+  ),
+  [_NAV] = LAYOUT_btgrant(
+    _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+    _______,                                                 ___NAV_1_L___,     ___NAV_1_R___,                                        _______, _______,
+    _______,                                                 ___NAV_2_L___,     ___NAV_2_R___,                                                 _______,
+    _______,                                                 ___NAV_3_L___,     ___NAV_3_R___,                                        _______,
+    _______,          _______, _______, _______,         ___NAV_THUMB_L___,     ___NAV_THUMB_R___,         _______, _______, _______
+  ),
+  [_FUN] = LAYOUT_btgrant(
+    _______, _______, _______,   TD_F1,   TD_F2,   KC_F3,   KC_F4,   KC_F5,     TD_F6,   KC_F7,   KC_F8,   TD_F9,   KC_F10,   KC_F11,  TD_F12, _______,
+    _______,                                                 ___FUN_1_L___,     ___FUN_1_R___,                                        _______, _______,
+    _______,                                        ___FUN_2_L___, XXXXXXX,     ___FUN_2_R___,                                                 _______,
+    _______,                                                 ___FUN_3_L___,     ___FUN_3_R___,                                        _______,
+    _______,          _______, _______, _______,         ___FUN_THUMB_L___,     ___FUN_THUMB_R___,         _______, _______, _______
   ),
 };
