@@ -24,35 +24,35 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_grid(
-        ___5BASE_1_L___,                      XXXXXXX, XXXXXXX,                            ___5BASE_1_R___,
-        ___5BASE_2_L___,                      XXXXXXX, XXXXXXX,                            ___5BASE_2_R___,
-        ___5BASE_3_L___,                      XXXXXXX, XXXXXXX,                            ___5BASE_3_R___,
-        XXXXXXX, XXXXXXX,  KC_DEL, ___BASE_THUMB_L___, ENT_MED, SPC_NAV, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT
+        ___5BASE_1_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_1_R___,
+        ___5BASE_2_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_2_R___,
+        ___5BASE_3_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_3_R___,
+        XXXXXXX, XXXXXXX, ___BASE_THUMB_L___, XXXXXXX, XXXXXXX, ___BASE_THUMB_R___, XXXXXXX, XXXXXXX
     ),
     [_NUM] = LAYOUT_btgrant_grid(
-        ___5NUM_1_L___,                      XXXXXXX, XXXXXXX,                      ___5NUM_1_R___,
-        ___5NUM_2_L___,                      XXXXXXX, XXXXXXX,                      ___5NUM_2_R___,
-        ___5NUM_3_L___,                      XXXXXXX, XXXXXXX,                      ___5NUM_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX, ___NUM_THUMB_L___, ___NUM_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ___5NUM_1_L___,                       XXXXXXX, XXXXXXX,                       ___5NUM_1_R___,
+        ___5NUM_2_L___,                       XXXXXXX, XXXXXXX,                       ___5NUM_2_R___,
+        ___5NUM_3_L___,                       XXXXXXX, XXXXXXX,                       ___5NUM_3_R___,
+        XXXXXXX, XXXXXXX, ___NUM_THUMB_L___,  XXXXXXX, XXXXXXX, ___NUM_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant_grid(
-        ___5SYM_1_L___,                      XXXXXXX, XXXXXXX,                      ___5SYM_1_R___,
-        ___5SYM_2_L___,                      XXXXXXX, XXXXXXX,                      ___5SYM_2_R___,
-        ___5SYM_3_L___,                      XXXXXXX, XXXXXXX,                      ___5SYM_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX, ___SYM_THUMB_L___, ___SYM_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ___5SYM_1_L___,                       XXXXXXX, XXXXXXX,                       ___5SYM_1_R___,
+        ___5SYM_2_L___,                       XXXXXXX, XXXXXXX,                       ___5SYM_2_R___,
+        ___5SYM_3_L___,                       XXXXXXX, XXXXXXX,                       ___5SYM_3_R___,
+        XXXXXXX, XXXXXXX, ___SYM_THUMB_L___,  XXXXXXX, XXXXXXX, ___SYM_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT_btgrant_grid(
-        ___5NAV_1_L___,                      XXXXXXX, XXXXXXX,                      ___5NAV_1_R___,
-        ___5NAV_2_L___,                      XXXXXXX, XXXXXXX,                      ___5NAV_2_R___,
-        ___5NAV_3_L___,                      XXXXXXX, XXXXXXX,                      ___5NAV_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX, ___NAV_THUMB_L___, ___NAV_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ___5NAV_1_L___,                       XXXXXXX, XXXXXXX,                       ___5NAV_1_R___,
+        ___5NAV_2_L___,                       XXXXXXX, XXXXXXX,                       ___5NAV_2_R___,
+        ___5NAV_3_L___,                       XXXXXXX, XXXXXXX,                       ___5NAV_3_R___,
+        XXXXXXX, XXXXXXX, ___NAV_THUMB_L___,  XXXXXXX, XXXXXXX, ___NAV_THUMB_R___,  XXXXXXX, XXXXXXX
 
     ),
     [_FUN] = LAYOUT_btgrant_grid(
-        ___5FUN_1_L___,                      XXXXXXX, XXXXXXX,                      ___5FUN_1_R___,
-        ___5FUN_2_L___,                      XXXXXXX, XXXXXXX, XXXXXXX,             ___5FUN_2_R___,
-        ___5FUN_3_L___,                      XXXXXXX, XXXXXXX,                      ___5FUN_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX, ___FUN_THUMB_L___, ___FUN_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ___5FUN_1_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_1_R___,
+        ___5FUN_2_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_2_R___,
+        ___5FUN_3_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_3_R___,
+        XXXXXXX, XXXXXXX, ___FUN_THUMB_L___,  XXXXXXX, XXXXXXX, ___FUN_THUMB_R___,  XXXXXXX, XXXXXXX
     )
 };
 

@@ -29,7 +29,7 @@ enum layer_names {
 };
 
 enum custom_keycodes {
-    SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board (crkbd: y; waka: y; cocot46plus: y)
+    SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board
     SCRN2FL, // macOS take screenshot to a file
     QUO_INST, // TODO set up a tap dance for this
     UP_DIR,
@@ -245,8 +245,8 @@ enum {
 #define ___NAV_3_R___     ___5NAV_3_R___, _______
 
 // function
-#define ___5FUN_1_L___    XXXXXXX, UP_DIR,  SCRN2CLP, SCRN2FL, XXXXXXX
-#define ___5FUN_2_L___    XXXXXXX, DT_PRNT, DT_UP,    DT_DOWN
+#define ___5FUN_1_L___    QK_BOOT, UP_DIR,  SCRN2CLP, SCRN2FL, XXXXXXX
+#define ___5FUN_2_L___    LOG_OUT, DT_PRNT, DT_UP,    DT_DOWN, XXXXXXX
 #define ___5FUN_3_L___    XXXXXXX, AS_RPT,  AS_UP,    AS_DOWN, XXXXXXX
 #define ___FUN_THUMB_L___                   XXXXXXX,  KC_SPC,  KC_TAB
 

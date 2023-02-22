@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUN] = LAYOUT_btgrant_3x6(
     ___FUN_1_L___,          ___FUN_1_R___,
-    ___FUN_2_L___, XXXXXXX, ___FUN_2_R___,
+    ___FUN_2_L___,          ___FUN_2_R___,
     ___FUN_3_L___,          ___FUN_3_R___,
     ___FUN_THUMB_L___,  ___FUN_THUMB_R___
   ),

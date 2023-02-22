@@ -53,10 +53,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_FUN] = LAYOUT_btgrant(
     ___FUN_1_L___,                                             ___FUN_1_R___,
-    ___FUN_2_L___, SCRL_MO,                                    ___FUN_2_R___,
-    SCRL_TO, CPI_SW, SCRL_SW, ROT_L15, ROT_R15, SCRL_IN,       ___FUN_3_R___,
-    XXXXXXX, ___FUN_THUMB_L___, KC_BTN1, KC_BTN2, ___FUN_THUMB_L___, XXXXXXX,
-                            KC_PGUP, KC_BTN3, KC_PGDN,         XXXXXXX, XXXXXXX, XXXXXXX
+    ___FUN_2_L___,                                             ___FUN_2_R___,
+    ___FUN_3_L___,                                             ___FUN_3_R___,
+    XXXXXXX, ___FUN_THUMB_L___,  CPI_SW, SCRL_SW, ___FUN_THUMB_L___, XXXXXXX,
+                            ROT_L15, SCRL_IN,  ROT_R15,         XXXXXXX, XXXXXXX, XXXXXXX
   )
 };
 

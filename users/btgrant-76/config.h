@@ -56,7 +56,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #undef RGBLIGHT_EFFECT_RAINBOW_MOOD
     #undef RGBLIGHT_EFFECT_RGB_TEST
 
-    // TODO is this the right thing to do? should these be here at all?
     #undef RGBLIGHT_LIMIT_VAL
     #undef RGBLIGHT_HUE_STEP
     #undef RGBLIGHT_SAT_STEP

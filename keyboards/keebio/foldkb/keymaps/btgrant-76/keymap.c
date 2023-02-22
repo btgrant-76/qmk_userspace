@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_HOME,                                                ___BASE_1_L___,     ___5BASE_1_R___,                             KC_LBRC, KC_RBRC, KC_BSLS,
     KC_END,                                                 ___BASE_2_L___,     ___BASE_2_R___,                                                KC_ENT,
     KC_PGUP,                                                ___BASE_3_L___,     ___BASE_3_R___,                                       XXXXXXX,
-    KC_PGDN,          KC_LCTL, KC_LGUI, KC_LALT,        ___BASE_THUMB_L___,     ___BASE_THUMB_R___,        KC_RGUI, KC_MENU, KC_RCTL
+    KC_PGDN,          KC_LCTL, KC_LALT, KC_LGUI,        ___BASE_THUMB_L___,     ___BASE_THUMB_R___,        KC_RGUI, KC_RALT, KC_RCTL
   ),
   [_NUM] = LAYOUT_btgrant(
     KC_MUTE, QK_BOOT, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, KC_DEL,
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FUN] = LAYOUT_btgrant(
     _______, _______, _______,   TD_F1,   TD_F2,   KC_F3,   KC_F4,   KC_F5,     TD_F6,   KC_F7,   KC_F8,   TD_F9,   KC_F10,   KC_F11,  TD_F12, _______,
     _______,                                                 ___FUN_1_L___,     ___FUN_1_R___,                                        _______, _______,
-    _______,                                        ___FUN_2_L___, XXXXXXX,     ___FUN_2_R___,                                                 _______,
+    _______,                                                 ___FUN_2_L___,     ___FUN_2_R___,                                                 _______,
     _______,                                                 ___FUN_3_L___,     ___FUN_3_R___,                                        _______,
     _______,          _______, _______, _______,         ___FUN_THUMB_L___,     ___FUN_THUMB_R___,         _______, _______, _______
   ),

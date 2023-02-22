@@ -278,11 +278,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case F_SFT:
         case J_SFT:
         case BS_SYM:
-        case A_CTL:
             return TAPPING_TERM - 20;
+        case A_CTL:
         case L_ALT:
         case SCLN_CTL:
-            return TAPPING_TERM + 20;
+            return TAPPING_TERM + 60;
         default:
             return TAPPING_TERM;
     }
