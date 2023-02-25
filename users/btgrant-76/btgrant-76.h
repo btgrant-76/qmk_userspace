@@ -60,7 +60,7 @@ enum {
 #define ESC_SYM LT(_SYM,  KC_ESC)
 #define ESC_NUM LT(_NUM, KC_ESC)
 #define TAB_NUM LT(_NUM, XXXXXXX) // KC_TAB)
-#define ENT_MED LT(_NUM, KC_ENT)
+#define ENT_MED LT(_SYM, KC_ENT)
 #define SPC_NAV LT(_NAV, KC_SPC)
 #define BS_MOUS LT(_FUN, XXXXXXX) // KC_BSPC)
 #define DEL_MOUS LT(_FUN, KC_DEL)
@@ -189,9 +189,9 @@ enum {
 
 // symbol
 #define ___5SYM_1_L___     XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ___5SYM_2_L___     ___HRM_L___,                            XXXXXXX
-#define ___5SYM_3_L___     XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ___SYM_THUMB_L___                        XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5SYM_2_L___     KC_MPRV,     KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI
+#define ___5SYM_3_L___     RGB_TOG,     RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
+#define ___SYM_THUMB_L___                        KC_MUTE, KC_MPLY, KC_MSTP
 
 #define ___SYM_1_L___     XXXXXXX, ___5SYM_1_L___
 #define ___SYM_2_L___     KC_CAPS, ___5SYM_2_L___
@@ -207,10 +207,10 @@ enum {
 #define ___SYM_3_R___      ___5SYM_3_R___, XXXXXXX
 
 // number
-#define ___5NUM_1_L___     KC_MPRV,     KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX
-#define ___5NUM_2_L___     ___HRM_L___,                            RGB_SPI
-#define ___5NUM_3_L___     RGB_TOG,     RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
-#define ___NUM_THUMB_L___                        KC_MUTE, KC_MPLY, KC_MSTP
+#define ___5NUM_1_L___     UNDO,        CUT,     COPY,    PASTE,   REDO
+#define ___5NUM_2_L___     ___HRM_L___,                            XXXXXXX
+#define ___5NUM_3_L___     XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___NUM_THUMB_L___                        XXXXXXX, XXXXXXX, XXXXXXX
 
 #define ___NUM_1_L___     XXXXXXX, ___5NUM_1_L___
 #define ___NUM_2_L___     XXXXXXX, ___5NUM_2_L___
@@ -246,8 +246,8 @@ enum {
 
 // function
 #define ___5FUN_1_L___    QK_BOOT, UP_DIR,  SCRN2CLP, SCRN2FL, XXXXXXX
-#define ___5FUN_2_L___    LOG_OUT, DT_PRNT, DT_UP,    DT_DOWN, XXXXXXX
-#define ___5FUN_3_L___    XXXXXXX, AS_RPT,  AS_UP,    AS_DOWN, XXXXXXX
+#define ___5FUN_2_L___    LOG_OUT, DT_PRNT, DT_DOWN,  DT_UP,   XXXXXXX
+#define ___5FUN_3_L___    XXXXXXX, AS_RPT,  AS_DOWN,  AS_UP,   XXXXXXX
 #define ___FUN_THUMB_L___                   XXXXXXX,  KC_SPC,  KC_TAB
 
 #define ___FUN_1_L___     XXXXXXX, ___5FUN_1_L___
@@ -264,8 +264,8 @@ enum {
 #define ___FUN_3_R___     ___5FUN_3_R___, XXXXXXX
 
 // layout macros
-#define LAYOUT_btgrant(...)     LAYOUT(__VA_ARGS__)
-#define LAYOUT_btgrant_3x6(...) LAYOUT_split_3x6_3(__VA_ARGS__)
+#define LAYOUT_btgrant(...)      LAYOUT(__VA_ARGS__)
+#define LAYOUT_btgrant_3x6(...)  LAYOUT_split_3x6_3(__VA_ARGS__)
 #define LAYOUT_btgrant_grid(...) LAYOUT_planck_grid(__VA_ARGS__)
 // portable keymaps end
 
