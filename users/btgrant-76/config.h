@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef TAPPING_FORCE_HOLD
 #undef TAPPING_TERM
 #define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_TERM 160  // ~~155~~ // ~~175~~
+#define TAPPING_TERM 125
 #define TAP_CODE_DELAY 10
 #define TAP_HOLD_CAPS_DELAY 80
 #define TAPPING_TERM_PER_KEY
@@ -41,7 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 #define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT 150
+#define AUTO_SHIFT_TIMEOUT 120
 #define AUTO_SHIFT_REPEAT
 
 #ifdef RGBLIGHT_ENABLE
