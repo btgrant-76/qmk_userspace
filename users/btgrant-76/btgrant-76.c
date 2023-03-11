@@ -19,20 +19,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // Tap Dance & macro functions
+void generic_insert(char *text) {
+    send_string(text);
+    SEND_STRING(SS_TAP(X_LEFT));
+}
+
 void braces_insert(void) {
-    SEND_STRING("[]" SS_TAP(X_LEFT));
+    generic_insert("[]");
 };
 
 void curly_braces_insert(void) {
-    SEND_STRING("{}" SS_TAP(X_LEFT));
+    generic_insert("{}");
 };
 
 void parens_insert(void) {
-    SEND_STRING("()" SS_TAP(X_LEFT));
+    generic_insert("()");
 };
 
 void grave_pair_cursor_insertion(void) {
-    SEND_STRING("``" SS_TAP(X_LEFT));
+    generic_insert("``");
+}
+
+void quote_pair_cursor_insertion(void) {
+    generic_insert("''");
+}
+
+void dquote_pair_cursor_insertion(void) {
+    generic_insert("\"\"");
 }
 
 void macos_log_out(void) {
@@ -213,8 +226,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     case QUO_INST:
         if (record->event.pressed) {
-            SEND_STRING("\"\"");
-            tap_code(KC_LEFT);
+            dquote_pair_cursor_insertion();
         }
         return false;
     case UP_DIR:
@@ -276,19 +288,16 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case F_SFT:
-//        case J_SFT:
         case BS_SYM:
-            return TAPPING_TERM - 20;
+            return g_tapping_term - 20;
         // right-most HRM keys
         case SCLN_CTL:
         case L_ALT:
         // left-most HRM keys
         case S_ALT:
         case A_CTL:
-//            return TAPPING_TERM + 60;
             return g_tapping_term + 60;
         default:
-//            return TAPPING_TERM;
             return g_tapping_term;
     }
 }
