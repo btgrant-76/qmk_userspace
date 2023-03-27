@@ -2,7 +2,7 @@
 Copyright 2023 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
+ it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 (at your option) any later version.
 
@@ -148,7 +148,7 @@ enum {
 #define FWD LCMD(KC_RBRC)
 #define TAB_LFT LSG(KC_LBRC)
 #define TAB_RGT LSG(KC_RBRC)
-#define Z_MUTE MEH_T(KC_SPC)
+#define Z_MUTE HYPR(KC_SPC)
 
 #ifdef TAP_DANCE_ENABLE
 // Tap Dances

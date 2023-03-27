@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef TAPPING_TERM
 
 #define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_TERM 135
+#define TAPPING_TERM 140
 #define TAPPING_TERM_PER_KEY
 
 // start QMK squeezing
@@ -40,7 +40,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 #define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT 110
+#define AUTO_SHIFT_TIMEOUT 115
 #define AUTO_SHIFT_REPEAT
 
 #ifdef RGBLIGHT_ENABLE
