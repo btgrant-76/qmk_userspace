@@ -1,0 +1,11 @@
+{
+    "manufacturer": "SquashKB",
+    "keyboard_name": "Lesovoz",
+    "maintainer": "btgrant-76",
+    "url": "https://www.squashkb.com/product/lesovoz",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x4C53",
+        "vid": "0x5351"
+    }
+}
