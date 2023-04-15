@@ -17,8 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
-
 /* key matrix size */
 #define MATRIX_ROWS 10
 #define MATRIX_COLS 6
@@ -43,7 +41,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENCODERS_PAD_B { D2 }
 #define ENCODER_RESOLUTION 4
 
-#define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 200
 
 /* ws2812 RGB LED */

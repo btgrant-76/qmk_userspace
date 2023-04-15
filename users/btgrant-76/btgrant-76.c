@@ -61,7 +61,7 @@ void code_fence(void) {
 }
 
 #ifdef TAP_DANCE_ENABLE
-void braces_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void braces_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         #ifdef AUTO_SHIFT_ENABLE
             SEND_STRING("}");
@@ -75,7 +75,7 @@ void braces_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 };
 
-void curly_brace_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void curly_brace_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 2) {
         curly_braces_insert();
     } else {
@@ -83,7 +83,7 @@ void curly_brace_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 };
 
-void parens_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void parens_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 2) {
         parens_insert();
     } else {
@@ -91,7 +91,7 @@ void parens_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 };
 
-void l_paren_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void l_paren_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 2) {
         parens_insert();
     } else {
@@ -99,7 +99,7 @@ void l_paren_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 };
 
-void grave_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void grave_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         #ifdef AUTO_SHIFT_ENABLE
             SEND_STRING("~");
@@ -115,7 +115,7 @@ void grave_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 };
 
-void f1_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void f1_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         tap_code(KC_F1);
     } else if (state->count == 2) {
@@ -129,7 +129,7 @@ void f1_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void f2_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void f2_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         tap_code(KC_F2);
     } else if (state->count == 2) {
@@ -139,7 +139,7 @@ void f2_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void f6_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void f6_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         tap_code(KC_F6);
     } else if (state->count == 2) {
@@ -149,7 +149,7 @@ void f6_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void f9_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void f9_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         tap_code(KC_F9);
     } else if (state->count == 2) {
@@ -159,7 +159,7 @@ void f9_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void f12_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
+void f12_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         tap_code(KC_F12);
     } else if (state->count == 2) {
@@ -177,7 +177,7 @@ void f12_tap_dance(qk_tap_dance_state_t *state, void *user_data) {
 
 #ifdef TAP_DANCE_ENABLE
 // Tap Dance definition
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
     [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
     [TD_RBRC] = ACTION_TAP_DANCE_FN(braces_tap_dance),
