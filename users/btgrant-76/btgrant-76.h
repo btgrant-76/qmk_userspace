@@ -209,7 +209,7 @@ enum {
 // number
 #define ___5NUM_1_L___     UNDO,        CUT,     COPY,    PASTE,   REDO
 #define ___5NUM_2_L___     ___HRM_L___,                            XXXXXXX
-#define ___5NUM_3_L___     XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5NUM_3_L___     QK_LEAD,     XXXXXXX, QK_LEAD, XXXXXXX, XXXXXXX
 #define ___NUM_THUMB_L___                        XXXXXXX, XXXXXXX, XXXXXXX
 
 #define ___NUM_1_L___     XXXXXXX, ___5NUM_1_L___

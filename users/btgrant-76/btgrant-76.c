@@ -21,19 +21,61 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Tap Dance & macro functions
 void generic_insert(char *text) {
     send_string(text);
-    SEND_STRING(SS_TAP(X_LEFT));
+    tap_code(KC_LEFT);
 }
 
 void braces_insert(void) {
     generic_insert("[]");
 };
 
+void braces(void) {
+    SEND_STRING("[]");
+};
+
+void braces_semi(void) {
+    SEND_STRING("[];");
+};
+
+void braces_semi_insert(void) {
+    SEND_STRING("[];");
+    tap_code(KC_LEFT);
+    tap_code(KC_LEFT);
+};
+
 void curly_braces_insert(void) {
     generic_insert("{}");
 };
 
+void curly_braces(void) {
+    SEND_STRING("{}");
+};
+
+void curly_braces_semi(void) {
+    SEND_STRING("{};");
+};
+
+void curly_braces_semi_insert(void) {
+    SEND_STRING("{};");
+    tap_code(KC_LEFT);
+    tap_code(KC_LEFT);
+};
+
 void parens_insert(void) {
     generic_insert("()");
+};
+
+void parens(void) {
+    SEND_STRING("()");
+};
+
+void parens_semi(void) {
+    SEND_STRING("();");
+};
+
+void parens_semi_insert(void) {
+    SEND_STRING("();");
+    tap_code(KC_LEFT);
+    tap_code(KC_LEFT);
 };
 
 void grave_pair_cursor_insertion(void) {
@@ -301,3 +343,41 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return g_tapping_term;
     }
 }
+
+#ifdef LEADER_ENABLE
+void leader_end_user(void) {
+    if (leader_sequence_two_keys(KC_P, KC_I)) {
+        parens_insert();
+    } else if (leader_sequence_two_keys(KC_P, KC_A)) {
+        parens();
+    } else if (leader_sequence_three_keys(KC_P, KC_S, KC_A)) {
+        parens_semi();
+    } else if (leader_sequence_three_keys(KC_P, KC_S, KC_I)) {
+        parens_semi_insert();
+    } else if (leader_sequence_two_keys(KC_B, KC_I)) {
+        braces_insert();
+    } else if (leader_sequence_two_keys(KC_B, KC_A)) {
+        braces();
+    } else if (leader_sequence_three_keys(KC_B, KC_S, KC_A)) {
+        braces_semi();
+    } else if (leader_sequence_three_keys(KC_B, KC_S, KC_I)) {
+        braces_semi_insert();
+    } else if (leader_sequence_two_keys(KC_C, KC_I)) {
+        curly_braces_insert();
+    } else if (leader_sequence_two_keys(KC_C, KC_A)) {
+        curly_braces();
+    } else if (leader_sequence_three_keys(KC_C, KC_S, KC_A)) {
+        curly_braces_semi();
+    } else if (leader_sequence_three_keys(KC_C, KC_S, KC_I)) {
+        curly_braces_semi_insert();
+    } else if (leader_sequence_two_keys(KC_G, KC_I)) {
+        grave_pair_cursor_insertion();
+    } else if (leader_sequence_two_keys(KC_C, KC_F)) {
+        code_fence();
+    } else if (leader_sequence_two_keys(KC_Q, KC_I)) {
+        quote_pair_cursor_insertion();
+    } else if (leader_sequence_three_keys(KC_Q, KC_Q, KC_I)) {
+        dquote_pair_cursor_insertion();
+    }
+}
+#endif
