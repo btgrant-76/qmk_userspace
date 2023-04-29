@@ -55,3 +55,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,          _______, _______, _______,         ___FUN_THUMB_L___,     ___FUN_THUMB_R___,         _______, _______, _______
   ),
 };
+
+#ifdef ENCODER_MAP_ENABLE
+    // prevents encoder_update_kb from performing any actions
+    bool encoder_update_user(uint8_t index, bool clockwise) {
+        return false;
+    }
+
+    const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+        [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+        [_NUM]  = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
+        [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+        [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
+    };
+#endif

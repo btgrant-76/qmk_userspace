@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___SYM_2_L___,                                       ___SYM_2_R___,
     ___SYM_3_L___,                                       ___SYM_3_R___,
     XXXXXXX, ___SYM_THUMB_L___,  BACK, FWD, ___SYM_THUMB_R___, XXXXXXX,
-                          XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX, XXXXXXX, XXXXXXX
+                          XXXXXXX, KC_MPLY, XXXXXXX,         XXXXXXX, XXXXXXX, XXXXXXX
   ),
   [_NUM] = LAYOUT_btgrant(
     ___NUM_1_L___,                                             ___NUM_1_R___,
@@ -60,9 +60,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+#ifdef ENCODER_MAP_ENABLE
+    const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+        [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+        [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP) },
+        [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+        [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
+    };
+#endif
+
+/*#if defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+    [_BASE] = { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
+    [_NUM]  = { ENCODER_CCW_CW(RGB_HUD, RGB_HUI) },
+    [_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI) },
+    [_NAV]  = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
+    [_FUN]  = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
+};
+#endif*/
+
 
 // from default keymap
-keyevent_t encoder1_ccw = {
+/*keyevent_t encoder1_ccw = {
     .key = (keypos_t){.row = 4, .col = 2},
     .pressed = false
 };
@@ -73,7 +93,7 @@ keyevent_t encoder1_cw = {
 };
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) { /* First encoder */
+    if (index == 0) { *//* First encoder *//*
         if (clockwise) {
             encoder1_cw.pressed = true;
             encoder1_cw.time = (timer_read() | 1);
@@ -103,7 +123,7 @@ void matrix_scan_user(void) {
         action_exec(encoder1_cw);
     }
 
-}
+}*/
 
 
 /*

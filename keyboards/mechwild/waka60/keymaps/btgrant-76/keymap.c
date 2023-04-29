@@ -92,8 +92,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef ENCODER_MAP_ENABLE
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-        [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
         [_NUM]  = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
+        [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
         [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
         [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
     };
