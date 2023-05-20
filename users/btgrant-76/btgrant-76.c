@@ -337,7 +337,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case F_SFT:
-        case BS_SYM:
             return g_tapping_term - 20;
         // right-most HRM keys
         case SCLN_CTL:
@@ -353,6 +352,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
+    // parens
     if (leader_sequence_two_keys(KC_P, KC_I)) {
         parens_insert();
     } else if (leader_sequence_two_keys(KC_P, KC_A)) {
@@ -361,6 +361,7 @@ void leader_end_user(void) {
         parens_semi();
     } else if (leader_sequence_three_keys(KC_P, KC_S, KC_I)) {
         parens_semi_insert();
+    // braces
     } else if (leader_sequence_two_keys(KC_B, KC_I)) {
         braces_insert();
     } else if (leader_sequence_two_keys(KC_B, KC_A)) {
@@ -369,6 +370,7 @@ void leader_end_user(void) {
         braces_semi();
     } else if (leader_sequence_three_keys(KC_B, KC_S, KC_I)) {
         braces_semi_insert();
+    // curly braces
     } else if (leader_sequence_two_keys(KC_C, KC_I)) {
         curly_braces_insert();
     } else if (leader_sequence_two_keys(KC_C, KC_A)) {
@@ -378,9 +380,11 @@ void leader_end_user(void) {
     } else if (leader_sequence_three_keys(KC_C, KC_S, KC_I)) {
         curly_braces_semi_insert();
     } else if (leader_sequence_two_keys(KC_G, KC_I)) {
+    // back-tick/grave
         grave_pair_cursor_insertion();
     } else if (leader_sequence_two_keys(KC_C, KC_F)) {
         code_fence();
+    // quotes
     } else if (leader_sequence_two_keys(KC_Q, KC_I)) {
         quote_pair_cursor_insertion();
     } else if (leader_sequence_three_keys(KC_Q, KC_Q, KC_I)) {

@@ -45,6 +45,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_AUTO_SHIFT_ALPHA
 #define AUTO_SHIFT_TIMEOUT 115
 #define AUTO_SHIFT_REPEAT
+#define AUTO_SHIFT_TIMEOUT_PER_KEY
 
 // leader key
 #define LEADER_NO_TIMEOUT

@@ -44,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // end from soundmonster
 
 #ifdef RGB_MATRIX_ENABLE
-    #undef RGB_MATRIX_KEYPRESSES // reacts to keypresses
+    #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
     // #define RGB_MATRIX_KEYRELEASES // reacts to keyreleases (instead of keypresses)
     // #define RGB_DISABLE_AFTER_TIMEOUT 0 // number of ticks to wait until disabling effects
     #define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
@@ -83,8 +83,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #undef ENABLE_RGB_MATRIX_DUAL_BEACON
     #undef ENABLE_RGB_MATRIX_RAINBOW_BEACON
     #undef ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-    #define ENABLE_RGB_MATRIX_RAINDROPS
-    #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
+    #undef ENABLE_RGB_MATRIX_RAINDROPS
+    #undef ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
     #undef ENABLE_RGB_MATRIX_HUE_BREATHING
     #undef ENABLE_RGB_MATRIX_HUE_PENDULUM
     #undef ENABLE_RGB_MATRIX_HUE_WAVE
@@ -95,7 +95,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #undef ENABLE_RGB_MATRIX_TYPING_HEATMAP
     #undef ENABLE_RGB_MATRIX_DIGITAL_RAIN
     // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
-    #undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
+    #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
     #undef ENABLE_RGB_MATRIX_SOLID_REACTIVE
     #undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
     #undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
