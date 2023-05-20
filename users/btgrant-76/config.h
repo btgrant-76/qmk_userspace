@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Caps Word
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+//#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_IDLE_TIMEOUT 2000  // 2 seconds
 
 // Auto Shift

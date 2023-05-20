@@ -34,6 +34,7 @@ enum custom_keycodes {
     QUO_INST, // TODO set up a tap dance for this
     UP_DIR,
     LOG_OUT,
+    CAPWD_TG,
     NEW_SAFE_RANGE
 };
 
