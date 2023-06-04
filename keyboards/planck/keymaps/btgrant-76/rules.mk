@@ -3,3 +3,4 @@ ifeq ($(strip $(AUDIO_ENABLE)), yes)
 endif
 
 RGBLIGHT_ENABLE = no
+ENCODER_MAP_ENABLE = yes
