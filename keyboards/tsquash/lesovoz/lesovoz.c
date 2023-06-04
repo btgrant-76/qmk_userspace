@@ -17,7 +17,7 @@
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     writePin(LED1, record->event.pressed);
-    writePin(LED2, record->event.pressed);
+//    writePin(LED2, record->event.pressed);
     return process_record_user(keycode, record);
 }
 
