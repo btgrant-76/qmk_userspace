@@ -145,7 +145,7 @@ enum {
                         /* │  H     │  J/Sft │  K/Gui │  L/Alt │ ; :/Ctl│ */
 #define ___5BASE_2_R___     KC_H,    J_SFT,   K_GUI,   L_ALT,   SCLN_CTL
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  N     │  M     │  , <   │  . >   │ / ?/All│ */
+                        /* │  N     │  M     │  , <   │  . >   │/ ?/Hypr│ */
 #define ___5BASE_3_R___     KC_N,    KC_M,    KC_COMM, KC_DOT,  SLSH_ALL
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │ Ent/SYM│ Spc/NAV│ Del/FUN│ */
@@ -183,7 +183,7 @@ enum {
                         /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
 #define ___5NUM_1_L___      UNDO,    CUT,     COPY,    PASTE,   REDO
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Ctl   │  Opt   │  Cmd   │  Shft  │Capwd TG│ */
+                        /* │  Ctl   │  Opt   │  Cmd   │  Shift │Capwd TG│ */
 #define ___5NUM_2_L___      ___HRM_L___,                        CAPWD_TG
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │ leader │  ---   │ leader │  ---   │  ---   │ */
