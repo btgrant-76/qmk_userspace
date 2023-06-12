@@ -267,6 +267,9 @@ void oled_write_layer_state(void) {
         case 4:
             oled_write_P(PSTR("Func "), false);
             break;
+        case 5:
+            oled_write_P(PSTR("Mouse"), false);
+            break;
         default:
             oled_write_P(PSTR("Undef"), false);
             break;

@@ -28,6 +28,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 140
 #define TAPPING_TERM_PER_KEY
 
+// Mouse Keys
+#define MK_KINETIC_SPEED // this is pretty large
+//#define MK_3_SPEED
+// end Mouse Keys
+
 // start QMK squeezing
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE

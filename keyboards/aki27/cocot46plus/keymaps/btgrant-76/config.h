@@ -21,6 +21,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 
+#ifdef MOUSEKEY_ENABLE
+    #undef MK_KINETIC_SPEED // this is pretty large
+#endif
+
 #define COCOT_CPI_DEFAULT 2
 
 #ifdef RGBLIGHT_ENABLE

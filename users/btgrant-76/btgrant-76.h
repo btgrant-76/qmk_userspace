@@ -25,8 +25,11 @@ enum layer_names {
     _SYM,
     _NUM,
     _NAV,
-    _FUN
+    _FUN,
+    _MSE
 };
+
+#define _MED _SYM
 
 enum custom_keycodes {
     SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board
@@ -57,9 +60,9 @@ enum {
 #define TAB_FUN LT(_FUN, KC_TAB)
 #define BS_NUM LT(_NUM, KC_BSPC)
 #define ESC_SYM LT(_SYM,  KC_ESC)
-#define ENT_MED LT(_SYM, KC_ENT)
+#define ENT_MED LT(_MSE, KC_ENT) // TODO rename
 #define SPC_NAV LT(_NAV, KC_SPC)
-#define DEL_MOUS LT(_FUN, KC_DEL)
+#define DEL_MOUS LT(_MED, KC_DEL) // TODO rename
 
 #define G_NUM LT(_NUM, KC_G)
 #define H_SYM LT(_SYM, KC_H)
@@ -92,6 +95,8 @@ enum {
 #define PASTE LGUI(KC_V)
 #define UNDO LGUI(KC_Z)
 #define REDO LSG(KC_Z)
+#define ___CLIPBOARD_R___ REDO, PASTE, COPY, CUT, UNDO
+#define ___CLIPBOARD_L___ UNDO, CUT, COPY, PASTE, REDO
 
 /// macOS navigation
 #define MISS_CTL LCTL(KC_UP)
@@ -181,7 +186,7 @@ enum {
 /// number
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
-#define ___5NUM_1_L___      UNDO,    CUT,     COPY,    PASTE,   REDO
+#define ___5NUM_1_L___      ___CLIPBOARD_L___
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Ctl   │  Opt   │  Cmd   │  Shift │Capwd TG│ */
 #define ___5NUM_2_L___      ___HRM_L___,                        CAPWD_TG
@@ -304,7 +309,7 @@ enum {
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  Redo  │  Paste │  Copy  │  Cut   │  Undo  │ */
-#define ___5NAV_1_R___      REDO,    PASTE,   COPY,    CUT,     UNDO
+#define ___5NAV_1_R___      ___CLIPBOARD_R___
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Left  │  Down  │  Up    │  Right │  Caps  │ */
 #define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_CAPS
@@ -396,6 +401,42 @@ enum {
                         /* ├────────┼────────┼────────┼────────┴────────┴────────╯ */
                         /* │  ---   │  ---   │  ---   │ */
                         /* ╰────────┴────────┴────────╯ */
+
+                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
+                        /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
+#define ___5MSE_1_L___      ___CLIPBOARD_L___
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │ Mouse L│ Mouse U│ Mouse D│ Mouse U│  ---   │ */
+#define ___5MSE_2_L___      KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R, XXXXXXX
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │ Wheel L│ Wheel D│ Wheel U│ Wheel R│  ---   │ */
+#define ___5MSE_3_L___      KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX
+                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
+                        /*                   │Button 3│Button 1│Button 2│ */
+#define ___MSE_THUMB_L___                     KC_BTN3, KC_BTN1, KC_BTN2
+                        /*                   ╰────────┴────────┴────────╯ */
+
+                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
+                        /* │  ---   │MseSpd 0│MseSpd 1│MseSpd 2│  ---   │ */
+#define ___5MSE_1_R___      XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │  ---   │  Shift │  Cmd   │  Opt   │  Ctrl  │ */
+#define ___5MSE_2_R___      XXXXXXX, ___HRM_R___
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
+#define ___5MSE_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        /* ├────────┼────────┼────────┼────────┴────────╯ */
+                        /* │  ---   │  ---   │  ---   │ */
+#define ___MSE_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
+                        /* ╰────────┴────────┴────────╯ */
+
+#define ___MSE_1_L___ XXXXXXX, ___5MSE_1_L___
+#define ___MSE_2_L___ XXXXXXX, ___5MSE_2_L___
+#define ___MSE_3_L___ XXXXXXX, ___5MSE_3_L___
+
+#define ___MSE_1_R___ ___5MSE_1_R___, XXXXXXX
+#define ___MSE_2_R___ ___5MSE_2_R___, XXXXXXX
+#define ___MSE_3_R___ ___5MSE_3_R___, XXXXXXX
 
 /// layout macros
 #define LAYOUT_btgrant(...)      LAYOUT(__VA_ARGS__)

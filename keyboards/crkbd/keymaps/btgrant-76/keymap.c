@@ -56,6 +56,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___FUN_3_L___,          ___FUN_3_R___,
     ___FUN_THUMB_L___,  ___FUN_THUMB_R___
   ),
+  [_MSE] = LAYOUT_btgrant_3x6(
+    XXXXXXX, ___5MSE_1_L___,          ___5MSE_1_R___, XXXXXXX,
+    XXXXXXX, ___5MSE_2_L___,          ___5MSE_2_R___, XXXXXXX,
+    XXXXXXX, ___5MSE_3_L___,          ___5MSE_3_R___, XXXXXXX,
+    ___MSE_THUMB_L___,  ___MSE_THUMB_R___
+ )
 };
 
 #ifdef OLED_ENABLE
@@ -229,12 +235,14 @@ void render_layer_state(void) {
         0x20, 0xbd, 0xbe, 0xbf, 0x20,
         0x20, 0xdd, 0xde, 0xdf, 0x20, 0};
     if(layer_state_is(_NAV)) {
-        oled_write_P(adjust_layer, false);
+        oled_write_P(lower_layer, false);
     } else if(layer_state_is(_SYM)) {
         oled_write_P(lower_layer, false);
     } else if(layer_state_is(_NUM)) {
         oled_write_P(raise_layer, false);
     } else if(layer_state_is(_FUN)) {
+        oled_write_P(adjust_layer,false);
+    } else if(layer_state_is(_MSE)) {
         oled_write_P(adjust_layer,false);
     } else {
         oled_write_P(default_layer, false);
@@ -252,6 +260,8 @@ void oled_render_layer_state(void) {
         oled_write_ln_P(PSTR("Number"), false);
     } else if(layer_state_is(_FUN)) {
         oled_write_ln_P(PSTR("Function"), false);
+    } else if(layer_state_is(_MSE)) {
+        oled_write_ln_P(PSTR("Mouse"), false);
     } else {
         oled_write_ln_P(PSTR("Default"), false);
     }

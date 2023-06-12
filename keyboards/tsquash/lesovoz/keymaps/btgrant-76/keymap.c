@@ -49,5 +49,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5FUN_2_L___,                                              ___5FUN_2_R___,
         ___5FUN_3_L___,                                              ___5FUN_3_R___,
         XXXXXXX, XXXXXXX, ___FUN_THUMB_L___,   ___FUN_THUMB_R___,  XXXXXXX, XXXXXXX
+    ),
+    [_MSE] = LAYOUT_btgrant(
+        ___5MSE_1_L___,                                              ___5MSE_1_R___,
+        ___5MSE_2_L___,                                              ___5MSE_2_R___,
+        ___5MSE_3_L___,                                              ___5MSE_3_R___,
+        XXXXXXX, XXXXXXX, ___MSE_THUMB_L___,   ___MSE_THUMB_R___,  XXXXXXX, XXXXXXX
     )
 };

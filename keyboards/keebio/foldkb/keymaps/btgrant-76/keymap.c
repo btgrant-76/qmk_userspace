@@ -54,6 +54,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,                                                 ___FUN_3_L___,     ___FUN_3_R___,                                        _______,
     _______,          _______, _______, _______,         ___FUN_THUMB_L___,     ___FUN_THUMB_R___,         _______, _______, _______
   ),
+  [_MSE] = LAYOUT_btgrant(
+    _______, _______, _______,   TD_F1,   TD_F2,   KC_F3,   KC_F4,   KC_F5,     TD_F6,   KC_F7,   KC_F8,   TD_F9,   KC_F10,   KC_F11,  TD_F12, _______,
+    _______, XXXXXXX,                                       ___5MSE_1_L___,     ___5MSE_1_R___,                               XXXXXXX,_______, _______,
+    _______, XXXXXXX,                                       ___5MSE_2_L___,     ___5MSE_2_R___,                               XXXXXXX,         _______,
+    _______, XXXXXXX,                                       ___5MSE_3_L___,     ___5MSE_3_R___,                               XXXXXXX,_______,
+    _______,          _______, _______, _______,         ___MSE_THUMB_L___,     ___MSE_THUMB_R___,         _______, _______, _______
+  ),
 };
 
 #ifdef ENCODER_MAP_ENABLE
@@ -67,6 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [_NUM]  = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
         [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
         [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) },
+        [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) }
     };
 #endif

@@ -53,6 +53,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5FUN_2_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_2_R___,
         ___5FUN_3_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_3_R___,
         XXXXXXX, XXXXXXX, ___FUN_THUMB_L___,  XXXXXXX, XXXXXXX, ___FUN_THUMB_R___,  XXXXXXX, XXXXXXX
+    ),
+    [_MSE] = LAYOUT_btgrant_grid(
+        ___5MSE_1_L___,                       XXXXXXX, XXXXXXX,                       ___5MSE_1_R___,
+        ___5MSE_2_L___,                       XXXXXXX, XXXXXXX,                       ___5MSE_2_R___,
+        ___5MSE_3_L___,                       XXXXXXX, XXXXXXX,                       ___5MSE_3_R___,
+        MISS_CTL,XXXXXXX, ___MSE_THUMB_L___,  XXXXXXX, XXXXXXX, ___MSE_THUMB_R___,  XXXXXXX, XXXXXXX
     )
 };
 
@@ -98,6 +104,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP) },
         [_SYM]  = { ENCODER_CCW_CW(KC_MNXT, KC_MPRV) },
         [_NAV]  = { ENCODER_CCW_CW(FWD, BACK) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRID, KC_BRIU) }
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRID, KC_BRIU) },
+        [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) }
     };
 #endif
