@@ -25,8 +25,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef TAPPING_TERM
 
 #define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_TERM 140
 #define TAPPING_TERM_PER_KEY
+#define TAPPING_TERM 145
+#define TAPPING_TERM_DECREASE_SHIFT 40
+#define TAPPING_TERM_INCREASE_LEFT 55
+#define TAPPING_TERM_INCREASE_RIGHT 80
 
 // Mouse Keys
 #define MK_KINETIC_SPEED // this is pretty large
@@ -43,12 +46,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Caps Word
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-//#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_IDLE_TIMEOUT 2000  // 2 seconds
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT 115
+#define AUTO_SHIFT_TIMEOUT 120
 #define AUTO_SHIFT_REPEAT
 #define AUTO_SHIFT_TIMEOUT_PER_KEY
 

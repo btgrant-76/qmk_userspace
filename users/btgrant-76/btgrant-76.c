@@ -337,14 +337,16 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case F_SFT:
-            return g_tapping_term - 20;
-        // right-most HRM keys
-        case SCLN_CTL:
-        case L_ALT:
+        case J_SFT:
+            return g_tapping_term - TAPPING_TERM_DECREASE_SHIFT;
         // left-most HRM keys
         case S_ALT:
         case A_CTL:
-            return g_tapping_term + 60;
+            return g_tapping_term + TAPPING_TERM_INCREASE_LEFT;
+        // right-most HRM keys
+        case L_ALT:
+        case SCLN_CTL:
+            return g_tapping_term + TAPPING_TERM_INCREASE_RIGHT;
         default:
             return g_tapping_term;
     }
