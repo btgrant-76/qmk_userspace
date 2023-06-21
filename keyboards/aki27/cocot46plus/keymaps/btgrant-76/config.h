@@ -32,7 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 
     #undef RGBLIGHT_EFFECT_ALTERNATING
-    #undef RGBLIGHT_EFFECT_BREATHING
+    #define RGBLIGHT_EFFECT_BREATHING
     #undef RGBLIGHT_EFFECT_CHRISTMAS
     #undef RGBLIGHT_EFFECT_RAINBOW_MOOD
     #undef RGBLIGHT_EFFECT_RGB_TEST

@@ -112,3 +112,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) }
     };
 #endif
+
+#ifdef RGBLIGHT_ENABLE
+void keyboard_post_init_user(void) {
+  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+  rgblight_sethsv_noeeprom(HSV_YELLOW);
+  rgblight_mode_noeeprom(RGBLIGHT_MODE_BREATHING);
+}
+#endif
