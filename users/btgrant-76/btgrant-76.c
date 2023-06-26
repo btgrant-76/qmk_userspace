@@ -334,6 +334,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 };
 #endif // COMBO_ENABLED
 
+#ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case F_SFT:
@@ -351,6 +352,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return g_tapping_term;
     }
 }
+#endif
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
