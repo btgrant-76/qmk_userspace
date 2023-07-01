@@ -221,12 +221,6 @@ void f12_tap_dance(tap_dance_state_t *state, void *user_data) {
 // Tap Dance definition
 tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
-    [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
-    [TD_RBRC] = ACTION_TAP_DANCE_FN(braces_tap_dance),
-    [TD_RCBR] = ACTION_TAP_DANCE_FN(curly_brace_tap_dance),
-    [TD_RPRN] = ACTION_TAP_DANCE_FN(parens_tap_dance),
-    [TD_LPRN] = ACTION_TAP_DANCE_FN(parens_tap_dance),
-    [TD_GRAV] = ACTION_TAP_DANCE_FN(grave_tap_dance),
     [TD_F1] = ACTION_TAP_DANCE_FN(f1_tap_dance),
     [TD_F2] = ACTION_TAP_DANCE_FN(f2_tap_dance),
     [TD_F6] = ACTION_TAP_DANCE_FN(f6_tap_dance),
@@ -340,13 +334,15 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case F_SFT:
         case J_SFT:
             return g_tapping_term - TAPPING_TERM_DECREASE_SHIFT;
-        // left-most HRM keys
+        // left tap-hold keys
         case S_ALT:
         case A_CTL:
+        case E_MEH:
             return g_tapping_term + TAPPING_TERM_INCREASE_LEFT;
-        // right-most HRM keys
+        // right tap-hold keys
         case L_ALT:
         case SCLN_CTL:
+        case I_MEH:
             return g_tapping_term + TAPPING_TERM_INCREASE_RIGHT;
         default:
             return g_tapping_term;
