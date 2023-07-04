@@ -62,6 +62,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
+bool achordion_chord_keymap(uint16_t tap_hold_keycode,
+                            keyrecord_t* tap_hold_record,
+                            uint16_t other_keycode,
+                            keyrecord_t* other_record) {
+
+  switch (tap_hold_record->event.key.row) {
+    case 3:
+    case 7:
+        return true;
+    break;
+  }
+
+  return false;
+}
+
 #ifdef AUDIO_ENABLE
   float plover_song[][2]     = SONG(PLOVER_SOUND);
   float plover_gb_song[][2]  = SONG(PLOVER_GOODBYE_SOUND);
@@ -73,7 +88,7 @@ uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
 
-void matrix_scan_user(void) {
+void matrix_scan_keymap(void) {
 #ifdef AUDIO_ENABLE
     if (muse_mode) {
         if (muse_counter == 0) {

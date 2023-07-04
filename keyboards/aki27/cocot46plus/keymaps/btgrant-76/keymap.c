@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___NUM_1_L___,                                             ___NUM_1_R___,
     ___NUM_2_L___,                                             ___NUM_2_R___,
     ___NUM_3_L___,                                             ___NUM_3_R___,
-    XXXXXXX, ___NUM_THUMB_L___, KC_BTN4, KC_BTN5, ___NUM_THUMB_R___, XXXXXXX,
+          SCRL_MO, ___NUM_THUMB_L___, KC_BTN1, KC_BTN2, ___NUM_THUMB_R___, XXXXXXX,
                            KC_VOLD, KC_MUTE, KC_VOLU,           XXXXXXX, XXXXXXX, XXXXXXX
   ),
   [_NAV] = LAYOUT_btgrant(
@@ -62,14 +62,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef ENCODER_MAP_ENABLE
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-        [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP) },
+        [_BASE] = { ENCODER_CCW_CW(KC_WH_U, KC_WH_D) },
+        [_NUM]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
         [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
         [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
         [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
     };
 #endif
 
+bool achordion_chord_keymap(uint16_t tap_hold_keycode,
+                            keyrecord_t* tap_hold_record,
+                            uint16_t other_keycode,
+                            keyrecord_t* other_record) {
+
+  switch (tap_hold_record->event.key.row) {
+    case 3:
+    case 8:
+        return true;
+    break;
+  }
+
+  return false;
+}
 
 #ifdef RGBLIGHT_ENABLE
 void keyboard_post_init_user(void) {
@@ -127,7 +141,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         #ifdef RGBLIGHT_ENABLE
         rgblight_sethsv_range(HSV_PURPLE, 0, 2);
         #endif
-        cocot_set_scroll_mode(true);
+        cocot_set_scroll_mode(false);
         break;
     case _NAV:
         #ifdef RGBLIGHT_ENABLE

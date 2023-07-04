@@ -63,6 +63,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+bool achordion_chord_keymap(uint16_t tap_hold_keycode,
+                            keyrecord_t* tap_hold_record,
+                            uint16_t other_keycode,
+                            keyrecord_t* other_record) {
+
+  switch (tap_hold_record->event.key.row) {
+    case 4:
+    case 9:
+        return true;
+    break;
+  }
+
+  return false;
+}
+
 #ifdef ENCODER_MAP_ENABLE
     // prevents encoder_update_kb from performing any actions
     bool encoder_update_user(uint8_t index, bool clockwise) {

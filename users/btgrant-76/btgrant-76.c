@@ -16,6 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "btgrant-76.h"
+#include "features/achordion.h"
 
 
 // Tap Dance & macro functions
@@ -234,7 +235,57 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+// TODO bring over keyboard_post_init_user; define a keyboard_post_init_keymap
+// TODO remove achordion.c and achordion.h files and clean up code for Planck
+// TODO remove achordion.c and achordion.h files and clean up code for Lesovoz
+
+__attribute__ ((weak))
+bool achordion_chord_keymap(uint16_t tap_hold_keycode,
+                            keyrecord_t* tap_hold_record,
+                            uint16_t other_keycode,
+                            keyrecord_t* other_record) {
+  return false;
+}
+
+
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t* other_record) {
+
+  if (achordion_chord_keymap(tap_hold_keycode, tap_hold_record, other_keycode, other_record)) {
+    return true;
+  }
+
+  switch (tap_hold_keycode) {
+    case D_GUI: // TODO keys to add:  KC_Q for quit?
+      if (other_keycode == TAB_FUN) {
+        return true;
+      }
+      break;
+  }
+
+  return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
+__attribute__ ((weak))
+void matrix_scan_keymap(void) {
+  return;
+}
+
+void matrix_scan_user(void) {
+  achordion_task();
+  matrix_scan_keymap();
+}
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+#ifdef CONSOLE_ENABLE
+  uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u, int: %u, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event  .pressed, record->event.time, record->tap.interrupted, record->tap.count);
+#endif
+
+  if (!process_achordion(keycode, record)) { return false; }
+
   switch (keycode) {
 #ifdef CAPS_WORD_ENABLE
     case CAPWD_TG:
