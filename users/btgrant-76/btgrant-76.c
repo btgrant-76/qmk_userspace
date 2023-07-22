@@ -215,10 +215,7 @@ void f12_tap_dance(tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_LGUI);
     }
 }
-#endif // TAP_DANCE_ENABLE
-// END:  Tap Dance & macro functions
 
-#ifdef TAP_DANCE_ENABLE
 // Tap Dance definition
 tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Escape, twice for Caps Lock
@@ -234,10 +231,6 @@ __attribute__ ((weak))
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
-
-// TODO bring over keyboard_post_init_user; define a keyboard_post_init_keymap
-// TODO remove achordion.c and achordion.h files and clean up code for Planck
-// TODO remove achordion.c and achordion.h files and clean up code for Lesovoz
 
 __attribute__ ((weak))
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
@@ -258,14 +251,44 @@ bool achordion_chord(uint16_t tap_hold_keycode,
   }
 
   switch (tap_hold_keycode) {
-    case D_GUI: // TODO keys to add:  KC_Q for quit?
-      if (other_keycode == TAB_FUN) {
-        return true;
+    case D_GUI:
+      switch (other_keycode) {
+        case TAB_FUN:
+        case KC_W:
+          return true;
       }
-      break;
   }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
+bool achordion_eager_mod(uint8_t mod) {
+  switch (mod) {
+    case MOD_LSFT:
+    case MOD_LGUI:
+    case MOD_LALT:
+      return true;
+
+    default:
+      return false;
+  }
+}
+
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+  switch (tap_hold_keycode) {
+    // left thumb keys
+
+    case TAB_FUN:
+    case BS_NUM:
+    case ESC_SYM:  // helpful for cocot46plus where this key also triggers scroll mode
+    // right thumb keys
+    case ENT_MOUS:
+    case SPC_NAV:
+    case DEL_MED:
+      return 0;  // Bypass Achordion for these keys.
+  }
+
+  return 1000;
 }
 
 __attribute__ ((weak))
@@ -277,7 +300,6 @@ void matrix_scan_user(void) {
   achordion_task();
   matrix_scan_keymap();
 }
-
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
@@ -385,16 +407,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case F_SFT:
         case J_SFT:
             return g_tapping_term - TAPPING_TERM_DECREASE_SHIFT;
-        // left tap-hold keys
-        case S_ALT:
-        case A_CTL:
-        case E_MEH:
-            return g_tapping_term + TAPPING_TERM_INCREASE_LEFT;
-        // right tap-hold keys
-        case L_ALT:
-        case SCLN_CTL:
-        case I_MEH:
-            return g_tapping_term + TAPPING_TERM_INCREASE_RIGHT;
         default:
             return g_tapping_term;
     }
