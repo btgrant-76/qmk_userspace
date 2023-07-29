@@ -18,7 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #include "quantum.h"
+#ifdef USERSPACE
 #include "btgrant-76.h"
+#endif
 
 #define LAYOUT( \
     A00, A01, A02, A03, A04, A05,                 B05, B04, B03, B02, B01, B00, \
@@ -58,7 +60,11 @@ typedef union {
 extern cocot_config_t cocot_config;
 
 enum cocot_keycodes {
+#ifdef USERSPACE
     COCOT_SAFE_RANGE = NEW_SAFE_RANGE,
+#else
+    COCOT_SAFE_RANGE = SAFE_RANGE,
+#endif
     CPI_SW,
     SCRL_SW,
     ROT_R15,
