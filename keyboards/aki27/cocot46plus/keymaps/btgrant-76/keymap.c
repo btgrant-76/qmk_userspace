@@ -35,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___SYM_2_L___,                                       ___SYM_2_R___,
     ___SYM_3_L___,                                       ___SYM_3_R___,
     XXXXXXX, ___SYM_THUMB_L___,  BACK, FWD, ___SYM_THUMB_R___, XXXXXXX,
-                          XXXXXXX, KC_MPLY, XXXXXXX,         XXXXXXX, XXXXXXX, XXXXXXX
-  ),
+                          KC_MPRV, KC_MPLY, KC_MNXT,         XXXXXXX, XXXXXXX, XXXXXXX
+),
   [_NUM] = LAYOUT_btgrant(
     ___NUM_1_L___,                                             ___NUM_1_R___,
     ___NUM_2_L___,                                             ___NUM_2_R___,
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___NAV_2_L___,                                             ___NAV_2_R___,
     ___NAV_3_L___,                                             ___NAV_3_R___,
     _______, ___NAV_THUMB_L___, KC_BTN1, KC_BTN2, ___NAV_THUMB_R___, _______,
-                            LEFT_SPC, MISS_CTL, RGHT_SPC,       XXXXXXX, XXXXXXX, XXXXXXX
+                            BACK, MISS_CTL, FWD,       XXXXXXX, XXXXXXX, XXXXXXX
   ),
   [_FUN] = LAYOUT_btgrant(
     ___FUN_1_L___,                                             ___FUN_1_R___,
@@ -68,6 +68,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
         [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
     };
+#else
+keyevent_t encoder1_ccw = {
+    .key = (keypos_t){.row = 4, .col = 2},
+    .pressed = false
+};
+
+keyevent_t encoder1_cw = {
+    .key = (keypos_t){.row = 4, .col = 5},
+    .pressed = false
+};
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            encoder1_cw.pressed = true;
+            encoder1_cw.time = (timer_read() | 1);
+            action_exec(encoder1_cw);
+        } else {
+            encoder1_ccw.pressed = true;
+            encoder1_ccw.time = (timer_read() | 1);
+            action_exec(encoder1_ccw);
+        }
+    }
+
+    return true;
+}
+
+void matrix_scan_keymap(void) {
+    if (IS_PRESSED(encoder1_ccw)) {
+        encoder1_ccw.pressed = false;
+        encoder1_ccw.time = (timer_read() | 1);
+        action_exec(encoder1_ccw);
+    }
+
+    if (IS_PRESSED(encoder1_cw)) {
+        encoder1_cw.pressed = false;
+        encoder1_cw.time = (timer_read() | 1);
+        action_exec(encoder1_cw);
+    }
+}
 #endif
 
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
@@ -121,7 +161,6 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 int hue_fst = -1;
 int sat_fst = -1;
 int val_fst = -1;
-
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     #ifdef RGBLIGHT_ENABLE
