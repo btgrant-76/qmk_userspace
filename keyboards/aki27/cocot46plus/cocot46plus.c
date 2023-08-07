@@ -236,6 +236,11 @@ void render_logo(void) {
     oled_write_P(cocot_logo, false);
 };
 
+__attribute__ ((weak))
+bool oled_write_layer_name_keymap(void) {
+    return false;
+}
+
 void oled_write_layer_state(void) {
 
     oled_write_P(PSTR(" "), false);
@@ -251,29 +256,35 @@ void oled_write_layer_state(void) {
     snprintf(buf2, 3, "%2d", scroll_div);
     snprintf(buf3, 4, "%3d", angle);
 
-    switch (get_highest_layer(layer_state | default_layer_state)) {
-        case 0:
-            oled_write_P(PSTR("Base "), false);
-            break;
-        case 1:
-            oled_write_P(PSTR("Sym  "), false);
-            break;
-        case 2:
-            oled_write_P(PSTR("Num  "), false);
-            break;
-        case 3:
-            oled_write_P(PSTR("Nav  "), false);
-            break;
-        case 4:
-            oled_write_P(PSTR("Func "), false);
-            break;
-        case 5:
-            oled_write_P(PSTR("Mouse"), false);
-            break;
-        default:
-            oled_write_P(PSTR("Undef"), false);
-            break;
+    if (!oled_write_layer_name_keymap()) {
+        switch (get_highest_layer(layer_state | default_layer_state)) {
+            case 0:
+                oled_write_P(PSTR("Base "), false);
+                break;
+            case 1:
+                oled_write_P(PSTR("Lower"), false);
+                break;
+            case 2:
+                oled_write_P(PSTR("Raise"), false);
+                break;
+            case 3:
+                oled_write_P(PSTR("Mouse"), false);
+                break;
+            case 4:
+                oled_write_P(PSTR("L4   "), false);
+                break;
+            case 5:
+                oled_write_P(PSTR("L5   "), false);
+                break;
+            case 6:
+                oled_write_P(PSTR("L6   "), false);
+                break;
+            default:
+                oled_write_P(PSTR("Undef"), false);
+                break;
+        }
     }
+
     oled_write_P(PSTR("/"), false);
     if (cocot_get_scroll_mode()){
         oled_write_P(PSTR("S"), false);

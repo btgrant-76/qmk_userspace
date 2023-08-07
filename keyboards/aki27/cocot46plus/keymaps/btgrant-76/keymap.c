@@ -221,6 +221,35 @@ bool oled_task_user(void) {
     oled_write_layer_state();
     return false;
 }
+
+void oled_write_layer(void) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
+        case _BASE:
+            oled_write_P(PSTR("Base "), false);
+            break;
+        case _SYM:
+            oled_write_P(PSTR("Sym  "), false);
+            break;
+        case _NUM:
+            oled_write_P(PSTR("Num  "), false);
+            break;
+        case _NAV:
+            oled_write_P(PSTR("Nav  "), false);
+            break;
+        case _FUN:
+            oled_write_P(PSTR("Func "), false);
+            break;
+        case _MSE:
+            oled_write_P(PSTR("Mouse"), false);
+            break;
+        case _ADD:
+            oled_write_P(PSTR("Addtl"), false);
+            break;
+        default:
+            oled_write_P(PSTR("Undef"), false);
+            break;
+    }
+}
 #endif
 
 // END from default keymap
