@@ -26,7 +26,8 @@ enum layer_names {
     _NUM,
     _NAV,
     _FUN,
-    _MSE
+    _MSE,
+    _ADD
 };
 
 #define _MED _SYM
@@ -245,14 +246,14 @@ enum {
 
 /*** function ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │ Bootldr│  ../   │Scrn2Clp│ Scrn2Fl│  ---   │ */
-#define ___5FUN_1_L___      QK_BOOT, UP_DIR,  SCRN2CLP,SCRN2FL, XXXXXXX
+                        /* │ Log Out│  ---   │Scrn2Clp│ Scrn2Fl│  ---   │ */
+#define ___5FUN_1_L___      LOG_OUT, XXXXXXX, SCRN2CLP,SCRN2FL, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Log Out│DynTpRpt│ DynTpDn│ DynTpUp│  ---   │ */
-#define ___5FUN_2_L___      LOG_OUT, DT_PRNT, DT_DOWN, DT_UP,   XXXXXXX
+                        /* │  Ctl   │  Alt   │  Cmd   │  Shft  │  ---   │ */
+#define ___5FUN_2_L___      ___HRM_L___,                        XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │ ASftRpt│ ASft Dn│ ASft Up│  ---   │ */
-#define ___5FUN_3_L___      XXXXXXX, AS_RPT,  AS_DOWN, AS_UP,   XXXXXXX
+                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
+#define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │  ---   │  Space │  Tab   │ */
 #define ___FUN_THUMB_L___                     XXXXXXX, KC_SPC,  KC_TAB
@@ -268,8 +269,8 @@ enum {
                         /* │  ---   │  F1    │  F2    │  F3    │  F10   │ */
 #define ___5FUN_3_R___      XXXXXXX, F1_TD,   F2_TD,   KC_F3,   KC_F10
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  ---   │  ---   │  ---   │ */
-#define ___FUN_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
+                        /* │  ---   │  ADD   │  ---   │ */
+#define ___FUN_THUMB_R___   XXXXXXX, MO(_ADD), XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
 /*** mouse ***/
@@ -299,6 +300,35 @@ enum {
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  ---   │  ---   │  ---   │ */
 #define ___MSE_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
+                        /* ╰────────┴────────┴────────╯ */
+
+/*** other ***/
+                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
+                        /* │ Bootldr│  ---   │  ---   │  ---   │  ---   │ */
+#define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │  ---   │DynTpRpt│ DynTpDn│ DynTpUp│  ---   │ */
+#define ___5ADD_2_L___      XXXXXXX, DT_PRNT, DT_DOWN, DT_UP,   XXXXXXX
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │  ---   │ ASftRpt│ ASft Dn│ ASft Up│  ---   │ */
+#define ___5ADD_3_L___      XXXXXXX, AS_RPT,  AS_DOWN, AS_UP,   XXXXXXX
+                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
+                        /*                   │  ---   │  ---   │  ---   │ */
+#define ___ADD_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX
+                        /*                   ╰────────┴────────┴────────╯ */
+
+                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
+                        /* │  Redo  │  Paste │  Copy  │  Cut   │  Undo  │ */
+#define ___5ADD_1_R___      ___CLIPBOARD_R___
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
+#define ___5ADD_2_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        /* ├────────┼────────┼────────┼────────┼────────┤ */
+                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
+#define ___5ADD_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        /* ├────────┼────────┼────────┼────────┴────────╯ */
+                        /* │  ---   │  ---   │  ---   │ */
+#define ___ADD_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
 /** 12u **/

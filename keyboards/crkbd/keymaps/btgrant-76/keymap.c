@@ -60,8 +60,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, ___5MSE_1_L___,          ___5MSE_1_R___, XXXXXXX,
     XXXXXXX, ___5MSE_2_L___,          ___5MSE_2_R___, XXXXXXX,
     XXXXXXX, ___5MSE_3_L___,          ___5MSE_3_R___, XXXXXXX,
-    ___MSE_THUMB_L___,  ___MSE_THUMB_R___
- )
+          ___MSE_THUMB_L___,          ___MSE_THUMB_R___
+  ),
+  [_ADD] = LAYOUT_btgrant_3x6(
+      XXXXXXX, ___5ADD_1_L___,         ___5ADD_1_R___, XXXXXXX,
+      XXXXXXX, ___5ADD_2_L___,         ___5ADD_2_R___, XXXXXXX,
+      XXXXXXX, ___5ADD_3_L___,         ___5ADD_3_R___, XXXXXXX,
+            ___ADD_THUMB_L___,         ___ADD_THUMB_R___
+  )
 };
 
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,

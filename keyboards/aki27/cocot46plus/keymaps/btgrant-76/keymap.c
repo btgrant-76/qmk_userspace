@@ -23,41 +23,54 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT_btgrant(
-    ___BASE_1_L___,                                      ___BASE_1_R___,
-    ___BASE_2_L___,                                      ___BASE_2_R___,
-    ___BASE_3_L___,                                      ___BASE_3_R___,
-    BACK, ___BASE_THUMB_L___, KC_BTN1, KC_BTN2, ___BASE_THUMB_R___, FWD,
-                         KC_PGUP, KC_BTN3, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX
-  ),
-  [_SYM] = LAYOUT_btgrant(
-    ___SYM_1_L___,                                       ___SYM_1_R___,
-    ___SYM_2_L___,                                       ___SYM_2_R___,
-    ___SYM_3_L___,                                       ___SYM_3_R___,
-    XXXXXXX, ___SYM_THUMB_L___,  BACK, FWD, ___SYM_THUMB_R___, XXXXXXX,
-                          KC_MPRV, KC_MPLY, KC_MNXT,         XXXXXXX, XXXXXXX, XXXXXXX
-),
-  [_NUM] = LAYOUT_btgrant(
-    ___NUM_1_L___,                                             ___NUM_1_R___,
-    ___NUM_2_L___,                                             ___NUM_2_R___,
-    ___NUM_3_L___,                                             ___NUM_3_R___,
-          SCRL_MO, ___NUM_THUMB_L___, KC_BTN1, KC_BTN2, ___NUM_THUMB_R___, XXXXXXX,
-                           KC_VOLD, KC_MUTE, KC_VOLU,           XXXXXXX, XXXXXXX, XXXXXXX
-  ),
-  [_NAV] = LAYOUT_btgrant(
-    ___NAV_1_L___,                                             ___NAV_1_R___,
-    ___NAV_2_L___,                                             ___NAV_2_R___,
-    ___NAV_3_L___,                                             ___NAV_3_R___,
-    _______, ___NAV_THUMB_L___, KC_BTN1, KC_BTN2, ___NAV_THUMB_R___, _______,
-                            BACK, MISS_CTL, FWD,       XXXXXXX, XXXXXXX, XXXXXXX
-  ),
-  [_FUN] = LAYOUT_btgrant(
-    ___FUN_1_L___,                                             ___FUN_1_R___,
-    ___FUN_2_L___,                                             ___FUN_2_R___,
-    ___FUN_3_L___,                                             ___FUN_3_R___,
-    XXXXXXX, ___FUN_THUMB_L___,  CPI_SW, SCRL_SW, ___FUN_THUMB_L___, XXXXXXX,
-                            ROT_L15, SCRL_IN,  ROT_R15,         XXXXXXX, XXXXXXX, XXXXXXX
-  )
+    [_BASE] = LAYOUT_btgrant(
+        ___BASE_1_L___,                                      ___BASE_1_R___,
+        ___BASE_2_L___,                                      ___BASE_2_R___,
+        ___BASE_3_L___,                                      ___BASE_3_R___,
+        BACK, ___BASE_THUMB_L___, KC_BTN1, KC_BTN2, ___BASE_THUMB_R___, FWD,
+                             KC_PGUP, KC_BTN3, KC_PGDN,
+                             XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+    [_SYM] = LAYOUT_btgrant(
+        ___SYM_1_L___,                                       ___SYM_1_R___,
+        ___SYM_2_L___,                                       ___SYM_2_R___,
+        ___SYM_3_L___,                                       ___SYM_3_R___,
+        XXXXXXX, ___SYM_THUMB_L___,  BACK, FWD, ___SYM_THUMB_R___, XXXXXXX,
+                              KC_MPRV, KC_MPLY, KC_MNXT,
+                              XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+    [_NUM] = LAYOUT_btgrant(
+        ___NUM_1_L___,                                             ___NUM_1_R___,
+        ___NUM_2_L___,                                             ___NUM_2_R___,
+        ___NUM_3_L___,                                             ___NUM_3_R___,
+        SCRL_MO, ___NUM_THUMB_L___, KC_BTN1, KC_BTN2, ___NUM_THUMB_R___, XXXXXXX,
+                               KC_VOLD, KC_MUTE, KC_VOLU,
+                               XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+    [_NAV] = LAYOUT_btgrant(
+        ___NAV_1_L___,                                             ___NAV_1_R___,
+        ___NAV_2_L___,                                             ___NAV_2_R___,
+        ___NAV_3_L___,                                             ___NAV_3_R___,
+        _______, ___NAV_THUMB_L___, KC_BTN1, KC_BTN2, ___NAV_THUMB_R___, _______,
+                                BACK,    MISS_CTL,FWD,
+                                XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+    [_FUN] = LAYOUT_btgrant(
+        ___FUN_1_L___,                                             ___FUN_1_R___,
+        ___FUN_2_L___,                                             ___FUN_2_R___,
+        ___FUN_3_L___,               XXXXXXX, XXXXXXX,             ___FUN_3_R___,
+        XXXXXXX, ___FUN_THUMB_L___,   ___FUN_THUMB_R___, XXXXXXX,
+                                KC_BRID, XXXXXXX, KC_BRIU,
+                                XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+    [_ADD] = LAYOUT_btgrant(
+        XXXXXXX, ___5ADD_1_L___,                         ___5ADD_1_R___, XXXXXXX,
+        XXXXXXX, ___5ADD_2_L___,                         ___5ADD_2_R___, XXXXXXX,
+        XXXXXXX, ___5ADD_3_L___,                         ___5ADD_3_R___, XXXXXXX,
+        XXXXXXX, ___ADD_THUMB_L___,  CPI_SW, SCRL_SW, ___ADD_THUMB_R___, XXXXXXX,
+                                ROT_L15, SCRL_IN, ROT_R15,
+                                XXXXXXX, XXXXXXX, XXXXXXX
+    )
 };
 
 #ifdef ENCODER_MAP_ENABLE
@@ -65,8 +78,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [_BASE] = { ENCODER_CCW_CW(KC_WH_U, KC_WH_D) },
         [_NUM]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
         [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
-        [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
+        [_NAV]  = { ENCODER_CCW_CW(BACK,    FWD) },
         [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
+        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) }
     };
 #else
 keyevent_t encoder1_ccw = {

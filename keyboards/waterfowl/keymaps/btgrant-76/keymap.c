@@ -54,6 +54,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  ___5MSE_3_L___,                         ___5MSE_3_R___,
         XXXXXXX, ___MSE_THUMB_L___, XXXXXXX, XXXXXXX, ___MSE_THUMB_R___, XXXXXXX
     ),
+    [_ADD] =  LAYOUT_btgrant(
+                 ___5ADD_1_L___,                         ___5ADD_1_R___,
+                 ___5ADD_2_L___,                         ___5ADD_2_R___,
+                 ___5ADD_3_L___,                         ___5ADD_3_R___,
+        XXXXXXX, ___ADD_THUMB_L___, XXXXXXX, XXXXXXX, ___ADD_THUMB_R___, XXXXXXX
+    )
 };
 
 
@@ -65,11 +71,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         //        { left roller (R, L),                   left knob (L, R),                 right roller (R, L),              right knob (R, L) }
         [_BASE] = { ENCODER_CCW_CW(KC_TAB, LSFT(KC_TAB)), ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(KC_WH_D, KC_WH_U), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
-        [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP),     ENCODER_CCW_CW(KC_PGDN, KC_PGUP) },
+        [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP),     ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},
         [_SYM]  = { ENCODER_CCW_CW(KC_MNXT, KC_MPRV),     ENCODER_CCW_CW(KC_MNXT, KC_MPRV) },
-        [_NAV]  = { ENCODER_CCW_CW(FWD, BACK),            ENCODER_CCW_CW(FWD, BACK) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRID, KC_BRIU),     ENCODER_CCW_CW(KC_BRID, KC_BRIU) },
-        [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC),   ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) }
+        [_NAV]  = { ENCODER_CCW_CW(FWD, BACK),            ENCODER_CCW_CW(BACK, FWD) },
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID),     ENCODER_CCW_CW(KC_BRID, KC_BRIU) },
+        [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC),   ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) },
+        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX),     ENCODER_CCW_CW(XXXXXXX, XXXXXXX) }
     };
 #endif
 
@@ -114,6 +121,9 @@ bool oled_task_user(void) {
                break;
            case _MSE:
                oled_write_P(PSTR("MOUSE\n\n\n\n"), false);
+               break;
+           case _ADD:
+               oled_write_P(PSTR("ADDITIONAL\n\n\n\n"), false);
                break;
            default:
                oled_write_ln_P(PSTR("Undefined"), false);

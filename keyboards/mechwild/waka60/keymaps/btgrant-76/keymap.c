@@ -97,7 +97,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
      XXXXXXX,                               ___5MSE_3_L___,MISS_CTL,___5MSE_3_R___,                               XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-      AU_TOGG, MU_TOGG, MU_NEXT,         ___MSE_THUMB_L___, XXXXXXX,___MSE_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
+     XXXXXXX, XXXXXXX, XXXXXXX,          ___MSE_THUMB_L___, XXXXXXX,___MSE_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
+  //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+    ),
+    [_ADD] = LAYOUT_btgrant(
+  //|-----------------------------------------------------|        |-----------------------------------------------------|
+      _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
+  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
+     XXXXXXX,                               ___5ADD_1_L___,         ___5ADD_1_R___,                               XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
+     XXXXXXX,                               ___5ADD_2_L___,         ___5ADD_2_R___,                               XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
+     XXXXXXX,                               ___5ADD_3_L___, QK_BOOT,___5ADD_3_R___,                               XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+     XXXXXXX, XXXXXXX, XXXXXXX,          ___ADD_THUMB_L___, XXXXXXX,___ADD_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
   //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     )
 };
@@ -119,12 +132,13 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
 
 #ifdef ENCODER_MAP_ENABLE
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-        [_NUM]  = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
-        [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
-        [_NAV]  = { ENCODER_CCW_CW(BACK, FWD) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) },
-        [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) }
+        [_BASE] = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) },
+        [_NUM]  = { ENCODER_CCW_CW(KC_PGUP,  KC_PGDN) },
+        [_SYM]  = { ENCODER_CCW_CW(KC_MPRV,  KC_MNXT) },
+        [_NAV]  = { ENCODER_CCW_CW(BACK,     FWD) },
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU,  KC_BRID) },
+        [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) },
+        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) }
     };
 #endif
 
