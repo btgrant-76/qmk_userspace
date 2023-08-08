@@ -24,8 +24,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef TAPPING_FORCE_HOLD
 #undef TAPPING_TERM
 
-#define IGNORE_MOD_TAP_INTERRUPT
-
 #define TAPPING_TERM_PER_KEY
 #define TAPPING_TERM 145
 #define TAPPING_TERM_DECREASE_SHIFT 40

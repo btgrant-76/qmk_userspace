@@ -24,5 +24,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         { 27, 27 }
 #    define SPLIT_TRANSPORT_MIRROR
 #endif
-
-#define I2C_DRIVER I2CD0

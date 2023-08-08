@@ -58,8 +58,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FUN] = LAYOUT_btgrant(
         ___FUN_1_L___,                                             ___FUN_1_R___,
         ___FUN_2_L___,                                             ___FUN_2_R___,
-        ___FUN_3_L___,               XXXXXXX, XXXXXXX,             ___FUN_3_R___,
-        XXXXXXX, ___FUN_THUMB_L___,   ___FUN_THUMB_R___, XXXXXXX,
+        ___FUN_3_L___,                                             ___FUN_3_R___,
+        XXXXXXX, ___FUN_THUMB_L___, XXXXXXX, XXXXXXX, ___FUN_THUMB_R___, XXXXXXX,
                                 KC_BRID, XXXXXXX, KC_BRIU,
                                 XXXXXXX, XXXXXXX, XXXXXXX
     ),
@@ -75,12 +75,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef ENCODER_MAP_ENABLE
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [_BASE] = { ENCODER_CCW_CW(KC_WH_U, KC_WH_D) },
-        [_NUM]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+        [_BASE] = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN) },
         [_SYM]  = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+        [_NUM]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
         [_NAV]  = { ENCODER_CCW_CW(BACK,    FWD) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU, KC_BRID) }
-        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX) }
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRID, KC_BRIU) },
+        [_ADD]  = { ENCODER_CCW_CW(ROT_L15,  ROT_R15) }
     };
 #else
 keyevent_t encoder1_ccw = {
@@ -108,7 +108,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
     return true;
 }
-
+// FIXME IS_PRESSED removed in 0.21; use encoder map until fixed
 void matrix_scan_keymap(void) {
     if (IS_PRESSED(encoder1_ccw)) {
         encoder1_ccw.pressed = false;
