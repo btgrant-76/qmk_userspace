@@ -214,6 +214,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         #endif
         cocot_set_scroll_mode(false);
         break;
+    case _ADD:
+        #ifdef RGBLIGHT_ENABLE
+        rgblight_sethsv_range(HSV_RED, 0, 2);
+        #endif
+        cocot_set_scroll_mode(false);
+        break;
     default:
         #ifdef RGBLIGHT_ENABLE
         // rgblight_sethsv_range( 0, 0, 0, 0, 2);
@@ -236,7 +242,7 @@ bool oled_task_user(void) {
     return false;
 }
 
-void oled_write_layer(void) {
+bool oled_write_layer_name_keymap(void) {
     switch (get_highest_layer(layer_state | default_layer_state)) {
         case _BASE:
             oled_write_P(PSTR("Base "), false);
@@ -263,6 +269,7 @@ void oled_write_layer(void) {
             oled_write_P(PSTR("Undef"), false);
             break;
     }
+    return true;
 }
 #endif
 
