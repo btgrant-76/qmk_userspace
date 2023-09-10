@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 void generic_insert(char *text) {
     send_string(text);
     tap_code(KC_LEFT);
-}
+};
 
 void braces_insert(void) {
     generic_insert("[]");
@@ -81,15 +81,15 @@ void parens_semi_insert(void) {
 
 void grave_pair_cursor_insertion(void) {
     generic_insert("``");
-}
+};
 
 void quote_pair_cursor_insertion(void) {
     generic_insert("''");
-}
+};
 
 void dquote_pair_cursor_insertion(void) {
     generic_insert("\"\"");
-}
+};
 
 void macos_log_out(void) {
     register_code(KC_LGUI);
@@ -97,13 +97,71 @@ void macos_log_out(void) {
     tap_code(KC_Q);
     unregister_code(KC_LGUI);
     unregister_code(KC_LCTL);
-}
+};
 
 void code_fence(void) {
     SEND_STRING("```" SS_TAP(X_ENT) SS_TAP(X_ENT) "```" SS_TAP(X_UP));
-}
+};
 
 #ifdef TAP_DANCE_ENABLE
+void period_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !state->interrupted) {
+        SEND_STRING(",");
+    } else {
+        SEND_STRING(".");
+    }
+};
+
+void zero_or_space_tap_dance(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !state->interrupted) {
+        SEND_STRING(" ");
+    } else if (state->count == 2) {
+        SEND_STRING("00");
+    } else {
+        SEND_STRING("0");
+    }
+};
+
+void quot_or_colon_tap_dance(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !state->interrupted) {
+        SEND_STRING(":");
+    } else {
+        SEND_STRING("'");
+    }
+};
+
+// FIXME this breaks caps words; use https://docs.qmk.fm/#/feature_caps_word?id=configure-which-keys-are-word-breaking to detect the tap dance code
+//   the other, numeric TD additions will break it too
+void dashes_tap_dance(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !state->interrupted) {
+        // n-dash
+        register_code(KC_LALT);
+        tap_code(KC_MINS);
+        unregister_code(KC_LALT);
+    } else if (state->count == 2) {
+        // m-dash
+        register_code(KC_LALT);
+        register_code(KC_LSFT);
+        tap_code(KC_MINS);
+        unregister_code(KC_LALT);
+        unregister_code(KC_LSFT);
+    } else {
+//        tap_code(KC_MINS);
+        SEND_STRING("-");
+    }
+};
+
+void grav_or_slash_tap_dance(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !state->interrupted) {
+        SEND_STRING("/");
+    } else if (state->count == 3) {
+        SEND_STRING("```");
+    } else if (state->count == 2) {
+        SEND_STRING("``");
+    } else {
+        SEND_STRING("`");
+    }
+};
 void braces_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         #ifdef AUTO_SHIFT_ENABLE
@@ -170,7 +228,7 @@ void f1_tap_dance(tap_dance_state_t *state, void *user_data) {
         tap_code(KC_F1);
         unregister_code(KC_LALT);
     }
-}
+};
 
 void f2_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
@@ -180,7 +238,7 @@ void f2_tap_dance(tap_dance_state_t *state, void *user_data) {
         tap_code(KC_F2);
         unregister_code(KC_LGUI);
     }
-}
+};
 
 void f6_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
@@ -190,7 +248,7 @@ void f6_tap_dance(tap_dance_state_t *state, void *user_data) {
         tap_code(KC_T);
         unregister_code(KC_LCTL);
     }
-}
+};
 
 void f9_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
@@ -200,7 +258,7 @@ void f9_tap_dance(tap_dance_state_t *state, void *user_data) {
         tap_code(KC_9);
         unregister_code(KC_LGUI);
     }
-}
+};
 
 void f12_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
@@ -214,7 +272,7 @@ void f12_tap_dance(tap_dance_state_t *state, void *user_data) {
         tap_code(KC_F12);
         unregister_code(KC_LGUI);
     }
-}
+};
 
 // Tap Dance definition
 tap_dance_action_t tap_dance_actions[] = {
@@ -224,13 +282,18 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_F6] = ACTION_TAP_DANCE_FN(f6_tap_dance),
     [TD_F9] = ACTION_TAP_DANCE_FN(f9_tap_dance),
     [TD_F12] = ACTION_TAP_DANCE_FN(f12_tap_dance),
+    [TD_DOT] = ACTION_TAP_DANCE_FN(period_or_comma_tap_dance),
+    [TD_ZERO] = ACTION_TAP_DANCE_FN(zero_or_space_tap_dance),
+    [TD_QUOT] = ACTION_TAP_DANCE_FN(quot_or_colon_tap_dance),
+    [TD_DASH] = ACTION_TAP_DANCE_FN(dashes_tap_dance),
+    [TD_GRV] = ACTION_TAP_DANCE_FN(grav_or_slash_tap_dance),
 };
 #endif // TAP_DANCE_ENABLE
 
 __attribute__ ((weak))
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
   return true;
-}
+};
 
 __attribute__ ((weak))
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
@@ -238,7 +301,7 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
                             uint16_t other_keycode,
                             keyrecord_t* other_record) {
   return false;
-}
+};
 
 
 bool achordion_chord(uint16_t tap_hold_keycode,
@@ -255,13 +318,14 @@ bool achordion_chord(uint16_t tap_hold_keycode,
       switch (other_keycode) {
         case TAB_FUN:
         case KC_W:
+        case KC_R:
         case S_ALT:
           return true;
       }
   }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
-}
+};
 
 bool achordion_eager_mod(uint8_t mod) {
   switch (mod) {
@@ -273,12 +337,11 @@ bool achordion_eager_mod(uint8_t mod) {
     default:
       return false;
   }
-}
+};
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
     // left thumb keys
-
     case TAB_FUN:
     case BS_NUM:
     case ESC_SYM:  // helpful for cocot46plus where this key also triggers scroll mode
@@ -290,17 +353,17 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   }
 
   return 1000;
-}
+};
 
 __attribute__ ((weak))
 void matrix_scan_keymap(void) {
   return;
-}
+};
 
 void matrix_scan_user(void) {
   achordion_task();
   matrix_scan_keymap();
-}
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
@@ -358,7 +421,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
   }
   return process_record_keymap(keycode, record);
-}
+};
 
 #ifdef COMBO_ENABLE
 // Combo declarations
@@ -385,7 +448,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     switch(combo_index) {
         case CB_BRC_INST:
             if (pressed) {
-                braces_insert()
+                braces_insert();
             }
             break;
         case CB_CBR_INST:
@@ -454,5 +517,5 @@ void leader_end_user(void) {
     } else if (leader_sequence_three_keys(KC_Q, KC_Q, KC_I)) {
         dquote_pair_cursor_insertion();
     }
-}
+};
 #endif

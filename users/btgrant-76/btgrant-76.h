@@ -49,6 +49,11 @@ enum {
     TD_F6,
     TD_F9,
     TD_F12,
+    TD_DOT,
+    TD_ZERO,
+    TD_QUOT,
+    TD_DASH,
+    TD_GRV
 };
 
 /* Aliases */
@@ -118,12 +123,22 @@ enum {
     #define F6_TD  TD(TD_F6)
     #define F9_TD  TD(TD_F9)
     #define F12_TD TD(TD_F12)
+    #define DOT_TD  TD(TD_DOT)
+    #define ZERO_TD TD(TD_ZERO)
+    #define QUOT_TD TD(TD_QUOT)
+    #define DASH_TD TD(TD_DASH)
+    #define GRV_TD  TD(TD_GRV)
 #else
     #define F1_TD  KC_F1
     #define F2_TD  KC_F2
     #define F6_TD  KC_F6
     #define F9_TD  KC_F9
     #define F12_TD KC_F12
+    #define DOT_TD  KC_DOT
+    #define ZERO_TD KC_0
+    #define QUOT_TD KC_QUOT
+    #define DASH_TD KC_MINS
+    #define GRV_TD  KC_GRV
 #endif // TAP_DANCE_ENABLE
 
 /* portable keymaps */
@@ -177,13 +192,13 @@ enum {
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  = +   │  4     │  5     │  6     │  ' "   │ */
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_QUOT
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  \ |   │  1     │  2     │  3     │  ` ~   │ */
-#define ___5NUM_3_R___      KC_BSLS, KC_1,    KC_2,    KC_3,    KC_GRV
+#define ___5NUM_3_R___      KC_BSLS, KC_1,    KC_2,    KC_3,    GRV_TD
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  - _   │  0     │  .     │ */
-#define ___NUM_THUMB_R___   KC_MINS, KC_0,    KC_DOT
+#define ___NUM_THUMB_R___   KC_MINS, ZERO_TD, DOT_TD
                         /* ╰────────┴────────┴────────╯ */
 
 /*** symbol ***/
