@@ -87,6 +87,8 @@ enum {
 #define Z_HYPR HYPR_T(KC_Z)
 #define E_MEH MEH_T(KC_E)
 #define I_MEH MEH_T(KC_I)
+#define B_MEH MEH_T(KC_B)
+#define N_MEH MEH_T(KC_N)
 
 /*** Thumb keys ***/
 #define DEL_GUI LGUI_T(KC_DEL)
@@ -145,30 +147,30 @@ enum {
 /** 10u **/
 /*** base ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Q     │  W     │  E/Meh │  R     │  T     │ */
-#define ___5BASE_1_L___     KC_Q,    KC_W,    E_MEH,   KC_R,    KC_T
+                        /* │  Q     │  W     │  E     │  R     │  T     │ */
+#define ___5BASE_1_L___     KC_Q,    KC_W,    KC_E,   KC_R,    KC_T
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  A/Ctl │  S/Alt │  D/Cmd │  F/Sft │  G     │ */
 #define ___5BASE_2_L___     A_CTL,   S_ALT,   D_GUI,   F_SFT,   KC_G
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Z/Hypr │  X     │  C     │  V     │  B     │ */
-#define ___5BASE_3_L___     Z_HYPR,   KC_X,    KC_C,    KC_V,    KC_B
+                        /* │ Z/Hypr │  X     │  C     │  V     │  B/Meh │ */
+#define ___5BASE_3_L___     Z_HYPR,   KC_X,    KC_C,    KC_V,   B_MEH
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │ Tab/FUN│ BS/NUM │ Esc/SYM│ */
 #define ___BASE_THUMB_L___                    TAB_FUN, BS_NUM,  ESC_SYM
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Y     │  U     │  I/Meh │  O     │  P     │ */
-#define ___5BASE_1_R___     KC_Y,    KC_U,    I_MEH,    KC_O,    KC_P
+                        /* │  Y     │  U     │  I     │  O     │  P     │ */
+#define ___5BASE_1_R___     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  H     │  J/Sft │  K/Cmd │  L/Alt │ ; :/Ctl│ */
 #define ___5BASE_2_R___     KC_H,    J_SFT,   K_GUI,   L_ALT,   SCLN_CTL
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  N     │  M     │  , <   │  . >   │/ ?/Hypr│ */
-#define ___5BASE_3_R___     KC_N,    KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
+                        /* │  N/Meh │  M     │  , <   │  . >   │/ ?/Hypr│ */
+#define ___5BASE_3_R___     N_MEH,    KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │Ent/MOUS│ Spc/NAV│ Del/MED */
+                        /* │Ent/MOUS│ Spc/NAV│ Del/MED│ */
 #define ___BASE_THUMB_R___  ENT_MOUS, SPC_NAV, DEL_MED
                         /* ╰────────┴────────┴────────╯ */
 
@@ -180,11 +182,11 @@ enum {
                         /* │  Ctl   │  S/Alt │  Cmd   │  Shift │Capwd TG│ */
 #define ___5NUM_2_L___      KC_LCTL, S_ALT,   KC_LGUI, KC_LSFT, CAPWD_TG
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ leader │  ---   │ leader │  ---   │  ---   │ */
-#define ___5NUM_3_L___      QK_LEAD, XXXXXXX, QK_LEAD, XXXXXXX, XXXXXXX
+                        /* │ leader │  ---   │ leader │ Space  │Backspc │ */
+#define ___5NUM_3_L___      QK_LEAD, XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │  ---   │  ---   │  ---   │ */
-#define ___NUM_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX
+                        /*                   │  Del   │ (hold) │  BS    │ */
+#define ___NUM_THUMB_L___                     KC_DEL,  XXXXXXX, KC_BSPC
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
@@ -255,7 +257,7 @@ enum {
                         /* │  Home  │  PgDn  │  PgUp  │  End   │ Insert │ */
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  ---   │  ---   │  ---   │ */
+                        /* │  ---   │ (hold) │  ---   │ */
 #define ___NAV_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
@@ -270,7 +272,7 @@ enum {
                         /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │  ---   │  Space │  Tab   │ */
+                        /*                   │ (hold) │  Space │  Tab   │ */
 #define ___FUN_THUMB_L___                     XXXXXXX, KC_SPC,  KC_TAB
                         /*                   ╰────────┴────────┴────────╯ */
 
@@ -313,11 +315,11 @@ enum {
                         /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5MSE_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  ---   │  ---   │  ---   │ */
+                        /* │ (hold) │  ---   │  ---   │ */
 #define ___MSE_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
-/*** other ***/
+/*** additional features ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │ Bootldr│  ---   │  ---   │  ---   │  ---   │ */
 #define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -342,7 +344,7 @@ enum {
                         /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5ADD_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  ---   │  ---   │  ---   │ */
+                        /* │  ---   │ (hold) │  ---   │ */
 #define ___ADD_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
