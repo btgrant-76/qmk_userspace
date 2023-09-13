@@ -489,7 +489,8 @@ enum {
 /** layout macros **/
 #define LAYOUT_btgrant(...)      LAYOUT(__VA_ARGS__)
 #define LAYOUT_btgrant_3x6(...)  LAYOUT_split_3x6_3(__VA_ARGS__)
-#define LAYOUT_btgrant_grid(...) LAYOUT_planck_grid(__VA_ARGS__)
+#define LAYOUT_btgrant_planck_grid(...) LAYOUT_planck_grid(__VA_ARGS__)
+#define LAYOUT_btgrant_grid(...) LAYOUT_grid(__VA_ARGS__)
 /* portable keymaps end */
 
 #endif // USERSPACE

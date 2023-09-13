@@ -128,7 +128,7 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
   }
 
   return false;
-}
+};
 
 #ifdef ENCODER_MAP_ENABLE
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
