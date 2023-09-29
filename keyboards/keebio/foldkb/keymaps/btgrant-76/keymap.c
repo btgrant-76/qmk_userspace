@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_VOLD,          _______, _______, _______,         ___NUM_THUMB_L___,     ___NUM_THUMB_R___,         _______, _______, _______
   ),
   [_SYM] = LAYOUT_btgrant(
-    _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_MPLY, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
     _______,                                                 ___SYM_1_L___,     ___SYM_1_R___,                                        _______, _______,
     _______,                                                 ___SYM_2_L___,     ___SYM_2_R___,                                                 _______,
     _______,                                                 ___SYM_3_L___,     ___SYM_3_R___,                                        _______,
@@ -93,10 +93,10 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
 
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [_BASE] = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) },
-        [_NUM]  = { ENCODER_CCW_CW(KC_PGUP,  KC_PGDN) },
+        [_NUM]  = { ENCODER_CCW_CW(KC_PGDN,  KC_PGUP) },
         [_SYM]  = { ENCODER_CCW_CW(KC_MPRV,  KC_MNXT) },
         [_NAV]  = { ENCODER_CCW_CW(BACK,     FWD) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU,  KC_BRID) },
+        [_FUN]  = { ENCODER_CCW_CW(KC_BRID,  KC_BRIU) },
         [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) },
         [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) }
     };
