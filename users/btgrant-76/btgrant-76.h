@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum layer_names {
     _BASE,
+    _NRM,
     _SYM,
     _NUM,
     _NAV,
@@ -322,7 +323,7 @@ enum {
 /*** additional features ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │ Bootldr│  ---   │  ---   │  ---   │  ---   │ */
-#define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, DF(_BASE),DF(_NRM)
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  ---   │DynTpRpt│ DynTpDn│ DynTpUp│  ---   │ */
 #define ___5ADD_2_L___      XXXXXXX, DT_PRNT, DT_DOWN, DT_UP,   XXXXXXX
@@ -349,6 +350,30 @@ enum {
                         /* ╰────────┴────────┴────────╯ */
 
 /** 12u **/
+/*** normie base ***/
+                        /* ╭────────┬ */
+                        /* │ Tab    │ */
+#define ___NRM_1_L___       KC_TAB, ___5BASE_1_L___
+                        /* ├────────┼ */
+                        /* │ Esc    │ */
+#define ___NRM_2_L___       KC_ESC, KC_A,   KC_S,   KC_D,   KC_F,   KC_G
+                        /* ├────────┼ */
+                        /* │ Shift  │ */
+#define ___NRM_3_L___      KC_LSFT, ___5BASE_3_L___
+                        /* ╰────────┴ */
+#define ___NRM_THUMB_L___  MO(_FUN), MO(_NUM), MO(_SYM)
+
+                                             /* ┬────────╮ */
+                                             /* │  Bspc  │ */
+#define ___NRM_1_R___      ___5BASE_1_R___,      KC_BSPC
+                                             /* ┼────────┤ */
+                                             /* │  ' "   │ */
+#define ___NRM_2_R___      KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT
+                                             /* ┼────────┤ */
+                                             /* │ Ent/Sft│ */
+#define ___NRM_3_R___      ___5BASE_3_R___,      ENT_SFT
+#define ___NRM_THUMB_R___  MO(_MSE), SPC_NAV, MO(_NAV)
+
 /*** base ***/
                         /* ╭────────┬ */
                         /* │ Tab    │ */

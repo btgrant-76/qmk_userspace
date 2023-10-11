@@ -21,10 +21,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_btgrant(
     KC_MUTE,  KC_ESC,  KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,       KC_7,    KC_8,    KC_9,    KC_0, KC_MINS, KC_EQL,  KC_BSPC,
-    KC_HOME,                                                ___BASE_1_L___,     ___5BASE_1_R___,                             KC_LBRC, KC_RBRC, KC_BSLS,
-    KC_END,                                                 ___BASE_2_L___,     ___BASE_2_R___,                                                KC_ENT,
-    KC_PGUP,                                                ___BASE_3_L___,     ___BASE_3_R___,                                       XXXXXXX,
-    KC_PGDN,          KC_LCTL, KC_LALT, KC_LGUI,        ___BASE_THUMB_L___,     ___BASE_THUMB_R___,        KC_RGUI, KC_RALT, KC_RCTL
+    KC_PGUP,                                                ___BASE_1_L___,     ___5BASE_1_R___,                             KC_LBRC, KC_RBRC, KC_BSLS,
+    KC_PGDN,                                                ___BASE_2_L___,     ___BASE_2_R___,                                                KC_ENT,
+    KC_HOME,                                                ___BASE_3_L___,     ___BASE_3_R___,                                       XXXXXXX,
+    KC_END,           KC_LCTL, KC_LALT, KC_LGUI,        ___BASE_THUMB_L___,     ___BASE_THUMB_R___,        KC_RGUI, KC_RALT, KC_RCTL
   ),
   [_NUM] = LAYOUT_btgrant(
     KC_MUTE, QK_BOOT, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, KC_DEL,
@@ -68,6 +68,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, XXXXXXX,                                       ___5ADD_3_L___,     ___5ADD_3_R___,                               XXXXXXX,_______,
     _______,          _______, _______, _______,         ___ADD_THUMB_L___,     ___ADD_THUMB_R___,         _______, _______, _______
   ),
+  [_NRM] = LAYOUT_btgrant(
+    KC_MUTE,  KC_ESC,  KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,       KC_7,    KC_8,    KC_9,    KC_0, KC_MINS, KC_EQL,  KC_BSPC,
+    KC_PGUP,                                                 ___NRM_1_L___,     ___5BASE_1_R___,                             KC_LBRC, KC_RBRC, KC_BSLS,
+    KC_PGDN,                                                 ___NRM_2_L___,     ___NRM_2_R___,                                                 KC_ENT,
+    KC_HOME,                                                 ___NRM_3_L___,     ___NRM_3_R___,                                        XXXXXXX,
+    KC_END,           KC_LCTL, KC_LALT, KC_LGUI,         ___NRM_THUMB_L___,     ___NRM_THUMB_R___,        KC_RGUI, KC_RALT, KC_RCTL
+  ),
 };
 
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
@@ -98,6 +105,7 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
         [_NAV]  = { ENCODER_CCW_CW(BACK,     FWD) },
         [_FUN]  = { ENCODER_CCW_CW(KC_BRID,  KC_BRIU) },
         [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) },
-        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) }
+        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) },
+        [_NRM] =  { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) }
     };
 #endif
