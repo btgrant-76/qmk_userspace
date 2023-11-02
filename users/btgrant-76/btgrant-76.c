@@ -471,6 +471,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case F_SFT:
         case J_SFT:
             return g_tapping_term - TAPPING_TERM_DECREASE_SHIFT;
+        case SPC_NAV:
+            return g_tapping_term + 20;
         default:
             return g_tapping_term;
     }

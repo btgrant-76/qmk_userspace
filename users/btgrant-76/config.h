@@ -27,11 +27,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM_PER_KEY
 #define TAPPING_TERM 145
 #define TAPPING_TERM_DECREASE_SHIFT 40
+
+/* a record of my attempt to live with permissive hold
+#define TAPPING_TERM 250
+#define TAPPING_TERM_DECREASE_SHIFT 0
 #define PERMISSIVE_HOLD
+*/
 
 // Mouse Keys
-#define MK_KINETIC_SPEED // this is pretty large
-//#define MK_3_SPEED
+//#define MK_KINETIC_SPEED // this is pretty large
+#define MK_3_SPEED
 
 // start QMK squeezing
 #undef LOCKING_SUPPORT_ENABLE
