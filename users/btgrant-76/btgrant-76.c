@@ -103,6 +103,20 @@ void code_fence(void) {
     SEND_STRING("```" SS_TAP(X_ENT) SS_TAP(X_ENT) "```" SS_TAP(X_UP));
 };
 
+void tag_open_insert(void) {
+    generic_insert("<>");
+}
+
+void tag_close_insert(void) {
+    generic_insert("</>");
+}
+
+void tag_void_insert(void) {
+    generic_insert("< />");
+    tap_code(KC_LEFT);
+    tap_code(KC_LEFT);
+}
+
 #ifdef TAP_DANCE_ENABLE
 void period_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
@@ -531,6 +545,13 @@ void leader_end_user(void) {
         quote_pair_cursor_insertion();
     } else if (leader_sequence_three_keys(KC_Q, KC_Q, KC_I)) {
         dquote_pair_cursor_insertion();
+    // HTML tags
+    } else if (leader_sequence_two_keys(KC_T, KC_O)) {
+        tag_open_insert();
+    } else if (leader_sequence_two_keys(KC_T, KC_C)) {
+        tag_close_insert();
+    } else if (leader_sequence_two_keys(KC_T, KC_V)) {
+        tag_void_insert();
     }
 };
 #endif
