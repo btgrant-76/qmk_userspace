@@ -92,6 +92,13 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
   return false;
 }
 
+#ifdef RGBLIGHT_ENABLE
+void keyboard_post_init_keymap(void) {
+  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+  rgblight_mode_noeeprom(RGBLIGHT_MODE_CHRISTMAS);
+}
+#endif
+
 #ifdef ENCODER_MAP_ENABLE
     // prevents encoder_update_kb from performing any actions
     bool encoder_update_user(uint8_t index, bool clockwise) {

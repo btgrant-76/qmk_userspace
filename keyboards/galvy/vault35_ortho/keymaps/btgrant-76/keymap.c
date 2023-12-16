@@ -99,10 +99,10 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
 }
 
 #ifdef RGBLIGHT_ENABLE
-void keyboard_post_init(void) {
+void keyboard_post_init_keymap(void) {
     rgblight_enable_noeeprom(); // Enables RGB, without saving settings
     //rgblight_sethsv_noeeprom(100, 255, 255);
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_TWINKLE);
+    rgblight_mode_noeeprom(RGBLIGHT_MODE_CHRISTMAS);
     return;
 }
 #endif

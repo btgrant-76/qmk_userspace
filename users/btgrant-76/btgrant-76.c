@@ -146,7 +146,6 @@ void dashes_tap_dance(tap_dance_state_t *state, void *user_data) {
         unregister_code(KC_LALT);
         unregister_code(KC_LSFT);
     } else {
-//        tap_code(KC_MINS);
         SEND_STRING("-");
     }
 };
@@ -162,6 +161,7 @@ void grav_or_slash_tap_dance(tap_dance_state_t *state, void *user_data) {
         SEND_STRING("`");
     }
 };
+
 void braces_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         #ifdef AUTO_SHIFT_ENABLE
@@ -363,6 +363,19 @@ void matrix_scan_keymap(void) {
 void matrix_scan_user(void) {
   achordion_task();
   matrix_scan_keymap();
+};
+
+__attribute__ ((weak))
+void keyboard_post_init_keymap(void) {
+  return;
+};
+
+void keyboard_post_init_user(void) {
+    keyboard_post_init_keymap();
+//  debug_enable=true;
+  //debug_matrix=true;
+  //debug_keyboard=true;
+  //debug_mouse=true;
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
