@@ -1,0 +1,14 @@
+*.iml
+
+## From the reference repo ##
+# Junk files
+*.bak
+*.swp
+*~
+.DS_Store
+._*
+
+# Firmware files
+*.hex
+*.bin
+*.uf2
