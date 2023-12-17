@@ -1,8 +1,0 @@
-#pragma once
-
-#define VIAL_KEYBOARD_UID {0x79, 0x83, 0xCC, 0x94, 0x69, 0x6C, 0xC5, 0x52}
-
-#define VIAL_UNLOCK_COMBO_ROWS {0, 0}
-#define VIAL_UNLOCK_COMBO_COLS {0, 10}
-
-#define OLED_TIMEOUT 120000

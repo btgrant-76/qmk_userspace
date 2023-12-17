@@ -35,8 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 // Mouse Keys
-//#define MK_KINETIC_SPEED // this is pretty large
-#define MK_3_SPEED
+#define MK_KINETIC_SPEED // use MK_3_SPEED if builds are too large
 
 // start QMK squeezing
 #undef LOCKING_SUPPORT_ENABLE
