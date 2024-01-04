@@ -20,48 +20,40 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-enum layer_names {
-    _BASE,
-    _NRM,
-    _SYM,
-    _NUM,
-    _NAV,
-    _FUN,
-    _MSE,
-    _ADD
-};
+enum layer_names { _BASE, _NRM, _SYM, _NUM, _NAV, _FUN, _MSE, _ADD };
 
 #define _MED _SYM
 
 enum custom_keycodes {
-    SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board
-    SCRN2FL, // macOS take screenshot to a file
-    QUO_INST,
-    UP_DIR,
-    LOG_OUT,
-    CAPWD_TG,
-    NEW_SAFE_RANGE
+  SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board
+  SCRN2FL,               // macOS take screenshot to a file
+  QUO_INST,
+  UP_DIR,
+  LOG_OUT,
+  CAPWD_TG,
+  NEW_SAFE_RANGE
 };
 
 // Tap Dance declarations
 enum {
-    TD_F1,
-    TD_F2,
-    TD_F6,
-    TD_F9,
-    TD_F12,
-    TD_DOT,
-    TD_ZERO,
-    TD_QUOT,
-    TD_DASH,
-    TD_GRV
+  TD_F1,
+  TD_F2,
+  TD_F6,
+  TD_F9,
+  TD_F12,
+  TD_DOT,
+  TD_ZERO,
+  TD_QUOT,
+  TD_DASH,
+  TD_GRV
 };
 
 /* Aliases */
 /** Layer Keys **/
 #define TAB_FUN LT(_FUN, KC_TAB)
 #define BS_NUM LT(_NUM, KC_BSPC)
-#define ESC_SYM LT(_SYM,  KC_ESC)
+#define ESC_SYM LT(_SYM, KC_ESC)
+#define ESC_MSE LT(_MSE, KC_ESC)
 #define ENT_MOUS LT(_MSE, KC_ENT)
 #define SPC_NAV LT(_NAV, KC_SPC)
 #define DEL_MED LT(_MED, KC_DEL)
@@ -79,8 +71,8 @@ enum {
 #define K_GUI RGUI_T(KC_K)
 #define L_ALT RALT_T(KC_L)
 #define SCLN_CTL RCTL_T(KC_SCLN)
-#define ___HRM_L___        KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT
-#define ___HRM_R___        KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL
+#define ___HRM_L___ KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT
+#define ___HRM_R___ KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL
 
 /*** Others ***/
 #define ENT_SFT RSFT_T(KC_ENT)
@@ -120,28 +112,28 @@ enum {
 #define Z_MUTE HYPR(KC_SPC)
 
 #ifdef TAP_DANCE_ENABLE
-    // Tap Dances
-    #define F1_TD  TD(TD_F1)
-    #define F2_TD  TD(TD_F2)
-    #define F6_TD  TD(TD_F6)
-    #define F9_TD  TD(TD_F9)
-    #define F12_TD TD(TD_F12)
-    #define DOT_TD  TD(TD_DOT)
-    #define ZERO_TD TD(TD_ZERO)
-    #define QUOT_TD TD(TD_QUOT)
-    #define DASH_TD TD(TD_DASH)
-    #define GRV_TD  TD(TD_GRV)
+// Tap Dances
+#define F1_TD TD(TD_F1)
+#define F2_TD TD(TD_F2)
+#define F6_TD TD(TD_F6)
+#define F9_TD TD(TD_F9)
+#define F12_TD TD(TD_F12)
+#define DOT_TD TD(TD_DOT)
+#define ZERO_TD TD(TD_ZERO)
+#define QUOT_TD TD(TD_QUOT)
+#define DASH_TD TD(TD_DASH)
+#define GRV_TD TD(TD_GRV)
 #else
-    #define F1_TD  KC_F1
-    #define F2_TD  KC_F2
-    #define F6_TD  KC_F6
-    #define F9_TD  KC_F9
-    #define F12_TD KC_F12
-    #define DOT_TD  KC_DOT
-    #define ZERO_TD KC_0
-    #define QUOT_TD KC_QUOT
-    #define DASH_TD KC_MINS
-    #define GRV_TD  KC_GRV
+#define F1_TD KC_F1
+#define F2_TD KC_F2
+#define F6_TD KC_F6
+#define F9_TD KC_F9
+#define F12_TD KC_F12
+#define DOT_TD KC_DOT
+#define ZERO_TD KC_0
+#define QUOT_TD KC_QUOT
+#define DASH_TD KC_MINS
+#define GRV_TD KC_GRV
 #endif // TAP_DANCE_ENABLE
 
 /* portable keymaps */
@@ -157,8 +149,8 @@ enum {
                         /* │ Z/Hypr │  X     │  C     │  V     │  B/Meh │ */
 #define ___5BASE_3_L___     Z_HYPR,   KC_X,    KC_C,    KC_V,   B_MEH
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │ Tab/FUN│ BS/NUM │ Esc/SYM│ */
-#define ___BASE_THUMB_L___                    TAB_FUN, BS_NUM,  ESC_SYM
+                        /*                   │ Tab/FUN│ BS/NUM │ Esc/SYM│ TODO update */
+#define ___BASE_THUMB_L___                    TAB_FUN, BS_NUM,  ESC_MSE
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
@@ -296,25 +288,27 @@ enum {
                         /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
 #define ___5MSE_1_L___      ___CLIPBOARD_L___
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Mouse L│ Mouse U│ Mouse D│ Mouse U│  ---   │ */
-#define ___5MSE_2_L___      KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R, XXXXXXX
+                        /* │ Mouse L│ Mouse U│ Mouse D│ Mouse U│  ---   │ TODO update */
+#define ___5MSE_2_L___      XXXXXXX, KC_BTN3, KC_BTN1, KC_BTN2, KC_WH_D
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Wheel L│ Wheel D│ Wheel U│ Wheel R│  ---   │ */
-#define ___5MSE_3_L___      KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX
+                        /* │ Wheel L│ Wheel D│ Wheel U│ Wheel R│  ---   │ TODO update */
+#define ___5MSE_3_L___      ___HRM_L___,                        KC_WH_U
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │Button 3│Button 1│Button 2│ */
-#define ___MSE_THUMB_L___                     KC_BTN3, KC_BTN1, KC_BTN2
+                        /*                   │Button 3│Button 1│Button 2│ TODO update */
+#define ___MSE_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX // KC_BTN3, KC_BTN1, KC_BTN2
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  ---   │MseSpd 0│MseSpd 1│MseSpd 2│  ---   │ */
 #define ___5MSE_1_R___      XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  Shift │  Cmd   │  Alt   │  Ctrl  │ */
-#define ___5MSE_2_R___      XXXXXXX, ___HRM_R___
+                        /* │  ---   │  Shift │  Cmd   │  Alt   │  Ctrl  │ TODO update */
+#define ___5MSE_2_R___      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
-#define ___5MSE_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ TODO update */
+// wheel up/down are swapped intentionally so the actual directions are synced
+// relative to "natural scrolling"
+#define ___5MSE_3_R___      KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │ (hold) │  ---   │  ---   │ */
 #define ___MSE_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX

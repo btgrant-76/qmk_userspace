@@ -359,6 +359,7 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     case TAB_FUN:
     case BS_NUM:
     case ESC_SYM:  // helpful for cocot46plus where this key also triggers scroll mode
+    case ESC_MSE:
     // right thumb keys
     case ENT_MOUS:
     case SPC_NAV:
