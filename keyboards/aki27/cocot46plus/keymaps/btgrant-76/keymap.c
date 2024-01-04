@@ -212,7 +212,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         #ifdef RGBLIGHT_ENABLE
         rgblight_sethsv_range(HSV_ORANGE, 0, 2);
         #endif
-        cocot_set_scroll_mode(false);
+        cocot_set_scroll_mode(true);
         break;
     case _ADD:
         #ifdef RGBLIGHT_ENABLE
