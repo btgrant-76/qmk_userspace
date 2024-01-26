@@ -158,7 +158,7 @@ enum {
                         /* │ Z/Hypr │  X     │  C     │  V     │  B/Meh │ */
 #define ___5BASE_3_L___     Z_HYPR,   KC_X,    KC_C,    KC_V,   B_MEH
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │ Tab/FUN│ BS/NUM │ Esc/SYM│ TODO update */
+                        /*                   │ Tab/FUN│ BS/NUM │ Esc/MSE│ */
 #define ___BASE_THUMB_L___                    TAB_FUN, BS_NUM,  ESC_MSE
                         /*                   ╰────────┴────────┴────────╯ */
 
@@ -297,24 +297,24 @@ enum {
                         /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
 #define ___5MSE_1_L___      ___CLIPBOARD_L___
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Mouse L│ Mouse U│ Mouse D│ Mouse U│  ---   │ TODO update */
+                        /* │  ---   │Button 3│Button 1│Button 2│ Wheel D│ */
 #define ___5MSE_2_L___      XXXXXXX, KC_BTN3, KC_BTN1, KC_BTN2, KC_WH_D
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Wheel L│ Wheel D│ Wheel U│ Wheel R│  ---   │ TODO update */
+                        /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ Wheel U│ */
 #define ___5MSE_3_L___      ___HRM_L___,                        KC_WH_U
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │Button 3│Button 1│Button 2│ TODO update */
-#define ___MSE_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX // KC_BTN3, KC_BTN1, KC_BTN2
+                        /*                   │  ---   │  ---   │  ---   │ */
+#define ___MSE_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX // KC_BTN3, KC_BTN1, KC_BTN2 TODO move KC_ACL0, KC_ACL1, KC_ACL2 here?
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  ---   │MseSpd 0│MseSpd 1│MseSpd 2│  ---   │ */
 #define ___5MSE_1_R___      XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  Shift │  Cmd   │  Alt   │  Ctrl  │ TODO update */
+                        /* │ Mouse L│ Mouse D│ Mouse U│ Mouse R│  ---   │ */
 #define ___5MSE_2_R___      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ TODO update */
+                        /* │ Wheel L│ Wheel U│ Wheel D│ Wheel R│  ---   │ */
 // wheel up/down are swapped intentionally so the actual directions are synced
 // relative to "natural scrolling"
 #define ___5MSE_3_R___      KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX
