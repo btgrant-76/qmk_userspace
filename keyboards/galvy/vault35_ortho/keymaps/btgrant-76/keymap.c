@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
                                   ___5BASE_3_L___, RGB_MOD,                             ___5BASE_3_R___,
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
-                               ___BASE_THUMB_L___, RGB_HUI,        ___BASE_THUMB_R___
+                               ___BASE_THUMB_L___, XXXXXXX,        ___BASE_THUMB_R___
                     //|--------+--------+--------+--------+--------+--------+--------|
   ),
   [_NUM] = LAYOUT_btgrant(
@@ -100,9 +100,14 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
 
 #ifdef RGBLIGHT_ENABLE
 void keyboard_post_init_keymap(void) {
-    rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-    //rgblight_sethsv_noeeprom(100, 255, 255);
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_CHRISTMAS);
+    rgblight_enable();
+    rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
+    rgblight_step();
+    rgblight_step();
+    rgblight_step();
+    rgblight_step();
+    rgblight_step();
+
     return;
 }
 #endif
