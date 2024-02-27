@@ -1,6 +1,9 @@
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
 
+#ifdef COMBO_ENABLE
+#   include "combos.h"
+#endif
 
 /*
 TODO

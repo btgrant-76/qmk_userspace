@@ -1,3 +1,4 @@
-AUDIO_ENABLE = no # yes
 AUDIO_DRIVER = pwm_software
+AUDIO_ENABLE = no # yes
+COMBO_ENABLE = yes
 ENCODER_MAP_ENABLE = yes

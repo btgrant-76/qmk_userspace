@@ -1,5 +1,5 @@
 /* Copyright 2015-2021 Jack Humbert
- * Copyright 2023 Brian Grant <@btgrant-76>
+ * Copyright 2024 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,9 @@
 
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
+#ifdef COMBO_ENABLE
+#   include "combos.h"
+#endif
 
 #ifdef AUDIO_ENABLE
 #    include "muse.h"

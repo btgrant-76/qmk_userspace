@@ -3,7 +3,7 @@ This is the c configuration file for the keymap
 
 Copyright 2012 Jun Wako <wakojun@gmail.com>
 Copyright 2015 Jack Humbert
-Copyright 2023 Brian Grant <@btgrant-76>
+Copyright 2024 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -28,8 +28,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 
-//#define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
-
 // start from soundmonster
 #define USE_SERIAL_PD2
 
@@ -38,7 +36,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define SPLIT_LED_STATE_ENABLE
     #define SPLIT_MODS_ENABLE
     #define SPLIT_OLED_ENABLE
-    #define OLED_FONT_H "keyboards/crkbd/keymaps/soundmonster/glcdfont.c"
+    #define OLED_FONT_H "keyboards/crkbd/keymaps/btgrant-76/soundmonster_glcdfont.c"
     #define OLED_TIMEOUT 30000
 #endif
 // end from soundmonster

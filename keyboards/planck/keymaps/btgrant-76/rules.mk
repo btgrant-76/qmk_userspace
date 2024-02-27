@@ -4,3 +4,4 @@ endif
 
 RGBLIGHT_ENABLE = no
 ENCODER_MAP_ENABLE = yes
+COMBO_ENABLE = yes

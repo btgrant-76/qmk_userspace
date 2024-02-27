@@ -1,4 +1,5 @@
 /* Copyright 2022  CyanDuck
+* Copyright 2024 Brian Grant <@btgrant-76>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,6 +17,10 @@
 
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
+
+#ifdef COMBO_ENABLE
+#   include "combos.h"
+#endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(

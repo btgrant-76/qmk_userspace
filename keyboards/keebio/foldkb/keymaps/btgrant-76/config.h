@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Brian Grant <@btgrant-76>
+Copyright 2024 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,9 +24,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #undef RGBLIGHT_EFFECT_BREATHING
 #undef RGBLIGHT_EFFECT_RAINBOW_MOOD
-#define RGBLIGHT_EFFECT_CHRISTMAS
+#undef RGBLIGHT_EFFECT_CHRISTMAS
 #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#define RGBLIGHT_EFFECT_SNAKE
+#undef RGBLIGHT_EFFECT_SNAKE
 #undef RGBLIGHT_EFFECT_KNIGHT
 #undef RGBLIGHT_EFFECT_STATIC_GRADIENT
 #undef RGBLIGHT_EFFECT_RGB_TEST
