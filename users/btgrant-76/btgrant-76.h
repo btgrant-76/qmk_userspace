@@ -524,7 +524,7 @@ enum {
 #define LAYOUT_btgrant_4x12(...)         LAYOUT_ortho_4x12(__VA_ARGS__)
 #define LAYOUT_btgrant_grid(...)         LAYOUT_grid(__VA_ARGS__)
 #define LAYOUT_btgrant_planck_grid(...)  LAYOUT_planck_grid(__VA_ARGS__)
-#define LAYOUT_btgrant_vault_katana(...) LAYOUT_split_middle_1u(__VA_ARGS__)
+#define LAYOUT_btgrant_vault_katana(...) LAYOUT_split_6bars(__VA_ARGS__)
 /* portable keymaps end */
 
 #endif // USERSPACE
