@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5SYM_1_L___,                               KC_MPLY,       ___5SYM_1_R___,
         ___5SYM_2_L___,                                              ___5SYM_2_R___,
         ___5SYM_3_L___,                                              ___5SYM_3_R___,
-        KC_MUTE, KC_MPLY,                                            XXXXXXX, XXXXXXX
+        KC_MUTE, KC_MPLY,                                            LPRN_MSE, XXXXXXX
     ),
     [_NAV] = LAYOUT_btgrant(
         ___5NAV_1_L___,                              _______,        ___5NAV_1_R___,
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5FUN_1_L___,                                _______,      ___5FUN_1_R___,
         ___5FUN_2_L___,                                              ___5FUN_2_R___,
         ___5FUN_3_L___,                                              ___5FUN_3_R___,
-        XXXXXXX, XXXXXXX,                                            MO(_ADD), XXXXXXX
+        XXXXXXX, MO(_MSE),                                            MO(_ADD), XXXXXXX
     ),
     [_MSE] = LAYOUT_btgrant(
         ___5MSE_1_L___,                                    _______,  ___5MSE_1_R___,

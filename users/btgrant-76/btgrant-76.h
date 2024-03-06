@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Brian Grant <@btgrant-76>
+Copyright 2024 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -52,6 +52,8 @@ enum {
   TD_F12,
   TD_DOT,
   TD_ZERO,
+  TD_TWO,
+  TD_THREE,
   TD_QUOT,
   TD_DASH,
   TD_GRV
@@ -67,8 +69,7 @@ enum {
 #define SPC_NAV LT(_NAV, KC_SPC)
 #define DEL_MED LT(_MED, KC_DEL)
 
-#define G_NUM LT(_NUM, KC_G)
-#define H_SYM LT(_SYM, KC_H)
+#define LPRN_MSE LT(_MSE, KC_LPRN)
 
 /** Mod Tap Aliases **/
 /*** Home Row Mods ***/
@@ -87,8 +88,6 @@ enum {
 #define ENT_SFT RSFT_T(KC_ENT)
 #define SLS_HYPR HYPR_T(KC_SLSH)
 #define Z_HYPR HYPR_T(KC_Z)
-#define E_MEH MEH_T(KC_E)
-#define I_MEH MEH_T(KC_I)
 #define B_MEH MEH_T(KC_B)
 #define N_MEH MEH_T(KC_N)
 
@@ -129,6 +128,8 @@ enum {
 #define F12_TD TD(TD_F12)
 #define DOT_TD TD(TD_DOT)
 #define ZERO_TD TD(TD_ZERO)
+#define TWO_TD TD(TD_TWO)
+#define THREE_TD TD(TD_THREE)
 #define QUOT_TD TD(TD_QUOT)
 #define DASH_TD TD(TD_DASH)
 #define GRV_TD TD(TD_GRV)
@@ -140,6 +141,8 @@ enum {
 #define F12_TD KC_F12
 #define DOT_TD KC_DOT
 #define ZERO_TD KC_0
+#define TWO_TD KC_2
+#define THREE_TD KC_3
 #define QUOT_TD KC_QUOT
 #define DASH_TD KC_MINS
 #define GRV_TD KC_GRV
@@ -196,10 +199,10 @@ enum {
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  = +   │  4     │  5     │  6     │  ' "   │ */
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_QUOT
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  \ |   │  1     │  2     │  3     │  ` ~   │ */
-#define ___5NUM_3_R___      KC_BSLS, KC_1,    KC_2,    KC_3,    GRV_TD
+#define ___5NUM_3_R___      KC_BSLS, KC_1,    TWO_TD,  THREE_TD,GRV_TD
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  - _   │  0     │  .     │ */
 #define ___NUM_THUMB_R___   KC_MINS, ZERO_TD, DOT_TD
@@ -231,7 +234,7 @@ enum {
 #define ___5SYM_3_R___      KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  _     │  (     │  )     │ */
-#define ___SYM_THUMB_R___   KC_UNDS, KC_LPRN, KC_RPRN
+#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, KC_RPRN
                         /* ╰────────┴────────┴────────╯ */
 
 /*** navigation ***/
@@ -274,8 +277,8 @@ enum {
                         /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │ (hold) │  Space │  Tab   │ */
-#define ___FUN_THUMB_L___                     XXXXXXX, KC_SPC,  KC_TAB
+                        /*                   │ (hold) │  MSE   │  Tab   │ */
+#define ___FUN_THUMB_L___                     XXXXXXX, MO(_MSE), XXXXXXX
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
@@ -303,8 +306,8 @@ enum {
                         /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ Wheel U│ */
 #define ___5MSE_3_L___      ___HRM_L___,                        KC_WH_U
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │  ---   │  ---   │  ---   │ */
-#define ___MSE_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX // KC_BTN3, KC_BTN1, KC_BTN2 TODO move KC_ACL0, KC_ACL1, KC_ACL2 here?
+                        /*                   │  ---   │ (hold) │ (hold) │ */
+#define ___MSE_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
@@ -319,7 +322,7 @@ enum {
 // relative to "natural scrolling"
 #define ___5MSE_3_R___      KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │ (hold) │  ---   │  ---   │ */
+                        /* │ (hold) │ (hold) │  ---   │ */
 #define ___MSE_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
@@ -515,10 +518,13 @@ enum {
                                         /* ┴────────╯ */
 
 /** layout macros **/
-#define LAYOUT_btgrant(...)      LAYOUT(__VA_ARGS__)
-#define LAYOUT_btgrant_3x6(...)  LAYOUT_split_3x6_3(__VA_ARGS__)
-#define LAYOUT_btgrant_planck_grid(...) LAYOUT_planck_grid(__VA_ARGS__)
-#define LAYOUT_btgrant_grid(...) LAYOUT_grid(__VA_ARGS__)
+#define LAYOUT_btgrant(...)              LAYOUT(__VA_ARGS__)
+#define LAYOUT_btgrant_3x5(...)          LAYOUT_split_3x5_3(__VA_ARGS__)
+#define LAYOUT_btgrant_3x6(...)          LAYOUT_split_3x6_3(__VA_ARGS__)
+#define LAYOUT_btgrant_4x12(...)         LAYOUT_ortho_4x12(__VA_ARGS__)
+#define LAYOUT_btgrant_grid(...)         LAYOUT_grid(__VA_ARGS__)
+#define LAYOUT_btgrant_planck_grid(...)  LAYOUT_planck_grid(__VA_ARGS__)
+#define LAYOUT_btgrant_vault_katana(...) LAYOUT_split_middle_1u(__VA_ARGS__)
 /* portable keymaps end */
 
 #endif // USERSPACE

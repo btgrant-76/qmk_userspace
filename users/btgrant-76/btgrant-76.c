@@ -1,5 +1,5 @@
 /*
-Copyright 2023 Brian Grant <@btgrant-76>
+Copyright 2024 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -122,19 +122,45 @@ void period_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         SEND_STRING(",");
     } else {
-        SEND_STRING(".");
+        int i;
+        for (i = 0; i < state->count; i++) {
+            SEND_STRING(".");
+        }
     }
 };
 
 void zero_or_space_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         SEND_STRING(" ");
-    } else if (state->count == 2) {
-        SEND_STRING("00");
     } else {
-        SEND_STRING("0");
+        int i;
+        for (i = 0; i < state->count; i++) {
+            SEND_STRING("0");
+        }
     }
 };
+
+void two_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !state->interrupted) {
+        SEND_STRING(",");
+    } else {
+        int i;
+        for (i = 0; i < state->count; i++) {
+            SEND_STRING("2");
+        }
+    }
+}
+
+void three_or_period_tap_dance(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !state->interrupted) {
+        SEND_STRING(".");
+    } else {
+        int i;
+        for (i = 0; i < state->count; i++) {
+            SEND_STRING("3");
+        }
+    }
+}
 
 void quot_or_colon_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
@@ -300,6 +326,8 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_F12] = ACTION_TAP_DANCE_FN(f12_tap_dance),
     [TD_DOT] = ACTION_TAP_DANCE_FN(period_or_comma_tap_dance),
     [TD_ZERO] = ACTION_TAP_DANCE_FN(zero_or_space_tap_dance),
+    [TD_TWO] = ACTION_TAP_DANCE_FN(two_or_comma_tap_dance),
+    [TD_THREE] = ACTION_TAP_DANCE_FN(three_or_period_tap_dance),
     [TD_QUOT] = ACTION_TAP_DANCE_FN(quot_or_colon_tap_dance),
     [TD_DASH] = ACTION_TAP_DANCE_FN(dashes_tap_dance),
     [TD_GRV] = ACTION_TAP_DANCE_FN(grav_or_slash_tap_dance),
@@ -366,7 +394,12 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     case ENT_MOUS:
     case SPC_NAV:
     case DEL_MED:
+    case LPRN_MSE:
       return 0;  // Bypass Achordion for these keys.
+
+    case F_SFT: // this one specifically allows me to use shift with combos for `'` and Enter. See https://getreuer.info/posts/keyboards/achordion/index.html#compatibility for notes about timing re: Combos and what Achordion can effect.
+    case D_GUI:
+      return 200;
   }
 
   return 1000;
@@ -389,10 +422,10 @@ void keyboard_post_init_keymap(void) {
 
 void keyboard_post_init_user(void) {
     keyboard_post_init_keymap();
-//  debug_enable=true;
-  //debug_matrix=true;
-  //debug_keyboard=true;
-  //debug_mouse=true;
+    debug_enable=true;
+//    debug_matrix=true;
+//    debug_keyboard=true;
+//    debug_mouse=true;
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -452,48 +485,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return process_record_keymap(keycode, record);
 };
-
-#ifdef COMBO_ENABLE
-// Combo declarations
-enum combos {
-    CB_BRC_INST,
-    CB_CBR_INST,
-    CB_PRN_INST,
-    COMBO_LENGTH
-};
-
-const uint16_t PROGMEM brc_inst[] = {KC_RBRC, KC_LBRC, COMBO_END};
-const uint16_t PROGMEM cbr_inst[] = {KC_RCBR, KC_LCBR, COMBO_END};
-const uint16_t PROGMEM prn_inst[] = {KC_RCBR, KC_LCBR, COMBO_END};
-
-uint16_t COMBO_LEN = COMBO_LENGTH;
-
-combo_t key_combos[] = {
-    [CB_BRC_INST] = COMBO_ACTION(brc_inst),
-    [CB_CBR_INST] = COMBO_ACTION(cbr_inst),
-    [CB_PRN_INST] = COMBO_ACTION(prn_inst),
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-    switch(combo_index) {
-        case CB_BRC_INST:
-            if (pressed) {
-                braces_insert();
-            }
-            break;
-        case CB_CBR_INST:
-            if (pressed) {
-                curly_braces_insert();
-            }
-            break;
-        case CB_PRN_INST:
-            if (pressed) {
-                parens_insert();
-            }
-            break;
-    }
-};
-#endif // COMBO_ENABLED
 
 #ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
