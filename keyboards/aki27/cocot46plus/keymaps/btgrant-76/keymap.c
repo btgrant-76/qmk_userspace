@@ -25,12 +25,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #   include "combos.h"
 #endif
 
+#define ESC_NUM LT(_NUM, KC_ESC)
+// reference for bottom row mod-taps
+//#define A_CTL LCTL_T(KC_A)
+//#define S_ALT LALT_T(KC_S)
+//#define D_GUI LGUI_T(KC_D)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(
         ___BASE_1_L___,                                      ___BASE_1_R___,
         ___BASE_2_L___,                                      ___BASE_2_R___,
         ___BASE_3_L___,                                      ___BASE_3_R___,
+        BACK, ___BASE_THUMB_L___, KC_BTN1, KC_BTN2, ___BASE_THUMB_R___, FWD,
+                             KC_PGUP, KC_BTN3, KC_PGDN,
+                             XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+    [_NRM] = LAYOUT_btgrant(
+        ___NRM_1_L___,                                      ___NRM_1_R___,
+        KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G,        KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
+        KC_RSFT, KC_Z, KC_X, KC_C, KC_V, KC_B,       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ENT,
         BACK, ___BASE_THUMB_L___, KC_BTN1, KC_BTN2, ___BASE_THUMB_R___, FWD,
                              KC_PGUP, KC_BTN3, KC_PGDN,
                              XXXXXXX, XXXXXXX, XXXXXXX
