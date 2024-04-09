@@ -5,14 +5,10 @@
 #   include "combos.h"
 #endif
 
-/*
-TODO
- - verify all includes are needed
- - replace encoder_update_user with ENCODER_MAP
- - verify achordion_chord_keymap
+#ifdef ENCODER_MAP_ENABLE
+#   include "encoder_map.h"
+#endif
 
- x replace middle column with trans
-*/
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_btgrant(
   //|--------------------------------------------|--------|--------------------------------------------|
@@ -113,17 +109,4 @@ void keyboard_post_init_keymap(void) {
 
     return;
 }
-#endif
-
-#ifdef ENCODER_MAP_ENABLE
-    const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [_BASE] = { ENCODER_CCW_CW(KC_VOLU,  KC_VOLD) },
-        [_NUM]  = { ENCODER_CCW_CW(KC_PGUP,  KC_PGDN) },
-        [_SYM]  = { ENCODER_CCW_CW(KC_MNXT,  KC_MPRV) },
-        [_NAV]  = { ENCODER_CCW_CW(FWD,     BACK) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU,  KC_BRID) },
-        [_MSE]  = { ENCODER_CCW_CW(RGHT_SPC, LEFT_SPC) },
-        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) },
-        [_NRM] =  { ENCODER_CCW_CW(KC_VOLU,  KC_VOLD) }
-    };
 #endif

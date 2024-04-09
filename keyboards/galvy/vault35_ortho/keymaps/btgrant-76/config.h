@@ -6,6 +6,7 @@
 #undef ENCODERS_PAD_B
 #define ENCODERS_PAD_A { B5 }
 #define ENCODERS_PAD_B { B6 }
+#define ENCODER_DIRECTION_FLIP
 
 // RGB strip
 #ifdef RGBLIGHT_ENABLE
