@@ -119,13 +119,13 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
                             keyrecord_t* other_record) {
 
   switch (tap_hold_record->event.key.row) {
-    case 4:
-    case 9:
+    case 3:
+    case 7:
         return true;
-    break; // TODO verify this
+    break;
+    default:
+        return false;
   }
-
-  return false;
 };
 
 #ifdef RGBLIGHT_ENABLE

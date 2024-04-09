@@ -422,10 +422,12 @@ void keyboard_post_init_keymap(void) {
 
 void keyboard_post_init_user(void) {
     keyboard_post_init_keymap();
+    #ifdef CONSOLE_ENABLE
     debug_enable=true;
 //    debug_matrix=true;
 //    debug_keyboard=true;
 //    debug_mouse=true;
+    #endif
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
