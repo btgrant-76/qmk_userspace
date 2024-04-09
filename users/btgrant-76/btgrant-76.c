@@ -165,10 +165,11 @@ void three_or_period_tap_dance(tap_dance_state_t *state, void *user_data) {
 void quot_or_colon_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         SEND_STRING(":");
-    } else if (state->count == 2) {
-        SEND_STRING("''");
     } else {
-        SEND_STRING("'");
+        int i;
+        for (i = 0; i < state->count; i++) {
+            SEND_STRING("'");
+        }
     }
 };
 

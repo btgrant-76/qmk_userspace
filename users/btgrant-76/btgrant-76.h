@@ -199,7 +199,7 @@ enum {
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  = +   │  4     │  5     │  6     │  ' "   │ */
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_QUOT
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  \ |   │  1     │  2     │  3     │  ` ~   │ */
 #define ___5NUM_3_R___      KC_BSLS, KC_1,    TWO_TD,  THREE_TD,GRV_TD
