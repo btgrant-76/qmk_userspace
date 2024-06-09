@@ -301,10 +301,10 @@ enum {
 #define ___5MSE_1_L___      ___CLIPBOARD_L___
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  ---   │Button 3│Button 1│Button 2│ Wheel D│ */
-#define ___5MSE_2_L___      XXXXXXX, KC_BTN3, KC_BTN1, KC_BTN2, KC_WH_D
+#define ___5MSE_2_L___       KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, KC_WH_D
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ Wheel U│ */
-#define ___5MSE_3_L___      ___HRM_L___,                        KC_WH_U
+#define ___5MSE_3_L___      ___HRM_L___,                         KC_WH_U
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │  ---   │ (hold) │ (hold) │ */
 #define ___MSE_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX
