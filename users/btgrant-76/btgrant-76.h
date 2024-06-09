@@ -362,22 +362,22 @@ enum {
 #define ___NRM_1_L___       KC_TAB, ___5BASE_1_L___
                         /* ├────────┼ */
                         /* │ Esc    │ */
-#define ___NRM_2_L___       KC_ESC, KC_A,   KC_S,   KC_D,   KC_F,   KC_G
+#define ___NRM_2_L___       KC_ESC, KC_A,   KC_S,   KC_D,   KC_F,   KC_G // no tap-holds
                         /* ├────────┼ */
                         /* │ Shift  │ */
-#define ___NRM_3_L___      KC_LSFT, ___5BASE_3_L___
+#define ___NRM_3_L___      KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B // no tap-holds
                         /* ╰────────┴ */
-#define ___NRM_THUMB_L___  MO(_FUN), MO(_NUM), MO(_SYM)
+#define ___NRM_THUMB_L___  KC_SPC, MO(_NUM), MO(_SYM)
 
                                              /* ┬────────╮ */
                                              /* │  Bspc  │ */
 #define ___NRM_1_R___      ___5BASE_1_R___,      KC_BSPC
                                              /* ┼────────┤ */
                                              /* │  ' "   │ */
-#define ___NRM_2_R___      KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT
+#define ___NRM_2_R___      KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT // no tap-holds
                                              /* ┼────────┤ */
                                              /* │ Ent/Sft│ */
-#define ___NRM_3_R___      ___5BASE_3_R___,      ENT_SFT
+#define ___NRM_3_R___      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ENT // no tap-holds
 #define ___NRM_THUMB_R___  MO(_MSE), SPC_NAV, MO(_NAV)
 
 /*** base ***/
