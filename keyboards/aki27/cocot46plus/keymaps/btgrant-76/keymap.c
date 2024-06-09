@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include "quantum.h"
 #include "btgrant-76.h"
+#include "encoder_press.h"
 
 #ifdef COMBO_ENABLE
 #   include "combos.h"
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___SYM_2_L___,                                       ___SYM_2_R___,
         ___SYM_3_L___,                                       ___SYM_3_R___,
         XXXXXXX, ___SYM_THUMB_L___,  BACK, FWD, ___SYM_THUMB_R___, XXXXXXX,
-                              KC_MPRV, KC_MPLY, KC_MNXT,
+                              KC_MPRV, ENC_SYM, KC_MNXT,
                               XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_NUM] = LAYOUT_btgrant(
@@ -48,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___NUM_2_L___,                                             ___NUM_2_R___,
         ___NUM_3_L___,                                             ___NUM_3_R___,
         SCRL_MO, ___NUM_THUMB_L___, KC_BTN1, KC_BTN2, ___NUM_THUMB_R___, XXXXXXX,
-                               KC_VOLD, KC_MUTE, KC_VOLU,
+                               KC_VOLD,ENC_BASE, KC_VOLU,
                                XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT_btgrant(
@@ -56,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___NAV_2_L___,                                             ___NAV_2_R___,
         ___NAV_3_L___,                                             ___NAV_3_R___,
         _______, ___NAV_THUMB_L___, KC_BTN1, KC_BTN2, ___NAV_THUMB_R___, _______,
-                                BACK,    MISS_CTL,FWD,
+                                BACK,    ENC_NAV, FWD,
                                 XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_FUN] = LAYOUT_btgrant(
@@ -64,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___FUN_2_L___,                                             ___FUN_2_R___,
         ___FUN_3_L___,                                             ___FUN_3_R___,
         XXXXXXX, ___FUN_THUMB_L___, XXXXXXX, XXXXXXX, ___FUN_THUMB_R___, XXXXXXX,
-                                KC_BRID, XXXXXXX, KC_BRIU,
+                                KC_BRID, ENC_FUN, KC_BRIU,
                                 XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_ADD] = LAYOUT_btgrant(

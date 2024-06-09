@@ -21,6 +21,11 @@
 #   include "combos.h"
 #endif
 
+#ifdef ENCODER_MAP_ENABLE
+#   include "encoder_map.h"
+#   include "encoder_press.h"
+#endif
+
 #ifdef AUDIO_ENABLE
 #    include "muse.h"
 #endif
@@ -30,32 +35,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5BASE_1_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_1_R___,
         ___5BASE_2_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_2_R___,
         ___5BASE_3_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_3_R___,
-        KC_MUTE, XXXXXXX, ___BASE_THUMB_L___, XXXXXXX, XXXXXXX, ___BASE_THUMB_R___, XXXXXXX, XXXXXXX
+        ENC_BASE,XXXXXXX, ___BASE_THUMB_L___, XXXXXXX, XXXXXXX, ___BASE_THUMB_R___, XXXXXXX, XXXXXXX
     ),
     [_NUM] = LAYOUT_btgrant_planck_grid(
         ___5NUM_1_L___,                       XXXXXXX, XXXXXXX,                       ___5NUM_1_R___,
         ___5NUM_2_L___,                       XXXXXXX, XXXXXXX,                       ___5NUM_2_R___,
         ___5NUM_3_L___,                       XXXXXXX, XXXXXXX,                       ___5NUM_3_R___,
-        KC_HOME, XXXXXXX, ___NUM_THUMB_L___,  XXXXXXX, XXXXXXX, ___NUM_THUMB_R___,  XXXXXXX, XXXXXXX
+        ENC_NUM, XXXXXXX, ___NUM_THUMB_L___,  XXXXXXX, XXXXXXX, ___NUM_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant_planck_grid(
         ___5SYM_1_L___,                       XXXXXXX, XXXXXXX,                       ___5SYM_1_R___,
         ___5SYM_2_L___,                       XXXXXXX, XXXXXXX,                       ___5SYM_2_R___,
         ___5SYM_3_L___,                       XXXXXXX, XXXXXXX,                       ___5SYM_3_R___,
-        KC_MPLY, XXXXXXX, ___SYM_THUMB_L___,  XXXXXXX, XXXXXXX, ___SYM_THUMB_R___,  XXXXXXX, XXXXXXX
+        ENC_SYM, XXXXXXX, ___SYM_THUMB_L___,  XXXXXXX, XXXXXXX, ___SYM_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT_btgrant_planck_grid(
         ___5NAV_1_L___,                       XXXXXXX, XXXXXXX,                       ___5NAV_1_R___,
         ___5NAV_2_L___,                       XXXXXXX, XXXXXXX,                       ___5NAV_2_R___,
         ___5NAV_3_L___,                       XXXXXXX, XXXXXXX,                       ___5NAV_3_R___,
-        MISS_CTL,XXXXXXX, ___NAV_THUMB_L___,  XXXXXXX, XXXXXXX, ___NAV_THUMB_R___,  XXXXXXX, XXXXXXX
+        ENC_NAV,XXXXXXX, ___NAV_THUMB_L___,  XXXXXXX, XXXXXXX, ___NAV_THUMB_R___,  XXXXXXX, XXXXXXX
 
     ),
     [_FUN] = LAYOUT_btgrant_planck_grid(
         ___5FUN_1_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_1_R___,
         ___5FUN_2_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_2_R___,
         ___5FUN_3_L___,                       XXXXXXX, XXXXXXX,                       ___5FUN_3_R___,
-        XXXXXXX, XXXXXXX, ___FUN_THUMB_L___,  XXXXXXX, XXXXXXX, ___FUN_THUMB_R___,  XXXXXXX, XXXXXXX
+        ENC_FUN, XXXXXXX, ___FUN_THUMB_L___,  XXXXXXX, XXXXXXX, ___FUN_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_MSE] = LAYOUT_btgrant_planck_grid(
         ___5MSE_1_L___,                       XXXXXXX, XXXXXXX,                       ___5MSE_1_R___,
@@ -67,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5ADD_1_L___,                       XXXXXXX,  XXXXXXX,                      ___5ADD_1_R___,
         ___5ADD_2_L___,                       XXXXXXX,  XXXXXXX,                      ___5ADD_2_R___,
         ___5ADD_3_L___,                       XXXXXXX,  XXXXXXX,                      ___5ADD_3_R___,
-        XXXXXXX, XXXXXXX, ___ADD_THUMB_L___,  XXXXXXX,  XXXXXXX, ___ADD_THUMB_R___, XXXXXXX, XXXXXXX
+        ENC_FUN, XXXXXXX, ___ADD_THUMB_L___,  XXXXXXX,  XXXXXXX, ___ADD_THUMB_R___, XXXXXXX, XXXXXXX
     )
 };
 
@@ -121,15 +126,3 @@ void matrix_scan_keymap(void) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     return false;
 };
-
-#ifdef ENCODER_MAP_ENABLE
-    const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [_BASE] = { ENCODER_CCW_CW(KC_VOLU,  KC_VOLD) },
-        [_NUM]  = { ENCODER_CCW_CW(KC_PGDN,  KC_PGUP) },
-        [_SYM]  = { ENCODER_CCW_CW(KC_MNXT,  KC_MPRV) },
-        [_NAV]  = { ENCODER_CCW_CW(FWD,      BACK) },
-        [_FUN]  = { ENCODER_CCW_CW(KC_BRIU,  KC_BRID) },
-        [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) },
-        [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) }
-    };
-#endif
