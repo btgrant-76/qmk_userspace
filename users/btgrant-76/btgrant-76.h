@@ -153,7 +153,7 @@ enum {
 /*** base ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  Q     │  W     │  E     │  R     │  T     │ */
-#define ___5BASE_1_L___     KC_Q,    KC_W,    KC_E,   KC_R,    KC_T
+#define ___5BASE_1_L___     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  A/Ctl │  S/Alt │  D/Cmd │  F/Sft │  G     │ */
 #define ___5BASE_2_L___     A_CTL,   S_ALT,   D_GUI,   F_SFT,   KC_G
@@ -173,10 +173,10 @@ enum {
 #define ___5BASE_2_R___     KC_H,    J_SFT,   K_GUI,   L_ALT,   SCLN_CTL
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  N/Meh │  M     │  , <   │  . >   │/ ?/Hypr│ */
-#define ___5BASE_3_R___     N_MEH,    KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
+#define ___5BASE_3_R___     N_MEH,   KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │Ent/MOUS│ Spc/NAV│ Del/MED│ */
-#define ___BASE_THUMB_R___  ENT_MOUS, SPC_NAV, DEL_MED
+#define ___BASE_THUMB_R___  ENT_MOUS,SPC_NAV, DEL_MED
                         /* ╰────────┴────────┴────────╯ */
 
 /*** number ***/
@@ -187,8 +187,8 @@ enum {
                         /* │  Ctl   │  S/Alt │  Cmd   │  Shift │Capwd TG│ */
 #define ___5NUM_2_L___      KC_LCTL, S_ALT,   KC_LGUI, KC_LSFT, CAPWD_TG
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ leader │  ---   │ leader │ Space  │Backspc │ */
-#define ___5NUM_3_L___      QK_LEAD, XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
+                        /* │   ---  │  ---   │ Leader │ Space  │  BS    │ */
+#define ___5NUM_3_L___      XXXXXXX, XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │  Del   │ (hold) │  BS    │ */
 #define ___NUM_THUMB_L___                     KC_DEL,  XXXXXXX, KC_BSPC
@@ -199,7 +199,7 @@ enum {
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  = +   │  4     │  5     │  6     │  ' "   │ */
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD   // TODO maybe try moving the quote hold to a different key?
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  \ |   │  1     │  2     │  3     │  ` ~   │ */
 #define ___5NUM_3_R___      KC_BSLS, KC_1,    TWO_TD,  THREE_TD,GRV_TD
@@ -213,7 +213,7 @@ enum {
                         /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5SYM_1_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Med <==│ Vol Up │ Vol Dn │ Med==> │RGB Spd+│ */
+                        /* │ Med <==│ Vol Dn │ Vol Up │ Med==> │RGB Spd+│ */
 #define ___5SYM_2_L___      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │ RGB tog│RGB mod+│RGB hue+│RGB sat+│RGB brt+│ */
@@ -234,7 +234,7 @@ enum {
 #define ___5SYM_3_R___      KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  _     │  (     │  )     │ */
-#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, KC_RPRN
+#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, (hold)
                         /* ╰────────┴────────┴────────╯ */
 
 /*** navigation ***/
@@ -300,8 +300,8 @@ enum {
                         /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
 #define ___5MSE_1_L___      ___CLIPBOARD_L___
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │Button 3│Button 1│Button 2│ Wheel D│ */
-#define ___5MSE_2_L___       KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, KC_WH_D
+                        /* │Button 5│Button 3│Button 1│Button 2│ Wheel D│ */
+#define ___5MSE_2_L___      KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, KC_WH_D
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ Wheel U│ */
 #define ___5MSE_3_L___      ___HRM_L___,                         KC_WH_U
@@ -328,7 +328,7 @@ enum {
 
 /*** additional features ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │ Bootldr│  ---   │  ---   │  ---   │  ---   │ */
+                        /* │ Bootldr│  ---   │  ---   │DF: BASE│DF: NRM │ */
 #define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, DF(_BASE),DF(_NRM)
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  ---   │DynTpRpt│ DynTpDn│ DynTpUp│  ---   │ */
@@ -519,6 +519,7 @@ enum {
 
 /** layout macros **/
 #define LAYOUT_btgrant(...)              LAYOUT(__VA_ARGS__)
+#define LAYOUT_btgrant_all(...)          LAYOUT_all(__VA_ARGS__)
 #define LAYOUT_btgrant_3x5(...)          LAYOUT_split_3x5_3(__VA_ARGS__)
 #define LAYOUT_btgrant_3x6(...)          LAYOUT_split_3x6_3(__VA_ARGS__)
 #define LAYOUT_btgrant_4x12(...)         LAYOUT_ortho_4x12(__VA_ARGS__)
