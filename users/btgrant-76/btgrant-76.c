@@ -103,6 +103,10 @@ void code_fence(void) {
     SEND_STRING("```" SS_TAP(X_ENT) SS_TAP(X_ENT) "```" SS_TAP(X_UP));
 };
 
+void vim_write(void) {
+    SEND_STRING(SS_TAP(X_ESC) ":w" SS_TAP(X_ENT));
+}
+
 void tag_open_insert(void) {
     generic_insert("<>");
 }
@@ -506,7 +510,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
     // parens
-    if (leader_sequence_two_keys(KC_P, KC_I)) {
+    if (leader_sequence_one_key(KC_W) ) {
+        vim_write();
+    } else if (leader_sequence_two_keys(KC_P, KC_I)) {
         parens_insert();
     } else if (leader_sequence_two_keys(KC_P, KC_A)) {
         parens();

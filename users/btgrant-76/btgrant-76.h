@@ -233,8 +233,8 @@ enum {
                         /* │  |     │  !     │  @     │  #     │  ~     │ */
 #define ___5SYM_3_R___      KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  _     │  (     │  )     │ */
-#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, (hold)
+                        /* │  _     │  (     │ (hold) │ */
+#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
 /*** navigation ***/
@@ -271,11 +271,11 @@ enum {
                         /* │ Log Out│  ---   │Scrn2Clp│ Scrn2Fl│  ---   │ */
 #define ___5FUN_1_L___      LOG_OUT, XXXXXXX, SCRN2CLP,SCRN2FL, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Ctl   │  Alt   │  Cmd   │  Shft  │  ---   │ */
-#define ___5FUN_2_L___      ___HRM_L___,                        XXXXXXX
+                        /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ScrnBrt+│ */
+#define ___5FUN_2_L___      ___HRM_L___,                        KC_BRIU
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
-#define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                        /* │  ---   │  ---   │  ---   │  ---   │ScrnBrt-│ */
+#define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │ (hold) │  MSE   │  Tab   │ */
 #define ___FUN_THUMB_L___                     XXXXXXX, MO(_MSE), XXXXXXX
