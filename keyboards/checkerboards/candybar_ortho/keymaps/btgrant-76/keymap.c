@@ -118,9 +118,11 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
     0, 6     0, 7     1, 6     1, 7   | 2, 6   | 2, 7     3, 6    [3, 7]   [4, 6]   [4, 7]  | 5, 6   |[5, 7]   [6, 6]   [6, 7]    7, 6     7, 7   | 8, 7
   |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
 */
+    dprintln("achordion_chord_keymap called");
+
     if (tap_hold_record->event.key.row >= 6) {
         #ifdef CONSOLE_ENABLE
-        print("achordion_chord_keymap: triggered thumb cluster\n");
+        dprintln("achordion_chord_keymap: triggered thumb cluster\n");
         #endif
         return true; // thumb clusters
     }
@@ -139,7 +141,7 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
     }
 
     #ifdef CONSOLE_ENABLE
-    print("achordion_chord_keymap: return false\n");
+    dprintln("achordion_chord_keymap: return false\n");
     #endif
     return false;
 };

@@ -50,7 +50,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5NAV_2_L___,                                            ___5NAV_2_R___,
         ___5NAV_3_L___,                                            ___5NAV_3_R___,
         XXXXXXX, XXXXXXX,                                        XXXXXXX, XXXXXXX
-
     ),
     [_FUN] = LAYOUT_btgrant(
         ___5FUN_1_L___,                ENC_FUN,                    ___5FUN_1_R___,
