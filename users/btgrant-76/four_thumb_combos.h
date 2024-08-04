@@ -8,4 +8,6 @@ combo_t key_combos[] = {
     COMBO(ESC_3, KC_ESC),
     COMBO(ENTER, KC_ENT),
     COMBO(CAPS, KC_CAPS),
+    COMBO(MO_FUN, MO(_FUN)),
+    COMBO(MO_SYM, MO(_SYM))
 };

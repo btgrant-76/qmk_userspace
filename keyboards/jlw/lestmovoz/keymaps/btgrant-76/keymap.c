@@ -6,7 +6,7 @@
 #include "btgrant-76.h"
 
 #ifdef COMBO_ENABLE
-#   include "combos.h"
+#   include "four_thumb_combos.h"
 #endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5BASE_1_L___,                                                         ___5BASE_1_R___,
         ___5BASE_2_L___,                                                         ___5BASE_2_R___,
         ___5BASE_3_L___,                                                         ___5BASE_3_R___,
-        BACK,        FWD, TAB_FUN, XXXXXXX,  BS_NUM, SPC_NAV, XXXXXXX, DEL_MED, KC_LBRC, KC_RBRC
+        BACK,        FWD, TAB_MSE, XXXXXXX,  BS_NUM, SPC_NAV, XXXXXXX, DEL_MSE, KC_LBRC, KC_RBRC
     ),
     [_NUM] = LAYOUT_btgrant(
         ___5NUM_1_L___,                                                           ___5NUM_1_R___,
@@ -54,13 +54,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-
-  return tap_hold_record->event.key.row == 3;
-}
+//bool achordion_chord_keymap(uint16_t tap_hold_keycode,
+//                            keyrecord_t* tap_hold_record,
+//                            uint16_t other_keycode,
+//                            keyrecord_t* other_record) {
+//
+//  return tap_hold_record->event.key.row == 3;
+//}
 
 
 #ifdef RGB_MATRIX_ENABLE

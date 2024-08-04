@@ -366,6 +366,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     case D_GUI:
       switch (other_keycode) {
         case TAB_FUN:
+        case TAB_MSE:
         case KC_W:
         case KC_R:
         case S_ALT:
@@ -392,13 +393,17 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch (tap_hold_keycode) {
     // left thumb keys
     case TAB_FUN:
+    case TAB_MSE:
     case BS_NUM:
     case ESC_SYM:  // helpful for cocot46plus where this key also triggers scroll mode
     case ESC_MSE:
+    case ESC_FUN:
     // right thumb keys
-    case ENT_MOUS:
+    case ENT_MSE:
+    case ENT_SYM:
     case SPC_NAV:
     case DEL_MED:
+    case DEL_MSE:
     case LPRN_MSE:
       return 0;  // Bypass Achordion for these keys.
 

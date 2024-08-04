@@ -62,12 +62,16 @@ enum {
 /* Aliases */
 /** Layer Keys **/
 #define TAB_FUN LT(_FUN, KC_TAB)
+#define TAB_MSE LT(_MSE, KC_TAB)
 #define BS_NUM LT(_NUM, KC_BSPC)
 #define ESC_SYM LT(_SYM, KC_ESC)
 #define ESC_MSE LT(_MSE, KC_ESC)
-#define ENT_MOUS LT(_MSE, KC_ENT)
+#define ESC_FUN LT(_FUN, KC_ESC)
+#define ENT_MSE LT(_MSE, KC_ENT)
+#define ENT_SYM LT(_SYM, KC_ENT)
 #define SPC_NAV LT(_NAV, KC_SPC)
 #define DEL_MED LT(_MED, KC_DEL)
+#define DEL_MSE LT(_MSE, KC_DEL)
 
 #define LPRN_MSE LT(_MSE, KC_LPRN)
 
@@ -175,8 +179,8 @@ enum {
                         /* │  N/Meh │  M     │  , <   │  . >   │/ ?/Hypr│ */
 #define ___5BASE_3_R___     N_MEH,   KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │Ent/MOUS│ Spc/NAV│ Del/MED│ */
-#define ___BASE_THUMB_R___  ENT_MOUS,SPC_NAV, DEL_MED
+                        /* │Ent/MSE Spc/NAV│ Del/MED│ */
+#define ___BASE_THUMB_R___  ENT_MSE, SPC_NAV, DEL_MED
                         /* ╰────────┴────────┴────────╯ */
 
 /*** number ***/
@@ -187,8 +191,8 @@ enum {
                         /* │  Ctl   │  S/Alt │  Cmd   │  Shift │Capwd TG│ */
 #define ___5NUM_2_L___      KC_LCTL, S_ALT,   KC_LGUI, KC_LSFT, CAPWD_TG
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │   ---  │  ---   │ Leader │ Space  │  BS    │ */
-#define ___5NUM_3_L___      XXXXXXX, XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
+                        /* │  Esc   │  ---   │ Leader │ Space  │  BS    │ */
+#define ___5NUM_3_L___      KC_ESC,  XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │  Del   │ (hold) │  BS    │ */
 #define ___NUM_THUMB_L___                     KC_DEL,  XXXXXXX, KC_BSPC
@@ -259,8 +263,8 @@ enum {
                         /* │  Left  │  Down  │  Up    │  Right │  Caps  │ */
 #define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_CAPS
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Home  │  PgDn  │  PgUp  │  End   │ Insert │ */
-#define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS
+                        /* │  Home  │  PgDn  │  PgUp  │  End   │ Ent    │ */
+#define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  ---   │ (hold) │  ---   │ */
 #define ___NAV_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX

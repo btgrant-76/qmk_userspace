@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
                                   ___5BASE_3_L___,ENC_BASE,                             ___5BASE_3_R___,
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
-                        ESC_MSE, TAB_FUN, BS_NUM,           SPC_NAV, DEL_MED, ENT_MOUS
+                        ESC_FUN, TAB_MSE, BS_NUM,           SPC_NAV, DEL_MSE, ENT_SYM
                     //|--------+--------+--------+--------+--------+--------+--------|
   ),
   [_NUM] = LAYOUT_btgrant_vault_katana(

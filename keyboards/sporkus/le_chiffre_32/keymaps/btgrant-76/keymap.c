@@ -7,7 +7,7 @@
 #include "btgrant-76.h"
 
 #ifdef COMBO_ENABLE
-#   include "combos.h"
+#   include "four_thumb_combos.h"
 #endif
 
 #ifdef ENCODER_MAP_ENABLE
@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5BASE_1_L___,              ENC_BASE,                    ___5BASE_1_R___,
         ___5BASE_2_L___,                                           ___5BASE_2_R___,
         ___5BASE_3_L___,                                           ___5BASE_3_R___,
-        TAB_FUN, BS_NUM,                                          SPC_NAV, DEL_MED
+        TAB_MSE, BS_NUM,                                          SPC_NAV, DEL_MSE
     ),
     [_NUM] = LAYOUT_btgrant(
         ___5NUM_1_L___,                ENC_NUM,                    ___5NUM_1_R___,
