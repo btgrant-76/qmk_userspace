@@ -92,7 +92,12 @@
         "hue_steps": 4,
         "max_brightness": 69,
         "sat_steps": 4,
-        "val_steps": 4
+        "val_steps": 4,
+        "default": {
+            "animation": "cycle_all",
+            "speed": 32,
+            "val": 32
+        }
     },
     "ws2812": {
         "pin": "B15"
