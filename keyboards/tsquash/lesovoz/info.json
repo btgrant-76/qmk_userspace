@@ -10,7 +10,6 @@
     },
     "bootloader": "usbasploader",
     "processor": "atmega328p",
-    "TODO-review": ["bootmagic","mouse_key","tapping"],
     "debounce": 5,
     "diode_direction": "COL2ROW",
     "features": {

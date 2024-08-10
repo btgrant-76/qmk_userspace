@@ -43,6 +43,7 @@
                 {"label": "K07", "matrix": [0, 7], "x": 7, "y": 0},
                 {"label": "K08", "matrix": [0, 8], "x": 8, "y": 0},
                 {"label": "K09", "matrix": [0, 9], "x": 9, "y": 0},
+
                 {"label": "K10", "matrix": [1, 0], "x": 10, "y": 0},
                 {"label": "K11", "matrix": [1, 1], "x": 11, "y": 0},
                 {"label": "K12", "matrix": [1, 2], "x": 12, "y": 0},
@@ -53,6 +54,7 @@
                 {"label": "K17", "matrix": [1, 7], "x": 17, "y": 0},
                 {"label": "K18", "matrix": [1, 8], "x": 18, "y": 0},
                 {"label": "K19", "matrix": [1, 9], "x": 19, "y": 0},
+
                 {"label": "K20", "matrix": [2, 0], "x": 20, "y": 0},
                 {"label": "K21", "matrix": [2, 1], "x": 21, "y": 0},
                 {"label": "K22", "matrix": [2, 2], "x": 22, "y": 0},
@@ -63,6 +65,7 @@
                 {"label": "K27", "matrix": [2, 7], "x": 27, "y": 0},
                 {"label": "K28", "matrix": [2, 8], "x": 28, "y": 0},
                 {"label": "K29", "matrix": [2, 9], "x": 29, "y": 0},
+
                 {"label": "K32", "matrix": [3, 2], "x": 30, "y": 0},
                 {"label": "K33", "matrix": [3, 3], "x": 31, "y": 0},
                 {"label": "K34", "matrix": [3, 4], "x": 32, "y": 0},
