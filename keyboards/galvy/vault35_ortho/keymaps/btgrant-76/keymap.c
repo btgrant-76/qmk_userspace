@@ -88,25 +88,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------+--------|
   )
 };
-
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-
-  return tap_hold_record->event.key.row == 3;
-}
-
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_keymap(void) {
-    rgblight_enable();
-    rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-
-    return;
-}
-#endif

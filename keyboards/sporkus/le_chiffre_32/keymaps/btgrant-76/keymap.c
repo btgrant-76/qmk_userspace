@@ -59,11 +59,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX,                                        XXXXXXX, XXXXXXX
     )
 };
-
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-
-  return tap_hold_record->event.key.row == 3;
-}
