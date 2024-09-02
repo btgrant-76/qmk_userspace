@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5BASE_1_L___,                                                         ___5BASE_1_R___,
         ___5BASE_2_L___,                                                         ___5BASE_2_R___,
         ___5BASE_3_L___,                                                         ___5BASE_3_R___,
-        XXXXXXX, BLOCKER, TAB_MSE,  BS_NUM,     BAR,     BAR, SPC_NAV, DEL_MSE, BLOCKER, XXXXXXX
+        ESC_FUN, BLOCKER, TAB_MSE,  BS_NUM,     BAR,     BAR, SPC_NAV, DEL_MSE, BLOCKER,  ENT_SYM
     ),
     [_NUM] = LAYOUT_btgrant(
         ___5NUM_1_L___,                                                           ___5NUM_1_R___,
@@ -68,17 +68,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, BLOCKER, XXXXXXX, XXXXXXX,     BAR,     BAR, XXXXXXX, XXXXXXX, BLOCKER, XXXXXXX
     )
 };
-
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_keymap(void) {
-    rgblight_enable();
-    rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-
-    return;
-}
-#endif

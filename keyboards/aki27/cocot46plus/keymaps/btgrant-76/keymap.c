@@ -144,20 +144,6 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
   return false;
 }
 
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_keymap(void) {
-    rgblight_sethsv_noeeprom(100, 255, 255);
-
-    rgblight_enable();
-    rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-}
-#endif
-
 /*
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     int8_t degree = 45;

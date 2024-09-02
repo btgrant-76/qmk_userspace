@@ -100,15 +100,3 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
 
   return false;
 }
-
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_keymap(void) {
-  rgblight_enable();
-  rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
-  rgblight_step();
-  rgblight_step();
-  rgblight_step();
-  rgblight_step();
-  rgblight_step();
-}
-#endif

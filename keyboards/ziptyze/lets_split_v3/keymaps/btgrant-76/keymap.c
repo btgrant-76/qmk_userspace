@@ -138,11 +138,3 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
         return false;
   }
 };
-
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_keymap(void) {
-  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-  rgblight_sethsv_noeeprom(HSV_YELLOW);
-  rgblight_mode_noeeprom(RGBLIGHT_MODE_CHRISTMAS);
-}
-#endif

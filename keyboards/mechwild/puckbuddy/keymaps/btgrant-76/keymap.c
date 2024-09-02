@@ -83,15 +83,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [_FN3]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX),  ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
     };
 #endif
-
-#ifdef RGBLIGHT_ENABLE
-void keyboard_post_init_keymap(void) {
-    rgblight_enable(); // Enables RGB, without saving settings
-    rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-    rgblight_step();
-}
-#endif
