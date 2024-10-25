@@ -9,6 +9,7 @@ const aliases = require('./keycodeAliases.json');
  *  - [ ] replace the startsWith/endsWith usage with regex
  *  - [ ] probably move this into its own directory so I can have Yarn files, etc.
  *  - [ ] clean up/consolidate unused codes in btgrant-76.h
+ *  - [ ] double-check the width of all columns, especially the first
  */
 
 const badlyNamedThings = ['HRM']
@@ -95,11 +96,7 @@ const splitDefineLine = line => {
     const commentIndex = splits.indexOf('//')
 
     if (commentIndex !== -1) {
-        // console.log('found //', commentIndex, splits)
-        const cleanedSplits = splits.slice(0, commentIndex)
-        // console.log('cleanedSplits', cleanedSplits)
-
-        return cleanedSplits
+        return splits.slice(0, commentIndex)
     }
 
     return splits
@@ -108,18 +105,17 @@ const splitDefineLine = line => {
 const processKeyCodes = keycodes => {
     const updatedKeycodes = keycodes.flatMap(kc => {
         kc = kc.replace(',', '')
-        // if (kc.startsWith('XXXXXXX')) {
-            // return '---'
-        /*} else*/ if (kc.startsWith('KC_')) {
-            // kc = kc.replace('KC_', '')
-            return kc.replace('KC_', '')
-        } else if (aliases[kc]) {
-            return aliases[kc].split(',')
+
+        if (aliases[kc]) {
+            return aliases[kc].split(',') // FIXME this splits the alias ", <"
         }
+
+        if (kc.startsWith('KC_')) {
+            return kc.replace('KC_', '')
+        }
+
         return kc
     })
-
-
 
     return updatedKeycodes
 }
@@ -141,18 +137,13 @@ const processDefine = line => {
         const splitVarName = varName.split('_').filter(w => w.length > 0)
 
         const rowId = splitVarName[1]
-        // 'Paste'.padEnd(6, '_').padStart(8, '_') // or 6, 9
         const keycodes = processKeyCodes(splits.slice(2)).map(kc => kc.padEnd(RIGHT_PAD/*, '_'*/).padStart(CELL_WIDTH/*, '_'*/))
         console.log('layer define', layerId, rowId, keycodes)
 
         // TODO refactor the following lines
         const layer = layers[layerId]
         const row = layer[rowId]
-        // console.log('row before', row)
-        const updatedRow = row.concat(keycodes)
-        // console.log('row after', updatedRow)
-        layers[layerId][rowId] = updatedRow
-        // console.log(layers[layerId])
+        layers[layerId][rowId] = row.concat(keycodes)
     } else if (line.includes('//:')) { // define with an alias
         const keycode = splits[1]
         console.log('found alias', keycode)
@@ -162,8 +153,6 @@ const processDefine = line => {
         } else {
             aliases[keycode] = alias
         }
-
-
     } else {
         // console.log('ordinary define', line);
     }
@@ -196,10 +185,16 @@ rl.on('line', (line) => {
     processLine(line)
 });
 
+const generateDivider = () => `|${Array(10).fill(''.padStart(CELL_WIDTH, '-')).join('+')}|`
+
+const wrapRow = row => {
+    return `|${row.join('|')}|`
+}
+
 rl.on('close', () => {
-    // console.log('finished', layers)
     console.log('finished', aliases)
 
+    // TODO split all these down the middle
     for (const layer in layers) {
         const l = layers[layer]
 
@@ -213,15 +208,18 @@ rl.on('close', () => {
 
         const leftThumbPadding = Array(2).fill(''.padStart(CELL_WIDTH, ' '))
 
-        console.log(lOne.join(', '))
-        console.log(lTwo.join(', '))
-        console.log(lThree.join(', '))
-        console.log(`${leftThumbPadding.join('  ')}  ${lThumb.join(', ')}`)
+        const divider = generateDivider() // TODO parameterize this so it can be used for the thumb row, too
+        console.log(divider)
+        console.log(wrapRow(lOne))
+        console.log(divider)
+        console.log(wrapRow(lTwo))
+        console.log(divider)
+        console.log(wrapRow(lThree))
+        console.log(divider)
+        console.log(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb)}`)
 
         console.log('```\n')
     }
 
-    // TODO use paddingLeft & paddingRight to give the nodes of the keymap adequate space in an 8-character-width spot https://stackoverflow.com/a/14760377/131137
-    // 'Paste'.padEnd(6, '_').padStart(8, '_') // or 6, 9
     console.log('File reading completed.');
 });
