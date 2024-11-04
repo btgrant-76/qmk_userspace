@@ -5,67 +5,57 @@ const aliases = require('./keycodeAliases.json');
 /**
  * TODO
  *  - [ ] rename to something that makes more sense
- *  - [ ] read only the lines for 10u
+ *  - [x] read only the lines for 10u
  *  - [ ] replace the startsWith/endsWith usage with regex
  *  - [ ] probably move this into its own directory so I can have Yarn files, etc.
  *  - [ ] clean up/consolidate unused codes in btgrant-76.h
- *  - [ ] double-check the width of all columns, especially the first
+ *  - [x] double-check the width of all columns, especially the first
+ *  - [ ] apply some kind of coherent formatting
+ *  - [ ] fix aliases that don't seem to be processed correctly
+ *      - [ ] KC_COMM
+ *  - [ ] is it worth writing any unit tests?
+ *  - [ ] text like '  (hold)' should be shifted to the left one space
+ *  - [ ] clean up all the console logging
  */
 
 const badlyNamedThings = ['HRM']
 
-const layers = { // TODO build this up at startup; or put this in a JSON file
-    // varName: 'BASE',
+const layers = {
     BASE: {
         name: 'Base',
-        1: [],
-        2: [],
-        3: [],
-        THUMB: []
     },
     NUM: {
         name: 'Number',
-        1: [],
-        2: [],
-        3: [],
-        THUMB: []
     },
     SYM: {
         name: 'Symbol',
-        1: [],
-        2: [],
-        3: [],
-        THUMB: []
     },
     NAV: {
         name: 'Navigation',
-        1: [],
-        2: [],
-        3: [],
-        THUMB: []
     },
     FUN: {
         name: 'Function',
-        1: [],
-        2: [],
-        3: [],
-        THUMB: []
     },
     MSE: {
         name: 'Mouse Keys',
-        1: [],
-        2: [],
-        3: [],
-        THUMB: []
     },
     ADD: {
         name: 'Additional Features',
-        1: [],
-        2: [],
-        3: [],
-        THUMB: []
     }
 }
+
+const buildUpLayers = () => {
+    for (const layerId in layers) {
+        // console.log(layerId)
+        const layer = layers[layerId]
+
+        for (const rowId of ['1', '2', '3', 'THUMB']) {
+            layer[rowId] = []
+        }
+    }
+}
+
+buildUpLayers()
 
 const fileStream = fs.createReadStream('./users/btgrant-76/btgrant-76.h');
 
@@ -185,11 +175,18 @@ rl.on('line', (line) => {
     processLine(line)
 });
 
-const generateDivider = () => `|${Array(10).fill(''.padStart(CELL_WIDTH, '-')).join('+')}|`
-
-const wrapRow = row => {
-    return `|${row.join('|')}|`
+// TODO update to starting/leading characters like '/', '\' and '|'
+const wrapRow = (row, joiner, leader = '|', trailer = '|', rLeader = null, rTrailer = null) => {
+    // console.log('wrap row length', row.length)
+    const halfRow = row.length / 2
+    const firstHalf = row.slice(0, halfRow)
+    const secondHalf = row.slice(-1 * halfRow)
+    // return `|${row.join('|')}|`
+    return `${leader}${firstHalf.join(joiner)}${trailer}  ${rLeader ? rLeader : leader }${secondHalf.join(joiner)}${rTrailer ? rTrailer : trailer}`
 }
+
+// const generateDivider = cellCount => `|${Array(cellCount).fill(''.padStart(CELL_WIDTH, '-')).join('+')}|`
+const generateDivider = cellCount => Array(cellCount).fill(''.padStart(CELL_WIDTH, '-'))
 
 rl.on('close', () => {
     console.log('finished', aliases)
@@ -208,16 +205,22 @@ rl.on('close', () => {
 
         const leftThumbPadding = Array(2).fill(''.padStart(CELL_WIDTH, ' '))
 
-        const divider = generateDivider() // TODO parameterize this so it can be used for the thumb row, too
-        console.log(divider)
-        console.log(wrapRow(lOne))
-        console.log(divider)
-        console.log(wrapRow(lTwo))
-        console.log(divider)
-        console.log(wrapRow(lThree))
-        console.log(divider)
-        console.log(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb)}`)
+        const divider = generateDivider(10) // TODO parameterize this so it can be used for the thumb row, too
+        // console.log(divider)
 
+        const longDivider = Array(10).fill(''.padStart(CELL_WIDTH, '-'))
+        // console.log(wrapRow(Array(10).fill(''.padStart(CELL_WIDTH, '-')), '+', '/', '\\'))
+        console.log(wrapRow(longDivider, '+', '/', '\\'))
+        console.log(wrapRow(lOne, '|')) // , '|', '/', '\\'))
+        console.log(wrapRow(divider, '+'))
+        console.log(wrapRow(lTwo, '|'))
+        console.log(wrapRow(divider, '+'))
+        // console.log(divider)
+        console.log(wrapRow(lThree, '|'))
+        // console.log(divider)
+        console.log(wrapRow(longDivider, '+', '\\', '|', '|', '/'))
+        console.log(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`)
+        console.log(`${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
         console.log('```\n')
     }
 
