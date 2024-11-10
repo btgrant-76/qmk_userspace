@@ -59,7 +59,7 @@ const buildUpLayers = () => {
 
 buildUpLayers()
 
-const fileStream = fs.createReadStream('./users/btgrant-76/btgrant-76.h');
+const fileStream = fs.createReadStream('../users/btgrant-76/btgrant-76.h');
 
 const rl = readline.createInterface({
     input: fileStream,
@@ -201,8 +201,11 @@ rl.on('close', () => {
         const l = layers[layer]
 
         const sectionTitle = `#### ${l.name} (\`${layer}\`)\n`
-        console.log(sectionTitle)
-        console.log('```text')
+        // console.log(sectionTitle)
+        outputStream.write(sectionTitle)
+        outputStream.write('\n')
+        // console.log('```text')
+        outputStream.write('```text\n')
         const lOne = l[1]
         const lTwo = l[2]
         const lThree = l[3]
@@ -215,18 +218,38 @@ rl.on('close', () => {
 
         const longDivider = Array(10).fill(''.padStart(CELL_WIDTH, '-'))
         // console.log(wrapRow(Array(10).fill(''.padStart(CELL_WIDTH, '-')), '+', '/', '\\'))
-        console.log(wrapRow(longDivider, '+', '/', '\\'))
-        console.log(wrapRow(lOne, '|')) // , '|', '/', '\\'))
-        console.log(wrapRow(divider, '+'))
-        console.log(wrapRow(lTwo, '|'))
-        console.log(wrapRow(divider, '+'))
+        // console.log(wrapRow(longDivider, '+', '/', '\\'))
+        // console.log(wrapRow(lOne, '|')) // , '|', '/', '\\'))
+        // console.log(wrapRow(divider, '+'))
+        // console.log(wrapRow(lTwo, '|'))
+        // console.log(wrapRow(divider, '+'))
+        outputStream.write(wrapRow(longDivider, '+', '/', '\\'))
+        outputStream.write('\n')
+        outputStream.write(wrapRow(lOne, '|')) // , '|', '/', '\\'))
+        outputStream.write('\n')
+        outputStream.write(wrapRow(divider, '+'))
+        outputStream.write('\n')
+        outputStream.write(wrapRow(lTwo, '|'))
+        outputStream.write('\n')
+        outputStream.write(wrapRow(divider, '+'))
+        outputStream.write('\n')
         // console.log(divider)
-        console.log(wrapRow(lThree, '|'))
+        // console.log(wrapRow(lThree, '|'))
+        outputStream.write(wrapRow(lThree, '|'))
+        outputStream.write('\n')
         // console.log(divider)
-        console.log(wrapRow(longDivider, '+', '\\', '|', '|', '/'))
-        console.log(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`)
-        console.log(`${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
-        console.log('```\n')
+        // console.log(wrapRow(longDivider, '+', '\\', '|', '|', '/'))
+        // console.log(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`)
+        // console.log(`${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
+        // console.log('```\n')
+        outputStream.write(wrapRow(longDivider, '+', '\\', '|', '|', '/'))
+        outputStream.write('\n')
+        outputStream.write(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`)
+        outputStream.write('\n')
+        outputStream.write(`${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
+        outputStream.write('\n')
+        outputStream.write('```\n')
+        outputStream.write('\n')
     }
 
 
