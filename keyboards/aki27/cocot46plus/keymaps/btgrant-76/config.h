@@ -19,11 +19,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+//#define DYNAMIC_KEYMAP_LAYER_COUNT 5
 
 #undef MOUSEKEY_ENABLE
 
-#define COCOT_CPI_DEFAULT 2
+#undef COCOT_CPI_DEFAULT
+#define COCOT_CPI_DEFAULT 1
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING

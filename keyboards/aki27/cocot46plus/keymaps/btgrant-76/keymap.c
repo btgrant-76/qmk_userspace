@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___BASE_2_L___,                                      ___BASE_2_R___,
         ___BASE_3_L___,                                      ___BASE_3_R___,
         BACK, ___BASE_THUMB_L___, KC_BTN1, KC_BTN2, ___BASE_THUMB_R___, FWD,
-                             KC_PGUP, KC_BTN3, KC_PGDN,
+                             KC_A, KC_BTN3, KC_B,
                              XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant(
@@ -99,31 +99,40 @@ keyevent_t encoder1_cw = {
 };
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
+// TODO debug this
     if (index == 0) { /* First encoder */
         if (clockwise) {
             encoder1_cw.pressed = true;
-            encoder1_cw.time = (timer_read() | 1);
+//            encoder1_cw.time = (timer_read() | 1);
+            encoder1_cw.time = timer_read();
             action_exec(encoder1_cw);
         } else {
             encoder1_ccw.pressed = true;
-            encoder1_ccw.time = (timer_read() | 1);
+//            encoder1_ccw.time = (timer_read() | 1);
+            encoder1_ccw.time = timer_read();
             action_exec(encoder1_ccw);
         }
     }
 
     return true;
 }
-// FIXME IS_PRESSED removed in 0.21; use encoder map until fixed
+// FIXME IS_PRESSED removed in 0.21; use encoder map until fixed things:///show?id=Y3crRgNRd82Kn69RNE5RoM
+
 void matrix_scan_keymap(void) {
-    if (IS_PRESSED(encoder1_ccw)) {
+// TODO debug this
+//    if (IS_PRESSED(encoder1_ccw)) {
+    if (IS_EVENT(encoder1_ccw) && encoder1_ccw.pressed) {
         encoder1_ccw.pressed = false;
-        encoder1_ccw.time = (timer_read() | 1);
+//        encoder1_ccw.time = (timer_read() | 1);
+        encoder1_ccw.time = timer_read();
         action_exec(encoder1_ccw);
     }
 
-    if (IS_PRESSED(encoder1_cw)) {
+//    if (IS_PRESSED(encoder1_cw)) {
+    if (IS_EVENT(encoder1_cw) && encoder1_cw.pressed) {
         encoder1_cw.pressed = false;
-        encoder1_cw.time = (timer_read() | 1);
+//        encoder1_cw.time = (timer_read() | 1);
+        encoder1_cw.time = timer_read();
         action_exec(encoder1_cw);
     }
 }
