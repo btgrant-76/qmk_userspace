@@ -15,8 +15,10 @@ const aliases = require('./keycodeAliases.json');
  *      - [ ] KC_COMM
  *  - [ ] is it worth writing any unit tests?
  *  - [ ] text like '  (hold)' should be shifted to the left one space
- *  - [ ] clean up all the console logging
+ *  - [ ] remove console log statements and/or write out to a .md file
  */
+
+const OUTPUT_FILE = 'keymap.md'
 
 const badlyNamedThings = ['HRM']
 
@@ -192,6 +194,9 @@ rl.on('close', () => {
     console.log('finished', aliases)
 
     // TODO split all these down the middle
+
+    const outputStream = fs.createWriteStream(OUTPUT_FILE); // TODO stop console.logging and write to this!
+
     for (const layer in layers) {
         const l = layers[layer]
 
@@ -223,6 +228,8 @@ rl.on('close', () => {
         console.log(`${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
         console.log('```\n')
     }
+
+
 
     console.log('File reading completed.');
 });
