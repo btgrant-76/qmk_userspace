@@ -35,31 +35,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___BASE_1_L___,                                                                             ___BASE_1_R___,
         ___BASE_2_L___,                                                                             ___BASE_2_R___,
         ___BASE_3_L___,                                                                             ___BASE_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX,        ___BASE_THUMB_L___,        ___BASE_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ENC_BASE,XXXXXXX, XXXXXXX,        ___BASE_THUMB_L___,        ___BASE_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_NUM] = LAYOUT_btgrant_planck_grid(
         ___NUM_1_L___,                                                                               ___NUM_1_R___,
         ___NUM_2_L___,                                                                               ___NUM_2_R___,
         ___NUM_3_L___,                                                                               ___NUM_3_R___,
-        XXXXXXX, XXXXXXX,  XXXXXXX,        ___NUM_THUMB_L___,         ___NUM_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ENC_NUM, XXXXXXX,  XXXXXXX,        ___NUM_THUMB_L___,         ___NUM_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant_planck_grid(
         ___SYM_1_L___,                                                                               ___SYM_1_R___,
         ___SYM_2_L___,                                                                               ___SYM_2_R___,
         ___SYM_3_L___,                                                                               ___SYM_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX,         ___SYM_THUMB_L___,         ___SYM_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ENC_SYM, XXXXXXX, XXXXXXX,         ___SYM_THUMB_L___,         ___SYM_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT_btgrant_planck_grid(
         ___NAV_1_L___,                                                                               ___NAV_1_R___,
         ___NAV_2_L___,                                                                               ___NAV_2_R___,
         ___NAV_3_L___,                                                                               ___NAV_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX,         ___NAV_THUMB_L___,         ___NAV_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ENC_NAV, XXXXXXX, XXXXXXX,         ___NAV_THUMB_L___,         ___NAV_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_FUN] = LAYOUT_btgrant_planck_grid(
         ___FUN_1_L___,                                                                               ___FUN_1_R___,
         ___FUN_2_L___,                                                                               ___FUN_2_R___,
         ___FUN_3_L___,                                                                               ___FUN_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX,         ___FUN_THUMB_L___,         ___FUN_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ENC_FUN, XXXXXXX, XXXXXXX,         ___FUN_THUMB_L___,         ___FUN_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_MSE] = LAYOUT_btgrant_planck_grid(
         ___MSE_1_L___,                                                                               ___MSE_1_R___,
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, ___5ADD_1_L___,                                                           ___5ADD_1_R___, XXXXXXX,
         XXXXXXX, ___5ADD_2_L___,                                                           ___5ADD_2_R___, XXXXXXX,
         XXXXXXX, ___5ADD_3_L___,                                                           ___5ADD_3_R___, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX,         ___ADD_THUMB_L___,         ___ADD_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
+        ENC_FUN, XXXXXXX, XXXXXXX,         ___ADD_THUMB_L___,         ___ADD_THUMB_R___, XXXXXXX, XXXXXXX, XXXXXXX
     )
 };
 
@@ -80,12 +80,6 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
                             uint16_t other_keycode,
                             keyrecord_t* other_record) {
 
-//  switch (tap_hold_record->event.key.row) {
-//    case 3:
-//    case 7:
-//        return true;
-//    break;
-//  }
   switch (tap_hold_keycode) {
     case J_SFT:
     case K_GUI:
