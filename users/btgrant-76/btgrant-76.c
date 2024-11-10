@@ -100,12 +100,16 @@ void macos_log_out(void) {
 };
 
 void code_fence(void) {
-    SEND_STRING("```" SS_TAP(X_ENT) SS_TAP(X_ENT) "```" SS_TAP(X_UP));
+    SEND_STRING("```" SS_TAP(X_ENT) SS_TAP(X_ENT) "```" SS_TAP(X_UP) SS_TAP(X_UP));
 };
 
 void vim_write(void) {
     SEND_STRING(SS_TAP(X_ESC) ":w" SS_TAP(X_ENT));
 }
+
+void new_browser_window_you_jerk(void) {
+    SEND_STRING(SS_LGUI("n") SS_DELAY(2000) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
+};
 
 void tag_open_insert(void) {
     generic_insert("<>");
@@ -517,6 +521,8 @@ void leader_end_user(void) {
     // parens
     if (leader_sequence_one_key(KC_W) ) {
         vim_write();
+    } else if (leader_sequence_one_key(KC_N) ) {
+        new_browser_window_you_jerk();
     } else if (leader_sequence_two_keys(KC_P, KC_I)) {
         parens_insert();
     } else if (leader_sequence_two_keys(KC_P, KC_A)) {
