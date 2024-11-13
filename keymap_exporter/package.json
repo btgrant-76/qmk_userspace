@@ -1,0 +1,9 @@
+{
+  "name": "keymap_exporter",
+  "version": "1.0.0",
+  "description": "Export a visual representation of my core, QMK keymap",
+  "main": "export_keymap.js",
+  "repository": "https://github.com/btgrant-76/qmk_userspace/",
+  "author": "Brian Grant",
+  "license": "MIT"
+}

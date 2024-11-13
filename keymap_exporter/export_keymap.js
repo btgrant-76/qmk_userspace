@@ -1,54 +1,33 @@
 const fs = require('fs');
 const readline = require('readline');
-const aliases = require('./keycodeAliases.json');
+
+const aliases = require('./keycode_aliases.json');
+const layers = require('./layers.json');
 
 /**
  * TODO
- *  - [ ] rename to something that makes more sense
- *  - [x] read only the lines for 10u
- *  - [ ] replace the startsWith/endsWith usage with regex
- *  - [ ] probably move this into its own directory so I can have Yarn files, etc.
- *  - [ ] clean up/consolidate unused codes in btgrant-76.h
- *  - [x] double-check the width of all columns, especially the first
  *  - [ ] apply some kind of coherent formatting
- *  - [ ] fix aliases that don't seem to be processed correctly
- *      - [ ] KC_COMM
- *  - [ ] is it worth writing any unit tests?
- *  - [ ] text like '  (hold)' should be shifted to the left one space
- *  - [ ] remove console log statements and/or write out to a .md file
+ *  - [ ] clean up/consolidate unused codes in btgrant-76.h
+ *  - [x] fix aliases that don't seem to be processed correctly
+ *      - [x] KC_COMM
+ *  - [x] text like '  (hold)' should be shifted to the left one space
+ *  - [x] rename to something that makes more sense
+ *  - [x] read only the lines for 10u
+ *  - [x] probably move this into its own directory so I can have Yarn files, etc.
+ *  - [x] double-check the width of all columns, especially the first
+ *  - [x] remove console log statements and/or write out to a .md file
+ *  - [~] is it worth writing any unit tests?
+ *  - [~] replace the startsWith/endsWith usage with regex
  */
 
-const OUTPUT_FILE = 'keymap.md'
-
-const badlyNamedThings = ['HRM']
-
-const layers = {
-    BASE: {
-        name: 'Base',
-    },
-    NUM: {
-        name: 'Number',
-    },
-    SYM: {
-        name: 'Symbol',
-    },
-    NAV: {
-        name: 'Navigation',
-    },
-    FUN: {
-        name: 'Function',
-    },
-    MSE: {
-        name: 'Mouse Keys',
-    },
-    ADD: {
-        name: 'Additional Features',
-    }
-}
+const CENTER = true
+const INPUT_FILE = '../users/btgrant-76/btgrant-76.h'
+const OUTPUT_FILE = 'export.md'
+const CELL_WIDTH = 10 // 8 // the full width of the keycode cell
+const RIGHT_PAD = CELL_WIDTH - 2 // 7 // 6
 
 const buildUpLayers = () => {
     for (const layerId in layers) {
-        // console.log(layerId)
         const layer = layers[layerId]
 
         for (const rowId of ['1', '2', '3', 'THUMB']) {
@@ -59,7 +38,7 @@ const buildUpLayers = () => {
 
 buildUpLayers()
 
-const fileStream = fs.createReadStream('../users/btgrant-76/btgrant-76.h');
+const fileStream = fs.createReadStream(INPUT_FILE);
 
 const rl = readline.createInterface({
     input: fileStream,
@@ -70,21 +49,17 @@ let stopProcessing = false;
 
 const findLayer = varName => {
     for (const layer in layers) {
-        // console.log(layer);
         if (varName.includes(layer)) {
             return layer
         }
     }
-    console.log('unidentified layer!', varName) //
-    return null
-
-    // throw new Error(`Unidentified layer: ${varName}`)
-    // return 'UNIDENTIFIED' // TODO throw an error?
+    const message = `Unidentified layer: ${varName}`
+    console.log(message)
+    throw new Error(message)
 }
 
 const splitDefineLine = line => {
     const splits = line.split(' ').filter(w => w.length > 0)
-
     const commentIndex = splits.indexOf('//')
 
     if (commentIndex !== -1) {
@@ -95,11 +70,11 @@ const splitDefineLine = line => {
 }
 
 const processKeyCodes = keycodes => {
-    const updatedKeycodes = keycodes.flatMap(kc => {
+    return keycodes.flatMap(kc => {
         kc = kc.replace(',', '')
-
-        if (aliases[kc]) {
-            return aliases[kc].split(',') // FIXME this splits the alias ", <"
+        const alias = aliases[kc]
+        if (alias) {
+            return alias.split('||')
         }
 
         if (kc.startsWith('KC_')) {
@@ -108,45 +83,57 @@ const processKeyCodes = keycodes => {
 
         return kc
     })
-
-    return updatedKeycodes
 }
 
-const RIGHT_PAD = 6
-const CELL_WIDTH = 8 // the  full width of the keycode cell
+const placeKeycodeInCell = kc => {
+    if (CENTER) {
+        /* roughly center the keycode in the cell */
+        const remainder = CELL_WIDTH - kc.length
+        const odd = (remainder % 2) > 0
+        // console.log(kc, kc.length, remainder, odd)
+
+        let pad = 0
+        if (odd) {
+            pad = (remainder - 1) / 2
+        } else {
+            pad = remainder / 2
+        }
+
+        return kc
+            .padStart(CELL_WIDTH - pad)
+            .padEnd(CELL_WIDTH)
+    } else {
+        /* roughly place the keycode in the cell with relatively uniform padding on the left edge */
+        if (kc.length === RIGHT_PAD) {
+            // console.log(kc)
+            return kc.padEnd(RIGHT_PAD + 1/*, '_'*/).padStart(CELL_WIDTH/*, '_'*/)
+        }
+        return kc.padEnd(RIGHT_PAD/*, '_'*/).padStart(CELL_WIDTH/*, '_'*/)
+    }
+}
 
 const processDefine = line => {
     const splits = splitDefineLine(line)
     const varName = splits[1]
     if (varName.startsWith('___')) {
         const layerId = findLayer(varName)
-
         if (!layerId) {
-            console.log('skipping', layerId)
             return
         }
 
         const splitVarName = varName.split('_').filter(w => w.length > 0)
-
         const rowId = splitVarName[1]
-        const keycodes = processKeyCodes(splits.slice(2)).map(kc => kc.padEnd(RIGHT_PAD/*, '_'*/).padStart(CELL_WIDTH/*, '_'*/))
-        console.log('layer define', layerId, rowId, keycodes)
-
-        // TODO refactor the following lines
-        const layer = layers[layerId]
-        const row = layer[rowId]
+        const keycodes = processKeyCodes(splits.slice(2)).map(placeKeycodeInCell)
+        const row = layers[layerId][rowId]
         layers[layerId][rowId] = row.concat(keycodes)
-    } else if (line.includes('//:')) { // define with an alias
+    } else if (line.includes('//:')) { // #define with an alias
         const keycode = splits[1]
-        console.log('found alias', keycode)
         const alias = splits[splits.length - 1].replace('//:', '').replace('_', ' ')
         if (keycode.includes(',')) {
-
+            // TODO what?
         } else {
             aliases[keycode] = alias
         }
-    } else {
-        // console.log('ordinary define', line);
     }
 }
 
@@ -158,54 +145,41 @@ const processLine = rawLine => {
     if (!stopProcessing) {
         if (trimmed.startsWith('/** 12u **/')) {
             stopProcessing = true
-        } else if ((trimmed.startsWith('/* ') && trimmed.endsWith(' */')) || trimmed.startsWith('//')) {
-            // console.log('comment', trimmed)
+        // } else if ((trimmed.startsWith('/* ') && trimmed.endsWith(' */')) || trimmed.startsWith('//')) {
+        //     // console.log('comment', trimmed)
         } else if (trimmed.startsWith('#define')) {
             processDefine(trimmed)
-        } else {
-            console.log('processing', trimmed)
         }
-    } else {
-        // console.log('stopped', trimmed)
     }
 }
 
-
 rl.on('line', (line) => {
-    // if (line.startsWith('/** 12u **/'))
-    // console.log(line);
     processLine(line)
 });
 
-// TODO update to starting/leading characters like '/', '\' and '|'
 const wrapRow = (row, joiner, leader = '|', trailer = '|', rLeader = null, rTrailer = null) => {
-    // console.log('wrap row length', row.length)
     const halfRow = row.length / 2
     const firstHalf = row.slice(0, halfRow)
     const secondHalf = row.slice(-1 * halfRow)
-    // return `|${row.join('|')}|`
     return `${leader}${firstHalf.join(joiner)}${trailer}  ${rLeader ? rLeader : leader }${secondHalf.join(joiner)}${rTrailer ? rTrailer : trailer}`
 }
 
-// const generateDivider = cellCount => `|${Array(cellCount).fill(''.padStart(CELL_WIDTH, '-')).join('+')}|`
 const generateDivider = cellCount => Array(cellCount).fill(''.padStart(CELL_WIDTH, '-'))
 
+const write = (os, output) => {
+    os.write(output)
+    os.write('\n')
+}
+
 rl.on('close', () => {
-    console.log('finished', aliases)
-
-    // TODO split all these down the middle
-
-    const outputStream = fs.createWriteStream(OUTPUT_FILE); // TODO stop console.logging and write to this!
+    const outputStream = fs.createWriteStream(OUTPUT_FILE);
 
     for (const layer in layers) {
         const l = layers[layer]
 
         const sectionTitle = `#### ${l.name} (\`${layer}\`)\n`
-        // console.log(sectionTitle)
-        outputStream.write(sectionTitle)
-        outputStream.write('\n')
-        // console.log('```text')
-        outputStream.write('```text\n')
+        write(outputStream, sectionTitle)
+        write(outputStream, '```text')
         const lOne = l[1]
         const lTwo = l[2]
         const lThree = l[3]
@@ -213,46 +187,19 @@ rl.on('close', () => {
 
         const leftThumbPadding = Array(2).fill(''.padStart(CELL_WIDTH, ' '))
 
-        const divider = generateDivider(10) // TODO parameterize this so it can be used for the thumb row, too
-        // console.log(divider)
+        const divider = generateDivider(10)
 
         const longDivider = Array(10).fill(''.padStart(CELL_WIDTH, '-'))
-        // console.log(wrapRow(Array(10).fill(''.padStart(CELL_WIDTH, '-')), '+', '/', '\\'))
-        // console.log(wrapRow(longDivider, '+', '/', '\\'))
-        // console.log(wrapRow(lOne, '|')) // , '|', '/', '\\'))
-        // console.log(wrapRow(divider, '+'))
-        // console.log(wrapRow(lTwo, '|'))
-        // console.log(wrapRow(divider, '+'))
-        outputStream.write(wrapRow(longDivider, '+', '/', '\\'))
-        outputStream.write('\n')
-        outputStream.write(wrapRow(lOne, '|')) // , '|', '/', '\\'))
-        outputStream.write('\n')
-        outputStream.write(wrapRow(divider, '+'))
-        outputStream.write('\n')
-        outputStream.write(wrapRow(lTwo, '|'))
-        outputStream.write('\n')
-        outputStream.write(wrapRow(divider, '+'))
-        outputStream.write('\n')
-        // console.log(divider)
-        // console.log(wrapRow(lThree, '|'))
-        outputStream.write(wrapRow(lThree, '|'))
-        outputStream.write('\n')
-        // console.log(divider)
-        // console.log(wrapRow(longDivider, '+', '\\', '|', '|', '/'))
-        // console.log(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`)
-        // console.log(`${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
-        // console.log('```\n')
-        outputStream.write(wrapRow(longDivider, '+', '\\', '|', '|', '/'))
-        outputStream.write('\n')
-        outputStream.write(`${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`)
-        outputStream.write('\n')
-        outputStream.write(`${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
-        outputStream.write('\n')
-        outputStream.write('```\n')
-        outputStream.write('\n')
+        write(outputStream, wrapRow(longDivider, '+', '/', '\\'))
+        write(outputStream, wrapRow(lOne, '|')) // , '|', '/', '\\'))
+        write(outputStream, wrapRow(divider, '+'))
+        write(outputStream, wrapRow(lTwo, '|'))
+        write(outputStream, wrapRow(divider, '+'))
+        write(outputStream, wrapRow(lThree, '|'))
+        write(outputStream, wrapRow(longDivider, '+', '\\', '|', '|', '/'))
+        write(outputStream, `${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`)
+        write(outputStream, `${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`)
+        write(outputStream, '```\n')
     }
-
-
-
     console.log('File reading completed.');
 });

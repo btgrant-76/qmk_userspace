@@ -24,7 +24,7 @@
     "KC_BTN5": "Button 5",
     "KC_CAPS": "Caps",
     "KC_CIRC": "^",
-    "KC_COMM": "<",
+    "KC_COMM": ", <",
     "KC_DEL": "Del",
     "KC_DLR": "$",
     "KC_DOT": ". >",
@@ -92,5 +92,5 @@
     "SCRN2CLP": "Scrn2Clp",
     "SCRN2FL": "Scrn2Fl",
     "UP_DIR": "../",
-    "XXXXXXX": "---"
+    "XXXXXXX": " "
 }

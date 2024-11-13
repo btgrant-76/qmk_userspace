@@ -87,8 +87,8 @@ enum {
 #define K_GUI RGUI_T(KC_K) //:K/Cmd
 #define L_ALT RALT_T(KC_L) //:L/Alt
 #define SCLN_CTL RCTL_T(KC_SCLN) //:;_:/Ctl
-#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl,Opt,GUI,Sft
-#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft,GUI,Opt,Ctl
+#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||GUI||Sft
+#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||GUI||Opt||Ctl
 
 /*** Others ***/
 #define ENT_SFT RSFT_T(KC_ENT) //:Ent/Sft
@@ -108,8 +108,8 @@ enum {
 #define UNDO LGUI(KC_Z)
 #define REDO LSG(KC_Z)
 // rows above this are only used in the two, lines below
-#define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO //:Redo,Paste,Copy,Cut,Undo
-#define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO //:Undo,Cut,Copy,Paste,Redo
+#define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO //:Redo||Paste||Copy||Cut||Undo
+#define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO //:Undo||Cut||Copy||Paste||Redo
 
 /*** macOS navigation ***/
 #define MISS_CTL LCTL(KC_UP)
