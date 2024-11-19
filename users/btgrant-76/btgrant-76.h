@@ -107,7 +107,6 @@ enum {
 #define PASTE LGUI(KC_V)
 #define UNDO LGUI(KC_Z)
 #define REDO LSG(KC_Z)
-// rows above this are only used in the two, lines below
 #define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO //:Redo||Paste||Copy||Cut||Undo
 #define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO //:Undo||Cut||Copy||Paste||Redo
 
@@ -115,10 +114,6 @@ enum {
 #define MISS_CTL LCTL(KC_UP)
 #define LEFT_SPC LCTL(KC_LEFT)
 #define RGHT_SPC LCTL(KC_RIGHT)
-// none of the above are in use
-
-/*** Shifted Keys ***/
-#define COLON LSFT(KC_SCLN) // not in use
 
 /*** Other shortcuts ***/
 #define BACK LCMD(KC_LBRC) //:Back
