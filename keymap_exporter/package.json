@@ -5,5 +5,14 @@
   "main": "export_keymap.js",
   "repository": "https://github.com/btgrant-76/qmk_userspace/",
   "author": "Brian Grant",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --report-unused-disable-directives ./*.js "
+  },
+  "devDependencies": {
+    "eslint": "8",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0"
+  },
+  "dependencies": {}
 }

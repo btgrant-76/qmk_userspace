@@ -15,3 +15,4 @@
 
 # Generated Files
 /keymap_exporter/export.md
+*/node_modules

@@ -16,7 +16,7 @@ Big thanks to [waffle87](https://github.com/waffle87) for inspiration and assist
 Conventions:
 
 * Keys that leverage [Tap-Hold](https://docs.qmk.fm/#/tap_hold) are expressed as `tap/hold`
-* `---` represents `KC_NO`/NOOP
+* An empty cell represents `KC_NO`/NOOP
 
 #### Base (`BASE`)
 
