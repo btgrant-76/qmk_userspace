@@ -12,3 +12,7 @@
 *.hex
 *.bin
 *.uf2
+
+# Generated Files
+/keymap_exporter/export.md
+*/node_modules

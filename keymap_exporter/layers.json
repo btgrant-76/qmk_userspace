@@ -1,0 +1,23 @@
+{
+    "BASE": {
+        "name": "Base"
+    },
+    "NUM": {
+        "name": "Number"
+    },
+    "SYM": {
+        "name": "Symbol"
+    },
+    "NAV": {
+        "name": "Navigation"
+    },
+    "FUN": {
+        "name": "Function"
+    },
+    "MSE": {
+        "name": "Mouse Keys"
+    },
+    "ADD": {
+        "name": "Additional Features"
+    }
+}

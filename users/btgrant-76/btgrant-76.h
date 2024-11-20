@@ -37,7 +37,7 @@ enum custom_keycodes {
   SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board
   SCRN2FL,               // macOS take screenshot to a file
   QUO_INST,
-  UP_DIR,
+  UP_DIR,//:../
   LOG_OUT,
   CAPWD_TG,
   NEW_SAFE_RANGE
@@ -60,43 +60,45 @@ enum {
 };
 
 /* Aliases */
+#define HOLD XXXXXXX //:(hold)
+
 /** Layer Keys **/
-#define TAB_FUN LT(_FUN, KC_TAB)
-#define TAB_MSE LT(_MSE, KC_TAB)
-#define BS_NUM LT(_NUM, KC_BSPC)
-#define ESC_SYM LT(_SYM, KC_ESC)
-#define ESC_MSE LT(_MSE, KC_ESC)
-#define ESC_FUN LT(_FUN, KC_ESC)
-#define ENT_MSE LT(_MSE, KC_ENT)
-#define ENT_SYM LT(_SYM, KC_ENT)
-#define SPC_NAV LT(_NAV, KC_SPC)
-#define DEL_MED LT(_MED, KC_DEL)
-#define DEL_MSE LT(_MSE, KC_DEL)
+#define TAB_FUN LT(_FUN, KC_TAB) //:Tab/FUN
+#define TAB_MSE LT(_MSE, KC_TAB) //:Tab/MSE
+#define BS_NUM LT(_NUM, KC_BSPC) //:BS/NUM
+#define ESC_SYM LT(_SYM, KC_ESC) //:Esc/SYM
+#define ESC_MSE LT(_MSE, KC_ESC) //:Esc/MSE
+#define ESC_FUN LT(_FUN, KC_ESC) //:Esc/FUN
+#define ENT_MSE LT(_MSE, KC_ENT) //:Ent/MSE
+#define ENT_SYM LT(_SYM, KC_ENT) //:Ent/SYM
+#define SPC_NAV LT(_NAV, KC_SPC) //:Spc/NAV
+#define DEL_MED LT(_MED, KC_DEL) //:Del/MED
+#define DEL_MSE LT(_MSE, KC_DEL) //:Del/MSE
 
 #define LPRN_MSE LT(_MSE, KC_LPRN)
 
 /** Mod Tap Aliases **/
 /*** Home Row Mods ***/
-#define A_CTL LCTL_T(KC_A)
-#define S_ALT LALT_T(KC_S)
-#define D_GUI LGUI_T(KC_D)
-#define F_SFT LSFT_T(KC_F)
-#define J_SFT RSFT_T(KC_J)
-#define K_GUI RGUI_T(KC_K)
-#define L_ALT RALT_T(KC_L)
-#define SCLN_CTL RCTL_T(KC_SCLN)
-#define ___HRM_L___ KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT
-#define ___HRM_R___ KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL
+#define A_CTL LCTL_T(KC_A) //:A/Ctl
+#define S_ALT LALT_T(KC_S) //:S/Alt
+#define D_GUI LGUI_T(KC_D) //:D/Cmd
+#define F_SFT LSFT_T(KC_F) //:F/Sft
+#define J_SFT RSFT_T(KC_J) //:J/Sft
+#define K_GUI RGUI_T(KC_K) //:K/Cmd
+#define L_ALT RALT_T(KC_L) //:L/Alt
+#define SCLN_CTL RCTL_T(KC_SCLN) //:;_:/Ctl
+#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||GUI||Sft
+#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||GUI||Opt||Ctl
 
 /*** Others ***/
-#define ENT_SFT RSFT_T(KC_ENT)
-#define SLS_HYPR HYPR_T(KC_SLSH)
-#define Z_HYPR HYPR_T(KC_Z)
-#define B_MEH MEH_T(KC_B)
-#define N_MEH MEH_T(KC_N)
+#define ENT_SFT RSFT_T(KC_ENT) //:Ent/Sft
+#define SLS_HYPR HYPR_T(KC_SLSH) //:/_?/Hypr
+#define Z_HYPR HYPR_T(KC_Z) //:Z/Hypr
+#define B_MEH MEH_T(KC_B) //:B/Meh
+#define N_MEH MEH_T(KC_N) //:N/Meh
 
 /*** Thumb keys ***/
-#define DEL_GUI LGUI_T(KC_DEL)
+#define DEL_GUI LGUI_T(KC_DEL) //:Del/Cmd
 #define SPC_MEH MEH_T(KC_SPC)
 
 /*** Shortcuts ***/
@@ -105,38 +107,35 @@ enum {
 #define PASTE LGUI(KC_V)
 #define UNDO LGUI(KC_Z)
 #define REDO LSG(KC_Z)
-#define ___CLIPBOARD_R___ REDO, PASTE, COPY, CUT, UNDO
-#define ___CLIPBOARD_L___ UNDO, CUT, COPY, PASTE, REDO
+#define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO //:Redo||Paste||Copy||Cut||Undo
+#define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO //:Undo||Cut||Copy||Paste||Redo
 
 /*** macOS navigation ***/
 #define MISS_CTL LCTL(KC_UP)
 #define LEFT_SPC LCTL(KC_LEFT)
 #define RGHT_SPC LCTL(KC_RIGHT)
 
-/*** Shifted Keys ***/
-#define COLON LSFT(KC_SCLN)
-
 /*** Other shortcuts ***/
-#define BACK LCMD(KC_LBRC)
-#define FWD LCMD(KC_RBRC)
-#define TAB_LFT LSG(KC_LBRC)
-#define TAB_RGT LSG(KC_RBRC)
-#define Z_MUTE HYPR(KC_SPC)
+#define BACK LCMD(KC_LBRC) //:Back
+#define FWD LCMD(KC_RBRC) //:Forward
+#define TAB_LFT LSG(KC_LBRC) //:Tab_Lft
+#define TAB_RGT LSG(KC_RBRC) //:Tab_Rght
+#define Z_MUTE HYPR(KC_SPC) //:Zoom_Mute
 
 #ifdef TAP_DANCE_ENABLE
 // Tap Dances
-#define F1_TD TD(TD_F1)
-#define F2_TD TD(TD_F2)
-#define F6_TD TD(TD_F6)
-#define F9_TD TD(TD_F9)
-#define F12_TD TD(TD_F12)
-#define DOT_TD TD(TD_DOT)
-#define ZERO_TD TD(TD_ZERO)
-#define TWO_TD TD(TD_TWO)
-#define THREE_TD TD(TD_THREE)
-#define QUOT_TD TD(TD_QUOT)
-#define DASH_TD TD(TD_DASH)
-#define GRV_TD TD(TD_GRV)
+#define F1_TD TD(TD_F1) //:F1
+#define F2_TD TD(TD_F2) //:F2
+#define F6_TD TD(TD_F6) //:F6
+#define F9_TD TD(TD_F9) //:F9
+#define F12_TD TD(TD_F12) //:F12
+#define DOT_TD TD(TD_DOT) //:.
+#define ZERO_TD TD(TD_ZERO) //:0
+#define TWO_TD TD(TD_TWO) //:2
+#define THREE_TD TD(TD_THREE) //:3
+#define QUOT_TD TD(TD_QUOT) //:'_"
+#define DASH_TD TD(TD_DASH) //:-__
+#define GRV_TD TD(TD_GRV) //:`_~
 #else
 #define F1_TD KC_F1
 #define F2_TD KC_F2
@@ -179,14 +178,14 @@ enum {
                         /* │  N/Meh │  M     │  , <   │  . >   │/ ?/Hypr│ */
 #define ___5BASE_3_R___     N_MEH,   KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │Ent/MSE Spc/NAV│ Del/MED│ */
+                        /* │Ent/MSE │Spc/NAV │ Del/MED│ */
 #define ___BASE_THUMB_R___  ENT_MSE, SPC_NAV, DEL_MED
                         /* ╰────────┴────────┴────────╯ */
 
 /*** number ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
-#define ___5NUM_1_L___      ___CLIPBOARD_L___
+#define ___5NUM_1_L___      CLIPBOARD_L
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Ctl   │  S/Alt │  Cmd   │  Shift │Capwd TG│ */
 #define ___5NUM_2_L___      KC_LCTL, S_ALT,   KC_LGUI, KC_LSFT, CAPWD_TG
@@ -195,7 +194,7 @@ enum {
 #define ___5NUM_3_L___      KC_ESC,  XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │  Del   │ (hold) │  BS    │ */
-#define ___NUM_THUMB_L___                     KC_DEL,  XXXXXXX, KC_BSPC
+#define ___NUM_THUMB_L___                     KC_DEL,  HOLD, KC_BSPC
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
@@ -203,10 +202,11 @@ enum {
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  = +   │  4     │  5     │  6     │  ' "   │ */
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD   // TODO maybe try moving the quote hold to a different key?
+                            // TODO maybe try moving the quote hold to a different key?
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  \ |   │  1     │  2     │  3     │  ` ~   │ */
-#define ___5NUM_3_R___      KC_BSLS, KC_1,    TWO_TD,  THREE_TD,GRV_TD
+#define ___5NUM_3_R___      KC_BSLS, KC_1,    TWO_TD,  THREE_TD, GRV_TD
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  - _   │  0     │  .     │ */
 #define ___NUM_THUMB_R___   KC_MINS, ZERO_TD, DOT_TD
@@ -238,7 +238,7 @@ enum {
 #define ___5SYM_3_R___      KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  _     │  (     │ (hold) │ */
-#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, XXXXXXX
+#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, HOLD
                         /* ╰────────┴────────┴────────╯ */
 
 /*** navigation ***/
@@ -247,7 +247,7 @@ enum {
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Ctl   │  Alt   │  Cmd   │  Shft  │  ---   │ */
-#define ___5NAV_2_L___      ___HRM_L___,                        XXXXXXX
+#define ___5NAV_2_L___      HRM_L,                        XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5NAV_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -258,31 +258,31 @@ enum {
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  Redo  │  Paste │  Copy  │  Cut   │  Undo  │ */
-#define ___5NAV_1_R___      ___CLIPBOARD_R___
+#define ___5NAV_1_R___      CLIPBOARD_R
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Left  │  Down  │  Up    │  Right │  Caps  │ */
-#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_CAPS
+#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_CAPS
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Home  │  PgDn  │  PgUp  │  End   │ Ent    │ */
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │  ---   │ (hold) │  ---   │ */
-#define ___NAV_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
+#define ___NAV_THUMB_R___   XXXXXXX, HOLD, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
 /*** function ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │ Log Out│  ---   │Scrn2Clp│ Scrn2Fl│  ---   │ */
-#define ___5FUN_1_L___      LOG_OUT, XXXXXXX, SCRN2CLP,SCRN2FL, XXXXXXX
+#define ___5FUN_1_L___      LOG_OUT, XXXXXXX, SCRN2CLP, SCRN2FL, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ScrnBrt+│ */
-#define ___5FUN_2_L___      ___HRM_L___,                        KC_BRIU
+#define ___5FUN_2_L___      HRM_L,                        KC_BRIU
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  ---   │  ---   │  ---   │  ---   │ScrnBrt-│ */
 #define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │ (hold) │  MSE   │  Tab   │ */
-#define ___FUN_THUMB_L___                     XXXXXXX, MO(_MSE), XXXXXXX
+#define ___FUN_THUMB_L___                     HOLD, MO(_MSE), XXXXXXX
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
@@ -302,16 +302,16 @@ enum {
 /*** mouse ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
-#define ___5MSE_1_L___      ___CLIPBOARD_L___
+#define ___5MSE_1_L___      CLIPBOARD_L
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │Button 5│Button 3│Button 1│Button 2│ Wheel D│ */
-#define ___5MSE_2_L___      KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, KC_WH_D
+#define ___5MSE_2_L___      KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX // KC_WH_D
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ Wheel U│ */
-#define ___5MSE_3_L___      ___HRM_L___,                         KC_WH_U
+                        /* │  Esc   │  Ctl   │  Alt   │  Cmd   │ Shft   │ */
+#define ___5MSE_3_L___      KC_ESC,  HRM_L                         // KC_WH_U // TODO how much am I using wheel up/down? If I shifted HRM over to the right, I could put Esc on Z like the default layer
                         /* ╰────────┴────────┼────────┼────────┼────────┤ */
                         /*                   │  ---   │ (hold) │ (hold) │ */
-#define ___MSE_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX
+#define ___MSE_THUMB_L___                     XXXXXXX, HOLD, HOLD
                         /*                   ╰────────┴────────┴────────╯ */
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
@@ -327,13 +327,13 @@ enum {
 #define ___5MSE_3_R___      KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX
                         /* ├────────┼────────┼────────┼────────┴────────╯ */
                         /* │ (hold) │ (hold) │  ---   │ */
-#define ___MSE_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
+#define ___MSE_THUMB_R___   HOLD, HOLD, XXXXXXX
                         /* ╰────────┴────────┴────────╯ */
 
 /*** additional features ***/
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │ Bootldr│  ---   │  ---   │DF: BASE│DF: NRM │ */
-#define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, DF(_BASE),DF(_NRM)
+#define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, DF(_BASE), DF(_NRM)
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  ---   │DynTpRpt│ DynTpDn│ DynTpUp│  ---   │ */
 #define ___5ADD_2_L___      XXXXXXX, DT_PRNT, DT_DOWN, DT_UP,   XXXXXXX
@@ -347,7 +347,7 @@ enum {
 
                         /* ╭────────┬────────┬────────┬────────┬────────╮ */
                         /* │  Redo  │  Paste │  Copy  │  Cut   │  Undo  │ */
-#define ___5ADD_1_R___      ___CLIPBOARD_R___
+#define ___5ADD_1_R___      CLIPBOARD_R
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5ADD_2_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
