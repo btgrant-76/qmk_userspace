@@ -261,7 +261,7 @@ enum {
 #define ___5NAV_1_R___      CLIPBOARD_R
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Left  │  Down  │  Up    │  Right │  Caps  │ */
-#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_CAPS
+#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT
                         /* ├────────┼────────┼────────┼────────┼────────┤ */
                         /* │  Home  │  PgDn  │  PgUp  │  End   │ Ent    │ */
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
