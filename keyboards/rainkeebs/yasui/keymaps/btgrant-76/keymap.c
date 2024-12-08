@@ -21,6 +21,10 @@
 #   include "four_thumb_combos.h"
 #endif
 
+#ifdef TAP_DANCE_ENABLE
+#   include "tap_dances.c"
+#endif
+
 #define BLOCKER XXXXXXX
 #define BAR XXXXXXX
 

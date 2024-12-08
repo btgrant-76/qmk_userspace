@@ -4,6 +4,19 @@
 
 #include QMK_KEYBOARD_H
 
+#ifdef TAP_DANCE_ENABLE
+// Tap Dance declarations
+//enum {
+//    TD_ESC_CAPS,
+//};
+
+// an artifact of the process of upgrading to QMK 0.26
+tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Escape, twice for Caps Lock
+//    [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
+};
+#endif
+
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,

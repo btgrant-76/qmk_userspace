@@ -9,6 +9,10 @@
 #   include "encoder_map.h"
 #endif
 
+#ifdef TAP_DANCE_ENABLE
+#   include "tap_dances.c"
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_btgrant(
   //|--------------------------------------------|--------|--------------------------------------------|

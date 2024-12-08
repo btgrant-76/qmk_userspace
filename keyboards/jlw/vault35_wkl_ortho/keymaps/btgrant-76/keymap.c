@@ -32,6 +32,10 @@ combo_t key_combos[] = {
 };
 #endif
 
+#ifdef TAP_DANCE_ENABLE
+#   include "tap_dances.c"
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_cain_bars(
         ___5BASE_1_L___,  KC_VOLU,                                                         ___5BASE_1_R___,

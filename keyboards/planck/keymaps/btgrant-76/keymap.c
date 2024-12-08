@@ -26,6 +26,10 @@
 #   include "encoder_press.h"
 #endif
 
+#ifdef TAP_DANCE_ENABLE
+#   include "tap_dances.c"
+#endif
+
 #ifdef AUDIO_ENABLE
 #    include "muse.h"
 #endif
