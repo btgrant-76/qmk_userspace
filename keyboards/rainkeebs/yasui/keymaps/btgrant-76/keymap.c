@@ -16,10 +16,8 @@
  */
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
-
-#ifdef COMBO_ENABLE
-#   include "four_thumb_combos.h"
-#endif
+#include "four_thumb_combos.h"
+#include "tap_dances.c"
 
 #define BLOCKER XXXXXXX
 #define BAR XXXXXXX

@@ -16,338 +16,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "btgrant-76.h"
+#include "macros.h"
 #include "features/achordion.h"
 
-
-// Tap Dance & macro functions
-void generic_insert(char *text) {
-    send_string(text);
-    tap_code(KC_LEFT);
-};
-
-void braces_insert(void) {
-    generic_insert("[]");
-};
-
-void braces(void) {
-    SEND_STRING("[]");
-};
-
-void braces_semi(void) {
-    SEND_STRING("[];");
-};
-
-void braces_semi_insert(void) {
-    SEND_STRING("[];");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
-};
-
-void curly_braces_insert(void) {
-    generic_insert("{}");
-};
-
-void curly_braces(void) {
-    SEND_STRING("{}");
-};
-
-void curly_braces_semi(void) {
-    SEND_STRING("{};");
-};
-
-void curly_braces_semi_insert(void) {
-    SEND_STRING("{};");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
-};
-
-void parens_insert(void) {
-    generic_insert("()");
-};
-
-void parens(void) {
-    SEND_STRING("()");
-};
-
-void parens_semi(void) {
-    SEND_STRING("();");
-};
-
-void parens_semi_insert(void) {
-    SEND_STRING("();");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
-};
-
-void grave_pair_cursor_insertion(void) {
-    generic_insert("``");
-};
-
-void quote_pair_cursor_insertion(void) {
-    generic_insert("''");
-};
-
-void dquote_pair_cursor_insertion(void) {
-    generic_insert("\"\"");
-};
-
-void macos_log_out(void) {
-    register_code(KC_LGUI);
-    register_code(KC_LCTL);
-    tap_code(KC_Q);
-    unregister_code(KC_LGUI);
-    unregister_code(KC_LCTL);
-};
-
-void code_fence(void) {
-    SEND_STRING("```" SS_TAP(X_ENT) SS_TAP(X_ENT) "```" SS_TAP(X_UP) SS_TAP(X_UP));
-};
-
-void vim_write(void) {
-    SEND_STRING(SS_TAP(X_ESC) ":w" SS_TAP(X_ENT));
-}
-
-void new_browser_window_you_jerk(void) {
-    SEND_STRING(SS_LGUI("n") SS_DELAY(2000) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
-};
-
-void tag_open_insert(void) {
-    generic_insert("<>");
-}
-
-void tag_close_insert(void) {
-    generic_insert("</>");
-}
-
-void tag_void_insert(void) {
-    generic_insert("< />");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
-}
-
-#ifdef TAP_DANCE_ENABLE
-void period_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        SEND_STRING(",");
-    } else {
-        int i;
-        for (i = 0; i < state->count; i++) {
-            SEND_STRING(".");
-        }
-    }
-};
-
-void zero_or_space_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        SEND_STRING(" ");
-    } else {
-        int i;
-        for (i = 0; i < state->count; i++) {
-            SEND_STRING("0");
-        }
-    }
-};
-
-void two_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        SEND_STRING(",");
-    } else {
-        int i;
-        for (i = 0; i < state->count; i++) {
-            SEND_STRING("2");
-        }
-    }
-}
-
-void three_or_period_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        SEND_STRING(".");
-    } else {
-        int i;
-        for (i = 0; i < state->count; i++) {
-            SEND_STRING("3");
-        }
-    }
-}
-
-void quot_or_colon_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        SEND_STRING(":");
-    } else {
-        int i;
-        for (i = 0; i < state->count; i++) {
-            SEND_STRING("'");
-        }
-    }
-};
-
-// FIXME this breaks caps words; use https://docs.qmk.fm/#/feature_caps_word?id=configure-which-keys-are-word-breaking to detect the tap dance code
-//   the other, numeric TD additions will break it too
-void dashes_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        // n-dash
-        register_code(KC_LALT);
-        tap_code(KC_MINS);
-        unregister_code(KC_LALT);
-    } else if (state->count == 2) {
-        // m-dash
-        register_code(KC_LALT);
-        register_code(KC_LSFT);
-        tap_code(KC_MINS);
-        unregister_code(KC_LALT);
-        unregister_code(KC_LSFT);
-    } else {
-        SEND_STRING("-");
-    }
-};
-
-void grav_or_slash_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        SEND_STRING("/");
-    } else if (state->count == 3) {
-        SEND_STRING("```");
-    } else if (state->count == 2) {
-        SEND_STRING("``");
-    } else {
-        SEND_STRING("`");
-    }
-};
-
-void braces_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        #ifdef AUTO_SHIFT_ENABLE
-            SEND_STRING("}");
-        #else
-            SEND_STRING("]");
-        #endif
-    } else if (state->count == 2) {
-        braces_insert();
-    } else {
-        SEND_STRING("]");
-    }
-};
-
-void curly_brace_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 2) {
-        curly_braces_insert();
-    } else {
-        SEND_STRING("}");
-    }
-};
-
-void parens_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 2) {
-        parens_insert();
-    } else {
-        SEND_STRING(")");
-    }
-};
-
-void l_paren_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 2) {
-        parens_insert();
-    } else {
-        SEND_STRING("(");
-    }
-};
-
-void grave_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->pressed && !state->interrupted) {
-        #ifdef AUTO_SHIFT_ENABLE
-            SEND_STRING("~");
-        #else
-            SEND_STRING("`");
-        #endif
-    } else if (state->count == 2) {
-        grave_pair_cursor_insertion();
-    } else if (state->count == 4) {
-        code_fence();
-    } else {
-        SEND_STRING("`");
-    }
-};
-
-void f1_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        tap_code(KC_F1);
-    } else if (state->count == 2) {
-        register_code(KC_LGUI);
-        tap_code(KC_1);
-        unregister_code(KC_LGUI);
-    } else if (state->count == 3) {
-        register_code(KC_LALT);
-        tap_code(KC_F1);
-        unregister_code(KC_LALT);
-    }
-};
-
-void f2_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        tap_code(KC_F2);
-    } else if (state->count == 2) {
-        register_code(KC_LGUI);
-        tap_code(KC_F2);
-        unregister_code(KC_LGUI);
-    }
-};
-
-void f6_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        tap_code(KC_F6);
-    } else if (state->count == 2) {
-        register_code(KC_LCTL);
-        tap_code(KC_T);
-        unregister_code(KC_LCTL);
-    }
-};
-
-void f9_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        tap_code(KC_F9);
-    } else if (state->count == 2) {
-        register_code(KC_LGUI);
-        tap_code(KC_9);
-        unregister_code(KC_LGUI);
-    }
-};
-
-void f12_tap_dance(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        tap_code(KC_F12);
-    } else if (state->count == 2) {
-        register_code(KC_LALT);
-        tap_code(KC_F12);
-        unregister_code(KC_LALT);
-    } else if (state->count == 3) {
-        register_code(KC_LGUI);
-        tap_code(KC_F12);
-        unregister_code(KC_LGUI);
-    }
-};
-
-// Tap Dance definition
-tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Escape, twice for Caps Lock
-    [TD_F1] = ACTION_TAP_DANCE_FN(f1_tap_dance),
-    [TD_F2] = ACTION_TAP_DANCE_FN(f2_tap_dance),
-    [TD_F6] = ACTION_TAP_DANCE_FN(f6_tap_dance),
-    [TD_F9] = ACTION_TAP_DANCE_FN(f9_tap_dance),
-    [TD_F12] = ACTION_TAP_DANCE_FN(f12_tap_dance),
-    [TD_DOT] = ACTION_TAP_DANCE_FN(period_or_comma_tap_dance),
-    [TD_ZERO] = ACTION_TAP_DANCE_FN(zero_or_space_tap_dance),
-    [TD_TWO] = ACTION_TAP_DANCE_FN(two_or_comma_tap_dance),
-    [TD_THREE] = ACTION_TAP_DANCE_FN(three_or_period_tap_dance),
-    [TD_QUOT] = ACTION_TAP_DANCE_FN(quot_or_colon_tap_dance),
-    [TD_DASH] = ACTION_TAP_DANCE_FN(dashes_tap_dance),
-    [TD_GRV] = ACTION_TAP_DANCE_FN(grav_or_slash_tap_dance),
-};
-#endif // TAP_DANCE_ENABLE
-
-__attribute__ ((weak))
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
-  return true;
-};
-
+// TODO would it work to move all the achordion-related functions into an achordion_int file?
+/* ACHORDION INTEGRATION BEGIN */
 __attribute__ ((weak))
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
                             keyrecord_t* tap_hold_record,
@@ -418,7 +91,9 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 
   return 1000;
 };
+/* ACHORDION INTEGRATION END */
 
+/* MATRIX AND KEYCODE INTERCEPTS BEGIN */
 __attribute__ ((weak))
 void matrix_scan_keymap(void) {
   return;
@@ -430,18 +105,8 @@ void matrix_scan_user(void) {
 };
 
 __attribute__ ((weak))
-void keyboard_post_init_keymap(void) {
-  return;
-};
-
-void keyboard_post_init_user(void) {
-    keyboard_post_init_keymap();
-    #ifdef CONSOLE_ENABLE
-    debug_enable=true;
-//    debug_matrix=true;
-//    debug_keyboard=true;
-//    debug_mouse=true;
-    #endif
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+  return true;
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -449,7 +114,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u, int: %u, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event  .pressed, record->event.time, record->tap.interrupted, record->tap.count);
 #endif
 
-  if (!process_achordion(keycode, record)) { return false; }
+  if (!process_achordion(keycode, record)) {
+      return false;
+  }
+  // else
 
   switch (keycode) {
 #ifdef CAPS_WORD_ENABLE
@@ -501,6 +169,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return process_record_keymap(keycode, record);
 };
+/* KEYBOARD AND KEYCODE INTERCEPTS END */
+
+/* KEYBOARD INITIALIZATION BEGIN */
+__attribute__ ((weak))
+void keyboard_post_init_keymap(void) {
+  return;
+};
+
+void keyboard_post_init_user(void) {
+    keyboard_post_init_keymap();
+    #ifdef CONSOLE_ENABLE
+    debug_enable=true;
+//    debug_matrix=true;
+//    debug_keyboard=true;
+//    debug_mouse=true;
+    #endif
+};
+/* KEYBOARD INITIALIZATION END */
+
 
 #ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

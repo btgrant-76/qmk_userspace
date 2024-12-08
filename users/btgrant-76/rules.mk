@@ -1,4 +1,5 @@
 SRC += btgrant-76.c
+SRC += macros.c
 SRC += features/achordion.c
 
 DYNAMIC_TAPPING_TERM_ENABLE = yes

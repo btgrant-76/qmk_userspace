@@ -21,10 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum.h"
 #include "btgrant-76.h"
 #include "encoder_press.h"
-
-#ifdef COMBO_ENABLE
-#   include "combos.h"
-#endif
+#include "combos.h"
+#include "tap_dances.c"
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

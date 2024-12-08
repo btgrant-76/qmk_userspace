@@ -3,11 +3,9 @@
 
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
-
-#ifdef ENCODER_MAP_ENABLE
-#   include "encoder_map.h"
-#   include "encoder_press.h"
-#endif
+#include "encoder_map.h"
+#include "encoder_press.h"
+#include "tap_dances.c"
 
 #ifdef COMBO_ENABLE
 #   include "combo_defs.h"
@@ -31,6 +29,7 @@ combo_t key_combos[] = {
     COMBO(ESC, KC_ESC)
 };
 #endif
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_cain_bars(

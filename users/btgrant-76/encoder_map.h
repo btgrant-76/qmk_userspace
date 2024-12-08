@@ -1,3 +1,4 @@
+#ifdef ENCODER_MAP_ENABLE
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_BASE] = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) },
     [_NUM]  = { ENCODER_CCW_CW(KC_PGDN,  KC_PGUP) },
@@ -8,3 +9,4 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) },
     [_NRM]  = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) }
 };
+#endif
