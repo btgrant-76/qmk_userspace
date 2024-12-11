@@ -215,4 +215,4 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_DASH] = ACTION_TAP_DANCE_FN(dashes_tap_dance),
     [TD_GRV] = ACTION_TAP_DANCE_FN(grav_or_slash_tap_dance),
 };
-#endif // TAP_DANCE_ENABLE
+#endif

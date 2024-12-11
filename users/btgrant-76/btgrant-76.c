@@ -19,22 +19,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "common_functions.h" // TODO rename to macros
 #include "features/achordion.h"
 
-// Tap Dance & macro functions
-//void generic_insert(char *text) {
-//    send_string(text);
-//    tap_code(KC_LEFT);
-//};
-//
-//void braces_insert(void) {
-//    generic_insert("[]");
-//};
-
-
-__attribute__ ((weak))
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
-  return true;
-};
-
+// TODO would it work to move all the achordion-related functions into an achordion_int file?
+/* ACHORDION INTEGRATION BEGIN */
 __attribute__ ((weak))
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
                             keyrecord_t* tap_hold_record,
@@ -105,7 +91,9 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 
   return 1000;
 };
+/* ACHORDION INTEGRATION END */
 
+/* MATRIX AND KEYCODE INTERCEPTS BEGIN */
 __attribute__ ((weak))
 void matrix_scan_keymap(void) {
   return;
@@ -117,18 +105,8 @@ void matrix_scan_user(void) {
 };
 
 __attribute__ ((weak))
-void keyboard_post_init_keymap(void) {
-  return;
-};
-
-void keyboard_post_init_user(void) {
-    keyboard_post_init_keymap();
-    #ifdef CONSOLE_ENABLE
-    debug_enable=true;
-//    debug_matrix=true;
-//    debug_keyboard=true;
-//    debug_mouse=true;
-    #endif
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+  return true;
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -136,7 +114,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u, int: %u, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event  .pressed, record->event.time, record->tap.interrupted, record->tap.count);
 #endif
 
-  if (!process_achordion(keycode, record)) { return false; }
+  if (!process_achordion(keycode, record)) {
+      return false;
+  }
+  // else
 
   switch (keycode) {
 #ifdef CAPS_WORD_ENABLE
@@ -188,6 +169,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return process_record_keymap(keycode, record);
 };
+/* KEYBOARD AND KEYCODE INTERCEPTS END */
+
+/* KEYBOARD INITIALIZATION BEGIN */
+__attribute__ ((weak))
+void keyboard_post_init_keymap(void) {
+  return;
+};
+
+void keyboard_post_init_user(void) {
+    keyboard_post_init_keymap();
+    #ifdef CONSOLE_ENABLE
+    debug_enable=true;
+//    debug_matrix=true;
+//    debug_keyboard=true;
+//    debug_mouse=true;
+    #endif
+};
+/* KEYBOARD INITIALIZATION END */
+
 
 #ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

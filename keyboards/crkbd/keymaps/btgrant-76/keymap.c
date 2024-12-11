@@ -1,7 +1,7 @@
 /*
 Copyright 2019 @foostan
 Copyright 2020 Drashna Jaelre <@drashna>
-Copyright 2023 Brian Grant <@btgrant-76>
+Copyright 2024 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,14 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "btgrant-76.h"
-
-#ifdef COMBO_ENABLE
-#   include "combos.h"
-#endif
-
-#ifdef TAP_DANCE_ENABLE
-#   include "tap_dances.c"
-#endif
+#include "combos.h"
+#include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_btgrant_3x6(

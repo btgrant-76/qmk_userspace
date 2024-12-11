@@ -17,18 +17,10 @@
 
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
-#ifdef COMBO_ENABLE
-#   include "combos.h"
-#endif
-
-#ifdef ENCODER_MAP_ENABLE
-#   include "encoder_map.h"
-#   include "encoder_press.h"
-#endif
-
-#ifdef TAP_DANCE_ENABLE
-#   include "tap_dances.c"
-#endif
+#include "combos.h"
+#include "encoder_map.h"
+#include "encoder_press.h"
+#include "tap_dances.c"
 
 #ifdef AUDIO_ENABLE
 #    include "muse.h"

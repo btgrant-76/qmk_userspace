@@ -16,14 +16,8 @@
  */
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
-
-#ifdef COMBO_ENABLE
-#   include "combos.h"
-#endif
-
-#ifdef TAP_DANCE_ENABLE
-#   include "tap_dances.c"
-#endif
+#include "combos.h"
+#include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_3x5(

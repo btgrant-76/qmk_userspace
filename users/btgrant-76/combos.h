@@ -1,3 +1,4 @@
+#ifdef COMBO_ENABLE
 #include "combo_defs.h"
 
 combo_t key_combos[] = {
@@ -9,3 +10,4 @@ combo_t key_combos[] = {
     COMBO(ENTER, KC_ENT),
     COMBO(CAPS, KC_CAPS),
 };
+#endif

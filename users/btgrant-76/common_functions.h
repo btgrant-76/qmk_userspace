@@ -18,8 +18,6 @@ void curly_braces_semi_insert(void);
 
 void dquote_pair_cursor_insertion(void);
 
-void generic_insert(char *text);
-
 void grave_pair_cursor_insertion(void);
 
 void macos_log_out(void);
