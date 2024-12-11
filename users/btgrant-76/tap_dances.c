@@ -1,5 +1,5 @@
 #ifdef TAP_DANCE_ENABLE
-#include "common_functions.h"
+#include "macros.h"
 
 void period_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {

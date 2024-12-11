@@ -1,5 +1,6 @@
 #include "quantum.h"
 
+// TODO most of these could probably be replaced with send_string("[" SS_TAP(X_LEFT) "]") and
 void generic_insert(char *text) {
     send_string(text); // TODO move the keystroke into send_string
     tap_code(KC_LEFT);

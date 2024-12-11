@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "btgrant-76.h"
-#include "common_functions.h" // TODO rename to macros
+#include "macros.h"
 #include "features/achordion.h"
 
 // TODO would it work to move all the achordion-related functions into an achordion_int file?
