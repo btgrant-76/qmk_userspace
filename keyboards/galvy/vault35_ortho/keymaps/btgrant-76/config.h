@@ -15,7 +15,7 @@
 #define WS2812_DI_PIN D0
 #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level; 255 is max */
 
-#define RGBLED_NUM 20
+#define RGBLIGHT_LED_COUNT 20
 #define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_CHRISTMAS
