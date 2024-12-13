@@ -2,7 +2,7 @@
 #undef LOCKING_RESYNC_ENABLER
 
 // ENCODER
-#undef ENCODER_B_PINS // TODO test this to make sure the encoder and RGB still work
+#undef ENCODER_B_PINS
 #undef ENCODER_A_PINS
 #undef ENCODERS_PAD_A
 #undef ENCODERS_PAD_B
