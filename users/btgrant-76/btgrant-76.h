@@ -154,372 +154,151 @@ enum {
 /* portable keymaps */
 /** 10u **/
 /*** base ***/
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Q     │  W     │  E     │  R     │  T     │ */
+// clang-format off
 #define ___5BASE_1_L___     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  A/Ctl │  S/Alt │  D/Cmd │  F/Sft │  G     │ */
 #define ___5BASE_2_L___     A_CTL,   S_ALT,   D_GUI,   F_SFT,   KC_G
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Z/Hypr │  X     │  C     │  V     │  B/Meh │ */
 #define ___5BASE_3_L___     Z_HYPR,   KC_X,    KC_C,    KC_V,   B_MEH
-                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │ Tab/FUN│ BS/NUM │ Esc/MSE│ */
 #define ___BASE_THUMB_L___                    TAB_FUN, BS_NUM,  ESC_MSE
-                        /*                   ╰────────┴────────┴────────╯ */
 
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Y     │  U     │  I     │  O     │  P     │ */
 #define ___5BASE_1_R___     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  H     │  J/Sft │  K/Cmd │  L/Alt │ ; :/Ctl│ */
 #define ___5BASE_2_R___     KC_H,    J_SFT,   K_GUI,   L_ALT,   SCLN_CTL
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  N/Meh │  M     │  , <   │  . >   │/ ?/Hypr│ */
 #define ___5BASE_3_R___     N_MEH,   KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
-                        /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │Ent/MSE │Spc/NAV │ Del/MED│ */
 #define ___BASE_THUMB_R___  ENT_MSE, SPC_NAV, DEL_MED
-                        /* ╰────────┴────────┴────────╯ */
 
 /*** number ***/
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
 #define ___5NUM_1_L___      CLIPBOARD_L
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Ctl   │  S/Alt │  Cmd   │  Shift │Capwd TG│ */
 #define ___5NUM_2_L___      KC_LCTL, S_ALT,   KC_LGUI, KC_LSFT, CAPWD_TG
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Esc   │  ---   │ Leader │ Space  │  BS    │ */
 #define ___5NUM_3_L___      KC_ESC,  XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
-                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │  Del   │ (hold) │  BS    │ */
 #define ___NUM_THUMB_L___                     KC_DEL,  HOLD, KC_BSPC
-                        /*                   ╰────────┴────────┴────────╯ */
 
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  [ {   │  7     │  8     │  9     │  ] }   │ */
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  = +   │  4     │  5     │  6     │  ' "   │ */
                             // TODO maybe try moving the quote hold to a different key?
 #define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  \ |   │  1     │  2     │  3     │  ` ~   │ */
 #define ___5NUM_3_R___      KC_BSLS, KC_1,    TWO_TD,  THREE_TD, GRV_TD
-                        /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  - _   │  0     │  .     │ */
 #define ___NUM_THUMB_R___   KC_MINS, ZERO_TD, DOT_TD
-                        /* ╰────────┴────────┴────────╯ */
 
 /*** symbol ***/
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5SYM_1_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Med <==│ Vol Dn │ Vol Up │ Med==> │RGB Spd+│ */
 #define ___5SYM_2_L___      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ RGB tog│RGB mod+│RGB hue+│RGB sat+│RGB brt+│ */
 #define ___5SYM_3_L___      RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
-                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │  Mute  │Ply/Paus│  Stop  │ */
 #define ___SYM_THUMB_L___                     KC_MUTE, KC_MPLY, KC_MSTP
-                        /*                   ╰────────┴────────┴────────╯ */
 
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  {     │  &     │  *     │  )     │  }     │ */
 #define ___5SYM_1_R___      KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  +     │  $     │  %     │  ^     │  "     │ */
 #define ___5SYM_2_R___      KC_PLUS, KC_DLR,  KC_PERC, KC_CIRC, KC_DQT
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  |     │  !     │  @     │  #     │  ~     │ */
 #define ___5SYM_3_R___      KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD
-                        /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  _     │  (     │ (hold) │ */
 #define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, HOLD
-                        /* ╰────────┴────────┴────────╯ */
 
 /*** navigation ***/
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │ Tab Lft│  Back  │ Forward│Tab Rght│  ../   │ */
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Ctl   │  Alt   │  Cmd   │  Shft  │  ---   │ */
 #define ___5NAV_2_L___      HRM_L,                        XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5NAV_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │ Del/Cmd│  Bs    │  Ent   │ */
 #define ___NAV_THUMB_L___                     DEL_GUI, KC_BSPC, KC_ENT
-                        /*                   ╰────────┴────────┴────────╯ */
 
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Redo  │  Paste │  Copy  │  Cut   │  Undo  │ */
 #define ___5NAV_1_R___      CLIPBOARD_R
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Left  │  Down  │  Up    │  Right │  Caps  │ */
 #define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Home  │  PgDn  │  PgUp  │  End   │ Ent    │ */
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
-                        /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  ---   │ (hold) │  ---   │ */
 #define ___NAV_THUMB_R___   XXXXXXX, HOLD, XXXXXXX
-                        /* ╰────────┴────────┴────────╯ */
 
 /*** function ***/
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │ Log Out│  ---   │Scrn2Clp│ Scrn2Fl│  ---   │ */
 #define ___5FUN_1_L___      LOG_OUT, XXXXXXX, SCRN2CLP, SCRN2FL, XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Ctl   │  Alt   │  Cmd   │  Shft  │ScrnBrt+│ */
 #define ___5FUN_2_L___      HRM_L,                        KC_BRIU
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  ---   │  ---   │  ---   │ScrnBrt-│ */
 #define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID
-                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │ (hold) │  MSE   │  Tab   │ */
 #define ___FUN_THUMB_L___                     HOLD, MO(_MSE), XXXXXXX
-                        /*                   ╰────────┴────────┴────────╯ */
 
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  ---   │  F7    │  F8    │  F9    │  F12   │ */
 #define ___5FUN_1_R___      XXXXXXX, KC_F7,   KC_F8,   F9_TD,   F12_TD
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  F4    │  F5    │  F6    │  F11   │ */
 #define ___5FUN_2_R___      XXXXXXX, KC_F4,   KC_F5,   F6_TD,   KC_F11
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  F1    │  F2    │  F3    │  F10   │ */
 #define ___5FUN_3_R___      XXXXXXX, F1_TD,   F2_TD,   KC_F3,   KC_F10
-                        /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  ---   │  ADD   │  ---   │ */
 #define ___FUN_THUMB_R___   XXXXXXX, MO(_ADD), XXXXXXX
-                        /* ╰────────┴────────┴────────╯ */
 
 /*** mouse ***/
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Undo  │  Cut   │  Copy  │  Paste │  Redo  │ */
 #define ___5MSE_1_L___      CLIPBOARD_L
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │Button 5│Button 3│Button 1│Button 2│ Wheel D│ */
 #define ___5MSE_2_L___      KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX // KC_WH_D
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  Esc   │  Ctl   │  Alt   │  Cmd   │ Shft   │ */
-#define ___5MSE_3_L___      KC_ESC,  HRM_L                         // KC_WH_U // TODO how much am I using wheel up/down? If I shifted HRM over to the right, I could put Esc on Z like the default layer
-                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │  ---   │ (hold) │ (hold) │ */
+#define ___5MSE_3_L___      KC_ESC,  HRM_L
 #define ___MSE_THUMB_L___                     XXXXXXX, HOLD, HOLD
-                        /*                   ╰────────┴────────┴────────╯ */
 
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  ---   │MseSpd 0│MseSpd 1│MseSpd 2│  ---   │ */
 #define ___5MSE_1_R___      XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Mouse L│ Mouse D│ Mouse U│ Mouse R│  ---   │ */
 #define ___5MSE_2_R___      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │ Wheel L│ Wheel U│ Wheel D│ Wheel R│  ---   │ */
 // wheel up/down are swapped intentionally so the actual directions are synced
 // relative to "natural scrolling"
 #define ___5MSE_3_R___      KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │ (hold) │ (hold) │  ---   │ */
 #define ___MSE_THUMB_R___   HOLD, HOLD, XXXXXXX
-                        /* ╰────────┴────────┴────────╯ */
 
 /*** additional features ***/
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │ Bootldr│  ---   │  ---   │DF: BASE│DF: NRM │ */
 #define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, DF(_BASE), DF(_NRM)
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │DynTpRpt│ DynTpDn│ DynTpUp│  ---   │ */
 #define ___5ADD_2_L___      XXXXXXX, DT_PRNT, DT_DOWN, DT_UP,   XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │ ASftRpt│ ASft Dn│ ASft Up│  ---   │ */
 #define ___5ADD_3_L___      XXXXXXX, AS_RPT,  AS_DOWN, AS_UP,   XXXXXXX
-                        /* ╰────────┴────────┼────────┼────────┼────────┤ */
-                        /*                   │  ---   │  ---   │  ---   │ */
 #define ___ADD_THUMB_L___                     XXXXXXX, XXXXXXX, XXXXXXX
-                        /*                   ╰────────┴────────┴────────╯ */
 
-                        /* ╭────────┬────────┬────────┬────────┬────────╮ */
-                        /* │  Redo  │  Paste │  Copy  │  Cut   │  Undo  │ */
 #define ___5ADD_1_R___      CLIPBOARD_R
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5ADD_2_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┼────────┤ */
-                        /* │  ---   │  ---   │  ---   │  ---   │  ---   │ */
 #define ___5ADD_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-                        /* ├────────┼────────┼────────┼────────┴────────╯ */
-                        /* │  ---   │ (hold) │  ---   │ */
 #define ___ADD_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
-                        /* ╰────────┴────────┴────────╯ */
 
 /** 12u **/
 /*** normie base ***/
-                        /* ╭────────┬ */
-                        /* │ Tab    │ */
 #define ___NRM_1_L___       KC_TAB, ___5BASE_1_L___
-                        /* ├────────┼ */
-                        /* │ Esc    │ */
 #define ___NRM_2_L___       KC_ESC, KC_A,   KC_S,   KC_D,   KC_F,   KC_G // no tap-holds
-                        /* ├────────┼ */
-                        /* │ Shift  │ */
-#define ___NRM_3_L___      KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B // no tap-holds
-                        /* ╰────────┴ */
-#define ___NRM_THUMB_L___  KC_SPC, MO(_NUM), MO(_SYM)
+#define ___NRM_3_L___       KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B // no tap-holds
+#define ___NRM_THUMB_L___   KC_SPC, MO(_NUM), MO(_SYM)
 
-                                             /* ┬────────╮ */
-                                             /* │  Bspc  │ */
-#define ___NRM_1_R___      ___5BASE_1_R___,      KC_BSPC
-                                             /* ┼────────┤ */
-                                             /* │  ' "   │ */
-#define ___NRM_2_R___      KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT // no tap-holds
-                                             /* ┼────────┤ */
-                                             /* │ Ent/Sft│ */
-#define ___NRM_3_R___      KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ENT // no tap-holds
-#define ___NRM_THUMB_R___  MO(_MSE), SPC_NAV, MO(_NAV)
+#define ___NRM_1_R___       ___5BASE_1_R___,      KC_BSPC
+#define ___NRM_2_R___       KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT // no tap-holds
+#define ___NRM_3_R___       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ENT // no tap-holds
+#define ___NRM_THUMB_R___                     MO(_MSE), SPC_NAV, MO(_NAV)
 
 /*** base ***/
-                        /* ╭────────┬ */
-                        /* │ Tab    │ */
-#define ___BASE_1_L___       KC_TAB, ___5BASE_1_L___
-                        /* ├────────┼ */
-                        /* │ Esc    │ */
-#define ___BASE_2_L___       KC_ESC, ___5BASE_2_L___
-                        /* ├────────┼ */
-                        /* │ Shift  │ */
+#define ___BASE_1_L___      KC_TAB, ___5BASE_1_L___
+#define ___BASE_2_L___      KC_ESC, ___5BASE_2_L___
 #define ___BASE_3_L___      KC_LSFT, ___5BASE_3_L___
-                        /* ╰────────┴ */
 
-                                             /* ┬────────╮ */
-                                             /* │  Bspc  │ */
 #define ___BASE_1_R___      ___5BASE_1_R___,      KC_BSPC
-                                             /* ┼────────┤ */
-                                             /* │  ' "   │ */
 #define ___BASE_2_R___      ___5BASE_2_R___,      KC_QUOT
-                                             /* ┼────────┤ */
-                                             /* │ Ent/Sft│ */
 #define ___BASE_3_R___      ___5BASE_3_R___,      ENT_SFT
-                                             /* ┴────────╯ */
 /*** number ***/
-                        /* ╭────────┬ */
-                        /* │  ---   │ */
 #define ___NUM_1_L___       XXXXXXX, ___5NUM_1_L___
-                        /* ├────────┼ */
-                        /* │  ---   │ */
 #define ___NUM_2_L___       XXXXXXX, ___5NUM_2_L___
-                        /* ├────────┼ */
-                        /* │        │ */
 #define ___NUM_3_L___       _______, ___5NUM_3_L___
-                        /* ╰────────┴ */
 
-                                        /* ┬────────╮ */
-                                        /* │  Bspc  │ */
 #define ___NUM_1_R___       ___5NUM_1_R___, KC_BSPC
-                                        /* ┼────────┤ */
-                                        /* │  Enter │ */
 #define ___NUM_2_R___       ___5NUM_2_R___, KC_PENT
-                                        /* ┼────────┤ */
-                                        /* │        │ */
 #define ___NUM_3_R___       ___5NUM_3_R___, _______
-                                        /* ┴────────╯ */
 
 /*** symbol ***/
-                        /* ╭────────┬ */
-                        /* │  ---   │ */
 #define ___SYM_1_L___       XXXXXXX, ___5SYM_1_L___
-                        /* ├────────┼ */
-                        /* │Caps Loc│ */
 #define ___SYM_2_L___       KC_CAPS, ___5SYM_2_L___
-                        /* ├────────┼ */
-                        /* │        │ */
 #define ___SYM_3_L___       _______, ___5SYM_3_L___
-                        /* ╰────────┴ */
 
-                                        /* ┬────────╮ */
-                                        /* │  Del   │ */
 #define ___SYM_1_R___       ___5SYM_1_R___, KC_DEL
-                                        /* ┼────────┤ */
-                                        /* │  ~     │ */
 #define ___SYM_2_R___       ___5SYM_2_R___, KC_TILD
-                                        /* ┼────────┤ */
-                                        /* │  ---   │ */
 #define ___SYM_3_R___       ___5SYM_3_R___, XXXXXXX
-                                        /* ┴────────╯ */
 
 /*** navigation ***/
-                        /* ╭────────┬ */
-                        /* │  ---   │ */
 #define ___NAV_1_L___       XXXXXXX, ___5NAV_1_L___
-                        /* ├────────┼ */
-                        /* │  ---   │ */
 #define ___NAV_2_L___       XXXXXXX, ___5NAV_2_L___
-                        /* ├────────┼ */
-                        /* │        │ */
 #define ___NAV_3_L___       _______, ___5NAV_3_L___
-                        /* ╰────────┴ */
 
-                                        /* ┬────────╮ */
-                                        /* │  ---   │ */
 #define ___NAV_1_R___       ___5NAV_1_R___, XXXXXXX
-                                        /* ┼────────┤ */
-                                        /* │  ---   │ */
 #define ___NAV_2_R___       ___5NAV_2_R___, XXXXXXX
-                                        /* ┼────────┤ */
-                                        /* │        │ */
 #define ___NAV_3_R___       ___5NAV_3_R___, _______
-                                        /* ┴────────╯ */
 
 /*** function ***/
-                        /* ╭────────┬ */
-                        /* │  ---   │ */
 #define ___FUN_1_L___       XXXXXXX, ___5FUN_1_L___
-                        /* ├────────┼ */
-                        /* │ Log Out│ */
 #define ___FUN_2_L___       LOG_OUT, ___5FUN_2_L___
-                        /* ├────────┼ */
-                        /* │        │ */
 #define ___FUN_3_L___       _______, ___5FUN_3_L___
-                        /* ╰────────┴ */
 
-                                        /* ┬────────╮ */
-                                        /* │  ---   │ */
 #define ___FUN_1_R___       ___5FUN_1_R___, XXXXXXX
-                                        /* ┼────────┤ */
-                                        /* │  ---   │ */
 #define ___FUN_2_R___       ___5FUN_2_R___, XXXXXXX
-                                        /* ┼────────┤ */
-                                        /* │  ---   │ */
 #define ___FUN_3_R___       ___5FUN_3_R___, XXXXXXX
-                                        /* ┴────────╯ */
 
 /*** mouse ***/
-                        /* ╭────────┬ */
-                        /* │  ---   │ */
 #define ___MSE_1_L___       XXXXXXX, ___5MSE_1_L___
-                        /* ├────────┼ */
-                        /* │  ---   │ */
 #define ___MSE_2_L___       XXXXXXX, ___5MSE_2_L___
-                        /* ├────────┼ */
-                        /* │  ---   │ */
 #define ___MSE_3_L___       XXXXXXX, ___5MSE_3_L___
-                        /* ╰────────┴ */
 
-                                        /* ┬────────╮ */
-                                        /* │  ---   │ */
 #define ___MSE_1_R___       ___5MSE_1_R___, XXXXXXX
-                                        /* ┼────────┤ */
-                                        /* │  ---   │ */
 #define ___MSE_2_R___       ___5MSE_2_R___, XXXXXXX
-                                        /* ┼────────┤ */
-                                        /* │  ---   │ */
 #define ___MSE_3_R___       ___5MSE_3_R___, XXXXXXX
-                                        /* ┴────────╯ */
+// clang-format on
 
 /** layout macros **/
 #define LAYOUT_btgrant(...)              LAYOUT(__VA_ARGS__)
