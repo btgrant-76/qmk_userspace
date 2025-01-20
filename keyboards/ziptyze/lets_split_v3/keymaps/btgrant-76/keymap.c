@@ -121,18 +121,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     )
 };
-
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-
-  switch (tap_hold_record->event.key.row) {
-    case 3:
-    case 7:
-        return true;
-    break;
-    default:
-        return false;
-  }
-};

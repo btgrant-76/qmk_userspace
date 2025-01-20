@@ -127,21 +127,6 @@ void matrix_scan_keymap(void) {
 }
 #endif
 
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-
-  switch (tap_hold_record->event.key.row) {
-    case 3:
-    case 8:
-        return true;
-    break;
-  }
-
-  return false;
-}
-
 /*
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     int8_t degree = 45;

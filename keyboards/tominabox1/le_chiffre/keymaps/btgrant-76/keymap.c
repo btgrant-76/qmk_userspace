@@ -16,7 +16,7 @@
  */
 #include QMK_KEYBOARD_H
 #include "btgrant-76.h"
-#include "combos.h"
+#include "four_thumb_combos.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
 #include "tap_dances.c"
@@ -65,11 +65,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX,                                        XXXXXXX, XXXXXXX
     )
 };
-
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-
-  return tap_hold_record->event.key.row == 3;
-}
