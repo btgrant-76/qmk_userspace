@@ -64,3 +64,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           ___ADD_THUMB_L___,  ___ADD_THUMB_R___
     )
 };
+
+void pointing_device_init_user(void) {
+    set_auto_mouse_layer(_MSE);
+    set_auto_mouse_enable(true);
+}

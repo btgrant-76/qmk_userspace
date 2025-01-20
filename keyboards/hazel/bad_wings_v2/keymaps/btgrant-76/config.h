@@ -10,3 +10,8 @@
 // relative mode
 // #define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE
 // #define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE // only available in relative mode
+
+// automatic mouse layer
+#define POINTING_DEVICE_AUTO_MOUSE_ENABLE
+// only required if not setting mouse layer elsewhere
+//#define AUTO_MOUSE_DEFAULT_LAYER 6
