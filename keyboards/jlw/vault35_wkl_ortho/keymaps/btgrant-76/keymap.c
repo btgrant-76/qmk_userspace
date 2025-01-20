@@ -12,21 +12,17 @@
 
 const uint16_t PROGMEM MUTE[] = {KC_VOLU, KC_VOLD, COMBO_END};
 const uint16_t PROGMEM PLAY[] = {KC_MNXT, KC_MPRV, COMBO_END};
+const uint16_t PROGMEM LOG_OUT_CM[] = {KC_BRIU, KC_BRID, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(QUOT, KC_QUOT),
-    COMBO(D_QUOT, KC_DQT),
-    COMBO(ESC, KC_ESC),
-    COMBO(ESC_2, KC_ESC),
-    COMBO(ESC_3, KC_ESC),
-    COMBO(ENTER, KC_ENT),
-    COMBO(CAPS, KC_CAPS),
+    // thumb keys
     COMBO(MO_FUN, MO(_FUN)),
+    COMBO(MO_SYM, MO(_SYM)),
+
+    // 3u bar
     COMBO(MUTE, KC_MUTE),
     COMBO(PLAY, KC_MPLY),
-    COMBO(MO_SYM, MO(_SYM)),
-    COMBO(ENTER, KC_ENT),
-    COMBO(ESC, KC_ESC)
+    COMBO(LOG_OUT_CM, LOG_OUT),
 };
 #endif
 
@@ -57,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_FUN] = LAYOUT_btgrant_cain_bars(
-        ___5FUN_1_L___, XXXXXXX,                                                          ___5FUN_1_R___,
+        ___5FUN_1_L___, KC_BRIU,                                                          ___5FUN_1_R___,
         ___5FUN_2_L___, XXXXXXX,                                                          ___5FUN_2_R___,
-        ___5FUN_3_L___, XXXXXXX,                                                          ___5FUN_3_R___,
+        ___5FUN_3_L___, KC_BRID,                                                          ___5FUN_3_R___,
         XXXXXXX, XXXXXXX,MO(_MSE),     MO(_ADD), XXXXXXX, XXXXXXX
     ),
     [_MSE] = LAYOUT_btgrant_cain_bars(
