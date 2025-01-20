@@ -36,61 +36,49 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                               ENC_NUM,
       ___NUM_1_L___,                                                    ___NUM_1_R___,
       ___NUM_2_L___,              KC_EQL,    KC_4,    KC_5,    KC_6, XXXXXXX, QUOT_TD,
-      ___NUM_3_L___,                                                    ___NUM_3_R___,
+      _______, XXXXXXX, ___5NUM_3_L___,                                ___5NUM_3_R___,
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, ZERO_TD, _______, _______
   ),
   [_SYM] = LAYOUT_btgrant_all(
                                                                               ENC_SYM,
       ___SYM_1_L___,                                                    ___SYM_1_R___,
       ___SYM_2_L___,             KC_PLUS,  KC_DLR, KC_PERC, KC_CIRC, XXXXXXX,  KC_DQT,
-      ___SYM_3_L___,                                                    ___SYM_3_R___,
+      _______, XXXXXXX, ___5SYM_3_L___,                                ___5SYM_3_R___,
       _______, _______, KC_MUTE, KC_MPLY, XXXXXXX,LPRN_MSE, XXXXXXX, _______, _______
   ),
   [_NAV] = LAYOUT_btgrant_all(
                                                                               ENC_NAV,
       ___NAV_1_L___,                                                    ___NAV_1_R___,
       ___NAV_2_L___,             KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT,  XXXXXXX, KC_QUOT,
-      ___NAV_3_L___,                                                    ___NAV_3_R___,
+      _______, XXXXXXX, ___5NAV_3_L___,                                ___5NAV_3_R___,
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
   ),
   [_FUN] = LAYOUT_btgrant_all(
                                                                               ENC_FUN,
       ___FUN_1_L___,                                                    ___FUN_1_R___,
       ___FUN_2_L___,              XXXXXXX,  KC_F4,   KC_F5,   F6_TD, XXXXXXX,  KC_F11,
-      ___FUN_3_L___,                                                    ___FUN_3_R___,
+      _______, XXXXXXX, ___5FUN_3_L___,                                ___5FUN_3_R___,
       _______, _______, XXXXXXX, MO(_MSE),XXXXXXX,MO(_ADD), XXXXXXX, _______, _______
   ),
   [_MSE] = LAYOUT_btgrant_all(
                                                                               ENC_MSE,
       ___MSE_1_L___,                                                    ___MSE_1_R___,
       ___MSE_2_L___,             KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, XXXXXXX,
-      ___MSE_3_L___,                                                    ___MSE_3_R___,
+      XXXXXXX, XXXXXXX, ___5MSE_3_L___,                                ___5MSE_3_R___,
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
   ),
   [_ADD] = LAYOUT_btgrant_all(
                                                                               ENC_ADD,
       XXXXXXX, ___5ADD_1_L___,                                ___5ADD_1_R___, XXXXXXX,
       XXXXXXX, ___5ADD_2_L___,                                ___5ADD_2_R___, XXXXXXX,
-      XXXXXXX, ___5ADD_3_L___,                                ___5ADD_3_R___, XXXXXXX,
+      XXXXXXX, XXXXXXX, ___5ADD_3_L___,                                ___5ADD_3_R___,
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
   ),
-//  ),
-//  [_NRM] = LAYOUT_btgrant_4x12( // TODO add a NRM layer
-//  //|-----------------------------------------------------|        |-----------------------------------------------------|
-//                                             ___NRM_1_L___,         ___NRM_1_R___,
-//  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-//                                             ___NRM_2_L___,         ___NRM_2_R___,
-//  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-//                                             ___NRM_3_L___,         ___NRM_3_R___,
-//  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-//      KC_LCTL, KC_LALT, KC_LGUI,         ___NRM_THUMB_L___,         ___NRM_THUMB_R___,          KC_RGUI, KC_RALT, KC_RCTL
-//  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
   [_NRM] = LAYOUT_btgrant_all(
-                                                                              ENC_NRM,
-      ___NRM_1_L___,                                                    ___NRM_1_R___,
-      ___NRM_2_L___,                KC_H,    KC_J,    KC_K,    KC_L, XXXXXXX, KC_SCLN,
-      ___NRM_3_L___,                                                    ___NRM_3_R___,
+                                                                                       ENC_NRM,
+      ___NRM_1_L___,                                                             ___NRM_1_R___,
+      ___NRM_2_L___,                                  KC_H, KC_J, KC_K, KC_L, XXXXXXX, KC_SCLN,
+      KC_LSFT, XXXXXXX, KC_Z, KC_X, KC_C, KC_V, KC_B,              KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
       KC_LCTL, KC_LALT, KC_LGUI,  KC_SPC,MO(_NUM), SPC_NAV, KC_RGUI, KC_RALT, KC_RCTL
-//      XXXXXXX, ESC_FUN, TAB_MSE,  BS_NUM, XXXXXXX, SPC_NAV, DEL_MSE, ENT_SYM, XXXXXXX
   )
 };
