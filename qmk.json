@@ -1,0 +1,28 @@
+{
+    "userspace_version": "1.1",
+    "build_targets": [
+        ["aki27/cocot46plus", "btgrant_76"],
+        ["checkerboards/candybar_ortho", "btgrant_76"],
+        ["crkbd/rev1", "btgrant_76"],
+        ["eek/silk_down", "btgrant_76"],
+        ["galvy/vault35_ortho", "btgrant_76"],
+        ["hazel/bad_wings_pocket", "btgrant_76"],
+        ["hazel/bad_wings_v2", "btgrant_76"],
+        ["jlw/lestmovoz", "btgrant_76"],
+        ["jlw/vault35_katana", "btgrant_76"],
+        ["jlw/vault35_wkl_ortho", "btgrant_76"],
+        ["keebio/foldkb/rev1", "btgrant_76"],
+        ["mechwild/mercutio", "btgrant_76"],
+        ["mechwild/puckbuddy", "btgrant_76"],
+        ["mechwild/waka60/f401/base", "btgrant_76"],
+        ["planck/rev6_drop", "btgrant_76"],
+        ["projectcain/acolyte", "btgrant_76"],
+        ["rainkeebs/yasui", "btgrant_76"],
+        ["sporkus/le_chiffre_32", "btgrant_76"],
+        ["tominabox1/le_chiffre", "btgrant_76"],
+        ["tsquash/lesovoz", "btgrant_76"],
+        ["tsquash/willy", "btgrant_76"],
+        ["waterfowl", "btgrant_76"],
+        ["ziptyze/lets_split_v3", "btgrant_76"]
+    ]
+}
