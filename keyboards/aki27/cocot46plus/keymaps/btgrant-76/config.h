@@ -19,11 +19,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+//#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+#undef DYNAMIC_KEYMAP_LAYER_COUNT
 
 #undef MOUSEKEY_ENABLE
 
-#define COCOT_CPI_DEFAULT 2
+#define COCOT_CPI_DEFAULT 2 // I can't tell if this is doing anything
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING
@@ -37,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #undef RGBLIGHT_EFFECT_RGB_TEST
     #undef RGBLIGHT_EFFECT_SNAKE
     #undef RGBLIGHT_EFFECT_STATIC_GRADIENT
-
     #undef RGBLIGHT_DEFAULT_MODE
+
     #define RGBLIGHT_DEFAULT_MODE (RGBLIGHT_MODE_RAINBOW_SWIRL + 5)
 #endif

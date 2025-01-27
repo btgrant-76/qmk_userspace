@@ -26,6 +26,7 @@ combo_t key_combos[] = {
 };
 #endif
 
+#define LAYOUT_btgrant_cain_bars(...)    LAYOUT_cain_bars(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_cain_bars(

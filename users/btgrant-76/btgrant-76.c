@@ -49,6 +49,19 @@ bool achordion_chord(uint16_t tap_hold_keycode,
         case S_ALT:
           return true;
       }
+    // TODO do these help? Test them out.
+    case BS_NUM:
+      switch (other_keycode) {
+        case Z_HYPR:
+        case KC_ESC:
+          return true;
+      }
+    case SPC_NAV:
+      switch (other_keycode) {
+        case SLS_HYPR:
+        case KC_ENT:
+          return true;
+     }
   }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
@@ -253,6 +266,8 @@ void leader_end_user(void) {
         tag_close_insert();
     } else if (leader_sequence_two_keys(KC_T, KC_V)) {
         tag_void_insert();
+    } else if (leader_sequence_two_keys(KC_C, KC_L)) {
+        tap_code(KC_CAPS);
     }
 };
 #endif

@@ -1,6 +1,8 @@
 #ifdef TAP_DANCE_ENABLE
 #include "macros.h"
 
+// TODO should this be referenced directly?
+
 void period_or_comma_tap_dance(tap_dance_state_t *state, void *user_data) {
     if (state->pressed && !state->interrupted) {
         SEND_STRING(",");

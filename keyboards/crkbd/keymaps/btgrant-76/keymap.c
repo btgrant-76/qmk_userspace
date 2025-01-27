@@ -341,11 +341,3 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-
-#ifdef RGB_MATRIX_ENABLE
-void keyboard_post_init_keymap(void) {
-  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-  rgblight_sethsv_noeeprom(HSV_ORANGE);
-  rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
-}
-#endif

@@ -67,14 +67,14 @@
                {"label": "Space", "matrix": [3, 6], "x": 6, "y": 3},
                {"label": "Ctrl", "matrix": [3, 7], "x": 7, "y": 3},
                {"label": "Ctrl", "matrix": [3, 8], "x": 8, "y": 3},
-               {"label": "Fn2", "matrix": [3, 9], "x": 9, "y": 3},
+               {"label": "Fn2", "matrix": [3, 9], "x": 9, "y": 3}
            ]
        }
     },
     "rgb_matrix": {
         "layout": [
             {"matrix": [0, 4], "x": 132, "y": 16, "flags": 8},
-            {"matrix": [0, 5], "x": 172, "y": 16, "flags": 8},
+            {"matrix": [0, 5], "x": 172, "y": 16, "flags": 8}
         ],
         "driver": "ws2812"
     },

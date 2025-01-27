@@ -301,6 +301,7 @@ enum {
 // clang-format on
 
 /** layout macros **/
+// TODO does it make sense to have these here? Should they be in their own file or even localized to the keymaps that use them?
 #define LAYOUT_btgrant(...)              LAYOUT(__VA_ARGS__)
 #define LAYOUT_btgrant_all(...)          LAYOUT_all(__VA_ARGS__)
 #define LAYOUT_btgrant_3x5(...)          LAYOUT_split_3x5_3(__VA_ARGS__)
