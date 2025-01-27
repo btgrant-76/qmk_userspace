@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include "btgrant-76.h"
+#include "btgrant.h"
 #include "combos.h"
 #include "encoder_map.h"
 #include "tap_dances.c"

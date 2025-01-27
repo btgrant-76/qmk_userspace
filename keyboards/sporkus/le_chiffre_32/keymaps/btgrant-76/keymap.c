@@ -4,7 +4,7 @@
 
 #include QMK_KEYBOARD_H
 #include "../../rgb.c"
-#include "btgrant-76.h"
+#include "btgrant.h"
 #include "encoder_press.h"
 #include "encoder_map.h"
 #include "four_thumb_combos.h"

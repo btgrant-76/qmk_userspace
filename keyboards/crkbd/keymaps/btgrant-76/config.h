@@ -36,7 +36,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define SPLIT_LED_STATE_ENABLE
     #define SPLIT_MODS_ENABLE
     #define SPLIT_OLED_ENABLE
-    #define OLED_FONT_H "keyboards/crkbd/keymaps/btgrant-76/soundmonster_glcdfont.c"
+    #define OLED_FONT_H "keyboards/crkbd/keymaps/btgrant/soundmonster_glcdfont.c"
     #define OLED_TIMEOUT 30000
 #endif
 // end from soundmonster

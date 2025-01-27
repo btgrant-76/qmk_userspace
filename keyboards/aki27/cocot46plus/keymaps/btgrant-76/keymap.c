@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "quantum.h"
-#include "btgrant-76.h"
+#include "btgrant.h"
 #include "encoder_press.h"
 #include "combos.h"
 #include "tap_dances.c"

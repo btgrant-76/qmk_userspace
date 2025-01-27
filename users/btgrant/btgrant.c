@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "btgrant-76.h"
+#include "btgrant.h"
 #include "macros.h"
 #include "features/achordion.h"
 

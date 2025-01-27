@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
-#include "btgrant-76.h"
+#include "btgrant.h"
 #include "four_thumb_combos.h"
 #include "tap_dances.c"
 

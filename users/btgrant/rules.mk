@@ -1,4 +1,4 @@
-SRC += btgrant-76.c
+SRC += btgrant.c
 SRC += macros.c
 SRC += features/achordion.c
 

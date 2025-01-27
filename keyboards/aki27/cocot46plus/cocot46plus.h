@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #include "quantum.h"
-#include "btgrant-76.h"
+#include "btgrant.h"
 
 typedef union {
     uint32_t raw;
