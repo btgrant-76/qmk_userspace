@@ -1,4 +1,4 @@
-USER_NAME := btgrant-76
+USER_NAME := btgrant
 
 ifeq ($(strip $(AUDIO_ENABLE)), yes)
     SRC += muse.c

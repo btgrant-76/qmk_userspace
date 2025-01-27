@@ -1,1 +1,0 @@
-#define RGB_MATRIX_DEFAULT_VAL 150
