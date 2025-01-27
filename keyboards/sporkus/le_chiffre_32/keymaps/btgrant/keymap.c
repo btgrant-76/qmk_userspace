@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
-#include "../../rgb.c"
+#include "../../../../../keyboard_defs/sporkus/le_chiffre_32/rgb.c" // TODO should this be in one of the keyboard-level files?
 #include "btgrant.h"
 #include "encoder_press.h"
 #include "encoder_map.h"
