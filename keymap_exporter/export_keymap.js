@@ -7,7 +7,7 @@ const layers = require('./layers.json');
 
 const ALIAS_PREFIX = '//:';
 const CENTER = true;
-const INPUT_FILE = '../users/btgrant-76/btgrant-76.h';
+const INPUT_FILE = '../users/btgrant/btgrant.h';
 const OUTPUT_FILE = '../readme.md';
 const CELL_WIDTH = 8; // the full width of the keycode cell
 const RIGHT_PAD = CELL_WIDTH - 2;
