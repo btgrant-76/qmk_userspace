@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Brian Grant <@btgrant-76>
+Copyright 2025 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -113,8 +113,11 @@ void matrix_scan_keymap(void) {
 };
 
 void matrix_scan_user(void) {
-  achordion_task();
   matrix_scan_keymap();
+};
+
+void housekeeping_task_user(void) {
+  achordion_task();
 };
 
 __attribute__ ((weak))
