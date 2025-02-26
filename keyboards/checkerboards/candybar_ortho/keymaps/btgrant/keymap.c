@@ -1,5 +1,5 @@
 /* Copyright 2021 Nathan Spears
- * Copyright 2024 Brian Grant <@btgrant-76>
+ * Copyright 2025 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
 #include QMK_KEYBOARD_H
 #include "btgrant.h"
 #include "combos.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -127,7 +128,9 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
     0, 6     0, 7     1, 6     1, 7   | 2, 6   | 2, 7     3, 6    [3, 7]   [4, 6]   [4, 7]  | 5, 6   |[5, 7]   [6, 6]   [6, 7]    7, 6     7, 7   | 8, 7
   |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
 */
+    #ifdef CONSOLE_ENABLE
     dprintln("achordion_chord_keymap called");
+    #endif
 
     if (tap_hold_record->event.key.row >= 6) {
         #ifdef CONSOLE_ENABLE

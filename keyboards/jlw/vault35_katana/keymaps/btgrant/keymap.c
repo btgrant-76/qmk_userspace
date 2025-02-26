@@ -1,11 +1,12 @@
-// Copyright 2024 Brian Grant <@btgrant-76>
+// Copyright 2025 Brian Grant <@btgrant-76>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
 #include "btgrant.h"
+#include "combos.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
-#include "combos.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -28,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
                                    ___5NUM_3_L___, ENC_NUM,                              ___5NUM_3_R___,
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
-                        XXXXXXX, XXXXXXX, XXXXXXX,          KC_MINS, ZERO_TD, DOT_TD
+                        XXXXXXX, XXXXXXX, XXXXXXX,          KC_MINS,    KC_0, DOT_TD
                     //|--------+--------+--------+--------+--------+--------+--------|
   ),
   [_SYM] = LAYOUT_btgrant_vault_katana(

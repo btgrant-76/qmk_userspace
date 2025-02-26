@@ -1,10 +1,11 @@
-// Copyright 2024 btgrant-76
+// Copyright 2025 btgrant-76
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
 #include "btgrant.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 #ifdef COMBO_ENABLE
@@ -39,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5NUM_1_L___, XXXXXXX,                                                          ___5NUM_1_R___,
         ___5NUM_2_L___, XXXXXXX,                                                          ___5NUM_2_R___,
         ___5NUM_3_L___, XXXXXXX,                                                          ___5NUM_3_R___,
-        XXXXXXX, XXXXXXX, XXXXXXX,      KC_MINS, ZERO_TD, XXXXXXX
+        XXXXXXX, XXXXXXX, XXXXXXX,      KC_MINS,    KC_0, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant_cain_bars(
         ___5SYM_1_L___,       KC_MNXT,         ___5SYM_1_R___,

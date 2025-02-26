@@ -1,5 +1,5 @@
 /* Copyright 2015-2021 Jack Humbert
- * Copyright 2024 Brian Grant <@btgrant-76>
+ * Copyright 2025 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #include "combos.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 #ifdef AUDIO_ENABLE

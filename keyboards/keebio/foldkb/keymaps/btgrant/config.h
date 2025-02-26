@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Brian Grant <@btgrant-76>
+Copyright 2025 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

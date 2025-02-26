@@ -1,10 +1,11 @@
 // Copyright 2023 sporkus
-// Copyright 2024 btgrant-76
+// Copyright 2025 btgrant-76
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
 #include "btgrant.h"
 #include "four_thumb_combos.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -18,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5NUM_1_L___,                                                           ___5NUM_1_R___,
         ___5NUM_2_L___,                                                           ___5NUM_2_R___,
         ___5NUM_3_L___,                                                           ___5NUM_3_R___,
-        _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, XXXXXXX, ZERO_TD, _______, _______
+        _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, XXXXXXX,    KC_0, _______, _______
     ),
     [_SYM] = LAYOUT_btgrant(
         ___5SYM_1_L___,                                                           ___5SYM_1_R___,

@@ -1,5 +1,5 @@
 /* Copyright 2021 Kyle McCreery
- * Copyright 2024 Brian Grant <@btgrant-76>
+ * Copyright 2025 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include "combos.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 
@@ -37,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       ___NUM_1_L___,                                                    ___NUM_1_R___,
       ___NUM_2_L___,              KC_EQL,    KC_4,    KC_5,    KC_6, XXXXXXX, QUOT_TD,
       _______, XXXXXXX, ___5NUM_3_L___,                                ___5NUM_3_R___,
-      _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, ZERO_TD, _______, _______
+      _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS,    KC_0, _______, _______
   ),
   [_SYM] = LAYOUT_btgrant_all(
                                                                               ENC_SYM,
