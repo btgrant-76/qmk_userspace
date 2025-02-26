@@ -1,5 +1,5 @@
 /* Copyright 2021 Kyle McCreery
- * Copyright 2024 Brian Grant <@btgrant-76>
+ * Copyright 2025 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,11 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- #include QMK_KEYBOARD_H
- #include "btgrant.h"
- #include "combos.h"
- #include "encoder_map.h"
- #include "encoder_press.h"
+#include QMK_KEYBOARD_H
+#include "btgrant.h"
+#include "combos.h"
+#include "encoder_map.h"
+#include "encoder_press.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -130,19 +131,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LCTL, KC_LALT, KC_LGUI,         ___NRM_THUMB_L___,  Z_MUTE,___NRM_THUMB_R___,          KC_RGUI, KC_RALT, KC_RCTL
   //|--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
     )
-};
-
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-
-  switch (tap_hold_record->event.key.row) {
-    case 4:
-    case 9:
-        return true;
-    break;
-  }
-
-  return false;
 };

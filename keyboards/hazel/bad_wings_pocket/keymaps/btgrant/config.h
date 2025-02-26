@@ -1,5 +1,5 @@
 // Copyright 2023 Jason Hazel (@jasonhazel)
-// Copyright 2024 Brian Grant (@btgrant-76)
+// Copyright 2025 Brian Grant (@btgrant-76)
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once

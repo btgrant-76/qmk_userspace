@@ -2,5 +2,7 @@ ifeq ($(strip $(BUBBLE_CASE)), yes)
     OPT_DEFS += -DBUBBLE_CASE
 endif
 
-COMBO_ENABLE = yes
 OLED_ENABLE = no
+COMBO_ENABLE = yes
+KEY_OVERRIDE_ENABLE = yes
+TAP_DANCE_ENABLE = no

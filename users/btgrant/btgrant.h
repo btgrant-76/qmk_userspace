@@ -1,5 +1,5 @@
 /*
-Copyright 2024 Brian Grant <@btgrant-76>
+Copyright 2025 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -172,10 +172,9 @@ enum {
 #define ___NUM_THUMB_L___                     KC_DEL,  HOLD, KC_BSPC
 
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
-                            // TODO maybe try moving the quote hold to a different key?
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    QUOT_TD
-#define ___5NUM_3_R___      KC_BSLS, KC_1,    TWO_TD,  THREE_TD, GRV_TD
-#define ___NUM_THUMB_R___   KC_MINS, ZERO_TD, DOT_TD
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_QUOT
+#define ___5NUM_3_R___      KC_BSLS, KC_1,    KC_2,    KC_3,    KC_GRV
+#define ___NUM_THUMB_R___   KC_MINS, KC_0,    KC_DOT
 
 /*** symbol ***/
 #define ___5SYM_1_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -205,9 +204,9 @@ enum {
 #define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID
 #define ___FUN_THUMB_L___                     HOLD, MO(_MSE), XXXXXXX
 
-#define ___5FUN_1_R___      XXXXXXX, KC_F7,   KC_F8,   F9_TD,   F12_TD
-#define ___5FUN_2_R___      XXXXXXX, KC_F4,   KC_F5,   F6_TD,   KC_F11
-#define ___5FUN_3_R___      XXXXXXX, F1_TD,   F2_TD,   KC_F3,   KC_F10
+#define ___5FUN_1_R___      XXXXXXX, KC_F7,   KC_F8,   KC_F9,   KC_F12
+#define ___5FUN_2_R___      XXXXXXX, KC_F4,   KC_F5,   KC_F6,   KC_F11
+#define ___5FUN_3_R___      XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F10
 #define ___FUN_THUMB_R___   XXXXXXX, MO(_ADD), XXXXXXX
 
 /*** mouse ***/

@@ -1,5 +1,5 @@
 /* Copyright 2021 Regan Palmer
- * Copyright 2024 Brian Grant <@btgrant-76>
+ * Copyright 2025 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
 #include QMK_KEYBOARD_H
 #include "btgrant.h"
 #include "four_thumb_combos.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 #define BLOCKER XXXXXXX
@@ -33,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5NUM_1_L___,                                                           ___5NUM_1_R___,
         ___5NUM_2_L___,                                                           ___5NUM_2_R___,
         ___5NUM_3_L___,                                                           ___5NUM_3_R___,
-        XXXXXXX, BLOCKER, XXXXXXX, XXXXXXX,     BAR,     BAR, KC_MINS, ZERO_TD, BLOCKER, XXXXXXX
+        XXXXXXX, BLOCKER, XXXXXXX, XXXXXXX,     BAR,     BAR, KC_MINS,    KC_0, BLOCKER, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant(
         ___5SYM_1_L___,                                                           ___5SYM_1_R___,

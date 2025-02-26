@@ -1,5 +1,5 @@
 /* Copyright 2020 tominabox1
- * Copyright 2024 Brian Grant <@btgrant-76>
+ * Copyright 2025 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 #include "four_thumb_combos.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -32,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5NUM_1_L___,                ENC_NUM,                    ___5NUM_1_R___,
         ___5NUM_2_L___,                                            ___5NUM_2_R___,
         ___5NUM_3_L___,                                            ___5NUM_3_R___,
-        XXXXXXX, XXXXXXX,                                        KC_MINS, ZERO_TD
+        XXXXXXX, XXXXXXX,                                        KC_MINS,    KC_0
     ),
     [_SYM] = LAYOUT_btgrant(
         ___5SYM_1_L___,                ENC_SYM,                    ___5SYM_1_R___,

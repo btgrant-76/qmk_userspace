@@ -2,6 +2,7 @@
 #include "btgrant.h"
 #include "combos.h"
 #include "encoder_map.h"
+#include "key_overrides.h"
 #include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

@@ -6,6 +6,7 @@
 #include "combos.h"
 #include "encoder_map.h"
 #include "tap_dances.c"
+#include "key_overrides.h"
 #include "encoder_press.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -28,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
                                    ___5NUM_3_L___,                                       ___5NUM_3_R___,
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
-                        XXXXXXX, XXXXXXX, XXXXXXX, ENC_NUM, KC_MINS, ZERO_TD, DOT_TD
+                        XXXXXXX, XXXXXXX, XXXXXXX, ENC_NUM, KC_MINS,    KC_0, DOT_TD
                     //|--------+--------+--------+--------+--------+--------+--------|
   ),
   [_SYM] = LAYOUT_btgrant(
