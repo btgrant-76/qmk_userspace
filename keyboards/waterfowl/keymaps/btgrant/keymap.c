@@ -86,38 +86,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef OLED_ENABLE
 
-bool oled_task_master_user(void) {
-// Host Keyboard Layer Status
-   oled_write_P(PSTR("LAYER:\n"), false);
-   oled_write_P(PSTR("\n"), false);
+bool oled_task_user(void) {
+    // Host Keyboard Layer Status
+    if (is_keyboard_master()) {
+        oled_write_P(PSTR("LAYER:\n"), false);
+        oled_write_P(PSTR("\n"), false);
 
-   switch (get_highest_layer(layer_state)) {
-       case _BASE:
-           oled_write_P(PSTR("DEFAULT\n\n\n\n"), false);
-           break;
-       case _NUM:
-           oled_write_P(PSTR("NUMBERS\n\n\n\n"), false);
-           break;
-       case _SYM:
-           oled_write_P(PSTR("SYMBOLS\n\n\n\n"), false);
-           break;
-       case _FUN:
-           oled_write_P(PSTR("FUNCTION\n\n\n\n"), false);
-           break;
-       case _NAV:
-           oled_write_P(PSTR("NAVIGATION\n\n\n\n"), false);
-           break;
-       case _MSE:
-           oled_write_P(PSTR("MOUSE\n\n\n\n"), false);
-           break;
-       case _ADD:
-           oled_write_P(PSTR("ADDITIONAL\n\n\n\n"), false);
-           break;
-       default:
-           oled_write_ln_P(PSTR("Undefined"), false);
-   }
-  return false;
+        switch (get_highest_layer(layer_state)) {
+            case _BASE:
+                oled_write_P(PSTR("DEFAULT\n\n\n\n"), false);
+                break;
+            case _NUM:
+                oled_write_P(PSTR("NUMBERS\n\n\n\n"), false);
+                break;
+            case _SYM:
+                oled_write_P(PSTR("SYMBOLS\n\n\n\n"), false);
+                break;
+            case _FUN:
+                oled_write_P(PSTR("FUNCTION\n\n\n\n"), false);
+                break;
+            case _NAV:
+                oled_write_P(PSTR("NAVIGATION\n\n\n\n"), false);
+                break;
+            case _MSE:
+                oled_write_P(PSTR("MOUSE\n\n\n\n"), false);
+                break;
+            case _ADD:
+                oled_write_P(PSTR("ADDITIONAL\n\n\n\n"), false);
+                break;
+            default:
+                oled_write_ln_P(PSTR("Undefined"), false);
+        }
+        return false;
+    } else {
+        return true;
+    }
 };
-
 
 #endif
