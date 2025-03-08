@@ -1,3 +1,4 @@
+LTO_ENABLE = yes # for AVR only
 COMBO_ENABLE = no
 ENCODER_MAP_ENABLE = yes
 OLED_ENABLE = no

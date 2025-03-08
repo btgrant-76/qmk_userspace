@@ -1,3 +1,4 @@
+LTO_ENABLE = yes # for AVR only
 OLED_ENABLE = no # using OLED pads for RGB, my guy!
 RGBLIGHT_ENABLE = yes
 RGBLIGHT_DRIVER = ws2812

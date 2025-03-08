@@ -12,7 +12,6 @@ LEADER_ENABLE = yes
 
 # start space-savings
 # https://docs.qmk.fm/#/squeezing_avr?id=squeezing-the-most-out-of-avr
-LTO_ENABLE      = yes
 # AVR_USE_MINIMAL_PRINTF = yes  # crkbd & cocot46plus need these features for OLED text formatting
 MOUSEKEY_ENABLE = yes
 COMMAND_ENABLE = no

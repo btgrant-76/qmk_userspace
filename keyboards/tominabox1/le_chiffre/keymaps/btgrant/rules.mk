@@ -1,3 +1,4 @@
+LTO_ENABLE = yes # for AVR only
 COMBO_ENABLE = yes
 ENCODER_MAP_ENABLE = yes
 KEY_OVERRIDE_ENABLE = yes
