@@ -210,11 +210,23 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case F_SFT:
         case J_SFT:
+            #ifdef DYNAMIC_TAPPING_TERM_ENABLE
             return g_tapping_term - TAPPING_TERM_DECREASE_SHIFT;
+            #else
+            return TAPPING_TERM - TAPPING_TERM_DECREASE_SHIFT;
+            #endif
         case SPC_NAV:
+            #ifdef DYNAMIC_TAPPING_TERM_ENABLE
             return g_tapping_term + 20;
+            #else
+            return TAPPING_TERM + 20;
+            #endif
         default:
+            #ifdef DYNAMIC_TAPPING_TERM_ENABLE
             return g_tapping_term;
+            #else
+            return TAPPING_TERM;
+            #endif
     }
 }
 #endif

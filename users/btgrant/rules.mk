@@ -2,8 +2,8 @@ SRC += btgrant.c
 SRC += macros.c
 SRC += features/achordion.c
 
-DYNAMIC_TAPPING_TERM_ENABLE = yes
-NKRO_ENABLE		= no
+DYNAMIC_TAPPING_TERM_ENABLE = no
+NKRO_ENABLE	= no
 
 CAPS_WORD_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
