@@ -41,3 +41,5 @@ void tag_open_insert(void);
 void tag_void_insert(void);
 
 void vim_write(void);
+
+void vim_write_and_quit(void);

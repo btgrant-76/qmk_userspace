@@ -233,11 +233,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef LEADER_ENABLE
 void leader_end_user(void) {
-    // parens
-    if (leader_sequence_one_key(KC_W) ) {
-        vim_write();
-    } else if (leader_sequence_one_key(KC_N) ) {
+    if (leader_sequence_one_key(KC_N) ) {
         new_browser_window_you_jerk();
+    // vim
+    } else if (leader_sequence_one_key(KC_W) ) {
+        vim_write();
+    } else if (leader_sequence_two_keys(KC_W, KC_Q)) {
+        vim_write_and_quit();
+    // parens
     } else if (leader_sequence_two_keys(KC_P, KC_I)) {
         parens_insert();
     } else if (leader_sequence_two_keys(KC_P, KC_A)) {
@@ -283,7 +286,7 @@ void leader_end_user(void) {
         tag_void_insert();
     // others...
     } else if (leader_sequence_two_keys(KC_A, KC_F)) {
-         SEND_STRING(" => {}" SS_TAP(X_LEFT) SS_TAP(X_ENT));
+         SEND_STRING("=> {}" SS_TAP(X_LEFT) SS_TAP(X_ENT));
     } else if (leader_sequence_two_keys(KC_C, KC_L)) {
         tap_code(KC_CAPS);
     }

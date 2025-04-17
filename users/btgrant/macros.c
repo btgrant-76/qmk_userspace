@@ -87,6 +87,10 @@ void vim_write(void) {
     SEND_STRING(SS_TAP(X_ESC) ":w" SS_TAP(X_ENT));
 };
 
+void vim_write_and_quit(void) {
+    SEND_STRING(SS_TAP(X_ESC) ":wq" SS_TAP(X_ENT));
+};
+
 void new_browser_window_you_jerk(void) {
     SEND_STRING(SS_LGUI("n") SS_DELAY(2000) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
 };
