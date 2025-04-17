@@ -4,7 +4,6 @@
 #include QMK_KEYBOARD_H
 #include "btgrant.h"
 #include "combos.h"
-#include "encoder_map.h"
 #include "tap_dances.c"
 #include "key_overrides.h"
 #include "encoder_press.h"
@@ -12,7 +11,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_btgrant(
   //|--------------------------------------------|--------|--------------------------------------------|
-                                  ___5BASE_1_L___, XXXXXXX,                             ___5BASE_1_R___,
+                                  ___5BASE_1_L___,MO(_SYM),                             ___5BASE_1_R___,
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
                                   ___5BASE_2_L___,                                      ___5BASE_2_R___,
   //|--------+--------+--------+--------+--------|--------|--------+--------+--------+--------+--------|
@@ -88,3 +87,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     //|--------+--------+--------+--------+--------+--------+--------|
   )
 };
+
+#ifdef ENCODER_MAP_ENABLE
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+    [_BASE] = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU),  ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) },
+    [_NUM]  = { ENCODER_CCW_CW(KC_PGDN,  KC_PGUP),  ENCODER_CCW_CW(KC_PGDN,  KC_PGUP) },
+    [_SYM]  = { ENCODER_CCW_CW(KC_MPRV,  KC_MNXT),  ENCODER_CCW_CW(KC_MPRV,  KC_MNXT) },
+    [_NAV]  = { ENCODER_CCW_CW(BACK,     FWD),      ENCODER_CCW_CW(BACK,     FWD) },
+    [_FUN]  = { ENCODER_CCW_CW(KC_BRID,  KC_BRIU),  ENCODER_CCW_CW(KC_BRID,  KC_BRIU) },
+    [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC), ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) },
+    [_ADD]  = { ENCODER_CCW_CW(XXXXXXX,  XXXXXXX),  ENCODER_CCW_CW(XXXXXXX,  XXXXXXX) },
+    [_NRM]  = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU),  ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) }
+                /* Top encoder *****************/   /* Bottom encoder **************/
+};
+#endif

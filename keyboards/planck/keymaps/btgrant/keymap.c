@@ -17,7 +17,6 @@
 
 #include QMK_KEYBOARD_H
 #include "btgrant.h"
-#include "combos.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
 #include "key_overrides.h"
@@ -27,12 +26,22 @@
 #    include "muse.h"
 #endif
 
+#ifdef COMBO_ENABLE
+const uint16_t PROGMEM MUTE[] = {KC_VOLU, KC_VOLD, COMBO_END};
+const uint16_t PROGMEM PLAY[] = {KC_MNXT, KC_MPRV, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(MUTE, KC_MUTE),
+    COMBO(PLAY, KC_MPLY),
+};
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_planck_grid(
-        ___5BASE_1_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_1_R___,
+        ___5BASE_1_L___,                         BACK,     FWD,                      ___5BASE_1_R___,
         ___5BASE_2_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_2_R___,
-        ___5BASE_3_L___,                      XXXXXXX, XXXXXXX,                      ___5BASE_3_R___,
-        ENC_BASE,XXXXXXX, ___BASE_THUMB_L___, XXXXXXX, XXXXXXX, ___BASE_THUMB_R___, XXXXXXX, XXXXXXX
+        ___5BASE_3_L___,                      KC_MPRV, KC_MNXT,                      ___5BASE_3_R___,
+        ENC_BASE,XXXXXXX, ___BASE_THUMB_L___, KC_VOLD, KC_VOLU, ___BASE_THUMB_R___, XXXXXXX, XXXXXXX
     ),
     [_NUM] = LAYOUT_btgrant_planck_grid(
         ___5NUM_1_L___,                       XXXXXXX, XXXXXXX,                       ___5NUM_1_R___,
