@@ -2,6 +2,13 @@ SRC += btgrant.c
 SRC += macros.c
 SRC += features/achordion.c
 
+ifeq ($(strip $(THUMB_SWAP)), yes)
+OPT_DEFS += -DTHUMB_SWAP
+  $(info swapping thumbs)
+else
+  $(info default thumbs)
+endif
+
 DYNAMIC_TAPPING_TERM_ENABLE = no
 NKRO_ENABLE	= no
 

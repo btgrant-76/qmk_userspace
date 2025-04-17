@@ -158,18 +158,30 @@ enum {
 #define ___5BASE_1_L___     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define ___5BASE_2_L___     A_CTL,   S_ALT,   D_GUI,   F_SFT,   KC_G
 #define ___5BASE_3_L___     Z_HYPR,   KC_X,    KC_C,    KC_V,   B_MEH
-#define ___BASE_THUMB_L___                    TAB_FUN, BS_NUM,  ESC_MSE
+#ifdef THUMB_SWAP
+  #define ___BASE_THUMB_L___                    ESC_FUN, TAB_MSE, BS_NUM
+#else // THUMB_SWAP
+  #define ___BASE_THUMB_L___                    TAB_FUN, BS_NUM,  ESC_MSE
+#endif // THUMB_SWAP
 
 #define ___5BASE_1_R___     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define ___5BASE_2_R___     KC_H,    J_SFT,   K_GUI,   L_ALT,   SCLN_CTL
 #define ___5BASE_3_R___     N_MEH,   KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
-#define ___BASE_THUMB_R___  ENT_MSE, SPC_NAV, DEL_MED
+#ifdef THUMB_SWAP
+  #define ___BASE_THUMB_R___  SPC_NAV, DEL_MSE, ENT_SYM
+#else // THUMB_SWAP
+  #define ___BASE_THUMB_R___  ENT_MSE, SPC_NAV, DEL_MED
+#endif // THUMB_SWAP
 
 /*** number ***/
 #define ___5NUM_1_L___      CLIPBOARD_L
 #define ___5NUM_2_L___      KC_LCTL, S_ALT,   KC_LGUI, KC_LSFT, CAPWD_TG
 #define ___5NUM_3_L___      KC_ESC,  XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
-#define ___NUM_THUMB_L___                     KC_DEL,  HOLD, KC_BSPC
+#ifdef THUMB_SWAP
+  #define ___NUM_THUMB_L___                     KC_DEL,  KC_BSPC, HOLD
+#else // THUMB_SWAP
+  #define ___NUM_THUMB_L___                     KC_DEL,  HOLD, KC_BSPC
+#endif // THUMB_SWAP
 
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
 #define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_QUOT
@@ -180,23 +192,39 @@ enum {
 #define ___5SYM_1_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 #define ___5SYM_2_L___      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI
 #define ___5SYM_3_L___      RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
-#define ___SYM_THUMB_L___                     KC_MUTE, KC_MPLY, KC_MSTP
+#ifdef THUMB_SWAP
+  #define ___SYM_THUMB_L___                     KC_MSTP, KC_MUTE, KC_MPLY
+#else // THUMB_SWAP
+  #define ___SYM_THUMB_L___                     KC_MUTE, KC_MPLY, KC_MSTP
+#endif // THUMB_SWAP
 
 #define ___5SYM_1_R___      KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR
 #define ___5SYM_2_R___      KC_PLUS, KC_DLR,  KC_PERC, KC_CIRC, KC_DQT
 #define ___5SYM_3_R___      KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD
-#define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, HOLD
+#ifdef THUMB_SWAP
+  #define ___SYM_THUMB_R___   LPRN_MSE, HOLD, KC_UNDS
+#else // THUMB_SWAP
+  #define ___SYM_THUMB_R___   KC_UNDS, LPRN_MSE, HOLD
+#endif // THUMB_SWAP
 
 /*** navigation ***/
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
 #define ___5NAV_2_L___      HRM_L,                        XXXXXXX
 #define ___5NAV_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ___NAV_THUMB_L___                     DEL_GUI, KC_BSPC, KC_ENT
+#ifdef THUMB_SWAP
+  #define ___NAV_THUMB_L___                     KC_BSPC, KC_ENT, DEL_GUI
+#else // THUMB_SWAP
+  #define ___NAV_THUMB_L___                     DEL_GUI, KC_BSPC, KC_ENT
+#endif // THUMB_SWAP
 
 #define ___5NAV_1_R___      CLIPBOARD_R
 #define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
-#define ___NAV_THUMB_R___   XXXXXXX, HOLD, XXXXXXX
+#ifdef THUMB_SWAP
+  #define ___NAV_THUMB_R___   HOLD, XXXXXXX, XXXXXXX
+#else // THUMB_SWAP
+  #define ___NAV_THUMB_R___   XXXXXXX, HOLD, XXXXXXX
+#endif // THUMB_SWAP
 
 /*** function ***/
 #define ___5FUN_1_L___      LOG_OUT, XXXXXXX, SCRN2CLP, SCRN2FL, XXXXXXX
