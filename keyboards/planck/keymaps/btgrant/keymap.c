@@ -21,6 +21,7 @@
 #include "encoder_press.h"
 #include "key_overrides.h"
 #include "tap_dances.c"
+#include "combo_defs.h"
 
 #ifdef AUDIO_ENABLE
 #    include "muse.h"
@@ -33,6 +34,12 @@ const uint16_t PROGMEM PLAY[] = {KC_MNXT, KC_MPRV, COMBO_END};
 combo_t key_combos[] = {
     COMBO(MUTE, KC_MUTE),
     COMBO(PLAY, KC_MPLY),
+    COMBO(QUOT, KC_QUOT),
+    COMBO(D_QUOT, KC_DQT),
+    COMBO(ESC_Z_X, KC_ESC),
+    COMBO(ESC_C_V, KC_ESC),
+    COMBO(ENTER_M_COMM, KC_ENT),
+    COMBO(CAPS, KC_CAPS),
 };
 #endif
 
