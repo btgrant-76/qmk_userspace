@@ -189,9 +189,9 @@ enum {
 #define ___NUM_THUMB_R___   KC_MINS, KC_0,    KC_DOT
 
 /*** symbol ***/
-#define ___5SYM_1_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5SYM_1_L___      RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
 #define ___5SYM_2_L___      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI
-#define ___5SYM_3_L___      RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
+#define ___5SYM_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 #ifdef THUMB_SWAP
   #define ___SYM_THUMB_L___                   KC_MSTP, KC_MUTE, KC_MPLY
 #else
