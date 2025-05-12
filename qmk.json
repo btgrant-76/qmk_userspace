@@ -25,6 +25,7 @@
         ["tsquash/lesovoz", "btgrant"],
         ["tsquash/willy", "btgrant"],
         ["waterfowl", "btgrant"],
-        ["ziptyze/lets_split_v3", "btgrant"]
+        ["ziptyze/lets_split_v3", "btgrant"],
+        ["jlw/bruce_le_clavier", "btgrant"]
     ]
 }
