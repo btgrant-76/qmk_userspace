@@ -325,6 +325,52 @@ enum {
 #define ___MSE_1_R___       ___5MSE_1_R___, XXXXXXX
 #define ___MSE_2_R___       ___5MSE_2_R___, XXXXXXX
 #define ___MSE_3_R___       ___5MSE_3_R___, XXXXXXX
+
+/** alternate thumbs **/
+/*** four thumbs ***/
+#define ___BASE_4_THUMB_L___ TAB_MSE, BS_NUM
+#define ___BASE_4_THUMB_R___ SPC_NAV, DEL_MSE
+
+#define ___NUM_4_THUMB_L___ XXXXXXX, XXXXXXX
+#define ___NUM_4_THUMB_R___ KC_MINS,    KC_0
+
+#define ___SYM_4_THUMB_L___ KC_MUTE, KC_MPLY
+#define ___SYM_4_THUMB_R___ LPRN_MSE, XXXXXXX
+
+#define ___NAV_4_THUMB_L___ XXXXXXX, XXXXXXX
+#define ___NAV_4_THUMB_R___ XXXXXXX, XXXXXXX
+
+#define ___FUN_4_THUMB_L___ XXXXXXX, MO(_MSE)
+#define ___FUN_4_THUMB_R___ MO(_ADD), XXXXXXX
+
+#define ___MSE_4_THUMB_L___ XXXXXXX, XXXXXXX
+#define ___MSE_4_THUMB_R___ XXXXXXX, XXXXXXX
+
+#define ___ADD_4_THUMB_L___ XXXXXXX, XXXXXXX
+#define ___ADD_4_THUMB_R___ XXXXXXX, XXXXXXX
+
+/*** six thumbs shifted ***/
+#define ___BASE_ALT_THUMB_L___  ESC_FUN, ___BASE_4_THUMB_L___
+#define ___BASE_ALT_THUMB_R___  ___BASE_4_THUMB_R___, ENT_SYM
+
+#define ___NUM_ALT_THUMB_L___  XXXXXXX, ___NUM_4_THUMB_L___
+#define ___NUM_ALT_THUMB_R___  ___NUM_4_THUMB_R___, DOT_TD
+
+#define ___SYM_ALT_THUMB_L___  XXXXXXX, ___SYM_4_THUMB_L___
+#define ___SYM_ALT_THUMB_R___  ___SYM_4_THUMB_R___, KC_RPRN
+
+#define ___NAV_ALT_THUMB_L___  XXXXXXX, ___NAV_4_THUMB_L___
+#define ___NAV_ALT_THUMB_R___  ___NAV_4_THUMB_R___, XXXXXXX
+
+#define ___FUN_ALT_THUMB_L___  XXXXXXX, ___FUN_4_THUMB_L___
+#define ___FUN_ALT_THUMB_R___  ___FUN_4_THUMB_R___, XXXXXXX
+
+#define ___MSE_ALT_THUMB_L___  XXXXXXX, ___MSE_4_THUMB_L___
+#define ___MSE_ALT_THUMB_R___  ___MSE_4_THUMB_R___, XXXXXXX
+
+#define ___ADD_ALT_THUMB_L___  XXXXXXX, ___ADD_4_THUMB_L___
+#define ___ADD_ALT_THUMB_R___  ___ADD_4_THUMB_R___, XXXXXXX
+
 // clang-format on
 
 /** layout macros **/
