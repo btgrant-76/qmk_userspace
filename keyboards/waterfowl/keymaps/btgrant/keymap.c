@@ -16,10 +16,12 @@
 */
 
 #include QMK_KEYBOARD_H
+
 #include "btgrant.h"
-#include "combos.h"
 #include "tap_dances.c"
 #include "key_overrides.h"
+
+#include "combos.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(

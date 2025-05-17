@@ -16,19 +16,26 @@
  */
 
 #include QMK_KEYBOARD_H
+
 #include "btgrant.h"
 #include "key_overrides.h"
 #include "tap_dances.c"
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM MUTE[] = {KC_VOLU, KC_VOLD, COMBO_END};
-const uint16_t PROGMEM PLAY[] = {KC_MNXT, KC_MPRV, COMBO_END};
-const uint16_t PROGMEM LOG_OUT_CM[] = {KC_BRIU, KC_BRID, COMBO_END};
+
+#include "combo_defs.h"
 
 combo_t key_combos[] = {
     COMBO(MUTE, KC_MUTE),
     COMBO(PLAY, KC_MPLY),
     COMBO(LOG_OUT_CM, LOG_OUT),
+
+    // combo typing reintroduction
+    COMBO(QUOT, KC_QUOT),
+    COMBO(ESC_Z_X, KC_ESC),
+    COMBO(ESC_Q_W, KC_ESC),
+    COMBO(ENTER_SLSH_DOT, KC_ENT),
+    COMBO(CAPS, KC_CAPS),
 };
 #endif
 

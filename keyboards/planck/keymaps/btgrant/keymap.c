@@ -16,20 +16,20 @@
  */
 
 #include QMK_KEYBOARD_H
+
 #include "btgrant.h"
-#include "encoder_map.h"
-#include "encoder_press.h"
 #include "key_overrides.h"
 #include "tap_dances.c"
-#include "combo_defs.h"
+
+#include "encoder_map.h"
+#include "encoder_press.h"
 
 #ifdef AUDIO_ENABLE
 #    include "muse.h"
 #endif
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM MUTE[] = {KC_VOLU, KC_VOLD, COMBO_END};
-const uint16_t PROGMEM PLAY[] = {KC_MNXT, KC_MPRV, COMBO_END};
+#include "combo_defs.h"
 
 combo_t key_combos[] = {
     COMBO(MUTE, KC_MUTE),

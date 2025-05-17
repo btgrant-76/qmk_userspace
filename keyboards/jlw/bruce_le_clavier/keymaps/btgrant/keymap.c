@@ -3,12 +3,14 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+
 #include "btgrant.h"
-#include "encoder_press.h"
-#include "encoder_map.h"
-#include "four_thumb_combos.h"
 #include "key_overrides.h"
 #include "tap_dances.c"
+
+#include "encoder_map.h"
+#include "encoder_press.h"
+#include "four_thumb_combos.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(

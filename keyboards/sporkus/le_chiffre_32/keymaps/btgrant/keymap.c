@@ -4,12 +4,14 @@
 
 #include QMK_KEYBOARD_H
 #include "../../../../../keyboard_defs/sporkus/le_chiffre_32/rgb.c" // TODO should this be in one of the keyboard-level files?
+
 #include "btgrant.h"
+#include "key_overrides.h"
+#include "tap_dances.c"
+
 #include "encoder_press.h"
 #include "encoder_map.h"
 #include "four_thumb_combos.h"
-#include "key_overrides.h"
-#include "tap_dances.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(

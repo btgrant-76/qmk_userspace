@@ -2,18 +2,16 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+
 #include "btgrant.h"
-#include "encoder_map.h"
-#include "encoder_press.h"
 #include "key_overrides.h"
 #include "tap_dances.c"
 
-#ifdef COMBO_ENABLE
-#   include "combo_defs.h"
+#include "encoder_map.h"
+#include "encoder_press.h"
 
-const uint16_t PROGMEM MUTE[] = {KC_VOLU, KC_VOLD, COMBO_END};
-const uint16_t PROGMEM PLAY[] = {KC_MNXT, KC_MPRV, COMBO_END};
-const uint16_t PROGMEM LOG_OUT_CM[] = {KC_BRIU, KC_BRID, COMBO_END};
+#ifdef COMBO_ENABLE
+#include "combo_defs.h"
 
 combo_t key_combos[] = {
     // thumb keys
