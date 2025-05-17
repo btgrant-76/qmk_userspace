@@ -204,7 +204,7 @@ enum {
 #ifdef THUMB_SWAP
   #define ___SYM_THUMB_R___ LPRN_MSE,HOLD,    KC_UNDS
 #else
-  #define ___SYM_THUMB_R___ KC_UNDS, LPRN_MSE,HOLD
+  #define ___SYM_THUMB_R___ KC_UNDS, LPRN_MSE, HOLD
 #endif
 
 /*** navigation ***/
@@ -251,14 +251,14 @@ enum {
 #define ___MSE_THUMB_R___   HOLD,    HOLD,    XXXXXXX
 
 /*** additional features ***/
-#define ___5ADD_1_L___      QK_BOOT, XXXXXXX, XXXXXXX, DF(_BASE),DF(_NRM)
-#define ___5ADD_2_L___      XXXXXXX, DT_PRNT, DT_DOWN, DT_UP,    XXXXXXX
-#define ___5ADD_3_L___      XXXXXXX, AS_RPT,  AS_DOWN, AS_UP,    XXXXXXX
+#define ___5ADD_1_L___      RGB_SAI, RGB_MOD, RGB_RMOD,RGB_SAD,  RGB_TOG
+#define ___5ADD_2_L___      RGB_SPI, RGB_HUI, RGB_HUD, RGB_SPD,  XXXXXXX
+#define ___5ADD_3_L___      XXXXXXX, RGB_VAI, RGB_VAD, XXXXXXX,  QK_BOOT
 #define ___ADD_THUMB_L___                     XXXXXXX, XXXXXXX,  XXXXXXX
 
 #define ___5ADD_1_R___      CLIPBOARD_R
-#define ___5ADD_2_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ___5ADD_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5ADD_2_R___      DT_PRNT, DT_UP,   DT_DOWN, XXXXXXX, DF(_NRM)
+#define ___5ADD_3_R___      AS_RPT,  AS_UP,   AS_DOWN, XXXXXXX, DF(_BASE)
 #define ___ADD_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
 
 /** 12u **/
