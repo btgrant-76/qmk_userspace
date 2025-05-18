@@ -1,5 +1,5 @@
-/* Copyright 2023 Colin Lam (Ploopy Corporation)
- * Copyright 2025 Brian Grant @btgrant-76
+/* Copyright 2025 Brian Grant @btgrant-76
+ * Copyright 2023 Colin Lam (Ploopy Corporation)
  * Copyright 2020 Christopher Courtney, aka Drashna Jael're  (@drashna) <drashna@live.com>
  * Copyright 2019 Sunjun Kim
  *
@@ -18,14 +18,6 @@
  */
 #include QMK_KEYBOARD_H
 
-/* TODO define some combos
- *  x changing DPI
- *  - mission control
- *  - add a layer
- *  - add a boot key
- */
-
-
 #define HOLD     XXXXXXX
 #define BACK     LCMD(KC_LBRC)
 #define FWD      LCMD(KC_RBRC)
@@ -36,11 +28,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT( BACK,    FWD,        KC_BTN3, KC_BTN2,
                   KC_BTN1,                      DRAG_SCROLL
     ),
-    [1] = LAYOUT( KC_MPRV, XXXXXXX,    XXXXXXX, KC_MNXT,
-                  KC_BTN1,                      KC_BTN2
+    [1] = LAYOUT( KC_MPRV, MISS_CTL,   EXPOSE, KC_MNXT,
+                  KC_BTN1,                      TG(1)
     ),
-    [2] = LAYOUT( XXXXXXX, DPI_CONFIG, XXXXXXX, XXXXXXX,
-                  KC_BTN1,                      KC_BTN2
+    [2] = LAYOUT( XXXXXXX, DPI_CONFIG, XXXXXXX, QK_BOOT,
+                  KC_BTN1,                      TG(2)
     )
 };
 
@@ -49,12 +41,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM l1[] = {KC_BTN1, KC_BTN2, COMBO_END};
 const uint16_t PROGMEM l2[] = {BACK, FWD, COMBO_END};
 const uint16_t PROGMEM play[] = {KC_MNXT, KC_MPRV, COMBO_END};
-//const uint16_t PROGMEM MISS[] = {KC_MNXT, KC_MPRV, COMBO_END};
-
 
 combo_t key_combos[] = {
-    COMBO(l1, TG(1)), // TODO this would work better as a toggle
-    COMBO(l2, TG(2)), // TODO this would work better as a toggle
-    COMBO(play,  KC_MPLY)
+    COMBO(l1, TG(1)),
+    COMBO(l2, TG(2)),
+    COMBO(play, KC_MPLY)
 };
 #endif
