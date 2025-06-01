@@ -331,23 +331,23 @@ enum {
 #define ___BASE_4_THUMB_L___ TAB_MSE, BS_NUM
 #define ___BASE_4_THUMB_R___ SPC_NAV, DEL_MSE
 
-#define ___NUM_4_THUMB_L___ XXXXXXX, XXXXXXX
-#define ___NUM_4_THUMB_R___ KC_MINS,    KC_0
+#define ___NUM_4_THUMB_L___ KC_BSPC,  HOLD
+#define ___NUM_4_THUMB_R___ KC_MINS,  KC_0
 
-#define ___SYM_4_THUMB_L___ KC_MUTE, KC_MPLY
+#define ___SYM_4_THUMB_L___ KC_MUTE,  KC_MPLY
 #define ___SYM_4_THUMB_R___ LPRN_MSE, XXXXXXX
 
 #define ___NAV_4_THUMB_L___ XXXXXXX, XXXXXXX
-#define ___NAV_4_THUMB_R___ XXXXXXX, XXXXXXX
+#define ___NAV_4_THUMB_R___ HOLD,    XXXXXXX
 
 #define ___FUN_4_THUMB_L___ XXXXXXX, MO(_MSE)
 #define ___FUN_4_THUMB_R___ MO(_ADD), XXXXXXX
 
-#define ___MSE_4_THUMB_L___ XXXXXXX, XXXXXXX
-#define ___MSE_4_THUMB_R___ XXXXXXX, XXXXXXX
+#define ___MSE_4_THUMB_L___ HOLD,    XXXXXXX
+#define ___MSE_4_THUMB_R___ XXXXXXX, HOLD
 
 #define ___ADD_4_THUMB_L___ XXXXXXX, XXXXXXX
-#define ___ADD_4_THUMB_R___ XXXXXXX, XXXXXXX
+#define ___ADD_4_THUMB_R___ HOLD,    XXXXXXX
 
 /*** six thumbs shifted ***/
 #define ___BASE_ALT_THUMB_L___  ESC_FUN, ___BASE_4_THUMB_L___
@@ -362,7 +362,7 @@ enum {
 #define ___NAV_ALT_THUMB_L___  XXXXXXX, ___NAV_4_THUMB_L___
 #define ___NAV_ALT_THUMB_R___  ___NAV_4_THUMB_R___, XXXXXXX
 
-#define ___FUN_ALT_THUMB_L___  XXXXXXX, ___FUN_4_THUMB_L___
+#define ___FUN_ALT_THUMB_L___  HOLD,    ___FUN_4_THUMB_L___
 #define ___FUN_ALT_THUMB_R___  ___FUN_4_THUMB_R___, XXXXXXX
 
 #define ___MSE_ALT_THUMB_L___  XXXXXXX, ___MSE_4_THUMB_L___
