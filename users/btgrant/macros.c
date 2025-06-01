@@ -84,11 +84,11 @@ void macos_log_out(void) {
 };
 
 void vim_write(void) {
-    SEND_STRING(SS_TAP(X_ESC) ":w" SS_TAP(X_ENT));
+    SEND_STRING(SS_TAP(X_ESC) ":w" SS_DELAY(100) SS_TAP(X_ENT));
 };
 
 void vim_write_and_quit(void) {
-    SEND_STRING(SS_TAP(X_ESC) ":wq" SS_TAP(X_ENT));
+    SEND_STRING(SS_TAP(X_ESC) ":wq" SS_DELAY(100) SS_TAP(X_ENT));
 };
 
 void new_browser_window_you_jerk(void) {
@@ -105,6 +105,12 @@ void tag_close_insert(void) {
 
 void tag_void_insert(void) {
     generic_insert("< />");
+    tap_code(KC_LEFT);
+    tap_code(KC_LEFT);
+};
+
+void js_console_log(void) {
+    generic_insert("console.log('');");
     tap_code(KC_LEFT);
     tap_code(KC_LEFT);
 };

@@ -284,6 +284,8 @@ void leader_end_user(void) {
         tag_close_insert();
     } else if (leader_sequence_two_keys(KC_T, KC_V)) {
         tag_void_insert();
+    } else if (leader_sequence_three_keys(KC_L, KC_O, KC_G)) {
+        js_console_log();
     // others...
     } else if (leader_sequence_two_keys(KC_A, KC_F)) {
          SEND_STRING("=> {}" SS_TAP(X_LEFT) SS_TAP(X_ENT));

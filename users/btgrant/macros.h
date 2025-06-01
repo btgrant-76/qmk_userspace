@@ -43,3 +43,5 @@ void tag_void_insert(void);
 void vim_write(void);
 
 void vim_write_and_quit(void);
+
+void js_console_log(void);
