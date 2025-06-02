@@ -1,3 +1,7 @@
+ifeq ($(strip $(BOTTOM_ENCODER)), yes)
+    OPT_DEFS += -DBOTTOM_ENCODER
+endif
+
 VIA_ENABLE = no
 VIAL_ENABLE = no
 COMBO_ENABLE = yes

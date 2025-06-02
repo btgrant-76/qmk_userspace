@@ -10,59 +10,80 @@
 
 #include "four_thumb_combos.h"
 
+#define BLOCKER XXXXXXX
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(
         ___5BASE_1_L___,                                                         ___5BASE_1_R___,
         ___5BASE_2_L___,                                                         ___5BASE_2_R___,
         ___5BASE_3_L___,                                                         ___5BASE_3_R___,
-        BACK,    ESC_FUN, TAB_MSE, XXXXXXX,  BS_NUM, SPC_NAV, XXXXXXX, DEL_MSE, ENT_SYM, FWD
+#ifdef FOUR_THUMBS
+        BACK,    ESC_FUN, TAB_MSE, XXXXXXX,  BS_NUM, SPC_NAV, XXXXXXX, DEL_MSE, ENT_SYM,     FWD
+#else
+        BLOCKER, XXXXXXX, ___BASE_THUMB_L___,               ___BASE_THUMB_R___, XXXXXXX, BLOCKER
+#endif
     ),
     [_NUM] = LAYOUT_btgrant(
         ___5NUM_1_L___,                                                           ___5NUM_1_R___,
         ___5NUM_2_L___,                                                           ___5NUM_2_R___,
         ___5NUM_3_L___,                                                           ___5NUM_3_R___,
+#ifdef FOUR_THUMBS
         _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, XXXXXXX,    KC_0, _______, _______
+#else
+        BLOCKER, XXXXXXX, ___NUM_THUMB_L___,                ___NUM_THUMB_R___,  XXXXXXX, BLOCKER
+#endif
     ),
     [_SYM] = LAYOUT_btgrant(
         ___5SYM_1_L___,                                                           ___5SYM_1_R___,
         ___5SYM_2_L___,                                                           ___5SYM_2_R___,
         ___5SYM_3_L___,                                                           ___5SYM_3_R___,
+#ifdef FOUR_THUMBS
         _______, _______, KC_MUTE, XXXXXXX, KC_MPLY,LPRN_MSE, XXXXXXX, XXXXXXX, _______, _______
+#else
+        BLOCKER, XXXXXXX, ___SYM_THUMB_L___,                ___SYM_THUMB_R___,  XXXXXXX, BLOCKER
+#endif
     ),
     [_NAV] = LAYOUT_btgrant(
         ___5NAV_1_L___,                                                           ___5NAV_1_R___,
         ___5NAV_2_L___,                                                           ___5NAV_2_R___,
         ___5NAV_3_L___,                                                           ___5NAV_3_R___,
+#ifdef FOUR_THUMBS
         _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
+#else
+        BLOCKER, XXXXXXX, ___NAV_THUMB_L___,                ___NAV_THUMB_R___,  XXXXXXX, BLOCKER
+#endif
     ),
     [_FUN] = LAYOUT_btgrant(
         ___5FUN_1_L___,                                                           ___5FUN_1_R___,
         ___5FUN_2_L___,                                                           ___5FUN_2_R___,
         ___5FUN_3_L___,                                                           ___5FUN_3_R___,
+#ifdef FOUR_THUMBS
         _______, _______, XXXXXXX, XXXXXXX,MO(_MSE),MO(_ADD), XXXXXXX, XXXXXXX, _______, _______
+#else
+        BLOCKER, XXXXXXX, ___FUN_THUMB_L___,                ___FUN_THUMB_R___,  XXXXXXX, BLOCKER
+#endif
     ),
     [_MSE] = LAYOUT_btgrant(
         ___5MSE_1_L___,                                                           ___5MSE_1_R___,
         ___5MSE_2_L___,                                                           ___5MSE_2_R___,
         ___5MSE_3_L___,                                                           ___5MSE_3_R___,
+#ifdef FOUR_THUMBS
         _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
+#else
+        BLOCKER, XXXXXXX, ___MSE_THUMB_L___,                ___MSE_THUMB_R___,  XXXXXXX, BLOCKER
+#endif
     ),
     [_ADD] = LAYOUT_btgrant(
         ___5ADD_1_L___,                                                           ___5ADD_1_R___,
         ___5ADD_2_L___,                                                           ___5ADD_2_R___,
         ___5ADD_3_L___,                                                           ___5ADD_3_R___,
+#ifdef FOUR_THUMBS
         _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
+#else
+        BLOCKER, XXXXXXX, ___ADD_THUMB_L___,                ___ADD_THUMB_R___, XXXXXXX, BLOCKER
+#endif
     )
 };
-
-//bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-//                            keyrecord_t* tap_hold_record,
-//                            uint16_t other_keycode,
-//                            keyrecord_t* other_record) {
-//
-//  return tap_hold_record->event.key.row == 3;
-//}
-
 
 #ifdef RGB_MATRIX_ENABLE
 
