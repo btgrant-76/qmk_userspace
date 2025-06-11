@@ -7,9 +7,9 @@
 #include "key_overrides.h"
 #include "tap_dances.c"
 
-#include "combos.h"
 #include "encoder_map.h"
 #include "encoder_press.h"
+#include "four_thumb_combos.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_btgrant_vault_katana(

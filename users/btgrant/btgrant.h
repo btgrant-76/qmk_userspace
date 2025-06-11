@@ -87,6 +87,7 @@ enum {
 #define K_GUI RGUI_T(KC_K) //:K/Cmd
 #define L_ALT RALT_T(KC_L) //:L/Alt
 #define SCLN_CTL RCTL_T(KC_SCLN) //:;_:/Ctl
+#define QUOT_CTL RCTL_T(KC_QUOT) //:;_:/Ctl // QUOTE_ON_BASE
 #define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||GUI||Sft
 #define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||GUI||Opt||Ctl
 
@@ -165,7 +166,7 @@ enum {
 #endif
 
 #define ___5BASE_1_R___      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define ___5BASE_2_R___      KC_H,    J_SFT,   K_GUI,   L_ALT,   SCLN_CTL
+#define ___5BASE_2_R___      KC_H,    J_SFT,   K_GUI,   L_ALT,   QUOT_CTL // QUOTE_ON_BASE  SCLN_CTL
 #define ___5BASE_3_R___      N_MEH,   KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
 #ifdef THUMB_SWAP
   #define ___BASE_THUMB_R___ SPC_NAV, DEL_MSE, ENT_SYM
@@ -184,7 +185,7 @@ enum {
 #endif
 
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_QUOT
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_SCLN // QUOTE_ON_BASE  KC_QUOT
 #define ___5NUM_3_R___      KC_BSLS, KC_1,    KC_2,    KC_3,    KC_GRV
 #define ___NUM_THUMB_R___   KC_MINS, KC_0,    KC_DOT
 
@@ -218,7 +219,7 @@ enum {
 #endif
 
 #define ___5NAV_1_R___      CLIPBOARD_R
-#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT
+#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_SCLN  // QUOTE_ON_BASE  KC_QUOT
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
 #ifdef THUMB_SWAP
   #define ___NAV_THUMB_R___ HOLD,    XXXXXXX, XXXXXXX
@@ -374,7 +375,6 @@ enum {
 // clang-format on
 
 /** layout macros **/
-// TODO does it make sense to have these here? Should they be in their own file or even localized to the keymaps that use them?
 #define LAYOUT_btgrant(...)              LAYOUT(__VA_ARGS__)
 #define LAYOUT_btgrant_all(...)          LAYOUT_all(__VA_ARGS__)
 #define LAYOUT_btgrant_3x5(...)          LAYOUT_split_3x5_3(__VA_ARGS__)

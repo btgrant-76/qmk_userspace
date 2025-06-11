@@ -23,11 +23,13 @@ combo_t key_combos[] = {
     COMBO(PLAY, KC_MPLY),
     COMBO(LOG_OUT_CM, LOG_OUT),
 
+    /* DISPLACE TEST BEGIN
     // combo typing reintroduction
     COMBO(QUOT, KC_QUOT),
     COMBO(ESC_Z_X, KC_ESC),
     COMBO(ESC_Q_W, KC_ESC),
     COMBO(ENTER_SLSH_DOT, KC_ENT),
+    DISPLACE TEST END */
     COMBO(CAPS, KC_CAPS),
 };
 #endif

@@ -49,6 +49,22 @@ bool achordion_chord(uint16_t tap_hold_keycode,
         case S_ALT:
           return true;
       }
+
+    /* DISPLACE TEST
+    case A_CTL: // supports key override two_thumb_esc_ko
+      switch (other_keycode) {
+        case BS_NUM:
+          return true;
+      }
+    case SCLN_CTL: // supports key override two_thumb_enter_ko
+      switch (other_keycode) {
+        case SPC_NAV:
+          return true;
+      }
+    */
+
+    /* 2025-06-20:  commented out because I don't think these are capable of doing anything.
+     *   it looks like the intent was to make same-hand layer triggering work so I could move keys like Esc & Enter to layers
     // TODO do these help? Test them out.
     case BS_NUM:
       switch (other_keycode) {
@@ -62,6 +78,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
         case KC_ENT:
           return true;
      }
+     */
   }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
