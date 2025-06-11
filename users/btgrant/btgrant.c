@@ -49,6 +49,20 @@ bool achordion_chord(uint16_t tap_hold_keycode,
         case S_ALT:
           return true;
       }
+
+    /*
+    case A_CTL: // supports key override two_thumb_esc_ko
+      switch (other_keycode) {
+        case BS_NUM:
+          return true;
+      }
+    case SCLN_CTL: // supports key override two_thumb_enter_ko
+      switch (other_keycode) {
+        case SPC_NAV:
+          return true;
+      }
+    */
+
     // TODO do these help? Test them out.
     case BS_NUM:
       switch (other_keycode) {

@@ -10,5 +10,7 @@ combo_t key_combos[] = {
     COMBO(ENTER_M_COMM, KC_ENT),
 //    COMBO(ENTER_SLSH_DOT, KC_ENT),
     COMBO(CAPS, KC_CAPS),
+/* DISPLACE TEST BEGIN
+DISPLACE TEST END */
 };
 #endif

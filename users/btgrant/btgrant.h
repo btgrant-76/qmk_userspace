@@ -218,7 +218,7 @@ enum {
 #endif
 
 #define ___5NAV_1_R___      CLIPBOARD_R
-#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT
+#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_QUOT /* DISPLACE TEST this is only still here for key repeat troubleshooting */
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
 #ifdef THUMB_SWAP
   #define ___NAV_THUMB_R___ HOLD,    XXXXXXX, XXXXXXX
@@ -374,7 +374,6 @@ enum {
 // clang-format on
 
 /** layout macros **/
-// TODO does it make sense to have these here? Should they be in their own file or even localized to the keymaps that use them?
 #define LAYOUT_btgrant(...)              LAYOUT(__VA_ARGS__)
 #define LAYOUT_btgrant_all(...)          LAYOUT_all(__VA_ARGS__)
 #define LAYOUT_btgrant_3x5(...)          LAYOUT_split_3x5_3(__VA_ARGS__)
