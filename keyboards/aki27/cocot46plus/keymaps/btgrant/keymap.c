@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___BASE_2_L___,                                      ___BASE_2_R___,
         ___BASE_3_L___,                                      ___BASE_3_R___,
         BACK, ___BASE_THUMB_L___, KC_BTN1, KC_BTN2, ___BASE_THUMB_R___, FWD,
-                             KC_PGUP, KC_BTN3, KC_PGDN,
+                             KC_MS_U, KC_BTN3, KC_MS_D,
                              XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant(
