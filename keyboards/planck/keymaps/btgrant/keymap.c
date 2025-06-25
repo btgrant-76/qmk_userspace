@@ -147,16 +147,24 @@ bool achordion_chord_keymap(uint16_t tap_hold_keycode,
     dprintln("achordion_chord_keymap called");
     #endif
 
-    if (other_record->event.key.row == 7) { // inner thumb keys
-        switch (other_record->event.key.col) {
-            case 3 ... 4:
-                if (tap_hold_record->event.key.row == 5 || tap_hold_record->event.key.row == 6) {
-                    #ifdef CONSOLE_ENABLE
-                    dprintln("achordion_chord_keymap: return true\n");
-                    #endif
-                    return true;
-                }
-        }
+    switch (other_record->event.key.row) {
+        case 7: // inner, two thumb keys
+            switch (other_record->event.key.col) {
+                case 3 ... 4:
+                    if (tap_hold_record->event.key.row == 5 || tap_hold_record->event.key.row == 6) { // right-side tap-holds
+                        #ifdef CONSOLE_ENABLE
+                        dprintln("achordion_chord_keymap: return true\n");
+                        #endif
+                        return true;
+                    }
+            }
+        case 3: // outer thumb keys
+            if (tap_hold_record->event.key.row == 1 || tap_hold_record->event.key.row == 2) { // left-side tap-holds
+                #ifdef CONSOLE_ENABLE
+                dprintln("achordion_chord_keymap: return true\n");
+                #endif
+                return true;
+            }
     }
 
     #ifdef CONSOLE_ENABLE
