@@ -86,8 +86,8 @@ enum {
 #define J_SFT RSFT_T(KC_J) //:J/Sft
 #define K_GUI RGUI_T(KC_K) //:K/Cmd
 #define L_ALT RALT_T(KC_L) //:L/Alt
-#define SCLN_CTL RCTL_T(KC_SCLN) //:;_:/Ctl
-#define QUOT_CTL RCTL_T(KC_QUOT) //:;_:/Ctl // QUOTE_ON_BASE
+#define SCLN_CTL RCTL_T(KC_SCLN) //:;_:/Ctl // QUOTE_ON_BASE
+#define QUOT_CTL RCTL_T(KC_QUOT) //:'_"/Ctl // QUOTE_ON_BASE
 #define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||GUI||Sft
 #define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||GUI||Opt||Ctl
 
