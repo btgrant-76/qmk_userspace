@@ -83,3 +83,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [_FN3]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX),  ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
     };
 #endif
+
+#ifdef COMBO_ENABLE
+const uint16_t PROGMEM mse3[] =      {KC_BTN1, KC_BTN2, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(mse3, KC_BTN3)
+};
+#endif
