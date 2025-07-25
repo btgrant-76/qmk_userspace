@@ -14,7 +14,6 @@ CONVERT_TO = helios
 
 ifdef FIVE_COL
 	OLED_ENABLE = no
-	RGB_MATRIX_ENABLE = no
 else
 	OLED_ENABLE = yes
 	RGB_MATRIX_ENABLE = yes
