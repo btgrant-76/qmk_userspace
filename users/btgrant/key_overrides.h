@@ -35,12 +35,6 @@ const key_override_t switcher_back = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, LSFT
 
 const key_override_t *key_overrides[] = {
     /* base layer */
-    /* DISPLACE TEST BEGIN
-    &esc_ko,
-    &quote_ko,
-    &enter_ko,
-    DISPLACE TEST END */
-    &scln_ko,
     &switcher_esc_ko,
 
     /** symbols on base **/

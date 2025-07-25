@@ -34,13 +34,6 @@
 combo_t key_combos[] = {
     COMBO(MUTE, KC_MUTE),
     COMBO(PLAY, KC_MPLY),
-    /* DISPLACE TEST BEGIN
-    COMBO(QUOT, KC_QUOT),
-    COMBO(D_QUOT, KC_DQT),
-    COMBO(ESC_Z_X, KC_ESC),
-    COMBO(ESC_C_V, KC_ESC),
-    COMBO(ENTER_M_COMM, KC_ENT),
-    DISPLACE TEST END */
     COMBO(CAPS, KC_CAPS),
 };
 #endif

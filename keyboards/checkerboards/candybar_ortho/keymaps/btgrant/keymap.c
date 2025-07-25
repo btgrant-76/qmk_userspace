@@ -29,20 +29,11 @@ combo_t key_combos[] = {
     COMBO(MUTE, KC_MUTE),
     COMBO(PLAY, KC_MPLY),
     COMBO(LOG_OUT_CM, LOG_OUT),
-
-    /* DISPLACE TEST BEGIN
-    // combo typing reintroduction
-    COMBO(QUOT, KC_QUOT),
-    COMBO(ESC_Z_X, KC_ESC),
-    COMBO(ESC_Q_W, KC_ESC),
-    COMBO(ENTER_SLSH_DOT, KC_ENT),
-    DISPLACE TEST END */
     COMBO(CAPS, KC_CAPS),
 };
 #endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
 [_BASE] = LAYOUT_btgrant_grid(
   //|--------------------------------------------------------------------------------------------------------------------------------------------------------|
        KC_ESC, KC_PSLS, KC_PAST, KC_PENT,                                       ___BASE_1_L___, KC_VOLU,                                       ___BASE_1_R___,
