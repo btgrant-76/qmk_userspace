@@ -1,6 +1,15 @@
+ifeq ($(strip $(TRY_CHORDAL_HOLD)), yes)
+OPT_DEFS += -DTRY_CHORDAL_HOLD
+$(info disabling achordion)
+else
+$(info using achordion)
+endif
+
 SRC += btgrant.c
 SRC += macros.c
+ifndef TRY_CHORDAL_HOLD
 SRC += features/achordion.c
+endif
 
 ifeq ($(strip $(THUMB_SWAP)), yes)
 OPT_DEFS += -DTHUMB_SWAP

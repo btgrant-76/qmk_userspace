@@ -17,3 +17,7 @@
 #pragma once
 
 #define COMBO_TERM 30
+
+#ifdef TRY_CHORDAL_HOLD
+    #define CHORDAL_HOLD
+#endif

@@ -1,3 +1,7 @@
+#ifdef TRY_CHORDAL_HOLD
+#define CHORDAL_HOLD
+#endif
+
 // all modes
 //#define CIRQUE_PINNACLE_TAP_ENABLE
 //#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE

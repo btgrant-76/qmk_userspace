@@ -2,6 +2,10 @@
 
 #pragma once
 
+#ifdef TRY_CHORDAL_HOLD
+#define CHORDAL_HOLD
+#endif
+
 #ifndef BOTTOM_ENCODER
 #define ENCODER_DIRECTION_FLIP
 #endif

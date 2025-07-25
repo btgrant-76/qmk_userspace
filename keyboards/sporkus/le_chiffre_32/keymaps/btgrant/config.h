@@ -8,3 +8,7 @@
     #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 255
     #undef ENCODER_MAP_ENABLE
 #endif
+
+#ifdef TRY_CHORDAL_HOLD
+    #define CHORDAL_HOLD
+#endif

@@ -4,3 +4,7 @@
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_DEFAULT_MODE (RGBLIGHT_MODE_RAINBOW_SWIRL + 5)
 #endif
+
+#ifdef TRY_CHORDAL_HOLD
+#define CHORDAL_HOLD
+#endif

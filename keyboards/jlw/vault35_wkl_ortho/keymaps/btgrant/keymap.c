@@ -36,6 +36,16 @@ combo_t key_combos[] = {
 
 #define LAYOUT_btgrant_cain_bars(...)    LAYOUT_cain_bars(__VA_ARGS__)
 
+#ifdef TRY_CHORDAL_HOLD
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_btgrant_cain_bars(
+        'L', 'L', 'L', 'L', 'L', '*', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', '*', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', '*', 'R', 'R', 'R', 'R', 'R',
+                  '*', '*', '*',      '*', '*', '*'
+    );
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_cain_bars(
         ___5BASE_1_L___,  KC_VOLU,                   ___5BASE_1_R___,

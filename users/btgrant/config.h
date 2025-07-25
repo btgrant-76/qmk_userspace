@@ -24,9 +24,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef TAPPING_FORCE_HOLD
 #undef TAPPING_TERM
 
+#ifdef TRY_CHORDAL_HOLD
+//#define HOLD_ON_OTHER_KEY_PRESS
+//#define PERMISSIVE_HOLD
+//#define TAPPING_TERM 200
+#else
+#endif
+
 #define TAPPING_TERM_PER_KEY
 #define TAPPING_TERM 145
 #define TAPPING_TERM_DECREASE_SHIFT 40
+
+//#ifdef TRY_CHORDAL_HOLD // TODO CHORDAL_HOLD this will make sense once all of the keyboards are migrated to chordal hold
+//#define CHORDAL_HOLD
+//#endif
 
 /* a record of my attempt to live with permissive hold
 #define TAPPING_TERM 250

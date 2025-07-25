@@ -17,10 +17,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "btgrant.h"
 #include "macros.h"
+#ifndef TRY_CHORDAL_HOLD
 #include "features/achordion.h"
+#endif
 
 // TODO would it work to move all the achordion-related functions into an achordion_int file?
 /* ACHORDION INTEGRATION BEGIN */
+#ifndef TRY_CHORDAL_HOLD
 __attribute__ ((weak))
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
                             keyrecord_t* tap_hold_record,
@@ -49,19 +52,6 @@ bool achordion_chord(uint16_t tap_hold_keycode,
         case S_ALT:
           return true;
       }
-
-    /* DISPLACE TEST
-    case A_CTL: // supports key override two_thumb_esc_ko
-      switch (other_keycode) {
-        case BS_NUM:
-          return true;
-      }
-    case SCLN_CTL: // supports key override two_thumb_enter_ko
-      switch (other_keycode) {
-        case SPC_NAV:
-          return true;
-      }
-    */
 
     /* 2025-06-20:  commented out because I don't think these are capable of doing anything.
      *   it looks like the intent was to make same-hand layer triggering work so I could move keys like Esc & Enter to layers
@@ -121,6 +111,7 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 
   return 1000;
 };
+#endif
 /* ACHORDION INTEGRATION END */
 
 /* MATRIX AND KEYCODE INTERCEPTS BEGIN */
@@ -133,9 +124,11 @@ void matrix_scan_user(void) {
   matrix_scan_keymap();
 };
 
+#ifndef TRY_CHORDAL_HOLD
 void housekeeping_task_user(void) {
   achordion_task();
 };
+#endif
 
 __attribute__ ((weak))
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
@@ -147,9 +140,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   uprintf("KL: kc: 0x%04X, col: %2u, row: %2u, pressed: %u, time: %5u, int: %u, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event  .pressed, record->event.time, record->tap.interrupted, record->tap.count);
 #endif
 
+
+#ifndef TRY_CHORDAL_HOLD
   if (!process_achordion(keycode, record)) {
       return false;
   }
+#endif
   // else
 
   switch (keycode) {

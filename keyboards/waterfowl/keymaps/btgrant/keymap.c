@@ -23,6 +23,16 @@
 
 #include "combos.h"
 
+#ifdef TRY_CHORDAL_HOLD
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_btgrant(
+        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
+        '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'
+    );
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(
                  ___5BASE_1_L___,                         ___5BASE_1_R___,
