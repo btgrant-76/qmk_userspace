@@ -1,12 +1,9 @@
 #ifdef KEY_OVERRIDE_ENABLE
-// TODO look at the docs for `layer_state_t` and update accordingly https://docs.qmk.fm/features/key_overrides#reference-for-key_override_t
 
 /* base layer */
-const key_override_t esc_ko = ko_make_with_layers_and_negmods(MOD_MASK_CTRL, A_CTL, KC_ESC, ~0, MOD_MASK_SAG);
-const key_override_t switcher_esc_ko = ko_make_with_layers_and_negmods(MOD_MASK_ALT, A_CTL, KC_ESC, ~0, MOD_MASK_CTRL);
-const key_override_t quote_ko = ko_make_basic(MOD_MASK_CTRL, SCLN_CTL, KC_QUOT); // QUOTE_ON_BASE ; on BASE
-const key_override_t scln_ko = ko_make_basic(MOD_MASK_CTRL, QUOT_CTL, KC_SCLN); // QUOTE_ON_BASE ' on BASE
-const key_override_t enter_ko = ko_make_basic(MOD_MASK_CTRL, SLS_HYPR, KC_ENT);
+const key_override_t switcher_esc_ko = ko_make_with_layers_and_negmods(MOD_MASK_ALT, A_CTL, KC_ESC, 1 << _BASE, MOD_MASK_CTRL);
+const key_override_t quot_to_coln_ko = ko_make_basic(MOD_MASK_CTRL, QUOT_CTL, KC_COLN);
+const key_override_t quot_to_scln_ko = ko_make_basic(MOD_MASK_CS, QUOT_CTL, KC_SCLN);
 
 /** symbols on base **/
 const key_override_t l_brc_ko = ko_make_basic(MOD_MASK_CA, KC_COMM, KC_LBRC);
@@ -21,13 +18,13 @@ const key_override_t l_brc_paren_ko = ko_make_basic(MOD_MASK_CTRL, KC_LBRC, KC_L
 const key_override_t r_brc_paren_ko = ko_make_basic(MOD_MASK_CTRL, KC_RBRC, KC_RPRN);
 
 /* numpad */
-const key_override_t grv_slsh_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_GRV, KC_SLSH, ~0);
-const key_override_t mins_space_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_MINS, KC_SPC, ~0);
-const key_override_t quot_coln_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_QUOT, KC_COLN, ~0); // QUOTE_ON_BASE ' on NUM
-const key_override_t coln_quot_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_SCLN, KC_QUOT, ~0); // QUOTE_ON_BASE ; on NUM
-const key_override_t three_dot_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_3, KC_DOT, ~0);
-const key_override_t two_comma_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_2, KC_COMM, ~0);
-const key_override_t zero_space_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_0, KC_SPC, ~0);
+const key_override_t grv_slsh_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_GRV, KC_SLSH,   1 << _NUM);
+const key_override_t mins_space_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_MINS, KC_SPC, 1 << _NUM);
+const key_override_t coln_quot_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_SCLN, KC_QUOT, 1 << _NUM);
+const key_override_t three_dot_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_3, KC_DOT,     1 << _NUM);
+const key_override_t two_comma_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_2, KC_COMM,    1 << _NUM);
+const key_override_t zero_space_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_0, KC_SPC,    1 << _NUM);
+const key_override_t bslsh_enter_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_BSLS, KC_ENT,1 << _NUM);
 
 /* encoder */
 const key_override_t switcher_fwd = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_TAB);
@@ -36,6 +33,8 @@ const key_override_t switcher_back = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, LSFT
 const key_override_t *key_overrides[] = {
     /* base layer */
     &switcher_esc_ko,
+    &quot_to_scln_ko,
+    &quot_to_coln_ko,
 
     /** symbols on base **/
     &l_brc_ko,
@@ -52,20 +51,14 @@ const key_override_t *key_overrides[] = {
     /* numpad */
     &grv_slsh_ko,
     &mins_space_ko,
-    &quot_coln_ko,
     &coln_quot_ko,
     &three_dot_ko,
     &two_comma_ko,
     &zero_space_ko,
+    &bslsh_enter_ko,
 
     /* encoder */
     &switcher_fwd,
     &switcher_back,
 };
 #endif
-
-//    &two_thumb_esc_ko,
-//    &two_thumb_enter_ko,
-// TODO these probably won't work without some help from Achordion since they're intended to work same-hand
-//const key_override_t two_thumb_esc_ko = ko_make_basic(MOD_MASK_CTRL, BS_NUM, KC_ESC);
-//const key_override_t two_thumb_enter_ko = ko_make_basic(MOD_MASK_CTRL, SPC_NAV, KC_ENT);
