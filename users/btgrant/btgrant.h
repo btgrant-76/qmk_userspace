@@ -224,10 +224,10 @@ enum {
 #define ___MSE_THUMB_R___   HOLD,    HOLD,    XXXXXXX
 
 /*** additional features ***/
-#define ___5ADD_1_L___      RGB_SPI, RGB_MOD, RGB_RMOD, RGB_SPD,  RGB_TOG
-#define ___5ADD_2_L___      RGB_SAI, RGB_HUI, RGB_HUD, RGB_SAD,  XXXXXXX
-#define ___5ADD_3_L___      XXXXXXX, RGB_VAI, RGB_VAD, XXXXXXX,  QK_BOOT
-#define ___ADD_THUMB_L___                     XXXXXXX, XXXXXXX,  XXXXXXX
+#define ___5ADD_1_L___      RGB_SPD, RGB_RMOD, RGB_MOD, RGB_SPI, RGB_TOG
+#define ___5ADD_2_L___      RGB_SAD, RGB_HUD,  RGB_HUI, RGB_SAI, XXXXXXX
+#define ___5ADD_3_L___      XXXXXXX, RGB_VAD,  RGB_VAI, XXXXXXX, QK_BOOT
+#define ___ADD_THUMB_L___                      XXXXXXX, XXXXXXX, XXXXXXX
 
 #define ___5ADD_1_R___      CLIPBOARD_R
 #define ___5ADD_2_R___      DT_PRNT, DT_UP,   DT_DOWN, XXXXXXX, DF(_NRM)

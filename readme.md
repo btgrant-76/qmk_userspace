@@ -106,11 +106,11 @@ Conventions:
 
 ```text
 /--------+--------+--------+--------+--------\  /--------+--------+--------+--------+--------\
-|RGB Spd+|RGB Mod+|RGB Mod-|RGB Spd-| RGB Tog|  |  Redo  |  Paste |  Copy  |   Cut  |  Undo  |
+|RGB Spd-|RGB Mod-|RGB Mod+|RGB Spd+| RGB Tog|  |  Redo  |  Paste |  Copy  |   Cut  |  Undo  |
 |--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-|RGB Sat+|RGB Hue+|RGB Hue-|RGB Sat-|        |  |DynTpRpt| DynTpUp| DynTpDn|        | DF: NRM|
+|RGB Sat-|RGB Hue-|RGB Hue+|RGB Sat+|        |  |DynTpRpt| DynTpUp| DynTpDn|        | DF: NRM|
 |--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-|        |RGB Brt+|RGB Brt-|        | Bootldr|  | ASftRpt| ASft Up| ASft Dn|        |DF: BASE|
+|        |RGB Brt-|RGB Brt+|        | Bootldr|  | ASftRpt| ASft Up| ASft Dn|        |DF: BASE|
 \--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------/
                   |        |        |        |  |        |        |        |
                   \--------+--------+--------/  \--------+--------+--------/
