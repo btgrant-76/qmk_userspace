@@ -237,6 +237,7 @@ void keyboard_post_init_user(void) {
 #ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case BS_NUM:
         case F_SFT:
         case J_SFT:
             #ifdef DYNAMIC_TAPPING_TERM_ENABLE
