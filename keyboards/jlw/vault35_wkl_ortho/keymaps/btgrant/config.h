@@ -12,6 +12,4 @@
     #undef RGB_MATRIX_DEFAULT_SPD
 #endif
 
-#ifdef TRY_CHORDAL_HOLD
-#define CHORDAL_HOLD
-#endif
+#define ENCODER_DIRECTION_FLIP

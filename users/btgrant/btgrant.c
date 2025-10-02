@@ -17,13 +17,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "btgrant.h"
 #include "macros.h"
-#ifndef TRY_CHORDAL_HOLD
+#ifndef CHORDAL_HOLD
 #include "features/achordion.h"
 #endif
 
 // TODO would it work to move all the achordion-related functions into an achordion_int file?
 /* ACHORDION INTEGRATION BEGIN */
-#ifndef TRY_CHORDAL_HOLD
+#ifndef CHORDAL_HOLD
 __attribute__ ((weak))
 bool achordion_chord_keymap(uint16_t tap_hold_keycode,
                             keyrecord_t* tap_hold_record,
@@ -114,6 +114,22 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 #endif
 /* ACHORDION INTEGRATION END */
 
+#ifdef CHORDAL_HOLD
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+                      uint16_t other_keycode, keyrecord_t* other_record) {
+    // Exceptionally allow some one-handed chords for hotkeys.
+    switch (tap_hold_keycode) {
+        case D_GUI:
+            if (other_keycode == KC_Q || other_keycode == KC_W || other_keycode == KC_R) {
+                return true;
+            }
+            break;
+    }
+    // Otherwise defer to the opposite hands rule.
+    return get_chordal_hold_default(tap_hold_record, other_record);
+}
+#endif
+
 /* MATRIX AND KEYCODE INTERCEPTS BEGIN */
 __attribute__ ((weak))
 void matrix_scan_keymap(void) {
@@ -124,7 +140,7 @@ void matrix_scan_user(void) {
   matrix_scan_keymap();
 };
 
-#ifndef TRY_CHORDAL_HOLD
+#ifndef CHORDAL_HOLD
 void housekeeping_task_user(void) {
   achordion_task();
 };
@@ -141,7 +157,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
 
 
-#ifndef TRY_CHORDAL_HOLD
+#ifndef CHORDAL_HOLD
   if (!process_achordion(keycode, record)) {
       return false;
   }

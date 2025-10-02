@@ -11,7 +11,3 @@
     #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_PIXEL_RAIN
     #undef RGB_MATRIX_DEFAULT_SPD
 #endif
-
-#ifdef TRY_CHORDAL_HOLD
-    #define CHORDAL_HOLD
-#endif

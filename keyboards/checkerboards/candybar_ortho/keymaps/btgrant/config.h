@@ -1,5 +1,5 @@
 /* Copyright 2021 Nathan Spears
- * Copyright 2023 Brian Grant <@btgrant-76>
+ * Copyright 2025 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,9 +16,5 @@
  */
 
 #pragma once
-
-#ifdef TRY_CHORDAL_HOLD
-    #define CHORDAL_HOLD
-#endif
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5

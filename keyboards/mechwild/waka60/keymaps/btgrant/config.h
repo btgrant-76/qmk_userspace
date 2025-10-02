@@ -1,6 +1,6 @@
 /*
 Copyright 2021 Kyle McCreery
-Copyright 2023 Brian Grant <@btgrant-76>
+Copyright 2025 Brian Grant <@btgrant-76>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,10 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
-
-#ifdef TRY_CHORDAL_HOLD
-#define CHORDAL_HOLD
-#endif
 
 #define AUDIO_PIN B5
 #define AUDIO_PWM_DRIVER PWMD1

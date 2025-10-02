@@ -3,7 +3,3 @@
     #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_MULTISPLASH
 #endif
 
-#ifdef TRY_CHORDAL_HOLD
-    #define CHORDAL_HOLD
-#endif
-

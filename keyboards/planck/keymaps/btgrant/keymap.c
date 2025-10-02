@@ -38,7 +38,7 @@ combo_t key_combos[] = {
 };
 #endif
 
-#ifdef TRY_CHORDAL_HOLD
+#ifdef CHORDAL_HOLD
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT_btgrant_planck_grid(
         'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
