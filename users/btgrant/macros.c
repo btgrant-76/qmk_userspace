@@ -1,30 +1,26 @@
 #include "quantum.h"
 
-// TODO most of these could probably be replaced with send_string("[" SS_TAP(X_LEFT) "]") and
-void generic_insert(char *text) {
-    send_string(text); // TODO move the keystroke into send_string
-    tap_code(KC_LEFT);
-};
-
 void braces_insert(void) {
-    generic_insert("[]");
+    SEND_STRING("[]" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
 void curly_braces_insert(void) {
-    generic_insert("{}");
+    SEND_STRING("{}" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
 void parens_insert(void) {
-    generic_insert("()");
+    SEND_STRING("()" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
+
 void grave_pair_cursor_insertion(void) {
-    generic_insert("``");
+    SEND_STRING("``" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
 void code_fence(void) {
     SEND_STRING("```" SS_TAP(X_ENT) SS_TAP(X_ENT) "```" SS_TAP(X_UP) SS_TAP(X_UP));
 };
+
 void braces(void) {
     SEND_STRING("[]");
 };
@@ -34,9 +30,7 @@ void braces_semi(void) {
 };
 
 void braces_semi_insert(void) {
-    SEND_STRING("[];");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
+    SEND_STRING("[];" SS_DELAY(100) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
 };
 
 void curly_braces(void) {
@@ -48,9 +42,7 @@ void curly_braces_semi(void) {
 };
 
 void curly_braces_semi_insert(void) {
-    SEND_STRING("{};");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
+    SEND_STRING("{};" SS_DELAY(100) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
 };
 
 void parens(void) {
@@ -62,17 +54,15 @@ void parens_semi(void) {
 };
 
 void parens_semi_insert(void) {
-    SEND_STRING("();");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
+    SEND_STRING("();" SS_DELAY(100) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
 };
 
 void quote_pair_cursor_insertion(void) {
-    generic_insert("''");
+    SEND_STRING("''" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
 void dquote_pair_cursor_insertion(void) {
-    generic_insert("\"\"");
+    SEND_STRING("\"\"" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
 void macos_log_out(void) {
@@ -92,25 +82,21 @@ void vim_write_and_quit(void) {
 };
 
 void new_browser_window_you_jerk(void) {
-    SEND_STRING(SS_LGUI("n") SS_DELAY(2000) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
+    SEND_STRING(SS_LGUI("n") SS_DELAY(200) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
 };
 
 void tag_open_insert(void) {
-    generic_insert("<>");
+    SEND_STRING("<>" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
 void tag_close_insert(void) {
-    generic_insert("</>");
+    SEND_STRING("</>" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
 void tag_void_insert(void) {
-    generic_insert("< />");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
+    SEND_STRING("< />" SS_DELAY(100) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
 };
 
 void js_console_log(void) {
-    generic_insert("console.log('');");
-    tap_code(KC_LEFT);
-    tap_code(KC_LEFT);
+    SEND_STRING("console.log('');" SS_DELAY(100) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
 };
