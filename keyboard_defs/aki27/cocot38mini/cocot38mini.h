@@ -17,6 +17,7 @@
 #pragma once
 
 #include "quantum.h"
+#include "btgrant.h"
 
 typedef union {
     uint64_t raw;
@@ -35,15 +36,16 @@ extern cocot_config_t cocot_config;
 
 enum cocot_keycodes {
 
-    COCOT_SAFE_RANGE = SAFE_RANGE,
-    CPI_SW,
-    SCRL_SW,
-    ROT_R15,
-    ROT_L15,
-    SCRL_MO,
-    SCRL_TO,
-    SCRL_IN,
-    AM_TOG
+//    COCOT_SAFE_RANGE = SAFE_RANGE,
+    COCOT_SAFE_RANGE = NEW_SAFE_RANGE,
+    CPI_SW,  // Change the CPI of the trackball. With the default firmware, each press changes the CPI in the following order: 200 -> 400 -> 800 -> 1600 -> 3200 -> 200....
+    SCRL_SW, // Changes the sensitivity of the sensor in scroll mode. The higher the value, the smaller the amount of scrolling.
+    ROT_R15, // Turns the Y axis of the mouse sensor 15 degrees clockwise.
+    ROT_L15, // Rotate the Y axis of the mouse sensor 15 degrees counterclockwise.
+    SCRL_MO, // Enables scroll mode for as long as it is pressed.
+    SCRL_TO, // Toggles between scroll mode and mouse mode each time it is pressed.
+    SCRL_IN, // Inverts the scroll direction.
+    AM_TOG   // Toggle the function of auto mouse layer.
 };
 
 #define CPI_SW QK_KB_0
