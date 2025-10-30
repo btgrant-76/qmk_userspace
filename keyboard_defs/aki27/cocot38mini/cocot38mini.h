@@ -20,15 +20,14 @@
 #include "btgrant.h"
 
 typedef union {
-    uint64_t raw;
+    uint32_t raw;
     struct {
         uint8_t cpi_idx;
         uint8_t scrl_div;
         uint8_t rotation_angle;
-        bool auto_mouse;
-        bool scrl_inv;
-        bool scrl_mode;
-        report_mouse_t last_mouse;
+        bool auto_mouse: 1;
+        bool scrl_inv: 1;
+        bool scrl_mode: 1;
     };
 } cocot_config_t;
 
