@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
   [_BASE] = LAYOUT_btgrant(
     ___5BASE_1_L___,                ___5BASE_1_R___,
-    ___5BASE_2_L___,    KC_ESC,     ___5BASE_2_R___,
+    ___5BASE_2_L___,    MS_BTN2,    ___5BASE_2_R___,
     ___5BASE_3_L___,                ___5BASE_3_R___,
     ___BASE_THUMB_L___, MS_BTN1, ___BASE_THUMB_R___
   ),
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___5ADD_1_L___,                                 ___5ADD_1_R___,
     ___5ADD_2_L___,             CPI_SW,             ___5ADD_2_R___,
     ___5ADD_3_L___,                                 ___5ADD_3_R___,
-    ROT_L15, ROT_R15, SCRL_MO,  SCRL_SW,  SCRL_TO, HOLD, SCRL_IN
+    ROT_L15, ROT_R15, AM_TOG,   SCRL_SW,  SCRL_TO, HOLD, SCRL_IN
     /*
       CPI_SW,  // Change the CPI of the trackball. With the default firmware, each press changes the CPI in the following order:
                // 200 -> 400 -> 800 -> 1600 ->   3200 ->     200....
@@ -127,10 +127,6 @@ bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
     return is_mouse_record_user(keycode, record);
 }
 
-void keyboard_post_init_user(void) {
-  tap_code(SCRL_IN); // the configuration to reverse the scroll direction doesn't seem to persist across resets
-  // TODO try setting the value in config.h to 0 instead of false
-}
 
 #ifdef RGB_MATRIX_ENABLE
 // TODO customize this?
