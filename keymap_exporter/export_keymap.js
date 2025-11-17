@@ -19,7 +19,7 @@ const buildUpLayers = () => {
   Object.keys(layers).forEach((layerId) => {
     const layer = layers[layerId];
 
-    ['1', '2', '3', 'THUMB'].forEach((rowId) => {
+    ['1', '2', '3', 'THUMB', '4THUMB'].forEach((rowId) => {
       layer[rowId] = [];
     });
   });
@@ -166,30 +166,41 @@ rl.on('close', () => {
   });
 
   Object.keys(layers).forEach((layer) => {
-    const l = layers[layer];
+    const curLayer = layers[layer];
 
-    const sectionTitle = `#### ${l.name} (\`${layer}\`)\n`;
+    const sectionTitle = `#### ${curLayer.name} (\`${layer}\`)\n`;
     write(outputStream, sectionTitle);
     write(outputStream, '```text');
-    const lOne = l[1];
-    const lTwo = l[2];
-    const lThree = l[3];
-    const lThumb = l.THUMB;
-
-    const leftThumbPadding = Array(2).fill(''.padStart(CELL_WIDTH, ' '));
+    const rowOne = curLayer[1];
+    const rowTwo = curLayer[2];
+    const rowThree = curLayer[3];
+    const thumbs = curLayer.THUMB;
+    const fourThumbs = curLayer['4THUMB'];
 
     const divider = generateDivider(10);
 
     const longDivider = Array(10).fill(''.padStart(CELL_WIDTH, '-'));
     write(outputStream, wrapRow(longDivider, '+', '/', '\\'));
-    write(outputStream, wrapRow(lOne, '|')); // , '|', '/', '\\'))
+    write(outputStream, wrapRow(rowOne, '|')); // , '|', '/', '\\'))
     write(outputStream, wrapRow(divider, '+'));
-    write(outputStream, wrapRow(lTwo, '|'));
+    write(outputStream, wrapRow(rowTwo, '|'));
     write(outputStream, wrapRow(divider, '+'));
-    write(outputStream, wrapRow(lThree, '|'));
+    write(outputStream, wrapRow(rowThree, '|'));
     write(outputStream, wrapRow(longDivider, '+', '\\', '|', '|', '/'));
-    write(outputStream, `${leftThumbPadding.join(' ')} ${wrapRow(lThumb, '|')}`);
-    write(outputStream, `${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(6), '+', '\\', '/')}`);
+
+    // 6 thumbs
+    const leftThumbPadding = Array((rowOne.length - thumbs.length) / 2).fill(''.padStart(CELL_WIDTH, ' '));
+    write(outputStream, `${leftThumbPadding.join(' ')} ${wrapRow(thumbs, '|')}`);
+    write(outputStream, `${leftThumbPadding.join(' ')} ${wrapRow(generateDivider(thumbs.length), '+', '\\', '/')}`);
+
+    // 4 thumbs
+    write(outputStream, '\n# Four-thumb variation');
+
+    const fourThumbPadding = Array((rowOne.length - fourThumbs.length) / 2).fill(''.padStart(CELL_WIDTH, ' '));
+    write(outputStream, `${fourThumbPadding.join(' ')} ${wrapRow(generateDivider(fourThumbs.length), '+', '/', '\\')}`);
+    write(outputStream, `${fourThumbPadding.join(' ')} ${wrapRow(fourThumbs, '|')}`);
+    write(outputStream, `${fourThumbPadding.join(' ')} ${wrapRow(generateDivider(fourThumbs.length), '+', '\\', '/')}`);
+
     write(outputStream, '```\n');
   });
   console.log('File reading completed.');

@@ -234,6 +234,28 @@ enum {
 #define ___5ADD_3_R___      AS_RPT,  AS_UP,   AS_DOWN, XXXXXXX, DF(_BASE)
 #define ___ADD_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
 
+/*** four thumbs ***/ // TODO reconcile this section with keymaps
+#define ___BASE_4THUMB_L___ TAB_MSE, BS_NUM
+#define ___BASE_4THUMB_R___ SPC_NAV, DEL_MSE
+
+#define ___NUM_4THUMB_L___ KC_BSPC,  HOLD
+#define ___NUM_4THUMB_R___ KC_MINS,  KC_0
+
+#define ___SYM_4THUMB_L___ KC_MUTE,  KC_MPLY
+#define ___SYM_4THUMB_R___ LPRN_MSE, XXXXXXX
+
+#define ___NAV_4THUMB_L___ XXXXXXX, XXXXXXX
+#define ___NAV_4THUMB_R___ HOLD,    XXXXXXX
+
+#define ___FUN_4THUMB_L___ XXXXXXX, MO(_MSE)
+#define ___FUN_4THUMB_R___ MO(_ADD), XXXXXXX
+
+#define ___MSE_4THUMB_L___ HOLD,    XXXXXXX
+#define ___MSE_4THUMB_R___ XXXXXXX, HOLD
+
+#define ___ADD_4THUMB_L___ XXXXXXX, XXXXXXX
+#define ___ADD_4THUMB_R___ HOLD,    XXXXXXX
+
 /** 12u **/
 /*** normie base ***/
 #define ___NRM_1_L___       KC_TAB,  ___5BASE_1_L___
