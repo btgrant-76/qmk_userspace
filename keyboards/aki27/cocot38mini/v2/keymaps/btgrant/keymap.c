@@ -42,9 +42,6 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 #endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/* TODO look at other functions for the middle column based on other keyboards that have macros in the middle, e.g.
-    Vault35 ortho, etc.
-*/
   [_BASE] = LAYOUT_btgrant(
     ___5BASE_1_L___,                ___5BASE_1_R___,
     ___5BASE_2_L___,    MS_BTN2,    ___5BASE_2_R___,
@@ -77,15 +74,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___FUN_THUMB_L___,  MS_BTN1,  ___FUN_THUMB_R___
   ),
   [_MSE] = LAYOUT_btgrant(
-    ___5MSE_1_L___,                         ___5MSE_1_R___,
-    ___5MSE_2_L___,            MS_BTN2,     ___5MSE_2_R___,
-    ___5MSE_3_L___,                         ___5MSE_3_R___,
-    XXXXXXX, SCRL_MO, XXXXXXX, MS_BTN1,  ___MSE_THUMB_R___
+    ___5MSE_1_L___,                                                ___5MSE_1_R___,
+    SCRL_MO, KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX,     MS_BTN2,      ___5NAV_2_R___,
+//    ___5MSE_2_L___,            MS_BTN2,            ___5MSE_2_R___,
+    ___5MSE_3_L___,                                                ___5MSE_3_R___,
+    XXXXXXX, SCRL_MO, XXXXXXX,                       MS_BTN1, XXXXXXX, XXXXXXX, SCRL_MO
   ),
   [_ADD] = LAYOUT_btgrant(
-    ___5ADD_1_L___,                                 ___5ADD_1_R___,
-    ___5ADD_2_L___,             CPI_SW,             ___5ADD_2_R___,
-    ___5ADD_3_L___,                                 ___5ADD_3_R___,
+    ___5ADD_1_L___,                               ___5ADD_1_R___,
+    ___5ADD_2_L___,             CPI_SW,           ___5ADD_2_R___,
+    ___5ADD_3_L___,                               ___5ADD_3_R___,
     ROT_L15, ROT_R15, AM_TOG,   SCRL_SW,  SCRL_TO, HOLD, SCRL_IN
     /*
       CPI_SW,  // Change the CPI of the trackball. With the default firmware, each press changes the CPI in the following order:
