@@ -1,5 +1,6 @@
 const fs = require('fs');
 const readline = require('readline');
+const yaml = require('js-yaml');
 
 const { collectReadmeLines, recordedLines } = require('./readme-reader');
 const aliases = require('./keycode_aliases.json');
@@ -158,9 +159,60 @@ const write = (os, output) => {
   os.write('\n');
 };
 
+const toKeyboardDrawerKey = (key) => {
+  const trimmed = key.trim();
+  if (trimmed.includes('/')) {
+    const splits = trimmed.split('/');
+    if (splits.length === 2) {
+      return { h: splits[1], t: splits[0] };
+    }
+  }
+
+  if (trimmed === '(hold)') {
+    return { type: 'held' };
+  }
+  return trimmed;
+};
+
+const generateKeyboardDrawerOutput = (o) => {
+  const theLoad = {
+    layout: {
+      qmk_keyboard: 'corne_rotated',
+      layout_name: 'LAYOUT_split_3x5_3',
+    },
+  };
+
+  const outputLayers = {};
+
+  Object.keys(layers).forEach((layer) => {
+    const curLayer = layers[layer];
+
+    const rowOne = curLayer[1];
+    const rowTwo = curLayer[2];
+    const rowThree = curLayer[3];
+    const thumbs = curLayer.THUMB;
+    // const fourThumbs = curLayer['4THUMB'];
+
+    const rows = [
+      rowOne.map(toKeyboardDrawerKey),
+      rowTwo.map(toKeyboardDrawerKey),
+      rowThree.map(toKeyboardDrawerKey),
+      thumbs.map(toKeyboardDrawerKey),
+    ];
+
+    outputLayers[layer] = rows;
+  });
+
+  theLoad.layers = outputLayers;
+
+  console.log(yaml.dump(theLoad));
+};
+
 rl.on('close', () => {
   const outputStream = fs.createWriteStream(OUTPUT_FILE);
 
+  /* Markdown processing:  begin */
+  // TODO probably refactor all of the Markdown-specific parts
   recordedLines.forEach((line) => {
     write(outputStream, line);
   });
@@ -202,6 +254,9 @@ rl.on('close', () => {
     write(outputStream, `${fourThumbPadding.join(' ')} ${wrapRow(generateDivider(fourThumbs.length), '+', '\\', '/')}`);
 
     write(outputStream, '```\n');
+    /* Markdown processing:  end */
   });
   console.log('File reading completed.');
+
+  generateKeyboardDrawerOutput();
 });
