@@ -2,7 +2,7 @@
 
 ## Core Keymap 
 
-My keymap is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku/). The core keymap is managed in [`btgrant-76.h`](./btgrant-76.h). Each layer is divided into left and right halves; the halves are composed of:
+My keymap is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku/). The core keymap is managed in [`btgrant.h`](./users/btgrant/btgrant.h). Each layer is divided into left and right halves; the halves are composed of:
 
 * a set of three, 5u rows
 * a set of 3u thumb clusters
