@@ -10,7 +10,7 @@ const ALIAS_PREFIX = '//:';
 const CENTER = true;
 const INPUT_FILE = '../users/btgrant/btgrant.h';
 const OUTPUT_FILE = '../readme.md';
-const KD_OUTPUT_FILE = './keyboard-drawer-';
+const KD_OUTPUT_FILE = './keymap-drawer-';
 const CELL_WIDTH = 8; // the full width of the keycode cell
 const RIGHT_PAD = CELL_WIDTH - 2;
 
@@ -175,23 +175,30 @@ const toKeyboardDrawerKey = (key) => {
   return trimmed;
 };
 
+// FIXME resolve this error re:  layers
 const generateKDLayers = (layers, rowKeys) => {
   const keymapLayers = {};
   Object.keys(layers).forEach((layerId) => {
     const curLayer = layers[layerId];
     // console.log(layerId);
-    rowKeys.forEach((rowKey) => { // FIXME flatMap?
-      // console.log(`rowKey: ${rowKey}`);
+    const stuff = rowKeys.map((rowKey) => // FIXME flatMap?
+      // console.log(`rowKey: ${rowKey} for layer ${layerId}`);
       // console.log(curLayer[rowKey]);
-      keymapLayers[layerId] = curLayer[rowKey];
-    });
+      // keymapLayers[layerId] = curLayer[rowKey];
+      curLayer[rowKey].map(toKeyboardDrawerKey));
+
+    keymapLayers[layerId] = stuff;
+
+    // console.log(`STUFF for ${layerId}`, stuff, stuff.length);
   });
+
+  // console.log('keymapLayers', keymapLayers);
 
   return keymapLayers;
 };
 
 const generateKeyboardDrawerOutput = (o) => {
-  const theLoad = {
+  /* const theLoad = {
     layout: {
       // qmk_keyboard: 'corne_rotated',
       // layout_name: 'LAYOUT_split_3x5_3',
@@ -201,7 +208,7 @@ const generateKeyboardDrawerOutput = (o) => {
       // qmk_keyboard: 'tominabox1/le_chiffre/rev2',
       // layout_name: 'LAYOUT',
     },
-  };
+  }; */
 
   const outputConfigs = [
     {
@@ -309,7 +316,7 @@ rl.on('close', () => {
     write(outputStream, '```\n');
     /* Markdown processing:  end */
   });
-  console.log('File reading completed.');
+  // console.log('File reading completed.');
 
   generateKeyboardDrawerOutput();
 });
