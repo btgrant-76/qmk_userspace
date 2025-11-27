@@ -10,6 +10,7 @@ const ALIAS_PREFIX = '//:';
 const CENTER = true;
 const INPUT_FILE = '../users/btgrant/btgrant.h';
 const OUTPUT_FILE = '../readme.md';
+const KD_OUTPUT_FILE = './keyboard-drawer-';
 const CELL_WIDTH = 8; // the full width of the keycode cell
 const RIGHT_PAD = CELL_WIDTH - 2;
 
@@ -174,24 +175,74 @@ const toKeyboardDrawerKey = (key) => {
   return trimmed;
 };
 
+const generateKDLayers = (layers, rowKeys) => {
+  const keymapLayers = {};
+  Object.keys(layers).forEach((layerId) => {
+    const curLayer = layers[layerId];
+    // console.log(layerId);
+    rowKeys.forEach((rowKey) => { // FIXME flatMap?
+      // console.log(`rowKey: ${rowKey}`);
+      // console.log(curLayer[rowKey]);
+      keymapLayers[layerId] = curLayer[rowKey];
+    });
+  });
+
+  return keymapLayers;
+};
+
 const generateKeyboardDrawerOutput = (o) => {
   const theLoad = {
     layout: {
-      qmk_keyboard: 'corne_rotated',
-      layout_name: 'LAYOUT_split_3x5_3',
+      // qmk_keyboard: 'corne_rotated',
+      // layout_name: 'LAYOUT_split_3x5_3',
+      qmk_keyboard: 'forager',
+      layout_name: 'LAYOUT',
+      //  this requires an extra key between T and Y for the encoder
+      // qmk_keyboard: 'tominabox1/le_chiffre/rev2',
+      // layout_name: 'LAYOUT',
     },
   };
 
-  const outputLayers = {};
+  const outputConfigs = [
+    {
+      layout: {
+        qmk_keyboard: 'corne_rotated',
+        layout_name: 'LAYOUT_split_3x5_3',
+      },
+      rowKeys: [1, 2, 3, 'THUMB'],
+      name: '3x5x3',
+    },
+    {
+      layout: {
+        qmk_keyboard: 'forager',
+        layout_name: 'default_layout',
+      },
+      rowKeys: [1, 2, 3, '4THUMB'],
+      name: '3x5x2',
+    },
+  ];
 
-  Object.keys(layers).forEach((layer) => {
+  outputConfigs.forEach((config) => {
+    const keymap = {
+      layout: config.layout,
+      layers: generateKDLayers(layers, config.rowKeys),
+    };
+    const outputStream = fs.createWriteStream(`${KD_OUTPUT_FILE}${config.name}.yaml`);
+    // console.log(yaml.dump(theLoad));
+    outputStream.write(yaml.dump(keymap));
+  });
+
+  /* const outputLayers = {};
+
+  Object.keys(layers).forEach((layer) => { // TODO map instead of forEach?
     const curLayer = layers[layer];
 
     const rowOne = curLayer[1];
     const rowTwo = curLayer[2];
     const rowThree = curLayer[3];
-    const thumbs = curLayer.THUMB;
+    // const thumbs = curLayer.THUMB;
     // const fourThumbs = curLayer['4THUMB'];
+    const thumbs = curLayer['4THUMB'];
 
     const rows = [
       rowOne.map(toKeyboardDrawerKey),
@@ -205,7 +256,9 @@ const generateKeyboardDrawerOutput = (o) => {
 
   theLoad.layers = outputLayers;
 
-  console.log(yaml.dump(theLoad));
+  const outputStream = fs.createWriteStream(KD_OUTPUT_FILE);
+  // console.log(yaml.dump(theLoad));
+  outputStream.write(yaml.dump(theLoad)); */
 };
 
 rl.on('close', () => {
