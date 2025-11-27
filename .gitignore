@@ -15,4 +15,5 @@
 
 # Generated Files
 /keymap_exporter/export.md
+/keymap_exporter/*.yaml
 */node_modules
