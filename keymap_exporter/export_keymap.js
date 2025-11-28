@@ -2,7 +2,7 @@ const { createReadStream, createWriteStream } = require('fs');
 const { createInterface } = require('readline');
 const yaml = require('js-yaml');
 
-const { collectReadmeLines, updateReadme } = require('./readme-reader');
+const { collectReadmeLines, updateReadme } = require('./readme');
 const aliases = require('./keycode_aliases.json');
 const layerDefinitions = require('./layers.json');
 
