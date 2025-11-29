@@ -80,7 +80,6 @@ const updateReadme = () => {
   const outputStream = fs.createWriteStream(README_FILE);
 
   /* Markdown processing:  begin */
-  // TODO probably refactor all of the Markdown-specific parts
   recordedLines.forEach((line) => {
     write(outputStream, line);
   });
@@ -122,7 +121,6 @@ const updateReadme = () => {
     write(outputStream, `${fourThumbPadding.join(' ')} ${wrapRow(generateDivider(fourThumbs.length), '+', '\\', '/')}`);
 
     write(outputStream, '```\n');
-    /* Markdown processing:  end */
   });
 };
 

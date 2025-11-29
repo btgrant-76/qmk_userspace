@@ -103,7 +103,7 @@ const processLine = (rawLine) => {
     return;
   }
   if (!stopProcessing) {
-    if (trimmed.startsWith('/** 12u **/')) {
+    if (trimmed.startsWith('/*** six thumbs shifted ***/')) {
       stopProcessing = true;
     } else if (trimmed.startsWith('#define')) {
       processDefine(trimmed);
