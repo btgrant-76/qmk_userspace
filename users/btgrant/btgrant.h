@@ -86,14 +86,15 @@ enum {
 #define J_SFT RSFT_T(KC_J) //:J/Sft
 #define K_GUI RGUI_T(KC_K) //:K/Cmd
 #define L_ALT RALT_T(KC_L) //:L/Alt
-#define SCLN_CTL RCTL_T(KC_SCLN) //:;_:/Ctl // QUOTE_ON_BASE
-#define QUOT_CTL RCTL_T(KC_QUOT) //:'_"/Ctl // QUOTE_ON_BASE
-#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||GUI||Sft
-#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||GUI||Opt||Ctl
+#define SCLN_CTL RCTL_T(KC_SCLN) //:;/Ctl // QUOTE_ON_BASE
+#define QUOT_CTL RCTL_T(KC_QUOT) //:'/Ctl // QUOTE_ON_BASE
+
+#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||Cmd||Sft
+#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||Cmd||Opt||Ctl
 
 /*** Others ***/
 #define ENT_SFT RSFT_T(KC_ENT) //:Ent/Sft
-#define SLS_HYPR HYPR_T(KC_SLSH) //:/_?/Hypr
+#define SLS_HYPR HYPR_T(KC_SLSH) //://Hypr
 #define Z_HYPR HYPR_T(KC_Z) //:Z/Hypr
 #define B_MEH MEH_T(KC_B) //:B/Meh
 #define N_MEH MEH_T(KC_N) //:N/Meh
@@ -161,15 +162,15 @@ enum {
 #define ___5BASE_3_L___     Z_HYPR,  KC_X,    KC_C,    KC_V,    B_MEH
 #define ___BASE_THUMB_L___                  TAB_FUN, BS_NUM,  ESC_MSE
 
-#define ___5BASE_1_R___      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define ___5BASE_2_R___      KC_H,    J_SFT,   K_GUI,   L_ALT,   QUOT_CTL // QUOTE_ON_BASE  SCLN_CTL
-#define ___5BASE_3_R___      N_MEH,   KC_M,    KC_COMM, KC_DOT,  SLS_HYPR
+#define ___5BASE_1_R___      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P
+#define ___5BASE_2_R___      KC_H,    J_SFT,   K_GUI,   L_ALT,  QUOT_CTL // QUOTE_ON_BASE  SCLN_CTL
+#define ___5BASE_3_R___      N_MEH,   KC_M,    KC_COMM, KC_DOT, SLS_HYPR
 #define ___BASE_THUMB_R___ ENT_MSE, SPC_NAV, DEL_MED
 
 /*** number ***/
 #define ___5NUM_1_L___      CLIPBOARD_L
-#define ___5NUM_2_L___      KC_LCTL, S_ALT,   KC_LGUI, KC_LSFT, CAPWD_TG
-#define ___5NUM_3_L___      KC_ESC,  XXXXXXX, QK_LEAD, KC_SPC,  KC_BSPC
+#define ___5NUM_2_L___      HRM_L,                              CAPWD_TG
+#define ___5NUM_3_L___      KC_ESC,   XXXXXXX, QK_LEAD, KC_SPC, KC_BSPC
 #define ___NUM_THUMB_L___                   KC_DEL,  HOLD,    KC_BSPC
 
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
@@ -232,8 +233,9 @@ enum {
 #define ___5ADD_1_R___      CLIPBOARD_R
 #define ___5ADD_2_R___      DT_PRNT, DT_UP,   DT_DOWN, XXXXXXX, DF(_NRM)
 #define ___5ADD_3_R___      AS_RPT,  AS_UP,   AS_DOWN, XXXXXXX, DF(_BASE)
-#define ___ADD_THUMB_R___   XXXXXXX, XXXXXXX, XXXXXXX
+#define ___ADD_THUMB_R___   XXXXXXX, HOLD,    XXXXXXX
 
+/** alternate thumbs **/
 /*** four thumbs ***/ // TODO reconcile this section with keymaps
 #define ___BASE_4THUMB_L___ TAB_MSE, BS_NUM
 #define ___BASE_4THUMB_R___ SPC_NAV, DEL_MSE
@@ -242,12 +244,12 @@ enum {
 #define ___NUM_4THUMB_R___ KC_MINS,  KC_0
 
 #define ___SYM_4THUMB_L___ KC_MUTE,  KC_MPLY
-#define ___SYM_4THUMB_R___ LPRN_MSE, XXXXXXX
+#define ___SYM_4THUMB_R___ HOLD,     HOLD
 
 #define ___NAV_4THUMB_L___ XXXXXXX, XXXXXXX
 #define ___NAV_4THUMB_R___ HOLD,    XXXXXXX
 
-#define ___FUN_4THUMB_L___ XXXXXXX, MO(_MSE)
+#define ___FUN_4THUMB_L___ HOLD,    HOLD
 #define ___FUN_4THUMB_R___ MO(_ADD), XXXXXXX
 
 #define ___MSE_4THUMB_L___ HOLD,    XXXXXXX
@@ -255,6 +257,28 @@ enum {
 
 #define ___ADD_4THUMB_L___ XXXXXXX, XXXXXXX
 #define ___ADD_4THUMB_R___ HOLD,    XXXXXXX
+
+/*** six thumbs shifted ***/
+#define ___BASE_ALT_THUMB_L___  ESC_FUN, ___BASE_4THUMB_L___
+#define ___BASE_ALT_THUMB_R___  ___BASE_4THUMB_R___, ENT_SYM
+
+#define ___NUM_ALT_THUMB_L___  XXXXXXX, ___NUM_4THUMB_L___
+#define ___NUM_ALT_THUMB_R___  ___NUM_4THUMB_R___, DOT_TD
+
+#define ___SYM_ALT_THUMB_L___  XXXXXXX, ___SYM_4THUMB_L___
+#define ___SYM_ALT_THUMB_R___  ___SYM_4THUMB_R___, KC_RPRN
+
+#define ___NAV_ALT_THUMB_L___  XXXXXXX, ___NAV_4THUMB_L___
+#define ___NAV_ALT_THUMB_R___  ___NAV_4THUMB_R___, XXXXXXX
+
+#define ___FUN_ALT_THUMB_L___  HOLD,    ___FUN_4THUMB_L___
+#define ___FUN_ALT_THUMB_R___  ___FUN_4THUMB_R___, XXXXXXX
+
+#define ___MSE_ALT_THUMB_L___  XXXXXXX, ___MSE_4THUMB_L___
+#define ___MSE_ALT_THUMB_R___  ___MSE_4THUMB_R___, XXXXXXX
+
+#define ___ADD_ALT_THUMB_L___  XXXXXXX, ___ADD_4THUMB_L___
+#define ___ADD_ALT_THUMB_R___  ___ADD_4THUMB_R___, XXXXXXX
 
 /** 12u **/
 /*** normie base ***/
@@ -320,51 +344,6 @@ enum {
 #define ___MSE_1_R___       ___5MSE_1_R___, XXXXXXX
 #define ___MSE_2_R___       ___5MSE_2_R___, XXXXXXX
 #define ___MSE_3_R___       ___5MSE_3_R___, XXXXXXX
-
-/** alternate thumbs **/
-/*** four thumbs ***/
-#define ___BASE_4_THUMB_L___ TAB_MSE, BS_NUM
-#define ___BASE_4_THUMB_R___ SPC_NAV, DEL_MSE
-
-#define ___NUM_4_THUMB_L___ KC_BSPC,  HOLD
-#define ___NUM_4_THUMB_R___ KC_MINS,  KC_0
-
-#define ___SYM_4_THUMB_L___ KC_MUTE,  KC_MPLY
-#define ___SYM_4_THUMB_R___ LPRN_MSE, XXXXXXX
-
-#define ___NAV_4_THUMB_L___ XXXXXXX, XXXXXXX
-#define ___NAV_4_THUMB_R___ HOLD,    XXXXXXX
-
-#define ___FUN_4_THUMB_L___ XXXXXXX, MO(_MSE)
-#define ___FUN_4_THUMB_R___ MO(_ADD), XXXXXXX
-
-#define ___MSE_4_THUMB_L___ HOLD,    XXXXXXX
-#define ___MSE_4_THUMB_R___ XXXXXXX, HOLD
-
-#define ___ADD_4_THUMB_L___ XXXXXXX, XXXXXXX
-#define ___ADD_4_THUMB_R___ HOLD,    XXXXXXX
-
-/*** six thumbs shifted ***/
-#define ___BASE_ALT_THUMB_L___  ESC_FUN, ___BASE_4_THUMB_L___
-#define ___BASE_ALT_THUMB_R___  ___BASE_4_THUMB_R___, ENT_SYM
-
-#define ___NUM_ALT_THUMB_L___  XXXXXXX, ___NUM_4_THUMB_L___
-#define ___NUM_ALT_THUMB_R___  ___NUM_4_THUMB_R___, DOT_TD
-
-#define ___SYM_ALT_THUMB_L___  XXXXXXX, ___SYM_4_THUMB_L___
-#define ___SYM_ALT_THUMB_R___  ___SYM_4_THUMB_R___, KC_RPRN
-
-#define ___NAV_ALT_THUMB_L___  XXXXXXX, ___NAV_4_THUMB_L___
-#define ___NAV_ALT_THUMB_R___  ___NAV_4_THUMB_R___, XXXXXXX
-
-#define ___FUN_ALT_THUMB_L___  HOLD,    ___FUN_4_THUMB_L___
-#define ___FUN_ALT_THUMB_R___  ___FUN_4_THUMB_R___, XXXXXXX
-
-#define ___MSE_ALT_THUMB_L___  XXXXXXX, ___MSE_4_THUMB_L___
-#define ___MSE_ALT_THUMB_R___  ___MSE_4_THUMB_R___, XXXXXXX
-
-#define ___ADD_ALT_THUMB_L___  XXXXXXX, ___ADD_4_THUMB_L___
-#define ___ADD_ALT_THUMB_R___  ___ADD_4_THUMB_R___, XXXXXXX
 
 // clang-format on
 
