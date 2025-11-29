@@ -48,7 +48,7 @@
     "KC_LSFT": "Shift",
     "KC_MINS": "-",
     "KC_MNXT": "Med ==>",
-    "KC_MPLY": "Ply/Paus",
+    "KC_MPLY": "Ply_/_Paus",
     "KC_MPRV": "Med <==",
     "KC_MSTP": "Stop",
     "KC_MS_D": "Mouse D",
@@ -97,8 +97,8 @@
     "RGB_TOG": "RGB Tog",
     "RGB_VAI": "RGB Brt+",
     "RGB_VAD": "RGB Brt-",
-    "SCRN2CLP": "Scrn2Clp",
-    "SCRN2FL": "Scrn2Fl",
+    "SCRN2CLP": "Scrn 2 Clp",
+    "SCRN2FL": "Scrn 2 Fl",
     "UP_DIR": "../",
     "XXXXXXX": " "
 }

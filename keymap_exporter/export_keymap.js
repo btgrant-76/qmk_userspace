@@ -1,7 +1,7 @@
 const { createReadStream } = require('fs');
 const { createInterface } = require('readline');
 
-const { collectReadmeLines, updateReadme } = require('./readme');
+// const { collectReadmeLines, updateReadme } = require('./readme');
 const generateKeyboardDrawerOutput = require('./keymap_drawer');
 const aliases = require('./keycode_aliases.json');
 const layerDefinitions = require('./layers.json');
@@ -19,7 +19,7 @@ const buildUpLayers = () => {
   });
 };
 
-collectReadmeLines();
+// collectReadmeLines();
 buildUpLayers();
 
 /* READ IN */
@@ -115,6 +115,6 @@ rl.on('line', processLine);
 
 /* WRITE OUT */
 rl.on('close', () => {
-  updateReadme();
+  // updateReadme();
   generateKeyboardDrawerOutput(layerDefinitions);
 });
