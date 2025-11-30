@@ -13,8 +13,8 @@ TAP_DANCE_ENABLE = no
 CONVERT_TO = helios
 
 ifdef FIVE_COL
-	OLED_ENABLE = no
+  OLED_ENABLE = no
 else
-	OLED_ENABLE = yes
-	RGB_MATRIX_ENABLE = yes
+  OLED_ENABLE = yes
+  RGB_MATRIX_ENABLE = yes
 endif

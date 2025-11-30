@@ -109,5 +109,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #undef ENABLE_RGB_MATRIX_SOLID_SPLASH
     #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 
-    #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_MULTISPLASH
+    #ifdef FIVE_COL
+      #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_BREATHING
+    #else
+      #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_MULTISPLASH
+    #endif
 #endif

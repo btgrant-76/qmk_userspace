@@ -25,9 +25,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "tap_dances.c"
 
 #ifdef FIVE_COL
-#include "four_thumb_combos.h"
+  #include "four_thumb_combos.h"
 #else
-#include "combos.h"
+  #include "combos.h"
 #endif
 
 #ifdef FIVE_COL
@@ -47,53 +47,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___5BASE_1_L___,         ___5BASE_1_R___,
     ___5BASE_2_L___,         ___5BASE_2_R___,
     ___5BASE_3_L___,         ___5BASE_3_R___,
-    XXXXXXX, ___BASE_4_THUMB_L___,                                 ___BASE_4_THUMB_R___, XXXXXXX
-//    ___BASE_THUMB_L___, ___BASE_THUMB_R___
+    ___BASE_THUMB_L___,   ___BASE_THUMB_R___
   ),
   [_NUM] = LAYOUT_btgrant_3x5(
-    ___5NUM_1_L___,         ___5NUM_1_R___,
-    ___5NUM_2_L___,         ___5NUM_2_R___,
-    ___5NUM_3_L___,         ___5NUM_3_R___,
-    XXXXXXX,     ___NUM_4_THUMB_L___,                                  ___NUM_4_THUMB_R___, XXXXXXX
-//    ___NUM_THUMB_L___, ___NUM_THUMB_R___
+    ___5NUM_1_L___,          ___5NUM_1_R___,
+    ___5NUM_2_L___,          ___5NUM_2_R___,
+    ___5NUM_3_L___,          ___5NUM_3_R___,
+    ___NUM_THUMB_L___,    ___NUM_THUMB_R___
   ),
 
   [_SYM] = LAYOUT_btgrant_3x5(
-    ___5SYM_1_L___,         ___5SYM_1_R___,
-    ___5SYM_2_L___,         ___5SYM_2_R___,
-    ___5SYM_3_L___,         ___5SYM_3_R___,
-        XXXXXXX, ___SYM_4_THUMB_L___,                                  ___SYM_4_THUMB_R___, XXXXXXX
-//    ___SYM_THUMB_L___, ___SYM_THUMB_R___
+    ___5SYM_1_L___,          ___5SYM_1_R___,
+    ___5SYM_2_L___,          ___5SYM_2_R___,
+    ___5SYM_3_L___,          ___5SYM_3_R___,
+    ___SYM_THUMB_L___,    ___SYM_THUMB_R___
   ),
-
   [_NAV] = LAYOUT_btgrant_3x5(
-    ___5NAV_1_L___,         ___5NAV_1_R___,
-    ___5NAV_2_L___,         ___5NAV_2_R___,
-    ___5NAV_3_L___,         ___5NAV_3_R___,
-        XXXXXXX, ___NAV_4_THUMB_L___,                                  ___NAV_4_THUMB_R___, XXXXXXX
-//    ___NAV_THUMB_L___, ___NAV_THUMB_R___
+    ___5NAV_1_L___,          ___5NAV_1_R___,
+    ___5NAV_2_L___,          ___5NAV_2_R___,
+    ___5NAV_3_L___,          ___5NAV_3_R___,
+    ___NAV_THUMB_L___,    ___NAV_THUMB_R___
   ),
-
   [_FUN] = LAYOUT_btgrant_3x5(
-    ___5FUN_1_L___,          ___5FUN_1_R___,
-    ___5FUN_2_L___,          ___5FUN_2_R___,
-    ___5FUN_3_L___,          ___5FUN_3_R___,
-        XXXXXXX, ___FUN_4_THUMB_L___,                                  ___FUN_4_THUMB_R___, XXXXXXX
-//    ___FUN_THUMB_L___,  ___FUN_THUMB_R___
+    ___5FUN_1_L___,           ___5FUN_1_R___,
+    ___5FUN_2_L___,           ___5FUN_2_R___,
+    ___5FUN_3_L___,           ___5FUN_3_R___,
+    ___FUN_THUMB_L___,     ___FUN_THUMB_R___
   ),
   [_MSE] = LAYOUT_btgrant_3x5(
-    ___5MSE_1_L___,          ___5MSE_1_R___,
-    ___5MSE_2_L___,          ___5MSE_2_R___,
-    ___5MSE_3_L___,          ___5MSE_3_R___,
-        XXXXXXX, ___MSE_4_THUMB_L___,                                  ___MSE_4_THUMB_R___, XXXXXXX
-//          ___MSE_THUMB_L___,          ___MSE_THUMB_R___
+    ___5MSE_1_L___,           ___5MSE_1_R___,
+    ___5MSE_2_L___,           ___5MSE_2_R___,
+    ___5MSE_3_L___,           ___5MSE_3_R___,
+    ___MSE_THUMB_L___,     ___MSE_THUMB_R___
   ),
   [_ADD] = LAYOUT_btgrant_3x5(
-      ___5ADD_1_L___,         ___5ADD_1_R___,
-      ___5ADD_2_L___,         ___5ADD_2_R___,
-      ___5ADD_3_L___,         ___5ADD_3_R___,
-        XXXXXXX, ___ADD_4_THUMB_L___,                                  ___ADD_4_THUMB_R___, XXXXXXX
-//            ___ADD_THUMB_L___,         ___ADD_THUMB_R___
+    ___5ADD_1_L___,          ___5ADD_1_R___,
+    ___5ADD_2_L___,          ___5ADD_2_R___,
+    ___5ADD_3_L___,          ___5ADD_3_R___,
+    ___ADD_THUMB_L___,    ___ADD_THUMB_R___
   )
 };
 #else
@@ -116,43 +107,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___BASE_THUMB_L___, ___BASE_THUMB_R___
   ),
   [_NUM] = LAYOUT_btgrant_3x6(
-    ___NUM_1_L___,         ___NUM_1_R___,
-    ___NUM_2_L___,         ___NUM_2_R___,
-    ___NUM_3_L___,         ___NUM_3_R___,
-    ___NUM_THUMB_L___, ___NUM_THUMB_R___
+    ___NUM_1_L___,           ___NUM_1_R___,
+    ___NUM_2_L___,           ___NUM_2_R___,
+    ___NUM_3_L___,           ___NUM_3_R___,
+    ___NUM_THUMB_L___,   ___NUM_THUMB_R___
   ),
-
   [_SYM] = LAYOUT_btgrant_3x6(
-    ___SYM_1_L___,         ___SYM_1_R___,
-    ___SYM_2_L___,         ___SYM_2_R___,
-    ___SYM_3_L___,         ___SYM_3_R___,
-    ___SYM_THUMB_L___, ___SYM_THUMB_R___
+    ___SYM_1_L___,           ___SYM_1_R___,
+    ___SYM_2_L___,           ___SYM_2_R___,
+    ___SYM_3_L___,           ___SYM_3_R___,
+    ___SYM_THUMB_L___,   ___SYM_THUMB_R___
   ),
-
   [_NAV] = LAYOUT_btgrant_3x6(
-    ___NAV_1_L___,         ___NAV_1_R___,
-    ___NAV_2_L___,         ___NAV_2_R___,
-    ___NAV_3_L___,         ___NAV_3_R___,
-    ___NAV_THUMB_L___, ___NAV_THUMB_R___
+    ___NAV_1_L___,           ___NAV_1_R___,
+    ___NAV_2_L___,           ___NAV_2_R___,
+    ___NAV_3_L___,           ___NAV_3_R___,
+    ___NAV_THUMB_L___,   ___NAV_THUMB_R___
   ),
-
   [_FUN] = LAYOUT_btgrant_3x6(
-    ___FUN_1_L___,          ___FUN_1_R___,
-    ___FUN_2_L___,          ___FUN_2_R___,
-    ___FUN_3_L___,          ___FUN_3_R___,
-    ___FUN_THUMB_L___,  ___FUN_THUMB_R___
+    ___FUN_1_L___,           ___FUN_1_R___,
+    ___FUN_2_L___,           ___FUN_2_R___,
+    ___FUN_3_L___,           ___FUN_3_R___,
+    ___FUN_THUMB_L___,   ___FUN_THUMB_R___
   ),
   [_MSE] = LAYOUT_btgrant_3x6(
-    XXXXXXX, ___5MSE_1_L___,          ___5MSE_1_R___, XXXXXXX,
-    XXXXXXX, ___5MSE_2_L___,          ___5MSE_2_R___, XXXXXXX,
-    XXXXXXX, ___5MSE_3_L___,          ___5MSE_3_R___, XXXXXXX,
-          ___MSE_THUMB_L___,          ___MSE_THUMB_R___
+    XXXXXXX, ___5MSE_1_L___,  ___5MSE_1_R___, XXXXXXX,
+    XXXXXXX, ___5MSE_2_L___,  ___5MSE_2_R___, XXXXXXX,
+    XXXXXXX, ___5MSE_3_L___,  ___5MSE_3_R___, XXXXXXX,
+          ___MSE_THUMB_L___,  ___MSE_THUMB_R___
   ),
   [_ADD] = LAYOUT_btgrant_3x6(
-      XXXXXXX, ___5ADD_1_L___,         ___5ADD_1_R___, XXXXXXX,
-      XXXXXXX, ___5ADD_2_L___,         ___5ADD_2_R___, XXXXXXX,
-      XXXXXXX, ___5ADD_3_L___,         ___5ADD_3_R___, XXXXXXX,
-            ___ADD_THUMB_L___,         ___ADD_THUMB_R___
+    XXXXXXX, ___5ADD_1_L___,  ___5ADD_1_R___, XXXXXXX,
+    XXXXXXX, ___5ADD_2_L___,  ___5ADD_2_R___, XXXXXXX,
+    XXXXXXX, ___5ADD_3_L___,  ___5ADD_3_R___, XXXXXXX,
+          ___ADD_THUMB_L___,  ___ADD_THUMB_R___
   )
 };
 #endif
