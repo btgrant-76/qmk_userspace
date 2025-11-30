@@ -18,11 +18,15 @@
  */
 #include QMK_KEYBOARD_H
 
+// TODO include btgrant.h?
 #define HOLD     XXXXXXX
 #define BACK     LCMD(KC_LBRC)
 #define FWD      LCMD(KC_RBRC)
 #define MISS_CTL LCTL(KC_UP)
 #define EXPOSE   LCTL(KC_DOWN)
+#define CUT      LGUI(KC_X)
+#define COPY     LGUI(KC_C)
+#define PASTE    LGUI(KC_V)
 
 //void m3_drag_dance(tap_dance_state_t *state, void *user_data) {
 //    if (state->pressed && !state->interrupted) {
@@ -82,11 +86,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT( BACK,    FWD,        KC_BTN3, KC_BTN2,
                   KC_BTN1,                      /*M3_DRAG*/ DRAG_SCROLL
     ),
-    // KC_BTN1 & KC_BTN2 combo
+    // btn1_and_back
     [1] = LAYOUT( KC_MPRV, KC_MNXT,    MISS_CTL,EXPOSE,
                   KC_BTN1,                      TG(1)
     ),
-    // KC_MNXT, KC_MPRV combo
+    // btn1_and_fwd
     [2] = LAYOUT( XXXXXXX, DPI_CONFIG, XXXXXXX, QK_BOOT,
                   KC_BTN1,                      TG(2)
     )
@@ -94,18 +98,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef COMBO_ENABLE
 
-const uint16_t PROGMEM toggle_l1[] = {KC_BTN1, KC_BTN2, COMBO_END};
-const uint16_t PROGMEM toggle_l2[] = {BACK,    FWD,     COMBO_END};
-const uint16_t PROGMEM play[] =      {KC_MNXT, KC_MPRV, COMBO_END};
-const uint16_t PROGMEM mse3[] =      {KC_BTN1, DRAG_SCROLL, COMBO_END};
+const uint16_t PROGMEM back_and_fwd[] =      {BACK,    FWD,         COMBO_END};
+const uint16_t PROGMEM btn1_and_back[] =     {KC_BTN1, BACK,        COMBO_END};
+const uint16_t PROGMEM btn1_and_btn2[] =     {KC_BTN1, KC_BTN2,     COMBO_END};
+const uint16_t PROGMEM btn1_and_btn3[] =     {KC_BTN1, KC_BTN3,     COMBO_END};
+const uint16_t PROGMEM btn1_and_fwd[] =      {KC_BTN1, FWD,         COMBO_END};
+const uint16_t PROGMEM btn1_and_scroll[] =   {KC_BTN1, DRAG_SCROLL, COMBO_END};
+const uint16_t PROGMEM med_next_and_prev[] = {KC_MNXT, KC_MPRV,     COMBO_END};
 
 combo_t key_combos[] = {
-    // TODO make both of the KC_BTN1 keys on the non-0 layers a macro that will
-    //   1. Toggle off the current layer
-    //   2. send KC_BTN1
-    COMBO(toggle_l1, TG(1)),
-    COMBO(toggle_l2, TG(2)),
-    COMBO(play, KC_MPLY),
-    COMBO(mse3, KC_BTN3)
+    COMBO(back_and_fwd,      CUT),
+    COMBO(btn1_and_back,     TG(1)),
+    COMBO(btn1_and_btn2,     COPY),
+    COMBO(btn1_and_btn3,     CUT),
+    COMBO(btn1_and_fwd,      TG(2)),
+    COMBO(btn1_and_scroll,   PASTE),
+    COMBO(med_next_and_prev, KC_MPLY),
 };
 #endif
