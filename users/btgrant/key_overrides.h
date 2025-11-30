@@ -30,6 +30,10 @@ const key_override_t bslsh_enter_ko = ko_make_with_layers(MOD_MASK_CTRL, KC_BSLS
 const key_override_t switcher_fwd = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_TAB);
 const key_override_t switcher_back = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, LSFT(KC_TAB));
 
+/* displaced thumbs */
+const key_override_t two_thumb_esc_ko = ko_make_basic(MOD_MASK_CTRL, Z_HYPR, KC_ESC);
+const key_override_t two_thumb_enter_ko = ko_make_basic(MOD_MASK_CTRL, SLS_HYPR, KC_ENT);
+
 const key_override_t *key_overrides[] = {
     /* base layer */
     &switcher_esc_ko,
@@ -60,5 +64,9 @@ const key_override_t *key_overrides[] = {
     /* encoder */
     &switcher_fwd,
     &switcher_back,
+
+    /* ... */
+    &two_thumb_esc_ko,
+    &two_thumb_enter_ko,
 };
 #endif

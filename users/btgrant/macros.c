@@ -82,7 +82,7 @@ void vim_write_and_quit(void) {
 };
 
 void new_browser_window_you_jerk(void) {
-    SEND_STRING(SS_LGUI("n") SS_DELAY(200) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
+    SEND_STRING(SS_LGUI("n") SS_DELAY(400) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
 };
 
 void tag_open_insert(void) {

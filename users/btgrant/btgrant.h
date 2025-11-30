@@ -21,14 +21,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum.h"
 
 enum layer_names {
-  _BASE,
-  _NRM,
-  _SYM,
-  _NUM,
-  _NAV,
-  _FUN,
-  _MSE,
-  _ADD
+  _BASE, // 0
+  _NRM,  // 1
+  _SYM,  // 2
+  _NUM,  // 3
+  _NAV,  // 4
+  _FUN,  // 5
+  _MSE,  // 6
+  _ADD   // 7
 };
 
 #define _MED _SYM
@@ -298,7 +298,7 @@ enum {
 #define ___BASE_3_L___      KC_LSFT, ___5BASE_3_L___
 
 #define ___BASE_1_R___      ___5BASE_1_R___, KC_BSPC
-#define ___BASE_2_R___      ___5BASE_2_R___, KC_QUOT
+#define ___BASE_2_R___      ___5BASE_2_R___, KC_SCLN
 #define ___BASE_3_R___      ___5BASE_3_R___, ENT_SFT
 /*** number ***/
 #define ___NUM_1_L___       XXXXXXX, ___5NUM_1_L___
