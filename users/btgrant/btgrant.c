@@ -266,9 +266,9 @@ void leader_end_user(void) {
     if (leader_sequence_one_key(KC_N) ) {
         new_browser_window_you_jerk();
     // vim
-    } else if (leader_sequence_one_key(KC_W) ) {
+    } else if (leader_sequence_two_keys(KC_V, KC_W)) {
         vim_write();
-    } else if (leader_sequence_two_keys(KC_W, KC_Q)) {
+    } else if (leader_sequence_two_keys(KC_V, KC_Q)) {
         vim_write_and_quit();
     // parens
     } else if (leader_sequence_two_keys(KC_P, KC_I)) {
@@ -305,7 +305,7 @@ void leader_end_user(void) {
     // quotes
     } else if (leader_sequence_two_keys(KC_Q, KC_I)) {
         quote_pair_cursor_insertion();
-    } else if (leader_sequence_three_keys(KC_Q, KC_Q, KC_I)) {
+    } else if (leader_sequence_three_keys(KC_D, KC_Q, KC_I)) {
         dquote_pair_cursor_insertion();
     // HTML tags
     } else if (leader_sequence_two_keys(KC_T, KC_O)) {
@@ -314,9 +314,9 @@ void leader_end_user(void) {
         tag_close_insert();
     } else if (leader_sequence_two_keys(KC_T, KC_V)) {
         tag_void_insert();
+    // others...
     } else if (leader_sequence_three_keys(KC_L, KC_O, KC_G)) {
         js_console_log();
-    // others...
     } else if (leader_sequence_two_keys(KC_A, KC_F)) {
          SEND_STRING("=> {}" SS_TAP(X_LEFT) SS_TAP(X_ENT));
     } else if (leader_sequence_two_keys(KC_C, KC_L)) {
