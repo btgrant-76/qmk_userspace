@@ -63,44 +63,44 @@ enum {
 #define HOLD XXXXXXX //:(hold)
 
 /** Layer Keys **/
-#define TAB_FUN LT(_FUN, KC_TAB) //:Tab/FUN
-#define TAB_MSE LT(_MSE, KC_TAB) //:Tab/MSE
-#define BS_NUM LT(_NUM, KC_BSPC) //:BS/NUM
-#define ESC_SYM LT(_SYM, KC_ESC) //:Esc/SYM
-#define ESC_MSE LT(_MSE, KC_ESC) //:Esc/MSE
-#define ESC_FUN LT(_FUN, KC_ESC) //:Esc/FUN
-#define ENT_MSE LT(_MSE, KC_ENT) //:Ent/MSE
-#define ENT_SYM LT(_SYM, KC_ENT) //:Ent/SYM
-#define SPC_NAV LT(_NAV, KC_SPC) //:Spc/NAV
-#define DEL_MED LT(_MED, KC_DEL) //:Del/MED
-#define DEL_MSE LT(_MSE, KC_DEL) //:Del/MSE
+#define TAB_FUN LT(_FUN, KC_TAB) //:$$mdi:keyboard-tab$$/FUN
+#define TAB_MSE LT(_MSE, KC_TAB) //:$$mdi:keyboard-tab$$/MSE
+#define BS_NUM LT(_NUM, KC_BSPC) //:$$mdi:backspace$$/NUM
+#define ESC_SYM LT(_SYM, KC_ESC) //:$$mdi:keyboard-esc$$/SYM
+#define ESC_MSE LT(_MSE, KC_ESC) //:$$mdi:keyboard-esc$$/MSE
+#define ESC_FUN LT(_FUN, KC_ESC) //:$$mdi:keyboard-esc$$/FUN
+#define ENT_MSE LT(_MSE, KC_ENT) //:$$mdi:keyboard-return$$/MSE
+#define ENT_SYM LT(_SYM, KC_ENT) //:$$mdi:keyboard-return$$/SYM
+#define SPC_NAV LT(_NAV, KC_SPC) //:$$mdi:keyboard-space$$/NAV
+#define DEL_MED LT(_MED, KC_DEL) //:$$mdi:backspace-reverse$$/MED
+#define DEL_MSE LT(_MSE, KC_DEL) //:$$mdi:backspace-reverse$$/MSE
 
 #define LPRN_MSE LT(_MSE, KC_LPRN) // TODO I don't think I'm actually using this in practice
 
 /** Mod Tap Aliases **/
 /*** Home Row Mods ***/
-#define A_CTL LCTL_T(KC_A) //:A/Ctl
-#define S_ALT LALT_T(KC_S) //:S/Alt
-#define D_GUI LGUI_T(KC_D) //:D/Cmd
-#define F_SFT LSFT_T(KC_F) //:F/Sft
-#define J_SFT RSFT_T(KC_J) //:J/Sft
-#define K_GUI RGUI_T(KC_K) //:K/Cmd
-#define L_ALT RALT_T(KC_L) //:L/Alt
-#define SCLN_CTL RCTL_T(KC_SCLN) //:;/Ctl // QUOTE_ON_BASE
-#define QUOT_CTL RCTL_T(KC_QUOT) //:'/Ctl // QUOTE_ON_BASE
+#define A_CTL LCTL_T(KC_A) //:A/$$mdi:apple-keyboard-control$$
+#define S_ALT LALT_T(KC_S) //:S/$$mdi:apple-keyboard-option$$
+#define D_GUI LGUI_T(KC_D) //:D/$$mdi:apple-keyboard-command$$
+#define F_SFT LSFT_T(KC_F) //:F/$$mdi:apple-keyboard-shift$$
+#define J_SFT RSFT_T(KC_J) //:J/$$mdi:apple-keyboard-shift$$
+#define K_GUI RGUI_T(KC_K) //:K/$$mdi:apple-keyboard-command$$
+#define L_ALT RALT_T(KC_L) //:L/$$mdi:apple-keyboard-option$$
+#define SCLN_CTL RCTL_T(KC_SCLN) //:;/$$mdi:apple-keyboard-control$$ // QUOTE_ON_BASE
+#define QUOT_CTL RCTL_T(KC_QUOT) //:'/$$mdi:apple-keyboard-control$$ // QUOTE_ON_BASE
 
-#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||Cmd||Sft
-#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||Cmd||Opt||Ctl
+#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:$$mdi:apple-keyboard-control$$||$$mdi:apple-keyboard-option$$||$$mdi:apple-keyboard-command$$||$$mdi:apple-keyboard-shift$$
+#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:$$mdi:apple-keyboard-shift$$||$$mdi:apple-keyboard-command$$||$$mdi:apple-keyboard-option$$||$$mdi:apple-keyboard-control$$
 
 /*** Others ***/
-#define ENT_SFT RSFT_T(KC_ENT) //:Ent/Sft
+#define ENT_SFT RSFT_T(KC_ENT) //:$$mdi:keyboard-return$$/$$mdi:apple-keyboard-shift$$
 #define SLS_HYPR HYPR_T(KC_SLSH) //://Hypr
 #define Z_HYPR HYPR_T(KC_Z) //:Z/Hypr
 #define B_MEH MEH_T(KC_B) //:B/Meh
 #define N_MEH MEH_T(KC_N) //:N/Meh
 
 /*** Thumb keys ***/
-#define DEL_GUI LGUI_T(KC_DEL) //:Del/Cmd
+#define DEL_GUI LGUI_T(KC_DEL) //:$$mdi:backspace-reverse$$/$$mdi:apple-keyboard-command$$
 #define SPC_MEH MEH_T(KC_SPC)
 
 /*** Shortcuts ***/
@@ -109,8 +109,8 @@ enum {
 #define PASTE LGUI(KC_V)
 #define UNDO LGUI(KC_Z)
 #define REDO LSG(KC_Z)
-#define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO //:Redo||Paste||Copy||Cut||Undo
-#define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO //:Undo||Cut||Copy||Paste||Redo
+#define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO //:$$mdi:redo$$||$$mdi:content-paste$$||$$mdi:content-copy$$||$$mdi:content-cut$$||$$mdi:undo$$
+#define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO //:$$mdi:undo$$||$$mdi:content-cut$$||$$mdi:content-copy$$||$$mdi:content-paste$$||$$mdi:redo$$
 
 /*** macOS navigation ***/
 #define MISS_CTL LCTL(KC_UP)
@@ -118,11 +118,11 @@ enum {
 #define RGHT_SPC LCTL(KC_RIGHT)
 
 /*** Other shortcuts ***/
-#define BACK LCMD(KC_LBRC) //:Back
-#define FWD LCMD(KC_RBRC) //:Forward
-#define TAB_LFT LSG(KC_LBRC) //:Tab_Lft
-#define TAB_RGT LSG(KC_RBRC) //:Tab_Rght
-#define Z_MUTE HYPR(KC_SPC) //:Zoom_Mute
+#define BACK LCMD(KC_LBRC) //:$$mdi:chevron-left$$
+#define FWD LCMD(KC_RBRC) //:$$mdi:chevron-right$$
+#define TAB_LFT LSG(KC_LBRC) //:$$mdi:chevron-left$$
+#define TAB_RGT LSG(KC_RBRC) //:$$mdi:chevron-right$$
+#define Z_MUTE HYPR(KC_SPC) //:$$mdi:microphone-off$$
 
 #ifdef TAP_DANCE_ENABLE
 // Tap Dances
