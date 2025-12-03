@@ -4,16 +4,14 @@ const yaml = require('js-yaml');
 const OUTPUT_FILE = './keymap-drawer-';
 
 /*
-TODO add support for a format like this which would originate as a JSON object either
- in the .h file or aliases. If it was in the aliases file, it could just be a native JSON object.
- {"left": "$$mdi:monitor-screenshot$$", "center": "$$mdi:arrow-right$$", "right": "$$mdi:file-document-outline$$"}
-
-- left: $$mdi:monitor-screenshot$$
-  t: $$mdi:arrow-right$$
-  right:  $$mdi:file-document-outline$$
+ TODO can all of the aliases in btgrant.h be moved to keycode_aliases.json?
  */
 
 const toKeyboardDrawerKey = (key) => {
+  if (typeof key === 'object') {
+    return key;
+  }
+
   if (key.includes('/')) {
     if (key.includes('_/_')) {
       return key.replace('_/_', '/');

@@ -120,8 +120,8 @@ enum {
 /*** Other shortcuts ***/
 #define BACK LCMD(KC_LBRC) //:$$mdi:chevron-left$$
 #define FWD LCMD(KC_RBRC) //:$$mdi:chevron-right$$
-#define TAB_LFT LSG(KC_LBRC) //:$$mdi:chevron-left$$
-#define TAB_RGT LSG(KC_RBRC) //:$$mdi:chevron-right$$
+#define TAB_LFT LSG(KC_LBRC)
+#define TAB_RGT LSG(KC_RBRC)
 #define Z_MUTE HYPR(KC_SPC) //:$$mdi:microphone-off$$
 
 #ifdef TAP_DANCE_ENABLE
