@@ -37,7 +37,7 @@ enum custom_keycodes {
   SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board
   SCRN2FL,               // macOS take screenshot to a file
   QUO_INST,
-  UP_DIR,//:../
+  UP_DIR,
   LOG_OUT,
   CAPWD_TG,
   NEW_SAFE_RANGE
@@ -60,47 +60,47 @@ enum {
 };
 
 /* Aliases */
-#define HOLD XXXXXXX //:(hold)
+#define HOLD XXXXXXX
 
 /** Layer Keys **/
-#define TAB_FUN LT(_FUN, KC_TAB) //:Tab/FUN
-#define TAB_MSE LT(_MSE, KC_TAB) //:Tab/MSE
-#define BS_NUM LT(_NUM, KC_BSPC) //:BS/NUM
-#define ESC_SYM LT(_SYM, KC_ESC) //:Esc/SYM
-#define ESC_MSE LT(_MSE, KC_ESC) //:Esc/MSE
-#define ESC_FUN LT(_FUN, KC_ESC) //:Esc/FUN
-#define ENT_MSE LT(_MSE, KC_ENT) //:Ent/MSE
-#define ENT_SYM LT(_SYM, KC_ENT) //:Ent/SYM
-#define SPC_NAV LT(_NAV, KC_SPC) //:Spc/NAV
-#define DEL_MED LT(_MED, KC_DEL) //:Del/MED
-#define DEL_MSE LT(_MSE, KC_DEL) //:Del/MSE
+#define TAB_FUN LT(_FUN, KC_TAB)
+#define TAB_MSE LT(_MSE, KC_TAB)
+#define BS_NUM LT(_NUM, KC_BSPC)
+#define ESC_SYM LT(_SYM, KC_ESC)
+#define ESC_MSE LT(_MSE, KC_ESC)
+#define ESC_FUN LT(_FUN, KC_ESC)
+#define ENT_MSE LT(_MSE, KC_ENT)
+#define ENT_SYM LT(_SYM, KC_ENT)
+#define SPC_NAV LT(_NAV, KC_SPC)
+#define DEL_MED LT(_MED, KC_DEL)
+#define DEL_MSE LT(_MSE, KC_DEL)
 
 #define LPRN_MSE LT(_MSE, KC_LPRN) // TODO I don't think I'm actually using this in practice
 
 /** Mod Tap Aliases **/
 /*** Home Row Mods ***/
-#define A_CTL LCTL_T(KC_A) //:A/Ctl
-#define S_ALT LALT_T(KC_S) //:S/Alt
-#define D_GUI LGUI_T(KC_D) //:D/Cmd
-#define F_SFT LSFT_T(KC_F) //:F/Sft
-#define J_SFT RSFT_T(KC_J) //:J/Sft
-#define K_GUI RGUI_T(KC_K) //:K/Cmd
-#define L_ALT RALT_T(KC_L) //:L/Alt
-#define SCLN_CTL RCTL_T(KC_SCLN) //:;/Ctl // QUOTE_ON_BASE
-#define QUOT_CTL RCTL_T(KC_QUOT) //:'/Ctl // QUOTE_ON_BASE
+#define A_CTL LCTL_T(KC_A)
+#define S_ALT LALT_T(KC_S)
+#define D_GUI LGUI_T(KC_D)
+#define F_SFT LSFT_T(KC_F)
+#define J_SFT RSFT_T(KC_J)
+#define K_GUI RGUI_T(KC_K)
+#define L_ALT RALT_T(KC_L)
+#define SCLN_CTL RCTL_T(KC_SCLN)
+#define QUOT_CTL RCTL_T(KC_QUOT)
 
-#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT //:Ctl||Opt||Cmd||Sft
-#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL //:Sft||Cmd||Opt||Ctl
+#define HRM_L KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT
+#define HRM_R KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL
 
 /*** Others ***/
-#define ENT_SFT RSFT_T(KC_ENT) //:Ent/Sft
-#define SLS_HYPR HYPR_T(KC_SLSH) //://Hypr
-#define Z_HYPR HYPR_T(KC_Z) //:Z/Hypr
-#define B_MEH MEH_T(KC_B) //:B/Meh
-#define N_MEH MEH_T(KC_N) //:N/Meh
+#define ENT_SFT RSFT_T(KC_ENT)
+#define SLS_HYPR HYPR_T(KC_SLSH)
+#define Z_HYPR HYPR_T(KC_Z)
+#define B_MEH MEH_T(KC_B)
+#define N_MEH MEH_T(KC_N)
 
 /*** Thumb keys ***/
-#define DEL_GUI LGUI_T(KC_DEL) //:Del/Cmd
+#define DEL_GUI LGUI_T(KC_DEL)
 #define SPC_MEH MEH_T(KC_SPC)
 
 /*** Shortcuts ***/
@@ -109,8 +109,8 @@ enum {
 #define PASTE LGUI(KC_V)
 #define UNDO LGUI(KC_Z)
 #define REDO LSG(KC_Z)
-#define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO //:Redo||Paste||Copy||Cut||Undo
-#define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO //:Undo||Cut||Copy||Paste||Redo
+#define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO
+#define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO
 
 /*** macOS navigation ***/
 #define MISS_CTL LCTL(KC_UP)
@@ -118,26 +118,26 @@ enum {
 #define RGHT_SPC LCTL(KC_RIGHT)
 
 /*** Other shortcuts ***/
-#define BACK LCMD(KC_LBRC) //:Back
-#define FWD LCMD(KC_RBRC) //:Forward
-#define TAB_LFT LSG(KC_LBRC) //:Tab_Lft
-#define TAB_RGT LSG(KC_RBRC) //:Tab_Rght
-#define Z_MUTE HYPR(KC_SPC) //:Zoom_Mute
+#define BACK LCMD(KC_LBRC)
+#define FWD LCMD(KC_RBRC)
+#define TAB_LFT LSG(KC_LBRC)
+#define TAB_RGT LSG(KC_RBRC)
+#define Z_MUTE HYPR(KC_SPC)
 
 #ifdef TAP_DANCE_ENABLE
 // Tap Dances
-#define F1_TD TD(TD_F1) //:F1
-#define F2_TD TD(TD_F2) //:F2
-#define F6_TD TD(TD_F6) //:F6
-#define F9_TD TD(TD_F9) //:F9
-#define F12_TD TD(TD_F12) //:F12
-#define DOT_TD TD(TD_DOT) //:.
-#define ZERO_TD TD(TD_ZERO) //:0
-#define TWO_TD TD(TD_TWO) //:2
-#define THREE_TD TD(TD_THREE) //:3
-#define QUOT_TD TD(TD_QUOT) //:'_"
-#define DASH_TD TD(TD_DASH) //:-__
-#define GRV_TD TD(TD_GRV) //:`_~
+#define F1_TD TD(TD_F1)
+#define F2_TD TD(TD_F2)
+#define F6_TD TD(TD_F6)
+#define F9_TD TD(TD_F9)
+#define F12_TD TD(TD_F12)
+#define DOT_TD TD(TD_DOT)
+#define ZERO_TD TD(TD_ZERO)
+#define TWO_TD TD(TD_TWO)
+#define THREE_TD TD(TD_THREE)
+#define QUOT_TD TD(TD_QUOT)
+#define DASH_TD TD(TD_DASH)
+#define GRV_TD TD(TD_GRV)
 #else
 #define F1_TD KC_F1
 #define F2_TD KC_F2
@@ -163,7 +163,7 @@ enum {
 #define ___BASE_THUMB_L___                  TAB_FUN, BS_NUM,  ESC_MSE
 
 #define ___5BASE_1_R___      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P
-#define ___5BASE_2_R___      KC_H,    J_SFT,   K_GUI,   L_ALT,  QUOT_CTL // QUOTE_ON_BASE  SCLN_CTL
+#define ___5BASE_2_R___      KC_H,    J_SFT,   K_GUI,   L_ALT,  QUOT_CTL
 #define ___5BASE_3_R___      N_MEH,   KC_M,    KC_COMM, KC_DOT, SLS_HYPR
 #define ___BASE_THUMB_R___ ENT_MSE, SPC_NAV, DEL_MED
 
@@ -174,7 +174,7 @@ enum {
 #define ___NUM_THUMB_L___                   KC_DEL,  HOLD,    KC_BSPC
 
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
-#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_SCLN // QUOTE_ON_BASE  KC_QUOT
+#define ___5NUM_2_R___      KC_EQL,  KC_4,    KC_5,    KC_6,    KC_SCLN
 #define ___5NUM_3_R___      KC_BSLS, KC_1,    KC_2,    KC_3,    KC_GRV
 #define ___NUM_THUMB_R___   KC_MINS, KC_0,    KC_DOT
 
@@ -196,7 +196,7 @@ enum {
 #define ___NAV_THUMB_L___                   DEL_GUI, KC_BSPC, KC_ENT
 
 #define ___5NAV_1_R___      CLIPBOARD_R
-#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_SCLN  // QUOTE_ON_BASE  KC_QUOT
+#define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_SCLN
 #define ___5NAV_3_R___      KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_ENT
 #define ___NAV_THUMB_R___ XXXXXXX, HOLD,    XXXXXXX
 
@@ -236,7 +236,7 @@ enum {
 #define ___ADD_THUMB_R___   XXXXXXX, HOLD,    XXXXXXX
 
 /** alternate thumbs **/
-/*** four thumbs ***/ // TODO reconcile this section with keymaps
+/*** four thumbs ***/
 #define ___BASE_4THUMB_L___ TAB_MSE, BS_NUM
 #define ___BASE_4THUMB_R___ SPC_NAV, DEL_MSE
 
@@ -263,7 +263,7 @@ enum {
 #define ___BASE_ALT_THUMB_R___  ___BASE_4THUMB_R___, ENT_SYM
 
 #define ___NUM_ALT_THUMB_L___  XXXXXXX, ___NUM_4THUMB_L___
-#define ___NUM_ALT_THUMB_R___  ___NUM_4THUMB_R___, DOT_TD
+#define ___NUM_ALT_THUMB_R___  ___NUM_4THUMB_R___, KC_DOT
 
 #define ___SYM_ALT_THUMB_L___  XXXXXXX, ___SYM_4THUMB_L___
 #define ___SYM_ALT_THUMB_R___  ___SYM_4THUMB_R___, KC_RPRN

@@ -60,6 +60,10 @@ const processKeyCodes = (keycodes) => keycodes.flatMap((kc) => {
   const updatedKc = kc.replace(',', '');
   const alias = aliases[updatedKc];
   if (alias) {
+    if (typeof alias === 'object') {
+      return alias;
+    }
+
     return alias.split('||');
   }
 
