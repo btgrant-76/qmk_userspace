@@ -5,6 +5,8 @@ const OUTPUT_FILE = './keymap-drawer-';
 
 /*
  TODO can all of the aliases in btgrant.h be moved to keycode_aliases.json?
+ TODO at some point the Keymap Drawer use of glyphs is going to make the aliases
+  JSON file completely unusable by readme.js. Rename it so it's aligned with this file.
  */
 
 const toKeyboardDrawerKey = (key) => {

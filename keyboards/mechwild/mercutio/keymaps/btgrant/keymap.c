@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NUM] = LAYOUT_btgrant_all(
                                                                               ENC_NUM,
       ___NUM_1_L___,                                                    ___NUM_1_R___,
-      ___NUM_2_L___,              KC_EQL,    KC_4,    KC_5,    KC_6, XXXXXXX, QUOT_TD,
+      ___NUM_2_L___,              KC_EQL,    KC_4,    KC_5,    KC_6, XXXXXXX, KC_QUOT,
       _______, XXXXXXX, ___5NUM_3_L___,                                ___5NUM_3_R___,
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS,    KC_0, _______, _______
   ),
