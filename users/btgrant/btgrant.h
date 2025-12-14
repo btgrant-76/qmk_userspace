@@ -98,6 +98,8 @@ enum {
 #define Z_HYPR HYPR_T(KC_Z)
 #define B_MEH MEH_T(KC_B)
 #define N_MEH MEH_T(KC_N)
+#define ACL0_HOLD KC_ACL0
+#define ACL2_HOLD KC_ACL2
 
 /*** Thumb keys ***/
 #define DEL_GUI LGUI_T(KC_DEL)
@@ -179,21 +181,21 @@ enum {
 #define ___NUM_THUMB_R___   KC_MINS, KC_0,    KC_DOT
 
 /*** symbol ***/
-#define ___5SYM_1_L___      RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
-#define ___5SYM_2_L___      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, RGB_SPI
+#define ___5SYM_1_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5SYM_2_L___      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX
 #define ___5SYM_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ___SYM_THUMB_L___                   KC_MUTE, KC_MPLY, KC_MSTP
+#define ___SYM_THUMB_L___                     KC_MUTE, KC_MPLY, KC_MSTP
 
-#define ___5SYM_1_R___      KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR
-#define ___5SYM_2_R___      KC_PLUS, KC_DLR,  KC_PERC, KC_CIRC, KC_DQT
-#define ___5SYM_3_R___      KC_PIPE, KC_EXLM, KC_AT,   KC_HASH, KC_TILD
-#define ___SYM_THUMB_R___ KC_UNDS, LPRN_MSE, HOLD
+#define ___5SYM_1_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5SYM_2_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5SYM_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___SYM_THUMB_R___   XXXXXXX, XXXXXXX, HOLD
 
 /*** navigation ***/
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
 #define ___5NAV_2_L___      HRM_L,                              XXXXXXX
 #define ___5NAV_3_L___      XXXXXXX, XXXXXXX, XXXXXXX,  QK_REP, XXXXXXX
-#define ___NAV_THUMB_L___                   DEL_GUI, KC_BSPC, KC_ENT
+#define ___NAV_THUMB_L___                     DEL_GUI, KC_BSPC, KC_ENT
 
 #define ___5NAV_1_R___      CLIPBOARD_R
 #define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_SCLN
@@ -204,7 +206,7 @@ enum {
 #define ___5FUN_1_L___      LOG_OUT, XXXXXXX, SCRN2CLP, SCRN2FL, XXXXXXX
 #define ___5FUN_2_L___      HRM_L,                               KC_BRIU
 #define ___5FUN_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_BRID
-#define ___FUN_THUMB_L___                     HOLD,    MO(_MSE), XXXXXXX
+#define ___FUN_THUMB_L___                     HOLD,    XXXXXXX,  XXXXXXX
 
 #define ___5FUN_1_R___      XXXXXXX, KC_F7,   KC_F8,   KC_F9,   KC_F12
 #define ___5FUN_2_R___      XXXXXXX, KC_F4,   KC_F5,   KC_F6,   KC_F11
@@ -215,14 +217,14 @@ enum {
 #define ___5MSE_1_L___      CLIPBOARD_L
 #define ___5MSE_2_L___      KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX
 #define ___5MSE_3_L___      KC_ESC,  HRM_L
-#define ___MSE_THUMB_L___                     KC_ESC,  HOLD,    HOLD
+#define ___MSE_THUMB_L___                     KC_ESC,  KC_ACL0, ACL2_HOLD
 
 #define ___5MSE_1_R___      XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX
 #define ___5MSE_2_R___      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX
 // wheel up/down are swapped intentionally so the actual directions are synced
 // relative to "natural scrolling"
 #define ___5MSE_3_R___      KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX
-#define ___MSE_THUMB_R___   HOLD,    HOLD,    XXXXXXX
+#define ___MSE_THUMB_R___   HOLD,    XXXXXXX, XXXXXXX
 
 /*** additional features ***/
 #define ___5ADD_1_L___      RGB_SPD, RGB_RMOD, RGB_MOD, RGB_SPI, RGB_TOG
@@ -252,7 +254,7 @@ enum {
 #define ___FUN_4THUMB_L___ HOLD,    HOLD
 #define ___FUN_4THUMB_R___ MO(_ADD), XXXXXXX
 
-#define ___MSE_4THUMB_L___ HOLD,    XXXXXXX
+#define ___MSE_4THUMB_L___ ACL0_HOLD, KC_ACL2
 #define ___MSE_4THUMB_R___ XXXXXXX, HOLD
 
 #define ___ADD_4THUMB_L___ XXXXXXX, XXXXXXX

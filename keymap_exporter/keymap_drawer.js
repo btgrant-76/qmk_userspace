@@ -30,9 +30,6 @@ const toKeyboardDrawerKey = (key) => {
     }
   }
 
-  if (key === '(hold)') {
-    return { type: 'held' };
-  }
   return key;
 };
 
