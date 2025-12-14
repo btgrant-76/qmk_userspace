@@ -44,4 +44,6 @@ void vim_write(void);
 
 void vim_write_and_quit(void);
 
+void vim_yank_to_clipboard(void);
+
 void js_console_log(void);

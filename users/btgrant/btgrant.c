@@ -270,6 +270,8 @@ void leader_end_user(void) {
         vim_write();
     } else if (leader_sequence_two_keys(KC_V, KC_Q)) {
         vim_write_and_quit();
+    } else if (leader_sequence_two_keys(KC_V, KC_C)) {
+        vim_yank_to_clipboard();
     // parens
     } else if (leader_sequence_two_keys(KC_P, KC_I)) {
         parens_insert();

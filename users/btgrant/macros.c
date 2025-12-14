@@ -81,6 +81,10 @@ void vim_write_and_quit(void) {
     SEND_STRING(SS_TAP(X_ESC) ":wq" SS_DELAY(100) SS_TAP(X_ENT));
 };
 
+void vim_yank_to_clipboard(void) {
+    SEND_STRING("\"+y");
+};
+
 void new_browser_window_you_jerk(void) {
     SEND_STRING(SS_LGUI("n") SS_DELAY(400) SS_LGUI("t") SS_LGUI("{") SS_LGUI("w"));
 };
