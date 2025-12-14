@@ -13,6 +13,8 @@ AUTO_SHIFT_ENABLE = no
 
 LEADER_ENABLE = yes
 
+REPEAT_KEY_ENABLE = yes
+
 # start space-savings
 # https://docs.qmk.fm/#/squeezing_avr?id=squeezing-the-most-out-of-avr
 # AVR_USE_MINIMAL_PRINTF = yes  # crkbd & cocot46plus need these features for OLED text formatting

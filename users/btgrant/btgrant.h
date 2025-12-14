@@ -170,7 +170,7 @@ enum {
 /*** number ***/
 #define ___5NUM_1_L___      CLIPBOARD_L
 #define ___5NUM_2_L___      HRM_L,                              CAPWD_TG
-#define ___5NUM_3_L___      KC_ESC,   XXXXXXX, QK_LEAD, KC_SPC, KC_BSPC
+#define ___5NUM_3_L___      KC_ESC,   XXXXXXX, QK_LEAD, QK_REP, KC_BSPC
 #define ___NUM_THUMB_L___                   KC_DEL,  HOLD,    KC_BSPC
 
 #define ___5NUM_1_R___      KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC
@@ -192,7 +192,7 @@ enum {
 /*** navigation ***/
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
 #define ___5NAV_2_L___      HRM_L,                              XXXXXXX
-#define ___5NAV_3_L___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ___5NAV_3_L___      XXXXXXX, XXXXXXX, XXXXXXX,  QK_REP, XXXXXXX
 #define ___NAV_THUMB_L___                   DEL_GUI, KC_BSPC, KC_ENT
 
 #define ___5NAV_1_R___      CLIPBOARD_R
