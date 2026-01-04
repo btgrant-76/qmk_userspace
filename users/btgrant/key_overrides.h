@@ -2,8 +2,7 @@
 
 /* base layer */
 const key_override_t switcher_esc_ko = ko_make_with_layers_and_negmods(MOD_MASK_ALT, A_CTL, KC_ESC, 1 << _BASE, MOD_MASK_CTRL);
-const key_override_t quot_to_coln_ko = ko_make_basic(MOD_MASK_CTRL, QUOT_CTL, KC_COLN);
-const key_override_t quot_to_scln_ko = ko_make_basic(MOD_MASK_CS, QUOT_CTL, KC_SCLN);
+const key_override_t quot_to_scln_ko = ko_make_basic(MOD_MASK_CTRL, QUOT_CTL, KC_SCLN);
 
 /** symbols on base **/
 const key_override_t l_brc_ko = ko_make_basic(MOD_MASK_CA, KC_COMM, KC_LBRC);
@@ -38,7 +37,6 @@ const key_override_t *key_overrides[] = {
     /* base layer */
     &switcher_esc_ko,
     &quot_to_scln_ko,
-    &quot_to_coln_ko,
 
     /** symbols on base **/
     &l_brc_ko,
