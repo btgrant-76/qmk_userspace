@@ -19,9 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include "quantum.h"
 
-#define MS_BTN1 KC_MS_BTN1
-#define MS_BTN2 KC_MS_BTN2
-#define MS_BTN3 KC_MS_BTN3
+#define MS_BTN1 MS_BTN1
+#define MS_BTN2 MS_BTN2
+#define MS_BTN3 MS_BTN3
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -90,8 +90,8 @@ bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
 
 #ifdef RGB_MATRIX_ENABLE
 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) { 
-    int is_layer = get_highest_layer(layer_state|default_layer_state);  
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    int is_layer = get_highest_layer(layer_state|default_layer_state);
     HSV hsv = {0, 255, rgblight_get_val()};
     if (is_layer == 1) {
       hsv.h = 11; //CORAL
@@ -111,7 +111,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
       hsv.h = 128; //CYAN
     }
     RGB rgb = hsv_to_rgb(hsv);
- 
+
     for (uint8_t i = led_min; i <= led_max; i++) {
         if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
           rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);

@@ -144,7 +144,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_NAV]  = { ENCODER_CCW_CW(BACK,     FWD),      ENCODER_CCW_CW(BACK,     FWD) },
     [_FUN]  = { ENCODER_CCW_CW(KC_BRID,  KC_BRIU),  ENCODER_CCW_CW(KC_BRID,  KC_BRIU) },
     [_MSE]  = { ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC), ENCODER_CCW_CW(LEFT_SPC, RGHT_SPC) },
-    [_ADD]  = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),  ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
+    [_ADD]  = { ENCODER_CCW_CW(RM_PREV,  RM_NEXT),  ENCODER_CCW_CW(RM_PREV,  RM_NEXT) },
     [_NRM]  = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU),  ENCODER_CCW_CW(KC_VOLD,  KC_VOLU) }
                 /* Top encoder *****************/   /* Bottom encoder **************/
 };

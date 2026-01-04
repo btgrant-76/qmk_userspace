@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         //        { left roller (R, L),                   left knob (L, R),                 right roller (R, L),              right knob (R, L) }
-        [_BASE] = { ENCODER_CCW_CW(KC_TAB, LSFT(KC_TAB)), ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(KC_WH_D, KC_WH_U), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+        [_BASE] = { ENCODER_CCW_CW(KC_TAB, LSFT(KC_TAB)), ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(MS_WHLD, MS_WHLU), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
         [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP),     ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_PGDN, KC_PGUP), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},
         [_SYM]  = { ENCODER_CCW_CW(KC_MNXT, KC_MPRV),     ENCODER_CCW_CW(KC_MNXT, KC_MPRV) },
         [_NAV]  = { ENCODER_CCW_CW(FWD, BACK),            ENCODER_CCW_CW(BACK, FWD) },
