@@ -29,11 +29,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM_PER_KEY
 #define CHORDAL_HOLD
 
-/* a record of my attempt to live with permissive hold
-#define TAPPING_TERM 250
-#define TAPPING_TERM_DECREASE_SHIFT 0
+/* settings for use with permissive hold */
 #define PERMISSIVE_HOLD
-*/
+#undef TAPPING_TERM_PER_KEY
+
+#undef TAPPING_TERM
+#define TAPPING_TERM 250
+#undef TAPPING_TERM_DECREASE_SHIFT
+#define TAPPING_TERM_DECREASE_SHIFT 0
+/* */
 
 // Mouse Keys
 #define MK_KINETIC_SPEED // use MK_3_SPEED if builds are too large
