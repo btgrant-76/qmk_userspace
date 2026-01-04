@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_MSE] = LAYOUT_btgrant_all(
                                                                               ENC_MSE,
       ___MSE_1_L___,                                                    ___MSE_1_R___,
-      ___MSE_2_L___,             KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, XXXXXXX,
+      ___MSE_2_L___,               MS_LEFT, MS_DOWN, MS_UP, MS_RGHT, XXXXXXX, XXXXXXX,
       XXXXXXX, XXXXXXX, ___5MSE_3_L___,                                ___5MSE_3_R___,
       _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
   ),

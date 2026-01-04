@@ -49,7 +49,7 @@ tap_dance_action_t tap_dance_actions[] = {
     // since this involves a press-and-hold option, this could be replaced with ACTION_TAP_DANCE_FN_ADVANCED_WITH_RELEASE
     // the initial hold would likely register_code(DRAG_SCROLL) and that state would be cleared by the on_each_release_fn
     // in the short term, I could also try drag scroll toggle
-    [DRAG_M3] = ACTION_TAP_DANCE_DOUBLE(DRAG_SCROLL, KC_BTN3), // this does not seem to work for DRAG_SCROLL
+    [DRAG_M3] = ACTION_TAP_DANCE_DOUBLE(DRAG_SCROLL, MS_BTN3), // this does not seem to work for DRAG_SCROLL
 };
 
 #define M3_DRAG TD(DRAG_M3)
@@ -68,11 +68,11 @@ tap_dance_action_t tap_dance_actions[] = {
     TD3. Hold: Drag Scroll; 2x Tap:  Mouse 3
     TD4. Tap:  Mouse 2; 2x Tap:  DPI
 
-    CB1. KC_BTN1 + TD3 = MO(1)
+    CB1. MS_BTN1 + TD3 = MO(1)
     CB2. BACK + FWD = TG(2)
 
-    [0] = LAYOUT(     TD1,    TD2,        KC_BTN3, TD4,
-                  KC_BTN1,                      M3_DRAG
+    [0] = LAYOUT(     TD1,    TD2,        MS_BTN3, TD4,
+                  MS_BTN1,                      M3_DRAG
     ),
     [1] = LAYOUT( KC_MPRV, KC_MNXT,    MISS_CTL,EXPOSE,
                      HOLD,                      HOLD
@@ -83,27 +83,27 @@ tap_dance_action_t tap_dance_actions[] = {
 */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT( BACK,    FWD,        KC_BTN3, KC_BTN2,
-                  KC_BTN1,                      /*M3_DRAG*/ DRAG_SCROLL
+    [0] = LAYOUT( BACK,    FWD,        MS_BTN3, MS_BTN2,
+                  MS_BTN1,                      /*M3_DRAG*/ DRAG_SCROLL
     ),
     // btn1_and_back
     [1] = LAYOUT( KC_MPRV, KC_MNXT,    MISS_CTL,EXPOSE,
-                  KC_BTN1,                      TG(1)
+                  MS_BTN1,                      TG(1)
     ),
     // btn1_and_fwd
     [2] = LAYOUT( XXXXXXX, DPI_CONFIG, XXXXXXX, QK_BOOT,
-                  KC_BTN1,                      TG(2)
+                  MS_BTN1,                      TG(2)
     )
 };
 
 #ifdef COMBO_ENABLE
 
 const uint16_t PROGMEM back_and_fwd[] =      {BACK,    FWD,         COMBO_END};
-const uint16_t PROGMEM btn1_and_back[] =     {KC_BTN1, BACK,        COMBO_END};
-const uint16_t PROGMEM btn1_and_btn2[] =     {KC_BTN1, KC_BTN2,     COMBO_END};
-const uint16_t PROGMEM btn1_and_btn3[] =     {KC_BTN1, KC_BTN3,     COMBO_END};
-const uint16_t PROGMEM btn1_and_fwd[] =      {KC_BTN1, FWD,         COMBO_END};
-const uint16_t PROGMEM btn1_and_scroll[] =   {KC_BTN1, DRAG_SCROLL, COMBO_END};
+const uint16_t PROGMEM btn1_and_back[] =     {MS_BTN1, BACK,        COMBO_END};
+const uint16_t PROGMEM btn1_and_btn2[] =     {MS_BTN1, MS_BTN2,     COMBO_END};
+const uint16_t PROGMEM btn1_and_btn3[] =     {MS_BTN1, MS_BTN3,     COMBO_END};
+const uint16_t PROGMEM btn1_and_fwd[] =      {MS_BTN1, FWD,         COMBO_END};
+const uint16_t PROGMEM btn1_and_scroll[] =   {MS_BTN1, DRAG_SCROLL, COMBO_END};
 const uint16_t PROGMEM med_next_and_prev[] = {KC_MNXT, KC_MPRV,     COMBO_END};
 
 combo_t key_combos[] = {

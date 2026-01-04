@@ -98,8 +98,8 @@ enum {
 #define Z_HYPR HYPR_T(KC_Z)
 #define B_MEH MEH_T(KC_B)
 #define N_MEH MEH_T(KC_N)
-#define ACL0_HOLD KC_ACL0
-#define ACL2_HOLD KC_ACL2
+#define ACL0_HOLD MS_ACL0
+#define ACL2_HOLD MS_ACL2
 
 /*** Thumb keys ***/
 #define DEL_GUI LGUI_T(KC_DEL)
@@ -215,21 +215,21 @@ enum {
 
 /*** mouse ***/
 #define ___5MSE_1_L___      CLIPBOARD_L
-#define ___5MSE_2_L___      KC_BTN5, KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX
+#define ___5MSE_2_L___      MS_BTN5, MS_BTN3, MS_BTN1, MS_BTN2, XXXXXXX
 #define ___5MSE_3_L___      KC_ESC,  HRM_L
-#define ___MSE_THUMB_L___                     KC_ESC,  KC_ACL0, ACL2_HOLD
+#define ___MSE_THUMB_L___                     KC_ESC,  MS_ACL0, ACL2_HOLD
 
-#define ___5MSE_1_R___      XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX
-#define ___5MSE_2_R___      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX
+#define ___5MSE_1_R___      XXXXXXX, MS_ACL0, MS_ACL1, MS_ACL2, XXXXXXX
+#define ___5MSE_2_R___      MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, XXXXXXX
 // wheel up/down are swapped intentionally so the actual directions are synced
 // relative to "natural scrolling"
-#define ___5MSE_3_R___      KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX
+#define ___5MSE_3_R___      MS_WHLL, MS_WHLU, MS_WHLD, MS_WHLR, XXXXXXX
 #define ___MSE_THUMB_R___   HOLD,    XXXXXXX, XXXXXXX
 
 /*** additional features ***/
-#define ___5ADD_1_L___      RGB_SPD, RGB_RMOD, RGB_MOD, RGB_SPI, RGB_TOG
-#define ___5ADD_2_L___      RGB_SAD, RGB_HUD,  RGB_HUI, RGB_SAI, XXXXXXX
-#define ___5ADD_3_L___      XXXXXXX, RGB_VAD,  RGB_VAI, XXXXXXX, QK_BOOT
+#define ___5ADD_1_L___      RM_SPDD, RM_PREV,  RM_NEXT, RM_SPDU, RM_TOGG
+#define ___5ADD_2_L___      RM_SATD, RM_HUED,  RM_HUEU, RM_SATU, XXXXXXX
+#define ___5ADD_3_L___      XXXXXXX, RM_VALD,  RM_VALU, XXXXXXX, QK_BOOT
 #define ___ADD_THUMB_L___                      XXXXXXX, XXXXXXX, XXXXXXX
 
 #define ___5ADD_1_R___      CLIPBOARD_R
@@ -254,7 +254,7 @@ enum {
 #define ___FUN_4THUMB_L___ HOLD,    HOLD
 #define ___FUN_4THUMB_R___ MO(_ADD), XXXXXXX
 
-#define ___MSE_4THUMB_L___ ACL0_HOLD, KC_ACL2
+#define ___MSE_4THUMB_L___ ACL0_HOLD, MS_ACL2
 #define ___MSE_4THUMB_R___ XXXXXXX, HOLD
 
 #define ___ADD_4THUMB_L___ XXXXXXX, XXXXXXX

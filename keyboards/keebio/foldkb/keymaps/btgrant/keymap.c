@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NUM] = LAYOUT_btgrant(
     ENC_NUM, QK_BOOT, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, KC_DEL,
     BL_STEP,                                                 ___NUM_1_L___,     ___NUM_1_R___,                                        _______, _______,
-    RGB_MOD,                                                 ___NUM_2_L___,     ___NUM_2_R___,                                                 _______,
+    RM_NEXT,                                                 ___NUM_2_L___,     ___NUM_2_R___,                                                 _______,
     KC_VOLU,                                                 ___NUM_3_L___,     ___NUM_3_R___,                                        _______,
     KC_VOLD,          _______, _______, _______,         ___NUM_THUMB_L___,     ___NUM_THUMB_R___,         _______, _______, _______
   ),

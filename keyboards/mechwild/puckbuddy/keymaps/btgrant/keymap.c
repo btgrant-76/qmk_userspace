@@ -44,21 +44,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         KC_MUTE,  XXXXXXX, XXXXXXX, MO(_FN1),         KC_MPLY,
         BACK,                                         FWD,
-        KC_WH_D,                                      DPI_FINE,
-        KC_WH_U,                                      MISS_CTL,
-                  KC_BTN1, KC_BTN2, KC_BTN3, EXPOSE
+        MS_WHLD,                                      DPI_FINE,
+        MS_WHLU,                                      MISS_CTL,
+                  MS_BTN1, MS_BTN2, MS_BTN3, EXPOSE
     ),
     [_FN1] = LAYOUT(
-        RGB_TOG, XXXXXXX, XXXXXXX,  XXXXXXX,          TAP_TOG,
+        RM_TOGG, XXXXXXX, XXXXXXX,  XXXXXXX,          TAP_TOG,
         DPI_UP,                                       XXXXXXX,
         DPI_DN,                                       XXXXXXX,
         MO(_FN2),                                     XXXXXXX,
                  QK_BOOT, XXXXXXX,  XXXXXXX, XXXXXXX
     ),
     [_FN2] = LAYOUT(
-        KC_TRNS, XXXXXXX, XXXXXXX, KC_TRNS,          RGB_TOG,
-        KC_TRNS,                                     RGB_MOD,
-        KC_TRNS,                                     RGB_RMOD,
+        KC_TRNS, XXXXXXX, XXXXXXX, KC_TRNS,          RM_TOGG,
+        KC_TRNS,                                     RM_NEXT,
+        KC_TRNS,                                     RM_PREV,
         KC_TRNS,                                     KC_TRNS,
                  KC_HOME, KC_PGUP, KC_PGDN, KC_END
     ),
@@ -78,16 +78,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),  ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
-        [_FN1]  = { ENCODER_CCW_CW(RGB_MOD, RGB_RMOD), ENCODER_CCW_CW(TAP_DN,  TAP_UP) },
+        [_FN1]  = { ENCODER_CCW_CW(RM_PREV,  RM_NEXT), ENCODER_CCW_CW(TAP_DN,  TAP_UP) },
         [_FN2]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX),  ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
         [_FN3]  = { ENCODER_CCW_CW(XXXXXXX, XXXXXXX),  ENCODER_CCW_CW(XXXXXXX, XXXXXXX) },
     };
 #endif
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM mse3[] =      {KC_BTN1, KC_BTN2, COMBO_END};
+const uint16_t PROGMEM mse3[] =      {MS_BTN1, MS_BTN2, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(mse3, KC_BTN3)
+    COMBO(mse3, MS_BTN3)
 };
 #endif

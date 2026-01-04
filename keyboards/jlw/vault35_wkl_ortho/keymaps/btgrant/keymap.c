@@ -35,7 +35,7 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant_cain_bars(
                ___5BASE_1_L___, ENC_BASE, ___5BASE_1_R___,
-               ___5BASE_2_L___,  RGB_TOG, ___5BASE_2_R___,
+               ___5BASE_2_L___,  RM_TOGG, ___5BASE_2_R___,
                ___5BASE_3_L___, MO(_MED), ___5BASE_3_R___,
         ___BASE_ALT_THUMB_L___,           ___BASE_ALT_THUMB_R___
     ),
