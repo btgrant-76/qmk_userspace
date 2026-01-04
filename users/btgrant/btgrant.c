@@ -120,7 +120,11 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     // Exceptionally allow some one-handed chords for hotkeys.
     switch (tap_hold_keycode) {
         case D_GUI:
-            if (other_keycode == KC_Q || other_keycode == KC_W || other_keycode == KC_R) {
+            if (other_keycode == KC_Q || // quit
+                other_keycode == KC_W || // close window
+                other_keycode == KC_R || // reload
+                other_keycode == KC_S    // save
+            ) {
                 return true;
             }
             break;
