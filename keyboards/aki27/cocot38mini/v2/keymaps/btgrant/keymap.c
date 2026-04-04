@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___5SYM_1_L___,                  ___5SYM_1_R___,
     ___5SYM_2_L___,     MS_BTN3,      ___5SYM_2_R___,
     ___5SYM_3_L___,                  ___5SYM_3_R___,
-    ___SYM_THUMB_L___,  MS_BTN1,  ___SYM_THUMB_R___
+    ___SYM_THUMB_L___,  MS_BTN3,  ___SYM_THUMB_R___
   ),
   [_NAV] = LAYOUT_btgrant(
     ___5NAV_1_L___,                  ___5NAV_1_R___,
@@ -75,10 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_MSE] = LAYOUT_btgrant(
     ___5MSE_1_L___,                                                ___5MSE_1_R___,
-    SCRL_MO, MS_BTN3, MS_BTN1, MS_BTN2, XXXXXXX,     MS_BTN2,      ___5NAV_2_R___,
-//    ___5MSE_2_L___,            MS_BTN2,            ___5MSE_2_R___,
+    SCRL_MO, MS_BTN3, MS_BTN1, MS_BTN2, XXXXXXX,  MS_BTN2,         ___5NAV_2_R___,
     ___5MSE_3_L___,                                                ___5MSE_3_R___,
-    XXXXXXX, SCRL_MO, XXXXXXX,                       MS_BTN1, XXXXXXX, XXXXXXX, SCRL_MO
+    XXXXXXX, SCRL_MO, XXXXXXX,                    MS_BTN1, XXXXXXX, XXXXXXX, SCRL_MO
   ),
   [_ADD] = LAYOUT_btgrant(
     ___5ADD_1_L___,                               ___5ADD_1_R___,

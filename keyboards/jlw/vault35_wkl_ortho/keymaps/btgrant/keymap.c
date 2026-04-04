@@ -10,15 +10,7 @@
 #include "encoder_map.h"
 #include "encoder_press.h"
 
-#ifdef COMBO_ENABLE
-#include "combo_defs.h"
-
-combo_t key_combos[] = {
-    // thumb keys
-    COMBO(MO_FUN, MO(_FUN)),
-    COMBO(MO_SYM, MO(_SYM)),
-};
-#endif
+#include "four_thumb_combos.h"
 
 #define LAYOUT_btgrant_cain_bars(...)    LAYOUT_cain_bars(__VA_ARGS__)
 

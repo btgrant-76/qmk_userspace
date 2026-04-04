@@ -1,5 +1,5 @@
 /* Copyright 2022  CyanDuck
-* Copyright 2025 Brian Grant <@btgrant-76>
+* Copyright 2026 Brian Grant <@btgrant-76>
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,10 +26,10 @@
 #ifdef CHORDAL_HOLD
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT_btgrant(
-        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
-        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
-        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
-        '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'
+        'L', 'L', 'L', 'L', 'L',   'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',   'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',   'R', 'R', 'R', 'R', 'R',
+        '*', '*', '*', '*', '*',   '*', '*', '*', '*', '*'
     );
 #endif
 
@@ -38,43 +38,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  ___5BASE_1_L___,                         ___5BASE_1_R___,
                  ___5BASE_2_L___,                         ___5BASE_2_R___,
                  ___5BASE_3_L___,                         ___5BASE_3_R___,
-        XXXXXXX, ___BASE_THUMB_L___,    KC_MPLY, KC_MUTE, ___BASE_THUMB_R___, KC_4
+    XXXXXXX,  BS_NUM, TAB_FUN, ESC_MSE,  KC_MPLY, KC_MUTE,  ENT_MSE, DEL_MED, SPC_NAV,  KC_4
     ),
     [_NUM] = LAYOUT_btgrant(
                  ___5NUM_1_L___,                         ___5NUM_1_R___,
                  ___5NUM_2_L___,                         ___5NUM_2_R___,
                  ___5NUM_3_L___,                         ___5NUM_3_R___,
-        XXXXXXX, ___NUM_THUMB_L___,	XXXXXXX, XXXXXXX, ___NUM_THUMB_R___, XXXXXXX
+
+    XXXXXXX,  HOLD, KC_BSPC, KC_DEL,  XXXXXXX, XXXXXXX,  KC_DOT, KC_MINS, KC_0, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant(
                  ___5SYM_1_L___,                         ___5SYM_1_R___,
                  ___5SYM_2_L___,                         ___5SYM_2_R___,
                  ___5SYM_3_L___,                         ___5SYM_3_R___,
-        XXXXXXX, ___SYM_THUMB_L___, XXXXXXX, XXXXXXX, ___SYM_THUMB_R___, XXXXXXX
+    XXXXXXX,  KC_MPLY, KC_MUTE, KC_MSTP,  XXXXXXX, XXXXXXX,  HOLD, XXXXXXX, XXXXXXX,  XXXXXXX
     ),
     [_NAV] =  LAYOUT_btgrant(
                  ___5NAV_1_L___,                         ___5NAV_1_R___,
                  ___5NAV_2_L___,                         ___5NAV_2_R___,
                  ___5NAV_3_L___,                         ___5NAV_3_R___,
-        XXXXXXX, ___NAV_THUMB_L___, XXXXXXX, XXXXXXX, ___NAV_THUMB_R___, XXXXXXX
+        XXXXXXX,    DEL_GUI, KC_BSPC, KC_ENT,   XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, HOLD,     XXXXXXX
     ),
     [_FUN] =  LAYOUT_btgrant(
                  ___5FUN_1_L___,                         ___5FUN_1_R___,
                  ___5FUN_2_L___,                         ___5FUN_2_R___,
                  ___5FUN_3_L___,                         ___5FUN_3_R___,
-        XXXXXXX, ___FUN_THUMB_L___, XXXXXXX, XXXXXXX, ___FUN_THUMB_R___, XXXXXXX
+    XXXXXXX,  ___FUN_THUMB_L___,   XXXXXXX, XXXXXXX,  ___FUN_THUMB_R___,  XXXXXXX
     ),
     [_MSE] =  LAYOUT_btgrant(
                  ___5MSE_1_L___,                         ___5MSE_1_R___,
                  ___5MSE_2_L___,                         ___5MSE_2_R___,
                  ___5MSE_3_L___,                         ___5MSE_3_R___,
-        XXXXXXX, ___MSE_THUMB_L___, XXXXXXX, XXXXXXX, ___MSE_THUMB_R___, XXXXXXX
+    XXXXXXX,  ___MSE_THUMB_L___,  XXXXXXX,  XXXXXXX,  ___MSE_THUMB_R___,  XXXXXXX
     ),
     [_ADD] =  LAYOUT_btgrant(
                  ___5ADD_1_L___,                         ___5ADD_1_R___,
                  ___5ADD_2_L___,                         ___5ADD_2_R___,
                  ___5ADD_3_L___,                         ___5ADD_3_R___,
-        XXXXXXX, ___ADD_THUMB_L___, XXXXXXX, XXXXXXX, ___ADD_THUMB_R___, XXXXXXX
+    XXXXXXX,  ___ADD_THUMB_L___,  XXXXXXX,  XXXXXXX,  ___ADD_THUMB_R___, XXXXXXX
     )
 };
 

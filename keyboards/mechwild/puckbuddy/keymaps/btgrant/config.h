@@ -26,3 +26,4 @@
 #endif
 
 #define ENCODER_RESOLUTIONS { 4, 3 }
+#undef QUICK_TAP_TERM
