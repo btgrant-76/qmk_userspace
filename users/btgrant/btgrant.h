@@ -194,8 +194,8 @@ enum {
 
 /*** navigation ***/
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
-#define ___5NAV_2_L___      HRM_L,                              XXXXXXX
-#define ___5NAV_3_L___      XXXXXXX, XXXXXXX, XXXXXXX,  QK_REP, XXXXXXX
+#define ___5NAV_2_L___      HRM_L,                              CAPWD_TG
+#define ___5NAV_3_L___      XXXXXXX, XXXXXXX, QK_LEAD,  QK_REP, XXXXXXX
 #define ___NAV_THUMB_L___                     DEL_GUI, KC_BSPC, KC_ENT
 
 #define ___5NAV_1_R___      CLIPBOARD_R
