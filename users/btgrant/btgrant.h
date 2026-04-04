@@ -74,6 +74,7 @@ enum {
 #define SPC_NAV LT(_NAV, KC_SPC)
 #define DEL_MED LT(_MED, KC_DEL)
 #define DEL_MSE LT(_MSE, KC_DEL)
+#define G_MSE LT(_MSE, KC_G)
 
 #define LPRN_MSE LT(_MSE, KC_LPRN) // TODO I don't think I'm actually using this in practice
 
@@ -160,7 +161,7 @@ enum {
 /*** base ***/
 // clang-format off
 #define ___5BASE_1_L___     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define ___5BASE_2_L___     A_CTL,   S_ALT,   D_GUI,   F_SFT,   KC_G
+#define ___5BASE_2_L___     A_CTL,   S_ALT,   D_GUI,   F_SFT,   G_MSE
 #define ___5BASE_3_L___     Z_HYPR,  KC_X,    KC_C,    KC_V,    B_MEH
 #define ___BASE_THUMB_L___                  TAB_FUN, BS_NUM,  ESC_MSE
 

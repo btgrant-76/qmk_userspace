@@ -128,6 +128,14 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
                 return true;
             }
             break;
+        case G_MSE: // allow same-hand triggers for mouse layer
+            if (
+                other_keycode == D_GUI || // mouse button 1
+                other_keycode == F_SFT || // mouse button 2
+                other_keycode == S_ALT    // mouse button 3
+            ) {
+                return true;
+            }
     }
     // Otherwise defer to the opposite hands rule.
     return get_chordal_hold_default(tap_hold_record, other_record);
