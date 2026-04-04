@@ -1,5 +1,5 @@
 /* Copyright 2021 Kyle McCreery
- * Copyright 2025 Brian Grant <@btgrant-76>
+ * Copyright 2026 Brian Grant <@btgrant-76>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,20 +25,31 @@
 #include "encoder_map.h"
 #include "encoder_press.h"
 
+#ifdef CHORDAL_HOLD
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_btgrant_all(
+                                                             'R',
+      'L',  'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+      'L',    'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+      'L', '*', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R',  'R',
+      '*', '*', '*',           '*', '*', '*',      '*', '*',  '*'
+    );
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_btgrant_all(
-                                                                             ENC_BASE,
+                                                                            ENC_BASE,
       ___BASE_1_L___,                                                  ___BASE_1_R___,
-      ___BASE_2_L___,               KC_H,   J_SFT,   K_GUI,   L_ALT, XXXXXXX,SCLN_CTL,
+      ___BASE_2_L___,                                         ___5BASE_2_R___, KC_ENT,
       KC_LSFT, XXXXXXX, ___5BASE_3_L___,                              ___5BASE_3_R___,
-      XXXXXXX, ESC_FUN, TAB_MSE,  BS_NUM, ENT_SYM, SPC_NAV, DEL_MSE, ENT_SYM, XXXXXXX
+      XXXXXXX, XXXXXXX, ESC_FUN, BS_NUM, TAB_MSE, SPC_NAV, DEL_MSE, ENT_SYM, XXXXXXX
   ),
   [_NUM] = LAYOUT_btgrant_all(
                                                                               ENC_NUM,
       ___NUM_1_L___,                                                    ___NUM_1_R___,
-      ___NUM_2_L___,              KC_EQL,    KC_4,    KC_5,    KC_6, XXXXXXX, KC_QUOT,
+      ___NUM_2_L___,              KC_EQL,    KC_4,    KC_5,    KC_6,  KC_SCLN, KC_ENT,
       _______, XXXXXXX, ___5NUM_3_L___,                                ___5NUM_3_R___,
-      _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS,    KC_0, _______, _______
+      _______, _______, XXXXXXX, XXXXXXX, KC_MINS,    KC_0, _______, _______, _______
   ),
   [_SYM] = LAYOUT_btgrant_all(
                                                                               ENC_SYM,
@@ -78,8 +89,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NRM] = LAYOUT_btgrant_all(
                                                                                        ENC_NRM,
       ___NRM_1_L___,                                                             ___NRM_1_R___,
-      ___NRM_2_L___,                                  KC_H, KC_J, KC_K, KC_L, XXXXXXX, KC_SCLN,
-      KC_LSFT, XXXXXXX, KC_Z, KC_X, KC_C, KC_V, KC_B,              KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
+      ___NRM_2_L___,                                  KC_H, KC_J, KC_K, KC_L, KC_QUOT, KC_SCLN,
+      KC_LSFT, XXXXXXX, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
       KC_LCTL, KC_LALT, KC_LGUI,  KC_SPC,MO(_NUM), SPC_NAV, KC_RGUI, KC_RALT, KC_RCTL
   )
 };
