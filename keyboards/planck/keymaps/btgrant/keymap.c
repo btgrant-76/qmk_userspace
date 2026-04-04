@@ -35,6 +35,8 @@ combo_t key_combos[] = {
     COMBO(MUTE, KC_MUTE),
     COMBO(PLAY, KC_MPLY),
     COMBO(CAPS, KC_CAPS),
+    COMBO(ONE_SHOT_SHIFT, OSM(MOD_LSFT)),
+    COMBO(ONE_SHOT_SHIFT2, OSM(MOD_LSFT))
 };
 #endif
 
@@ -127,51 +129,5 @@ void matrix_scan_keymap(void) {
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    return false;
-};
-
-bool achordion_chord_keymap(uint16_t tap_hold_keycode,
-                            keyrecord_t* tap_hold_record,
-                            uint16_t other_keycode,
-                            keyrecord_t* other_record) {
-/* col, row
-  |-----------------------------------------------------------------------------------------------------------|
-    0, 0     1, 0     2, 0     3, 0     4, 0   |                 | 1, 4     2, 4     3, 4     4, 4     5, 4
-  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-    0, 1     1, 1     2, 1     3, 1     4, 1   |                 | 1, 5     2, 5     3, 5     4, 5     5, 5
-  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-    0, 2     1, 2     2, 2     3, 2     4, 2   |                 | 1, 6     2, 6     3, 6     4, 6     5, 6
-  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-    ----     ----     2, 3     3, 7     4, 7   |                 | 1, 7     2, 7     3, 3     ----     ----
-  |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
-*/
-
-    #ifdef CONSOLE_ENABLE
-    dprintln("achordion_chord_keymap called");
-    #endif
-
-    switch (other_record->event.key.row) {
-        case 7: // inner, two thumb keys
-            switch (other_record->event.key.col) {
-                case 3 ... 4:
-                    if (tap_hold_record->event.key.row == 5 || tap_hold_record->event.key.row == 6) { // right-side tap-holds
-                        #ifdef CONSOLE_ENABLE
-                        dprintln("achordion_chord_keymap: return true\n");
-                        #endif
-                        return true;
-                    }
-            }
-        case 3: // outer thumb keys
-            if (tap_hold_record->event.key.row == 1 || tap_hold_record->event.key.row == 2) { // left-side tap-holds
-                #ifdef CONSOLE_ENABLE
-                dprintln("achordion_chord_keymap: return true\n");
-                #endif
-                return true;
-            }
-    }
-
-    #ifdef CONSOLE_ENABLE
-    dprintln("achordion_chord_keymap: return false\n");
-    #endif
     return false;
 };
