@@ -2,7 +2,8 @@
 #include "combo_defs.h"
 combo_t key_combos[] = {
     COMBO(MO_FUN, MO(_FUN)),
-    COMBO(MO_SYM, MO(_SYM)),
-    COMBO(CAPS, KC_CAPS),
+    COMBO(MO_SYM, MO(_SYM))
+//    COMBO(CAPS, KC_CAPS),
+//    COMBO(ONE_SHOT_SHIFT2, OSM(MOD_LSFT))
 };
 #endif

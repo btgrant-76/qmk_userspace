@@ -37,7 +37,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 250
 #undef TAPPING_TERM_DECREASE_SHIFT
 #define TAPPING_TERM_DECREASE_SHIFT 0
+
+// QUICK_TAP_TERM's default TAPPING_TERM which is too long a timeout to allow quick taps to trigger
+#undef QUICK_TAP_TERM
+// this is the value that's being used in ZMK
+#define QUICK_TAP_TERM 175
 /* */
+
+#define ONESHOT_TAP_TOGGLE 1  /* Tapping this number of times holds the key until tapped once again. */
+#define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
 
 // Mouse Keys
 #define MK_KINETIC_SPEED // use MK_3_SPEED if builds are too large
@@ -64,4 +72,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // leader key
 #define LEADER_NO_TIMEOUT
 #define LEADER_PER_KEY_TIMING
-#define LEADER_TIMEOUT 250
+#define LEADER_TIMEOUT 280
