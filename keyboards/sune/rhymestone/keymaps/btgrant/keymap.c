@@ -10,66 +10,63 @@
 #ifdef CHORDAL_HOLD
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT_btgrant(
-        '*', '*',
-        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
-        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
-        'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R',
-        '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'
+        '*',                                           '*',
+        'L', 'L', 'L', 'L', 'L',   'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',   'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',   'R', 'R', 'R', 'R', 'R',
+        '*', '*', '*', '*', '*',   '*', '*', '*', '*', '*'
     );
 #endif
 
-// TODO re-assign the encoder taps; refer to Waterfowl
-// TODO re-assign the encoder map; refer to Waterfowl
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(
-        KC_MPLY, KC_MUTE,
+        KC_MPLY,                                                                        ENC_BASE,
         ___5BASE_1_L___,                                                         ___5BASE_1_R___,
         ___5BASE_2_L___,                                                         ___5BASE_2_R___,
         ___5BASE_3_L___,                                                         ___5BASE_3_R___,
-        BACK,    ESC_FUN, TAB_MSE, XXXXXXX,  BS_NUM, SPC_NAV, XXXXXXX, DEL_MSE, ENT_SYM,     FWD
+        XXXXXXX, XXXXXXX, ___BASE_THUMB_L___,               ___BASE_THUMB_R___, XXXXXXX, XXXXXXX
     ),
     [_NUM] = LAYOUT_btgrant(
-        KC_TRNS, KC_TRNS,
+        KC_TRNS,                                                                         ENC_NUM,
         ___5NUM_1_L___,                                                           ___5NUM_1_R___,
         ___5NUM_2_L___,                                                           ___5NUM_2_R___,
         ___5NUM_3_L___,                                                           ___5NUM_3_R___,
-        _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, XXXXXXX,    KC_0, _______, _______
+        XXXXXXX, XXXXXXX, ___NUM_THUMB_L___,                ___NUM_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_SYM] = LAYOUT_btgrant(
-        KC_TRNS, KC_TRNS,
+        KC_TRNS,                                                                         ENC_SYM,
         ___5SYM_1_L___,                                                           ___5SYM_1_R___,
         ___5SYM_2_L___,                                                           ___5SYM_2_R___,
         ___5SYM_3_L___,                                                           ___5SYM_3_R___,
-        _______, _______, KC_MUTE, XXXXXXX, KC_MPLY,LPRN_MSE, XXXXXXX, XXXXXXX, _______, _______
+        XXXXXXX, XXXXXXX, ___SYM_THUMB_L___,                ___SYM_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT_btgrant(
-        KC_TRNS, KC_TRNS,
+        KC_TRNS,                                                                         ENC_NAV,
         ___5NAV_1_L___,                                                           ___5NAV_1_R___,
         ___5NAV_2_L___,                                                           ___5NAV_2_R___,
         ___5NAV_3_L___,                                                           ___5NAV_3_R___,
-        _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
+        XXXXXXX, XXXXXXX, ___NAV_THUMB_L___,                ___NAV_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_FUN] = LAYOUT_btgrant(
-        KC_TRNS, KC_TRNS,
+        KC_TRNS,                                                                         ENC_FUN,
         ___5FUN_1_L___,                                                           ___5FUN_1_R___,
         ___5FUN_2_L___,                                                           ___5FUN_2_R___,
         ___5FUN_3_L___,                                                           ___5FUN_3_R___,
-        _______, _______, XXXXXXX, XXXXXXX,MO(_MSE),MO(_ADD), XXXXXXX, XXXXXXX, _______, _______
+        XXXXXXX, XXXXXXX, ___FUN_THUMB_L___,                ___FUN_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_MSE] = LAYOUT_btgrant(
-        KC_TRNS, KC_TRNS,
+        KC_TRNS,                                                                         ENC_MSE,
         ___5MSE_1_L___,                                                           ___5MSE_1_R___,
         ___5MSE_2_L___,                                                           ___5MSE_2_R___,
         ___5MSE_3_L___,                                                           ___5MSE_3_R___,
-        _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
+        XXXXXXX, XXXXXXX, ___MSE_THUMB_L___,                ___MSE_THUMB_R___,  XXXXXXX, XXXXXXX
     ),
     [_ADD] = LAYOUT_btgrant(
-        KC_TRNS, KC_TRNS,
+        KC_TRNS,                                                                         ENC_ADD,
         ___5ADD_1_L___,                                                           ___5ADD_1_R___,
         ___5ADD_2_L___,                                                           ___5ADD_2_R___,
         ___5ADD_3_L___,                                                           ___5ADD_3_R___,
-        _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______
+        XXXXXXX, XXXXXXX, ___ADD_THUMB_L___,                ___ADD_THUMB_R___,  XXXXXXX, XXXXXXX
     )
 };
 
@@ -79,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     };
 
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [_BASE] = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+        [_BASE] = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT),     ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
         [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP),     ENCODER_CCW_CW(KC_PGDN, KC_PGUP)},
         [_SYM]  = { ENCODER_CCW_CW(KC_MNXT, KC_MPRV),     ENCODER_CCW_CW(KC_MNXT, KC_MPRV) },
         [_NAV]  = { ENCODER_CCW_CW(FWD, BACK),            ENCODER_CCW_CW(BACK, FWD) },
