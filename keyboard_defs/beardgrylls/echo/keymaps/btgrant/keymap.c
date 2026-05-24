@@ -17,36 +17,13 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 #endif
 
 /*
-    TODO integrate Chiffre- or Infernum-style or thumbs into the bottom rows
     TODO remove the default keymap or the vial keymap
     TODO clean out all the vial stuff from my keymap
     TODO clean up the config.h and rules.mk in my keymap
     TODO there's a warning in the compiler about some value being duplciated betweeen keyboard.json and config.h; dedupe any of those
+    TODO move this over to /keyboards/beardgrylls/echo
 */
 
-/*
-
-___BASE_ALT_THUMB_L___  ESC_FUN, ___BASE_4THUMB_L___
-___BASE_ALT_THUMB_R___  ___BASE_4THUMB_R___, ENT_SYM
-
-___NUM_ALT_THUMB_L___  XXXXXXX, ___NUM_4THUMB_L___
-___NUM_ALT_THUMB_R___  ___NUM_4THUMB_R___, KC_DOT
-
-___SYM_ALT_THUMB_L___  XXXXXXX, ___SYM_4THUMB_L___
-___SYM_ALT_THUMB_R___  ___SYM_4THUMB_R___, KC_RPRN
-
-___NAV_ALT_THUMB_L___  XXXXXXX, ___NAV_4THUMB_L___
-___NAV_ALT_THUMB_R___  ___NAV_4THUMB_R___, XXXXXXX
-
-___FUN_ALT_THUMB_L___  HOLD,    ___FUN_4THUMB_L___
-___FUN_ALT_THUMB_R___  ___FUN_4THUMB_R___, XXXXXXX
-
-___MSE_ALT_THUMB_L___  XXXXXXX, ___MSE_4THUMB_L___
-___MSE_ALT_THUMB_R___  ___MSE_4THUMB_R___, XXXXXXX
-
-___ADD_ALT_THUMB_L___  XXXXXXX, ___ADD_4THUMB_L___
-___ADD_ALT_THUMB_R___  ___ADD_4THUMB_R___, XXXXXXX
-  */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_btgrant(
 
@@ -60,18 +37,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          BACK, XXXXXXX,             ___BASE_ALT_THUMB_L___,         ___BASE_ALT_THUMB_R___,              XXXXXXX,     FWD
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
-    [_NRM] = LAYOUT_btgrant(
-  //|-----------------------------------------------------|        |-----------------------------------------------------|
-                                             ___NRM_1_L___,         ___NRM_1_R___,
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-                                             ___NRM_2_L___,         ___NRM_2_R___,
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-                                             ___NRM_3_L___,         ___NRM_3_R___,
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//       KC_LCTL, KC_LALT, KC_LGUI,MO(_FUN),  KC_SPC,MO(_SYM),         ___NRM_THUMB_R___,          KC_RGUI, KC_RALT, KC_RCTL
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-    ),
     [_NUM] = LAYOUT_btgrant(
   //|-----------------------------------------------------|        |-----------------------------------------------------|
                                              ___NUM_1_L___,         ___NUM_1_R___,
@@ -80,8 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___NUM_3_L___,         ___NUM_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//       XXXXXXX, XXXXXXX, XXXXXXX,         ___NUM_THUMB_L___,         ___NUM_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
+      KC_TRNS, XXXXXXX,              ___NUM_ALT_THUMB_L___,         ___NUM_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_SYM] = LAYOUT_btgrant(
@@ -92,8 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___SYM_3_L___,         ___SYM_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//       XXXXXXX, XXXXXXX, XXXXXXX,         ___SYM_THUMB_L___,         ___SYM_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
+      KC_TRNS, XXXXXXX,              ___SYM_ALT_THUMB_L___,         ___SYM_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_NAV] = LAYOUT_btgrant(
@@ -104,8 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___NAV_3_L___,         ___NAV_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//       KC_LCTL, KC_LALT, KC_LGUI,         ___NAV_THUMB_L___,         ___NAV_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
+      KC_TRNS, KC_LALT,              ___NAV_ALT_THUMB_L___,         ___NAV_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_FUN] = LAYOUT_btgrant(
@@ -116,8 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___FUN_3_L___,         ___FUN_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//       XXXXXXX, XXXXXXX, XXXXXXX,         ___FUN_THUMB_L___,         ___FUN_THUMB_R___,          XXXXXXX,  KC_F11,  KC_F12
+      KC_TRNS, XXXXXXX,              ___FUN_ALT_THUMB_L___,         ___FUN_ALT_THUMB_R___,               XXXXXXX,  KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_MSE] = LAYOUT_btgrant(
@@ -128,8 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
      XXXXXXX,                               ___5MSE_3_L___,         ___5MSE_3_R___,                               XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//      XXXXXXX, XXXXXXX, XXXXXXX,          ___MSE_THUMB_L___,         ___MSE_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
+      KC_TRNS, XXXXXXX,              ___MSE_ALT_THUMB_L___,         ___MSE_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_ADD] = LAYOUT_btgrant(
@@ -140,20 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
      XXXXXXX,                               ___5ADD_3_L___,         ___5ADD_3_R___,                               XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//       AU_TOGG, MU_TOGG, MU_NEXT,         ___ADD_THUMB_L___,         ___ADD_THUMB_R___,          XXXXXXX, XXXXXXX, XXXXXXX
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-    ),
-    [_NRM] = LAYOUT_btgrant(
-  //|-----------------------------------------------------|        |-----------------------------------------------------|
-                                             ___NRM_1_L___,         ___NRM_1_R___,
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-                                             ___NRM_2_L___,         ___NRM_2_R___,
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-                                             ___NRM_3_L___,         ___NRM_3_R___,
-  //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-        KC_LCTL,    KC_LGUI,    KC_LALT,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_SPACE,    KC_RALT,    KC_RGUI,    KC_RCTL
-//       KC_LCTL, KC_LALT, KC_LGUI,         ___NRM_THUMB_L___,         ___NRM_THUMB_R___,          KC_RGUI, KC_RALT, KC_RCTL
+      KC_TRNS, XXXXXXX,              ___ADD_ALT_THUMB_L___,         ___ADD_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     )
 };
