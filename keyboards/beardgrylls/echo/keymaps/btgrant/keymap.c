@@ -17,8 +17,6 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 #endif
 
 /*
-    TODO remove the default keymap or the vial keymap
-    TODO clean out all the vial stuff from my keymap
     TODO clean up the config.h and rules.mk in my keymap
     TODO there's a warning in the compiler about some value being duplciated betweeen keyboard.json and config.h; dedupe any of those
 */
