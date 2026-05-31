@@ -3,9 +3,11 @@
 #include QMK_KEYBOARD_H
 
 #include "btgrant.h"
+
+#include "combos.h"
+#include "encoder_press.h"
 #include "key_overrides.h"
 #include "tap_dances.c"
-#include "encoder_press.h"
 
 #ifdef CHORDAL_HOLD
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
@@ -24,42 +26,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5BASE_1_L___,                                                         ___5BASE_1_R___,
         ___5BASE_2_L___,                                                         ___5BASE_2_R___,
         ___5BASE_3_L___,                                                         ___5BASE_3_R___,
-        XXXXXXX, XXXXXXX, ___BASE_THUMB_L___,               ___BASE_THUMB_R___, XXXXXXX, XXXXXXX
+        BACK,    FWD,     ___BASE_THUMB_L___,               ___BASE_THUMB_R___, XXXXXXX, FWD
     ),
     [_NUM] = LAYOUT_btgrant(
         KC_TRNS,                                                                         ENC_NUM,
         ___5NUM_1_L___,                                                           ___5NUM_1_R___,
         ___5NUM_2_L___,                                                           ___5NUM_2_R___,
         ___5NUM_3_L___,                                                           ___5NUM_3_R___,
-        XXXXXXX, XXXXXXX, ___NUM_THUMB_L___,                ___NUM_THUMB_R___,  XXXXXXX, XXXXXXX
+        KC_TRNS, KC_TRNS, ___NUM_THUMB_L___,                ___NUM_THUMB_R___,  XXXXXXX, KC_TRNS
     ),
     [_SYM] = LAYOUT_btgrant(
         KC_TRNS,                                                                         ENC_SYM,
         ___5SYM_1_L___,                                                           ___5SYM_1_R___,
         ___5SYM_2_L___,                                                           ___5SYM_2_R___,
         ___5SYM_3_L___,                                                           ___5SYM_3_R___,
-        XXXXXXX, XXXXXXX, ___SYM_THUMB_L___,                ___SYM_THUMB_R___,  XXXXXXX, XXXXXXX
+        KC_TRNS, KC_TRNS, ___SYM_THUMB_L___,                ___SYM_THUMB_R___,  XXXXXXX, KC_TRNS
     ),
     [_NAV] = LAYOUT_btgrant(
         KC_TRNS,                                                                         ENC_NAV,
         ___5NAV_1_L___,                                                           ___5NAV_1_R___,
         ___5NAV_2_L___,                                                           ___5NAV_2_R___,
         ___5NAV_3_L___,                                                           ___5NAV_3_R___,
-        XXXXXXX, XXXXXXX, ___NAV_THUMB_L___,                ___NAV_THUMB_R___,  XXXXXXX, XXXXXXX
+        KC_TRNS, KC_TRNS, ___NAV_THUMB_L___,                ___NAV_THUMB_R___,  XXXXXXX, KC_TRNS
     ),
     [_FUN] = LAYOUT_btgrant(
         KC_TRNS,                                                                         ENC_FUN,
         ___5FUN_1_L___,                                                           ___5FUN_1_R___,
         ___5FUN_2_L___,                                                           ___5FUN_2_R___,
         ___5FUN_3_L___,                                                           ___5FUN_3_R___,
-        XXXXXXX, XXXXXXX, ___FUN_THUMB_L___,                ___FUN_THUMB_R___,  XXXXXXX, XXXXXXX
+        KC_TRNS, KC_TRNS, ___FUN_THUMB_L___,                ___FUN_THUMB_R___,  XXXXXXX, KC_TRNS
     ),
     [_MSE] = LAYOUT_btgrant(
         KC_TRNS,                                                                         ENC_MSE,
         ___5MSE_1_L___,                                                           ___5MSE_1_R___,
         ___5MSE_2_L___,                                                           ___5MSE_2_R___,
         ___5MSE_3_L___,                                                           ___5MSE_3_R___,
-        XXXXXXX, XXXXXXX, ___MSE_THUMB_L___,                ___MSE_THUMB_R___,  XXXXXXX, XXXXXXX
+        KC_TRNS, KC_TRNS, ___MSE_THUMB_L___,                ___MSE_THUMB_R___,  XXXXXXX, KC_TRNS
     ),
     [_ADD] = LAYOUT_btgrant(
         KC_TRNS,                                                                         ENC_ADD,
@@ -71,10 +73,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef ENCODER_MAP_ENABLE
-    bool encoder_update_user(uint8_t index, bool clockwise) {
-        return false;
-    };
-
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [_BASE] = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT),     ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
         [_NUM]  = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP),     ENCODER_CCW_CW(KC_PGDN, KC_PGUP)},
