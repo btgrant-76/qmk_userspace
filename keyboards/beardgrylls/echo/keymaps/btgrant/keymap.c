@@ -9,16 +9,16 @@
 #ifdef CHORDAL_HOLD
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT_btgrant(
-        'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
-        'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
-        'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
-        'L', 'L', 'L',      '*', '*', '*', '*',      'R', 'R', 'R'
+        '*', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', '*',
+        '*', '*', '*',      '*', '*', '*', '*',      '*', '*', '*'
     );
 #endif
 
 /*
     TODO clean up the config.h and rules.mk in my keymap
-    TODO there's a warning in the compiler about some value being duplciated betweeen keyboard.json and config.h; dedupe any of those
+    TODO there's a warning in the compiler about some value being duplicated between keyboard.json and config.h; dedupe any of those
 */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                             ___BASE_3_L___,         ___BASE_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-         BACK, XXXXXXX,             ___BASE_ALT_THUMB_L___,         ___BASE_ALT_THUMB_R___,              XXXXXXX,     FWD
+         BACK,     FWD,             ___BASE_ALT_THUMB_L___,         ___BASE_ALT_THUMB_R___,              XXXXXXX,     FWD
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_NUM] = LAYOUT_btgrant(
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___NUM_3_L___,         ___NUM_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      KC_TRNS, XXXXXXX,              ___NUM_ALT_THUMB_L___,         ___NUM_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
+      KC_TRNS, KC_TRNS,              ___NUM_ALT_THUMB_L___,         ___NUM_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_SYM] = LAYOUT_btgrant(
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___SYM_3_L___,         ___SYM_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      KC_TRNS, XXXXXXX,              ___SYM_ALT_THUMB_L___,         ___SYM_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
+      KC_TRNS, KC_TRNS,              ___SYM_ALT_THUMB_L___,         ___SYM_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_NAV] = LAYOUT_btgrant(
@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___NAV_3_L___,         ___NAV_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      KC_TRNS, KC_LALT,              ___NAV_ALT_THUMB_L___,         ___NAV_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
+      KC_TRNS, KC_TRNS,              ___NAV_ALT_THUMB_L___,         ___NAV_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_FUN] = LAYOUT_btgrant(
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
                                              ___FUN_3_L___,         ___FUN_3_R___,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      KC_TRNS, XXXXXXX,              ___FUN_ALT_THUMB_L___,         ___FUN_ALT_THUMB_R___,               XXXXXXX,  KC_TRNS
+      KC_TRNS, KC_TRNS,              ___FUN_ALT_THUMB_L___,         ___FUN_ALT_THUMB_R___,               XXXXXXX,  KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_MSE] = LAYOUT_btgrant(
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
      XXXXXXX,                               ___5MSE_3_L___,         ___5MSE_3_R___,                               XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      KC_TRNS, XXXXXXX,              ___MSE_ALT_THUMB_L___,         ___MSE_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
+      KC_TRNS, KC_TRNS,              ___MSE_ALT_THUMB_L___,         ___MSE_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     ),
     [_ADD] = LAYOUT_btgrant(
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
      XXXXXXX,                               ___5ADD_3_L___,         ___5ADD_3_R___,                               XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-      KC_TRNS, XXXXXXX,              ___ADD_ALT_THUMB_L___,         ___ADD_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
+      KC_TRNS, KC_TRNS,              ___ADD_ALT_THUMB_L___,         ___ADD_ALT_THUMB_R___,               XXXXXXX, KC_TRNS
   //|--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
     )
 };
