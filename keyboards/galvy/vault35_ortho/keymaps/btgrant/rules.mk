@@ -1,8 +1,11 @@
 LTO_ENABLE = yes # for AVR only
-OLED_ENABLE = no # using OLED pads for RGB, my guy!
-RGBLIGHT_ENABLE = yes
-RGBLIGHT_DRIVER = ws2812
+
 ENCODER_MAP_ENABLE = yes
+OLED_ENABLE = no # using OLED pads for RGB, my guy!
+RGBLIGHT_DRIVER = ws2812
+RGBLIGHT_ENABLE = yes
+
 COMBO_ENABLE = yes
 KEY_OVERRIDE_ENABLE = yes
 TAP_DANCE_ENABLE = no
+MOUSEKEY_ENABLE = yes

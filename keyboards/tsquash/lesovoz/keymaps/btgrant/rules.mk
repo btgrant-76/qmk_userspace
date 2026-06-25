@@ -1,4 +1,6 @@
 LTO_ENABLE = yes # for AVR only
+
 COMBO_ENABLE = yes
 KEY_OVERRIDE_ENABLE = yes
+MOUSEKEY_ENABLE = yes
 TAP_DANCE_ENABLE = no

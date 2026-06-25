@@ -53,13 +53,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // start QMK squeezing
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE
-#define NO_ACTION_ONESHOT
+// #define NO_ACTION_ONESHOT
 #define NO_MUSIC_MODE
 #define LAYER_STATE_8BIT
 // end QMK squeezing
 
 // Caps Word
-#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#undef DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 #define CAPS_WORD_INVERT_ON_SHIFT
 #define CAPS_WORD_IDLE_TIMEOUT 2000  // 2 seconds
 
