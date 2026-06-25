@@ -1,4 +1,4 @@
-/* Copyright 2025 Brian Grant @btgrant-76
+/* Copyright 2026 Brian Grant @btgrant-76
  * Copyright 2023 Colin Lam (Ploopy Corporation)
  * Copyright 2020 Christopher Courtney, aka Drashna Jael're  (@drashna) <drashna@live.com>
  * Copyright 2019 Sunjun Kim

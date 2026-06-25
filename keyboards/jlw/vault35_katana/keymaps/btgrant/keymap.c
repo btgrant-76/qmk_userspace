@@ -1,4 +1,4 @@
-// Copyright 2025 Brian Grant <@btgrant-76>
+// Copyright 2026 Brian Grant <@btgrant-76>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
