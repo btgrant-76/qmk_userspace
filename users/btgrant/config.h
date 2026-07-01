@@ -29,6 +29,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM_PER_KEY
 #define CHORDAL_HOLD
 
+/* HOLD ON OTHER KEY PRESS BEGIN */
+#define HOLD_ON_OTHER_KEY_PRESS
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+/* HOLD ON OTHER KEY PRESS END */
+
 /* settings for use with permissive hold */
 #define PERMISSIVE_HOLD
 #undef TAPPING_TERM_PER_KEY

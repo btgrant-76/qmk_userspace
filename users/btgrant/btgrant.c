@@ -114,6 +114,18 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 #endif
 /* ACHORDION INTEGRATION END */
 
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // Immediately select the hold action when another key is pressed.
+        case F_SFT:
+        case J_SFT:
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
+
 #ifdef CHORDAL_HOLD
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
                       uint16_t other_keycode, keyrecord_t* other_record) {
