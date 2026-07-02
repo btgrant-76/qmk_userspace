@@ -1,0 +1,12 @@
+#pragma once
+
+#include_next <mcuconf.h>
+
+#undef STM32_PWM_USE_TIM1
+#define STM32_PWM_USE_TIM1 TRUE
+
+#define WS2812_PWM_DRIVER PWMD1
+#define WS2812_PWM_CHANNEL 3
+#define WS2812_PWM_PAL_MODE 2
+#define WS2812_DMA_STREAM STM32_DMA1_STREAM5
+#define WS2812_DMA_CHANNEL 5

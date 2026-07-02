@@ -16,11 +16,11 @@
         "rows": ["B8", "B9", "B15", "A8"]
     },
     "encoder": {
-      "rotary": [
-        {"pin_a": "A1", "pin_b": "A2"},
-        {"pin_a": "B1", "pin_b": "B0"},
-        {"pin_a": "B11", "pin_b": "B10"}
-      ]
+        "rotary": [
+            {"pin_a": "A1", "pin_b": "A2"},
+            {"pin_a": "B1", "pin_b": "B0"},
+            {"pin_a": "B11", "pin_b": "B10"}
+        ]
     },
     "features": {
         "bootmagic": true,
@@ -74,7 +74,8 @@
             "solid_reactive_wide": true,
             "solid_splash": true,
             "splash": true,
-            "typing_heatmap": true
+            "typing_heatmap": true,
+            "twinkle": true
         },
         "layout": [
             {"flags": 4, "matrix": [1, 0], "x": 1, "y": 22},
@@ -148,14 +149,13 @@
             {"flags": 4, "matrix": [1, 0], "x": 1, "y": 34}
         ],
         "driver": "ws2812",
-        "hue_steps": 4,
-        "max_brightness": 255,
-        "sat_steps": 4,
-        "val_steps": 4
+        "default": {
+            "animation": "cycle_left_right"
+        }
     },
     "ws2812": {
         "pin": "A10",
-        "driver": "bitbang"
+        "driver": "pwm"
     },
     "layouts": {
         "LAYOUT_cain_bars": {
