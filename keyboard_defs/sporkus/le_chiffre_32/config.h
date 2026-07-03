@@ -2,9 +2,9 @@
 
 #define ENCODER_MAP_ENABLE
 
-#define WS2812_DI_PIN A15
 #define RGB_MATRIX_LED_COUNT 11
 #define DRIVER_LED_TOTAL RGB_MATRIX_LED_COUNT
+#define WS2812_PWM_CHANNEL 1
 
 // Comment these out if you don't want front indicators leds
 #define RGB_MODS_INDICATOR_ENABLE

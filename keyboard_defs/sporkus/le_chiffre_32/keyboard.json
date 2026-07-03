@@ -20,12 +20,21 @@
             {"pin_a": "B4", "pin_b": "B5", "resolution": 2}
         ]
     },
+    "rgb_matrix": {
+        "led_count": 11,
+        "driver": "ws2812"
+    },
+    "ws2812": {
+        "pin": "A15",
+        "driver": "pwm"
+    },
     "features": {
         "console": true,
         "encoder": true,
         "extrakey": true,
         "mousekey": true,
-        "nkro": true
+        "nkro": true,
+        "rgb_matrix": true
     },
     "bootmagic": {
         "enabled": true,
