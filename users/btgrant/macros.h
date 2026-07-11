@@ -20,8 +20,6 @@ void dquote_pair_cursor_insertion(void);
 
 void grave_pair_cursor_insertion(void);
 
-void macos_log_out(void);
-
 void new_browser_window_you_jerk(void);
 
 void parens(void);

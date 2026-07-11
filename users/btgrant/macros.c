@@ -65,14 +65,6 @@ void dquote_pair_cursor_insertion(void) {
     SEND_STRING("\"\"" SS_DELAY(100) SS_TAP(X_LEFT));
 };
 
-void macos_log_out(void) {
-    register_code(KC_LGUI);
-    register_code(KC_LCTL);
-    tap_code(KC_Q);
-    unregister_code(KC_LGUI);
-    unregister_code(KC_LCTL);
-};
-
 void vim_write(void) {
     SEND_STRING(SS_TAP(X_ESC) ":w" SS_DELAY(100) SS_TAP(X_ENT));
 };

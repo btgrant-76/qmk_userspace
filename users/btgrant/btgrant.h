@@ -34,12 +34,7 @@ enum layer_names {
 #define _MED _SYM
 
 enum custom_keycodes {
-  SCRN2CLP = SAFE_RANGE, // macOS take screenshot to the clip board
-  SCRN2FL,               // macOS take screenshot to a file
-  QUO_INST,
-  UP_DIR,
-  LOG_OUT,
-  CAPWD_TG,
+  UP_DIR = SAFE_RANGE,
   NEW_SAFE_RANGE
 };
 
@@ -115,6 +110,11 @@ enum {
 #define CLIPBOARD_R REDO, PASTE, COPY, CUT, UNDO
 #define CLIPBOARD_L UNDO, CUT, COPY, PASTE, REDO
 
+/*** macOS shortcuts ***/
+#define LOG_OUT LCG(KC_Q)
+#define SCRN2CLP LCSG(KC_4)
+#define SCRN2FL LSG(KC_4)
+
 /*** macOS navigation ***/
 #define MISS_CTL LCTL(KC_UP)
 #define LEFT_SPC LCTL(KC_LEFT)
@@ -172,7 +172,7 @@ enum {
 
 /*** number ***/
 #define ___5NUM_1_L___      CLIPBOARD_L
-#define ___5NUM_2_L___      HRM_L,                              CAPWD_TG
+#define ___5NUM_2_L___      HRM_L,                              CW_TOGG
 #define ___5NUM_3_L___      KC_ESC,   XXXXXXX, QK_LEAD, QK_REP, KC_BSPC
 #define ___NUM_THUMB_L___                   KC_DEL,  HOLD,    KC_BSPC
 
@@ -194,7 +194,7 @@ enum {
 
 /*** navigation ***/
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
-#define ___5NAV_2_L___      HRM_L,                              CAPWD_TG
+#define ___5NAV_2_L___      HRM_L,                              CW_TOGG
 #define ___5NAV_3_L___      XXXXXXX, XXXXXXX, QK_LEAD,  QK_REP, XXXXXXX
 #define ___NAV_THUMB_L___                     DEL_GUI, KC_BSPC, KC_ENT
 

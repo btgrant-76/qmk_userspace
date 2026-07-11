@@ -189,50 +189,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // else
 
   switch (keycode) {
-#ifdef CAPS_WORD_ENABLE
-    case CAPWD_TG:
-        if (record->event.pressed) {
-            caps_word_toggle();
-        }
-        return false;
-#endif // CAPS_WORD_ENABLE
-    case SCRN2CLP:
-        if (record->event.pressed) {
-            register_code(KC_LGUI);
-            register_code(KC_LCTL);
-            register_code(KC_LSFT);
-            register_code(KC_4);
-
-            unregister_code(KC_LGUI);
-            unregister_code(KC_LCTL);
-            unregister_code(KC_LSFT);
-            unregister_code(KC_4);
-        }
-        return false;
-    case SCRN2FL:
-        if (record->event.pressed) {
-            register_code(KC_LGUI);
-            register_code(KC_LSFT);
-            register_code(KC_4);
-
-            unregister_code(KC_LGUI);
-            unregister_code(KC_LSFT);
-            unregister_code(KC_4);
-        }
-        return false;
-    case QUO_INST:
-        if (record->event.pressed) {
-            dquote_pair_cursor_insertion();
-        }
-        return false;
     case UP_DIR:
         if (record->event.pressed) {
             SEND_STRING("../");
-        }
-        return false;
-    case LOG_OUT:
-        if (record->event.pressed) {
-            macos_log_out();
         }
         return false;
   }

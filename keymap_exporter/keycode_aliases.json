@@ -6,7 +6,7 @@
     "BACK": "$$mdi:chevron-left$$",
     "BS_NUM": "$$mdi:backspace$$/NUM",
     "B_MEH": "B/Meh",
-    "CAPWD_TG": "Caps Word",
+    "CW_TOGG": "Caps Word",
     "CLIPBOARD_L": "$$mdi:undo$$||$$mdi:content-cut$$||$$mdi:content-copy$$||$$mdi:content-paste$$|| $$mdi:redo$$",
     "CLIPBOARD_R": "$$mdi:redo$$||$$mdi:content-paste$$||$$mdi:content-copy$$||$$mdi:content-cut$$||$$mdi:undo$$",
     "DEL_GUI": "$$mdi:backspace-reverse$$/$$mdi:apple-keyboard-command$$",
