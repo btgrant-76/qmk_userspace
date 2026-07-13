@@ -1,5 +1,5 @@
 OLED_ENABLE = no
-RGBLIGHT_ENABLE = no
+RGBLIGHT_ENABLE = yes
 
 VIA_ENABLE = no
 LTO_ENABLE = yes # for AVR only
