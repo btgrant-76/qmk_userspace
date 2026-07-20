@@ -83,8 +83,8 @@ tap_dance_action_t tap_dance_actions[] = {
 */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT( BACK,    FWD,        MS_BTN3, MS_BTN2,
-                  MS_BTN1,                      /*M3_DRAG*/ DRAG_SCROLL
+    [0] = LAYOUT( BACK,    FWD,        MS_BTN3, DRAG_SCROLL,
+                  MS_BTN1,                      MS_BTN2 /*M3_DRAG*/
     ),
     // btn1_and_back
     [1] = LAYOUT( KC_MPRV, KC_MNXT,    MISS_CTL,EXPOSE,
@@ -109,10 +109,10 @@ const uint16_t PROGMEM med_next_and_prev[] = {KC_MNXT, KC_MPRV,     COMBO_END};
 combo_t key_combos[] = {
     COMBO(back_and_fwd,      CUT),
     COMBO(btn1_and_back,     TG(1)),
-    COMBO(btn1_and_btn2,     COPY),
+    COMBO(btn1_and_scroll,   COPY),
     COMBO(btn1_and_btn3,     CUT),
     COMBO(btn1_and_fwd,      TG(2)),
-    COMBO(btn1_and_scroll,   PASTE),
+    COMBO(btn1_and_btn2,     PASTE),
     COMBO(med_next_and_prev, KC_MPLY),
 };
 #endif
