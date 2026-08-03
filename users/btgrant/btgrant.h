@@ -117,6 +117,7 @@ enum {
 
 /*** macOS navigation ***/
 #define MISS_CTL LCTL(KC_UP)
+#define EXPOSE   LCTL(KC_DOWN)
 #define LEFT_SPC LCTL(KC_LEFT)
 #define RGHT_SPC LCTL(KC_RIGHT)
 
@@ -216,7 +217,7 @@ enum {
 
 /*** mouse ***/
 #define ___5MSE_1_L___      CLIPBOARD_L
-#define ___5MSE_2_L___      MS_BTN5, MS_BTN3, MS_BTN1, MS_BTN2, XXXXXXX
+#define ___5MSE_2_L___      MS_BTN5, MS_BTN3, MS_BTN1, MS_BTN2, KC_F13  // this right-most key is there to easily "break out" of the auto-mouse layer; whatever key is here doesn't get sent while the mouse layer is active.
 #define ___5MSE_3_L___      KC_ESC,  HRM_L
 #define ___MSE_THUMB_L___                     KC_ESC,  MS_ACL0, ACL2_HOLD
 
