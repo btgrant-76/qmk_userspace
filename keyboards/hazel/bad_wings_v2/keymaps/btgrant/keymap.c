@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___5MSE_1_L___,                                              ___5MSE_1_R___,
         ___5MSE_2_L___,                                              ___5MSE_2_R___,
         ___5MSE_3_L___,                                              ___5MSE_3_R___,
-                          ___MSE_THUMB_L___,   ___MSE_THUMB_R___
+                          ___MSE_THUMB_L___,   MS_BTN1, MS_BTN2, MS_BTN3
     ),
     [_ADD] = LAYOUT_btgrant_3x5(
         ___5ADD_1_L___,                                            ___5ADD_1_R___,
