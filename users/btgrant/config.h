@@ -42,6 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 250
 #undef TAPPING_TERM_DECREASE_SHIFT
 #define TAPPING_TERM_DECREASE_SHIFT 145 // 250 - 145 = 105
+#define TAPPING_TERM_DECREASE_THUMBS 85 // 250 - 105 = 145
 /* SETTINGS FOR USE WITH PERMISSIVE HOLD END */
 
 // QUICK_TAP_TERM's default TAPPING_TERM which is too long a timeout to allow quick taps to trigger

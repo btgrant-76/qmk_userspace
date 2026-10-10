@@ -230,9 +230,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             #endif
         case SPC_NAV:
             #ifdef DYNAMIC_TAPPING_TERM_ENABLE
-            return g_tapping_term + 20;
+            // return g_tapping_term + 20; when tapping term is high for Permissive Hold
+            return g_tapping_term - TAPPING_TERM_DECREASE_THUMBS;
             #else
-            return TAPPING_TERM + 20;
+            // return TAPPING_TERM + 20; when tapping term is high for Permissive Hold
+            return TAPPING_TERM - TAPPING_TERM_DECREASE_THUMBS;
             #endif
         default:
             #ifdef DYNAMIC_TAPPING_TERM_ENABLE
