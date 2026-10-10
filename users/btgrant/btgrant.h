@@ -191,13 +191,13 @@ enum {
 #define ___5SYM_1_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 #define ___5SYM_2_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 #define ___5SYM_3_R___      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ___SYM_THUMB_R___   XXXXXXX, XXXXXXX, HOLD
+#define ___SYM_THUMB_R___   KC_MUTE, KC_MPLY, HOLD
 
 /*** navigation ***/
 #define ___5NAV_1_L___      TAB_LFT, BACK,    FWD,     TAB_RGT, UP_DIR
 #define ___5NAV_2_L___      HRM_L,                              CW_TOGG
 #define ___5NAV_3_L___      XXXXXXX, XXXXXXX, QK_LEAD,  QK_REP, XXXXXXX
-#define ___NAV_THUMB_L___                     DEL_GUI, KC_BSPC, KC_ENT
+#define ___NAV_THUMB_L___                     DEL_GUI,  KC_DEL, KC_ENT
 
 #define ___5NAV_1_R___      CLIPBOARD_R
 #define ___5NAV_2_R___      KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_SCLN
@@ -250,7 +250,7 @@ enum {
 #define ___SYM_4THUMB_L___ KC_MUTE,  KC_MPLY
 #define ___SYM_4THUMB_R___ HOLD,     HOLD
 
-#define ___NAV_4THUMB_L___ XXXXXXX, XXXXXXX
+#define ___NAV_4THUMB_L___ XXXXXXX, KC_DEL
 #define ___NAV_4THUMB_R___ HOLD,    XXXXXXX
 
 #define ___FUN_4THUMB_L___ HOLD,    HOLD
